@@ -17,6 +17,11 @@ export function hasExcludedToken(name, customConfig = config) {
   return (customConfig.excludeTokens ?? []).find((token) => normalizedName.includes(normalize(token))) ?? '';
 }
 
+export function categoryExcludedToken(name, rule) {
+  const normalizedName = normalize(name);
+  return (rule.excludeAny ?? []).find((token) => normalizedName.includes(normalize(token))) ?? '';
+}
+
 export function isCategoryMatch(name, rule) {
   const normalizedName = normalize(name);
   return (rule.requiredAny ?? []).some((token) => normalizedName.includes(normalize(token)));
@@ -59,6 +64,7 @@ export function evaluateCandidate(item, rule, customConfig = config) {
   const reasons = [];
   const name = String(item?.itemName ?? '');
   const excluded = hasExcludedToken(name, customConfig);
+  const categoryExcluded = categoryExcludedToken(name, rule);
   const detectedBrand = detectBrand(name, item?.shopName, customConfig);
   const qualityScore = scoreCandidate(item, rule, customConfig);
   const average = Number(item?.reviewAverage ?? 0);
@@ -69,6 +75,7 @@ export function evaluateCandidate(item, rule, customConfig = config) {
   const maxPrice = Number(rule?.maxPrice ?? Number.MAX_SAFE_INTEGER);
 
   if (excluded) reasons.push(`excluded-token:${excluded}`);
+  if (categoryExcluded) reasons.push(`category-excluded:${categoryExcluded}`);
   if (!isCategoryMatch(name, rule)) reasons.push('category-mismatch');
 
   if (reasons.length > 0) {

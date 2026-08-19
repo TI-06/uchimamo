@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { buildRakutenRequest, normalizeRakutenItem } from './rakuten';
 
 describe('buildRakutenRequest', () => {
-  it('App IDとaffiliateIdはURL、Access KeyとRefererはヘッダーへ分離する', () => {
+  it('App IDとaffiliateIdはURL、Access Keyとサイト識別ヘッダーはHTTPヘッダーへ分離する', () => {
     const request = buildRakutenRequest({
       appId: 'app-id',
       accessKey: 'secret-key',
@@ -17,6 +17,7 @@ describe('buildRakutenRequest', () => {
     expect(url.searchParams.get('accessKey')).toBeNull();
     expect(request.headers.accessKey).toBe('secret-key');
     expect(request.headers.Referer).toBe('https://uchimamo.pages.dev/');
+    expect(request.headers.Origin).toBe('https://uchimamo.pages.dev');
   });
 });
 

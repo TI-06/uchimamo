@@ -63,6 +63,7 @@ let skippedCount = 0;
 let failureCount = 0;
 const errors = [];
 const skipped = [];
+const skippedCandidates = [];
 
 for (const [index, product] of products.entries()) {
   if (!product.rakuten?.enabled) continue;
@@ -98,6 +99,16 @@ for (const [index, product] of products.entries()) {
     if (!best || best.score < 0.35) {
       skippedCount += 1;
       skipped.push(product.id);
+      skippedCandidates.push({
+        productId: product.id,
+        keyword: product.rakuten.keyword,
+        candidates: ranked.slice(0, 5).map(({ item, score }) => ({
+          itemCode: String(item?.itemCode ?? ''),
+          name: String(item?.itemName ?? '').slice(0, 180),
+          price: Number(item?.itemPrice ?? 0),
+          score: Number(score.toFixed(3))
+        }))
+      });
       console.warn(`[skip] ${product.id}: 一致度の高い商品が見つかりませんでした`);
     } else {
       const item = best.item;
@@ -136,6 +147,7 @@ const status = {
   skippedCount,
   failureCount,
   skipped,
+  skippedCandidates,
   errors
 };
 
@@ -143,7 +155,7 @@ await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
 console.log(`楽天同期サマリー: enabled=${enabledCount}, success=${successCount}, skip=${skippedCount}, error=${failureCount}`);
 
 if (!ok) {
-  console.error('楽天同期に成功した商品が0件です。rakuten-sync-status.json のエラー内容を確認してください。');
+  console.error('楽天同期に成功した商品が0件です。rakuten-sync-status.json の候補商品を確認してください。');
   process.exit(1);
 }
 

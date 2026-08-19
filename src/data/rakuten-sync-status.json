@@ -1,6 +1,6 @@
 {
   "ok": false,
-  "checkedAt": "2026-08-19T12:39:36.749Z",
+  "checkedAt": "2026-08-19T12:43:36.583Z",
   "endpointVersion": "2026-07-01",
   "enabledCount": 6,
   "successCount": 0,
@@ -13,6 +13,38 @@
     "outdoor-lte-camera",
     "window-sensor",
     "sensor-light-solar"
+  ],
+  "skippedCandidates": [
+    {
+      "productId": "switchbot-lock-ultra",
+      "keyword": "SwitchBot ロックUltra",
+      "candidates": []
+    },
+    {
+      "productId": "switchbot-lock-pro",
+      "keyword": "SwitchBot ロックPro",
+      "candidates": []
+    },
+    {
+      "productId": "tapo-outdoor-battery-camera",
+      "keyword": "Tapo 防犯カメラ 屋外 バッテリー ソーラー",
+      "candidates": []
+    },
+    {
+      "productId": "outdoor-lte-camera",
+      "keyword": "防犯カメラ LTE SIM WiFi不要 ソーラー",
+      "candidates": []
+    },
+    {
+      "productId": "window-sensor",
+      "keyword": "窓 開閉センサー 防犯",
+      "candidates": []
+    },
+    {
+      "productId": "sensor-light-solar",
+      "keyword": "ソーラー 人感 センサーライト 防犯 屋外",
+      "candidates": []
+    }
   ],
   "errors": []
 }

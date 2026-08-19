@@ -1,4 +1,5 @@
 ---
+import '../styles/home.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import productsJson from '../data/products.json';
@@ -22,53 +23,98 @@ const pickupProducts = pickupIds.map((id) => products.find((item) => item.id ===
 const latestCheckedAt = Object.values(cache).map((item) => item.fetchedAt).filter(Boolean).sort().at(-1);
 const latestCheckedLabel = latestCheckedAt ? new Intl.DateTimeFormat('ja-JP', { year:'numeric', month:'long', day:'numeric' }).format(new Date(latestCheckedAt)) : '確認中';
 ---
-<BaseLayout>
-  <section class="hero">
+<BaseLayout
+  title="ウチマモ｜工事なしで始める、わが家の防犯"
+  description="30秒診断、条件検索、3商品比較から、自分の家に合う工事不要・後付け防犯を選べる家庭防犯サービス。"
+>
+  <section class="home-hero">
     <div class="site-container hero-grid">
       <div class="hero-copy">
         <div class="hero-badge"><span></span> 工事不要・後付け防犯に特化</div>
         <h1>家の防犯、<br /><em>何から始めればいい？</em></h1>
-        <p>住まい・守りたい場所・Wi-Fi・電源・予算。<br class="desktop" />6つの質問から、あなたの家に合う対策と商品候補を整理します。</p>
-        <div class="hero-actions"><a class="btn-primary hero-btn" href="/diagnosis/">30秒で防犯診断 <span>→</span></a><a class="btn-secondary hero-btn" href="/products/">条件から商品を探す</a></div>
-        <div class="hero-proof"><span>登録不要</span><span>完全無料</span><span>独自評価 × 楽天市場レビュー</span></div>
-      </div>
-      <div class="security-panel" aria-label="防犯診断のイメージ">
-        <div class="panel-head"><div><small>UCHIMAMO SECURITY CHECK</small><strong>わが家の防犯状況</strong></div><span class="live"><i></i> CHECK</span></div>
-        <div class="house-map">
-          <div class="house"><div class="roof"></div><div class="door"></div><div class="window w1"></div><div class="window w2"></div></div>
-          <span class="pin p1">玄関 <b>!</b></span><span class="pin p2">窓 <b>✓</b></span><span class="pin p3">駐車場 <b>!</b></span>
+        <p class="hero-lead">住まい・守りたい場所・Wi-Fi・電源・予算。6つの質問に答えるだけで、あなたの家で優先したい対策と商品候補を整理します。</p>
+        <div class="hero-actions">
+          <a class="btn-primary hero-primary" href="/diagnosis/">30秒で防犯診断 <span>→</span></a>
+          <a class="btn-secondary" href="/products/">商品を探す</a>
         </div>
-        <div class="score-row"><div class="score-ring"><strong>62</strong><small>/100</small></div><div><small>診断イメージ</small><strong>まず玄関から対策</strong><p>住まいの条件に合わせて優先順位を整理</p></div></div>
+        <div class="hero-proof"><span>登録不要</span><span>完全無料</span><span>広告単価で診断順位を変えません</span></div>
       </div>
+
+      <div class="diagnosis-preview" aria-label="30秒防犯診断の結果イメージ">
+        <div class="preview-head">
+          <div><small>UCHIMAMO QUICK CHECK</small><strong>30秒診断でわかること</strong></div>
+          <span>入力は6問</span>
+        </div>
+        <div class="preview-steps">
+          <div class="preview-step">
+            <div><span>01 住まい</span><small>住居タイプ</small></div>
+            <strong>戸建て</strong>
+          </div>
+          <div class="preview-step">
+            <div><span>02 気になる場所</span><small>複数選択OK</small></div>
+            <div class="preview-chips"><b>玄関</b><b>駐車場</b></div>
+          </div>
+          <div class="preview-step">
+            <div><span>03 設置条件</span><small>工事・維持費</small></div>
+            <div class="preview-chips"><b>穴あけNG</b><b>月額なし</b></div>
+          </div>
+        </div>
+        <div class="preview-result">
+          <div class="result-kicker"><span>RESULT PREVIEW</span><i>サンプル</i></div>
+          <h2>あなたなら、まずこの3対策</h2>
+          <ol>
+            <li><span>01</span><div><strong>玄関を後付けスマートロック化</strong><small>穴あけなしで施錠管理を強化</small></div></li>
+            <li><span>02</span><div><strong>駐車場にバッテリーカメラ</strong><small>電源工事を抑えて屋外を見守る</small></div></li>
+            <li><span>03</span><div><strong>死角へセンサーライト</strong><small>月額不要で夜間の抑止を追加</small></div></li>
+          </ol>
+          <a href="/diagnosis/">30秒診断を始める <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-start">
+    <div class="site-container quick-grid">
+      <a href="/diagnosis/" class="quick-card quick-primary">
+        <span class="quick-number">01</span><small>DIAGNOSIS</small><strong>30秒診断</strong><p>何を買えばいいか分からない人へ。住まいから優先順位を整理。</p><b>診断する →</b>
+      </a>
+      <a href="/products/" class="quick-card">
+        <span class="quick-number">02</span><small>FINDER</small><strong>条件から探す</strong><p>工事不要・Wi-Fi不要・月額なしなど、設置条件から絞り込み。</p><b>商品を探す →</b>
+      </a>
+      <a href="/compare/" class="quick-card">
+        <span class="quick-number">03</span><small>COMPARE</small><strong>3商品を比較</strong><p>価格、設置、通信、維持費の違いを最大3商品で横並び比較。</p><b>比較する →</b>
+      </a>
     </div>
   </section>
 
   <section class="trust-strip">
     <div class="site-container trust-grid">
-      <div><small>SPECIALIZED</small><strong>後付け防犯に特化</strong><span>工事を抑えたい家庭向け</span></div>
+      <div><small>CATALOG</small><strong>{products.length}商品を比較対象</strong><span>カメラ・鍵・センサーなど</span></div>
       <div><small>UPDATED</small><strong>{latestCheckedLabel}</strong><span>楽天商品情報を定期確認</span></div>
-      <div><small>TRANSPARENT</small><strong>評価軸を公開</strong><span>独自評価と外部レビューを分離</span></div>
-      <div><small>PR POLICY</small><strong>広告掲載方針を明示</strong><a href="/affiliate-policy/">詳しく見る →</a></div>
+      <div><small>TRANSPARENT</small><strong>評価軸を公開</strong><a href="/about/">評価方法を見る →</a></div>
+      <div><small>PR POLICY</small><strong>広告掲載方針を明示</strong><a href="/affiliate-policy/">掲載方針を見る →</a></div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section home-place-section">
     <div class="site-container">
-      <div class="section-head"><div><span class="eyebrow">BY PLACE</span><h2 class="section-title">守りたい場所から探す</h2><p class="section-lead">商品名を知らなくても、気になる場所から必要な対策を逆引きできます。</p></div></div>
-      <div class="place-grid">{places.map((place) => <a class="place-card" href={`/products/?place=${place.slug}`}><span class="place-icon" aria-hidden="true" set:html={place.icon}></span><div><strong>{place.label}</strong><small>{place.desc}</small></div><b>→</b></a>)}</div>
+      <div class="section-head"><div><span class="eyebrow">BY PLACE</span><h2 class="section-title">守りたい場所から探す</h2><p class="section-lead">商品名を知らなくても大丈夫。気になる場所から、必要な対策と対応商品を逆引きできます。</p></div></div>
+      <div class="place-grid">
+        {places.map((place) => <a class="place-card" href={`/products/?place=${place.slug}`}><span class="place-icon" aria-hidden="true" set:html={place.icon}></span><div><strong>{place.label}</strong><small>{place.desc}</small></div><b>→</b></a>)}
+      </div>
     </div>
   </section>
 
   <section class="section section-soft">
     <div class="site-container condition-layout">
-      <div><span class="eyebrow">BY CONDITION</span><h2 class="section-title">設置条件から絞り込む</h2><p class="section-lead">「壁に穴を開けたくない」「Wi-Fiがない」など、実際の住まいで困りやすい条件から候補を絞ります。</p><a class="editorial-link" href="/guide/">設置条件の考え方を読む →</a></div>
+      <div class="condition-copy"><span class="eyebrow">BY CONDITION</span><h2 class="section-title">家の条件に合うものだけ。</h2><p class="section-lead">「壁に穴を開けたくない」「Wi-Fiがない」「月額を払いたくない」。実際の住まいで譲れない条件から候補を絞れます。</p><a class="editorial-link" href="/guide/">設置条件の考え方を読む →</a></div>
       <div class="condition-grid">{conditions.map(([label,key],i) => <a href={`/products/?condition=${key}`}><span>{String(i+1).padStart(2,'0')}</span><strong>{label}</strong><small>対応商品を見る →</small></a>)}</div>
     </div>
   </section>
 
   <section class="section pickup-section">
     <div class="site-container">
-      <div class="product-heading"><div><span class="eyebrow">EDITOR'S PICK</span><h2 class="section-title">場所別に、まず比較したい3商品</h2><p class="section-lead">玄関・屋外・窓。家の防犯で優先しやすい3つの場所から代表候補を選んでいます。</p></div><a href="/products/">すべての商品を見る →</a></div>
+      <div class="product-heading"><div><span class="eyebrow">EDITOR'S PICK</span><h2 class="section-title">場所別に、まず比較したい3商品</h2><p class="section-lead">玄関・屋外・窓。家の防犯で優先しやすい3つの場所から、代表候補を1商品ずつ選んでいます。</p></div><a href="/products/">すべての商品を見る →</a></div>
       <div class="pickup-labels"><span>玄関</span><span>屋外</span><span>窓</span></div>
       <div class="grid-3">{pickupProducts.map((product) => <ProductCard product={product} rakuten={cache[product.id]} />)}</div>
       <div class="pickup-note"><span>商品情報: {latestCheckedLabel}確認</span><a href="/about/">ウチマモの評価基準を見る →</a></div>
@@ -76,21 +122,17 @@ const latestCheckedLabel = latestCheckedAt ? new Intl.DateTimeFormat('ja-JP', { 
   </section>
 
   <section class="section editorial-section">
-    <div class="site-container editorial-layout"><div><span class="eyebrow">SECURITY GUIDE</span><h2 class="section-title">商品を買う前に、対策の順番を知る。</h2><p class="section-lead">防犯用品は高いものを買えば安心、ではありません。玄関・窓・屋外など、侵入経路と設置条件から順番を決めることが大切です。</p><a class="btn-secondary" href="/guide/">防犯ガイドを読む</a></div><div class="guide-list"><a href="/guide/house-security-diy-order/"><span>01</span><div><small>戸建て</small><strong>玄関・窓・駐車場の優先順位</strong></div><b>→</b></a><a href="/guide/outdoor-camera-no-drilling/"><span>02</span><div><small>屋外カメラ</small><strong>穴あけ不要で設置する考え方</strong></div><b>→</b></a><a href="/guide/security-camera-no-wifi/"><span>03</span><div><small>通信</small><strong>Wi-Fiなしで使えるカメラの選び方</strong></div><b>→</b></a></div></div>
+    <div class="site-container editorial-layout">
+      <div><span class="eyebrow">SECURITY GUIDE</span><h2 class="section-title">商品を買う前に、対策の順番を知る。</h2><p class="section-lead">防犯用品は高いものを買えば安心、ではありません。玄関・窓・屋外など、侵入経路と設置条件から順番を決めることが大切です。</p><a class="btn-secondary" href="/guide/">防犯ガイドを読む</a></div>
+      <div class="guide-list">
+        <a href="/guide/house-security-diy-order/"><span>01</span><div><small>戸建て</small><strong>玄関・窓・駐車場の優先順位</strong></div><b>→</b></a>
+        <a href="/guide/outdoor-camera-no-drilling/"><span>02</span><div><small>屋外カメラ</small><strong>穴あけ不要で設置する考え方</strong></div><b>→</b></a>
+        <a href="/guide/security-camera-no-wifi/"><span>03</span><div><small>通信</small><strong>Wi-Fiなしで使えるカメラの選び方</strong></div><b>→</b></a>
+      </div>
+    </div>
   </section>
 
-  <section class="section diagnose-band"><div class="site-container diagnose-inner"><div><span>NOT SURE WHERE TO START?</span><h2>あなたの家に必要な対策を、30秒で整理。</h2><p>商品名を知らなくても大丈夫。住まいの条件から候補を出します。</p></div><a class="btn-primary" href="/diagnosis/">無料で防犯診断 <span>→</span></a></div></section>
+  <section class="section diagnose-band">
+    <div class="site-container diagnose-inner"><div><span>NOT SURE WHERE TO START?</span><h2>あなたの家に必要な対策を、30秒で整理。</h2><p>商品名を知らなくても大丈夫。住まいの条件から候補と優先順位を出します。</p></div><a class="btn-primary" href="/diagnosis/">無料で防犯診断 <span>→</span></a></div>
+  </section>
 </BaseLayout>
-
-<style>
-  .hero{padding:84px 0 72px;overflow:hidden;background:#f8f8f6}.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:72px;align-items:center}.hero-badge{display:inline-flex;align-items:center;gap:8px;color:var(--blue-700);font-size:.68rem;font-weight:900;letter-spacing:.03em}.hero-badge span{width:7px;height:7px;border-radius:50%;background:var(--green-600);box-shadow:0 0 0 5px rgba(40,117,93,.09)}.hero h1{font-size:clamp(2.85rem,5.4vw,4.9rem);line-height:1.05;letter-spacing:-.06em;margin:20px 0;color:var(--navy-950)}.hero h1 em{font-style:normal;color:var(--blue-700)}.hero-copy>p{font-size:1rem;color:var(--slate-700);margin:0 0 29px}.hero-actions{display:flex;gap:9px}.hero-btn{min-height:54px;padding-inline:24px}.hero-proof{display:flex;gap:18px;margin-top:18px;color:var(--slate-500);font-size:.62rem;font-weight:800}.hero-proof span{display:flex;align-items:center;gap:5px}.hero-proof span::before{content:'✓';color:var(--green-600)}
-  .security-panel{position:relative;background:#fff;border:1px solid var(--slate-200);border-radius:18px;padding:21px;box-shadow:var(--shadow-md)}.panel-head{display:flex;justify-content:space-between;align-items:center}.panel-head small{display:block;color:var(--slate-500);font-size:.52rem;font-weight:900;letter-spacing:.13em}.panel-head strong{display:block;color:var(--navy-950);margin-top:3px;font-size:.86rem}.live{font-size:.56rem;font-weight:900;color:var(--green-600);background:var(--green-100);padding:5px 8px;border-radius:999px}.live i{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--green-600);margin-right:5px}.house-map{height:255px;margin:18px 0 15px;border-radius:13px;background:#f3f5f5;position:relative;overflow:hidden;border:1px solid var(--slate-200)}.house{position:absolute;width:190px;height:125px;left:50%;top:78px;transform:translateX(-50%);background:white;border:1.5px solid #b8c3cc;border-radius:2px}.roof{position:absolute;width:140px;height:140px;background:white;border-left:1.5px solid #b8c3cc;border-top:1.5px solid #b8c3cc;transform:rotate(45deg);left:23px;top:-68px}.door{position:absolute;width:40px;height:70px;background:#e6ecef;border:1.5px solid #a8b6c2;bottom:0;left:74px}.window{position:absolute;width:35px;height:30px;background:#e9f2f7;border:1.5px solid #a8b6c2;top:40px}.w1{left:20px}.w2{right:20px}.pin{position:absolute;background:white;border:1px solid var(--slate-300);border-radius:8px;padding:5px 7px;font-size:.58rem;font-weight:800;color:var(--slate-700);box-shadow:var(--shadow-sm)}.pin b{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:var(--orange-100);color:var(--orange-600);margin-left:3px}.p1{left:54%;top:173px}.p2{left:13%;top:108px}.p2 b{background:var(--green-100);color:var(--green-600)}.p3{right:7%;bottom:16px}.score-row{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center}.score-ring{width:68px;height:68px;border:6px solid var(--slate-100);border-top-color:var(--navy-900);border-right-color:var(--navy-900);border-radius:50%;display:grid;place-items:center;position:relative}.score-ring strong{font-size:1.18rem;color:var(--navy-950)}.score-ring small{position:absolute;bottom:9px;font-size:.48rem;color:var(--slate-500)}.score-row>div:last-child small{font-size:.58rem;color:var(--slate-500)}.score-row>div:last-child strong{display:block;color:var(--navy-950);font-size:.78rem}.score-row p{font-size:.6rem;color:var(--slate-500);margin:2px 0 0}
-  .trust-strip{background:#fff;border-block:1px solid var(--slate-200)}.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}.trust-grid>div{padding:18px 20px}.trust-grid>div+div{border-left:1px solid var(--slate-200)}.trust-grid small{display:block;color:var(--slate-400);font-size:.48rem;font-weight:900;letter-spacing:.12em}.trust-grid strong{display:block;color:var(--navy-950);font-size:.72rem;margin:3px 0}.trust-grid span,.trust-grid a{display:block;color:var(--slate-500);font-size:.56rem}.trust-grid a{color:var(--blue-700);font-weight:850}
-  .section-head{display:flex;justify-content:space-between;gap:24px;margin-bottom:29px}.place-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.place-card{display:flex;align-items:center;gap:13px;padding:17px;background:#fff;border:1px solid var(--slate-200);border-radius:13px;transition:.18s ease}.place-card:hover{border-color:#b6c0c9;transform:translateY(-1px);box-shadow:var(--shadow-sm)}.place-icon{width:44px;height:44px;display:grid;place-items:center;background:var(--warm-100);border-radius:11px;color:var(--navy-900)}.place-icon :global(svg){width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.place-card strong{display:block;color:var(--navy-950);font-size:.8rem}.place-card small{display:block;color:var(--slate-500);font-size:.61rem;margin-top:2px}.place-card>b{margin-left:auto;color:var(--slate-400);font-size:.7rem}
-  .condition-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:66px;align-items:center}.editorial-link{display:inline-block;color:var(--blue-700);font-size:.64rem;font-weight:900;margin-top:17px}.condition-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.condition-grid a{display:grid;grid-template-columns:32px 1fr;align-items:center;gap:8px;background:#fff;border:1px solid var(--slate-200);border-radius:12px;padding:13px}.condition-grid a>span{grid-row:1/3;color:var(--slate-400);font-size:.55rem;font-weight:900}.condition-grid strong{font-size:.76rem}.condition-grid small{font-size:.57rem;color:var(--blue-700);font-weight:800}.condition-grid a:hover{border-color:#b4bec7}
-  .pickup-section{background:#fff;border-top:1px solid var(--slate-200)}.product-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}.product-heading>a{color:var(--blue-700);font-size:.66rem;font-weight:900}.pickup-labels{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:7px}.pickup-labels span{text-align:center;color:var(--gold-600);font-size:.55rem;font-weight:900;letter-spacing:.09em}.pickup-note{display:flex;justify-content:space-between;align-items:center;margin-top:13px;color:var(--slate-500);font-size:.58rem}.pickup-note a{color:var(--blue-700);font-weight:900}
-  .editorial-section{border-top:1px solid var(--slate-200)}.editorial-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}.editorial-layout .btn-secondary{margin-top:22px}.guide-list{border-top:1px solid var(--slate-300)}.guide-list a{display:grid;grid-template-columns:34px 1fr 20px;gap:12px;align-items:center;padding:17px 4px;border-bottom:1px solid var(--slate-300)}.guide-list>a>span{color:var(--slate-400);font-size:.55rem;font-weight:900}.guide-list small{display:block;color:var(--blue-700);font-size:.52rem;font-weight:900}.guide-list strong{display:block;color:var(--navy-950);font-size:.78rem;margin-top:2px}.guide-list b{color:var(--slate-400)}
-  .diagnose-band{padding-top:26px}.diagnose-inner{background:var(--navy-950);border-radius:18px;padding:34px 38px;color:white;display:flex;align-items:center;justify-content:space-between;gap:28px}.diagnose-inner>div>span{color:#9cb8d1;font-size:.56rem;font-weight:900;letter-spacing:.12em}.diagnose-inner h2{margin:5px 0;font-size:1.55rem}.diagnose-inner p{margin:0;color:#aab9c7;font-size:.74rem}.diagnose-inner .btn-primary{background:#fff;color:var(--navy-950);box-shadow:none;white-space:nowrap}
-  @media(max-width:920px){.hero{padding-top:56px}.hero-grid,.condition-layout,.editorial-layout{grid-template-columns:1fr}.hero-grid{gap:42px}.place-grid{grid-template-columns:repeat(2,1fr)}.condition-layout,.editorial-layout{gap:30px}.security-panel{max-width:600px;width:100%;margin:auto}.trust-grid{grid-template-columns:repeat(2,1fr)}.trust-grid>div:nth-child(3){border-left:0;border-top:1px solid var(--slate-200)}.trust-grid>div:nth-child(4){border-top:1px solid var(--slate-200)}}
-  @media(max-width:640px){.hero{padding:39px 0 45px}.hero h1{font-size:2.6rem}.hero-copy>p{font-size:.88rem}.desktop{display:none}.hero-actions{display:grid}.hero-proof{gap:9px;flex-wrap:wrap}.security-panel{padding:14px}.house-map{height:220px}.house{transform:translateX(-50%) scale(.85)}.trust-grid>div{padding:14px 10px}.trust-grid strong{font-size:.64rem}.trust-grid span,.trust-grid a{font-size:.5rem}.place-grid{grid-template-columns:1fr 1fr}.place-card{padding:12px;gap:8px}.place-icon{width:38px;height:38px}.place-card small{display:none}.condition-grid{grid-template-columns:1fr}.product-heading{display:block}.product-heading>a{display:inline-block;margin-top:10px}.pickup-labels{display:none}.pickup-note{display:block}.pickup-note a{display:block;margin-top:5px}.diagnose-inner{padding:26px 22px;display:block}.diagnose-inner .btn-primary{margin-top:19px}}
-</style>

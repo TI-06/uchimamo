@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import productsJson from '../../data/products.json';
+import cacheJson from '../../data/rakuten-cache.json';
+import type { Product } from '../../types/product';
+import type { RakutenCacheItem } from '../../lib/rakuten';
+
+const products = productsJson as Product[];
+const cache = cacheJson as Record<string, RakutenCacheItem>;
+export function getStaticPaths() {
+  return (productsJson as Product[]).map((product) => ({ params: { id: product.id }, props: { product } }));
+}
+interface Props { product: Product }
+const { product } = Astro.props;
+const rakuten = cache[product.id];
+const labels = [
+  ['工事・穴あけ不要', product.installation.noDrilling], ['DIY設置', product.installation.diy], ['屋外対応', product.installation.outdoor],
+  ['Wi-Fi不要', !product.connectivity.wifiRequired], ['バッテリー', product.power.battery], ['ソーラー', product.power.solar], ['月額不要', !product.monthlyFeeRequired]
+];
+---
+<BaseLayout title={`${product.name}｜ウチマモ`} description={product.description}>
+  <div class="site-container breadcrumb"><a href="/">TOP</a><span>›</span><a href="/products/">商品を探す</a><span>›</span><b>{product.name}</b></div>
+  <section class="detail">
+    <div class="site-container detail-grid">
+      <div class="media card">{rakuten?.imageUrl ? <img src={rakuten.imageUrl} alt={rakuten.name || product.name} /> : <div class="placeholder"><span>{product.brand.slice(0,2)}</span><small>楽天同期後に商品画像を表示</small></div>}</div>
+      <div class="info">
+        <div class="brand">{product.brand}</div><h1>{product.name}</h1><p class="lead">{product.description}</p>
+        <div class="fit"><div><small>ウチマモ適合スコア</small><strong>{product.score}</strong><span>/100</span></div><p>設置条件・使いやすさなど、ウチマモの選定軸で整理した目安です。</p></div>
+        <div class="chips">{product.features.map((feature) => <span class="chip chip-blue">{feature}</span>)}</div>
+        <div class="spec-grid">{labels.map(([label,value]) => <div class:list={['spec', { ok: value }]}><span>{value ? '✓' : '—'}</span><small>{label}</small></div>)}</div>
+      </div>
+      <aside class="buy-card card">
+        <span class="pr">PR</span><small>楽天市場</small><strong class="price">{rakuten?.price ? `¥${rakuten.price.toLocaleString('ja-JP')}` : '価格同期前'}</strong>
+        {rakuten?.reviewAverage && <div class="review">★ {rakuten.reviewAverage.toFixed(1)} <span>({rakuten.reviewCount ?? 0}件)</span></div>}
+        {rakuten?.shopName && <p>{rakuten.shopName}</p>}
+        {rakuten?.affiliateUrl ? <a class="btn-primary" href={rakuten.affiliateUrl} target="_blank" rel="nofollow sponsored noopener">楽天市場で最新価格を見る →</a> : <div class="pending">楽天APIを設定すると<br />アフィリエイトリンクが自動表示されます</div>}
+        {product.asp?.url && <a class="btn-secondary" href={product.asp.url} target="_blank" rel="nofollow sponsored noopener">{product.asp.label}</a>}
+        <p class="buy-note">価格・在庫・仕様は販売ページで最新情報をご確認ください。</p>
+      </aside>
+    </div>
+  </section>
+  <section class="section section-soft"><div class="site-container"><span class="eyebrow">SUITABLE FOR</span><h2 class="section-title">こんな条件で比較したい人向け</h2><div class="target-grid">{product.targetUsers.map((target) => <div class="card"><span>✓</span><strong>{target}</strong><small>{product.places.map((p) => ({entrance:'玄関',window:'窓',parking:'駐車場',garden:'庭',backdoor:'勝手口',indoor:'室内'}[p])).join('・')}の対策候補</small></div>)}</div></div></section>
+  <section class="section"><div class="site-container next"><div><span class="eyebrow">NOT SURE?</span><h2 class="section-title">この商品が自宅に合うか迷ったら</h2><p>6つの条件から、別の商品も含めて候補を再計算できます。</p></div><a class="btn-primary" href="/diagnosis/">30秒で防犯診断 →</a></div></section>
+</BaseLayout>
+<style>
+  .breadcrumb{padding-top:24px;display:flex;gap:8px;align-items:center;color:var(--slate-500);font-size:.68rem}.breadcrumb a:hover{color:var(--blue-600)}.breadcrumb b{font-weight:700;color:var(--slate-700);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.detail{padding:28px 0 72px}.detail-grid{display:grid;grid-template-columns:minmax(300px,1fr) 1.15fr 300px;gap:28px;align-items:start}.media{min-height:390px;display:grid;place-items:center;overflow:hidden;background:#f5f9fe}.media img{width:100%;max-height:390px;object-fit:contain;padding:26px}.placeholder{display:grid;place-items:center;gap:8px;color:var(--slate-500)}.placeholder span{width:100px;height:100px;border-radius:28px;background:white;border:1px solid var(--slate-200);box-shadow:var(--shadow-sm);display:grid;place-items:center;font-size:1.6rem;font-weight:900;color:var(--navy-900)}.placeholder small{font-size:.7rem}.brand{font-size:.72rem;font-weight:900;letter-spacing:.1em;color:var(--blue-600);text-transform:uppercase}.info h1{font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.25;letter-spacing:-.04em;color:var(--navy-950);margin:6px 0 12px}.lead{color:var(--slate-700);font-size:.92rem}.fit{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:16px;margin:22px 0;padding:15px 17px;background:var(--blue-100);border-radius:14px}.fit small{display:block;font-size:.6rem;color:var(--blue-600);font-weight:900}.fit strong{font-size:1.8rem;color:var(--navy-950)}.fit span{font-size:.65rem;color:var(--slate-500)}.fit p{font-size:.7rem;color:var(--slate-700);margin:0}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.spec{display:flex;align-items:center;gap:8px;padding:9px 11px;border:1px solid var(--slate-200);border-radius:10px;color:var(--slate-400)}.spec.ok{color:var(--green-600);background:#fbfffd}.spec small{color:var(--slate-700);font-size:.68rem;font-weight:700}.buy-card{position:sticky;top:94px;padding:21px}.pr{position:absolute;right:14px;top:12px;font-size:.55rem;color:var(--slate-500)}.buy-card>small{display:block;color:var(--slate-500);font-size:.68rem}.price{display:block;font-size:1.6rem;color:var(--navy-950);margin:4px 0}.review{color:var(--orange-600);font-weight:900;font-size:.8rem}.review span{color:var(--slate-500);font-weight:600}.buy-card>p{color:var(--slate-500);font-size:.68rem}.buy-card .btn-primary,.buy-card .btn-secondary{width:100%;margin-top:10px;font-size:.76rem;padding-inline:8px}.pending{margin-top:12px;padding:14px;background:var(--slate-100);border-radius:11px;text-align:center;color:var(--slate-500);font-size:.67rem;font-weight:700}.buy-note{border-top:1px solid var(--slate-200);padding-top:12px}.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}.target-grid>div{padding:18px;display:grid;grid-template-columns:30px 1fr;gap:3px 8px;align-items:center}.target-grid span{grid-row:1/3;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--green-100);color:var(--green-600);font-weight:900}.target-grid strong{font-size:.84rem}.target-grid small{color:var(--slate-500);font-size:.65rem}.next{display:flex;justify-content:space-between;align-items:center;gap:30px}.next p{color:var(--slate-700)}
+  @media(max-width:1050px){.detail-grid{grid-template-columns:1fr 1.2fr}.buy-card{grid-column:1/-1;position:static;display:grid;grid-template-columns:1fr auto;gap:6px 20px}.buy-card .btn-primary,.buy-card .btn-secondary{grid-column:2;min-width:260px}.buy-card .price,.buy-card .review,.buy-card>p{grid-column:1}.pending{grid-column:2;grid-row:1/4}}
+  @media(max-width:700px){.detail{padding-bottom:45px}.detail-grid{grid-template-columns:1fr}.media{min-height:280px}.info h1{font-size:2rem}.buy-card{display:block}.buy-card .btn-primary,.buy-card .btn-secondary{min-width:0}.target-grid{grid-template-columns:1fr}.next{display:block}.next .btn-primary{margin-top:18px}}
+</style>

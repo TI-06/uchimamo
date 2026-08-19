@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BottomNav from '../components/BottomNav.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'ウチマモ｜工事なしで始める、わが家の防犯',
+  description = '住まい・設置場所・Wi-Fi・電源・予算から、自分に合う防犯用品を探せる家庭防犯サービス。',
+  noindex = false
+} = Astro.props;
+const base = import.meta.env.PUBLIC_SITE_URL || 'https://uchimamo.pages.dev';
+const canonical = new URL(Astro.url.pathname, base).toString();
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b1f36" />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="ウチマモ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main><slot /></main>
+    <Footer />
+    <BottomNav />
+  </body>
+</html>

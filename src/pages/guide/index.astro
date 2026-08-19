@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const guides = [
+  ['戸建ての防犯を自分で始める順番','玄関・窓・駐車場の優先順位を整理します。','戸建て'],
+  ['穴あけ不要で屋外カメラを設置する考え方','賃貸や外壁を傷つけたくない場合の選び方。','工事不要'],
+  ['Wi-Fiがない場所の防犯カメラ選び','LTE・ローカル保存など通信条件から比較します。','Wi-Fi不要'],
+  ['スマートロック選びで確認したいポイント','ドア形状・電池・解錠方法などを整理します。','玄関'],
+  ['空き家・実家の見守りで先に決めること','通信・電源・通知先を先に決めると選びやすくなります。','実家・空き家'],
+  ['防犯カメラの月額料金は必要？','クラウド保存とローカル保存の違いを整理します。','月額']
+];
+---
+<BaseLayout title="家庭防犯ガイド｜ウチマモ" description="工事不要・後付けで始める家庭防犯の選び方を、場所や条件別に整理します。">
+  <section class="guide-hero"><div class="site-container"><span class="eyebrow">SECURITY GUIDE</span><h1>防犯用品を買う前に、<br />知っておきたいこと。</h1><p>商品を売るためだけではなく、自宅の条件に合わない買い物を減らすためのガイドです。</p></div></section>
+  <section class="section"><div class="site-container"><div class="guide-grid">{guides.map(([title,desc,tag],i) => <article class="guide-card card"><div class="thumb"><span>{String(i+1).padStart(2,'0')}</span></div><div class="body"><span class="chip chip-blue">{tag}</span><h2>{title}</h2><p>{desc}</p><span class="coming">記事準備中</span></div></article>)}</div></div></section>
+  <section class="section section-soft"><div class="site-container diagnosis-link"><div><span class="eyebrow">QUICK CHECK</span><h2 class="section-title">読む前に、自宅の条件を整理する</h2><p>6問で優先対策と商品候補を確認できます。</p></div><a class="btn-primary" href="/diagnosis/">30秒で防犯診断 →</a></div></section>
+</BaseLayout>
+<style>
+  .guide-hero{padding:70px 0;background:linear-gradient(145deg,#f3f9ff,#fff);border-bottom:1px solid var(--slate-200)}.guide-hero h1{font-size:clamp(2.25rem,5vw,3.8rem);line-height:1.2;letter-spacing:-.05em;color:var(--navy-950);margin:9px 0 15px}.guide-hero p{color:var(--slate-700);max-width:680px}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.guide-card{overflow:hidden}.thumb{height:120px;background:linear-gradient(145deg,var(--navy-900),#174d78);display:grid;place-items:center}.thumb span{font-size:2rem;font-weight:900;color:rgba(255,255,255,.28)}.body{padding:18px}.body h2{font-size:1rem;line-height:1.5;margin:10px 0 6px;color:var(--navy-950)}.body p{font-size:.73rem;color:var(--slate-500);margin:0 0 14px}.coming{font-size:.65rem;color:var(--slate-400);font-weight:800}.diagnosis-link{display:flex;align-items:center;justify-content:space-between;gap:30px}.diagnosis-link p{color:var(--slate-700)}
+  @media(max-width:850px){.guide-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.guide-hero{padding:44px 0}.guide-grid{grid-template-columns:1fr}.diagnosis-link{display:block}.diagnosis-link .btn-primary{margin-top:15px}}
+</style>

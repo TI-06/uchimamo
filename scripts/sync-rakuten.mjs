@@ -29,6 +29,19 @@ const firstImageUrl = (list) => {
   if (typeof first === 'string') return first;
   return first?.imageUrl ?? '';
 };
+const describeValue = (value) => {
+  if (Array.isArray(value)) {
+    const first = value[0];
+    return {
+      type: 'array',
+      length: value.length,
+      firstKeys: first && typeof first === 'object' ? Object.keys(first).slice(0, 20) : []
+    };
+  }
+  if (value === null) return { type: 'null' };
+  if (typeof value === 'object') return { type: 'object', keys: Object.keys(value).slice(0, 20) };
+  return { type: typeof value };
+};
 
 function candidateScore(itemName, product) {
   if (!itemName) return 0;
@@ -64,6 +77,7 @@ let failureCount = 0;
 const errors = [];
 const skipped = [];
 const skippedCandidates = [];
+const responseShapes = [];
 
 for (const [index, product] of products.entries()) {
   if (!product.rakuten?.enabled) continue;
@@ -90,6 +104,14 @@ for (const [index, product] of products.entries()) {
     if (!response.ok) throw new Error(await responseError(response));
 
     const data = await response.json();
+    responseShapes.push({
+      productId: product.id,
+      topLevelKeys: data && typeof data === 'object' ? Object.keys(data).slice(0, 30) : [],
+      fields: data && typeof data === 'object'
+        ? Object.fromEntries(Object.entries(data).slice(0, 20).map(([key, value]) => [key, describeValue(value)]))
+        : {}
+    });
+
     const rows = Array.isArray(data.items) ? data.items.map(unwrap) : [];
     const ranked = rows
       .map((item) => ({ item, score: candidateScore(item?.itemName ?? '', product) }))
@@ -148,6 +170,7 @@ const status = {
   failureCount,
   skipped,
   skippedCandidates,
+  responseShapes,
   errors
 };
 
@@ -155,7 +178,7 @@ await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
 console.log(`楽天同期サマリー: enabled=${enabledCount}, success=${successCount}, skip=${skippedCount}, error=${failureCount}`);
 
 if (!ok) {
-  console.error('楽天同期に成功した商品が0件です。rakuten-sync-status.json の候補商品を確認してください。');
+  console.error('楽天同期に成功した商品が0件です。rakuten-sync-status.json のレスポンス構造を確認してください。');
   process.exit(1);
 }
 

@@ -1,11 +1,12 @@
 {
   "ok": true,
-  "checkedAt": "2026-08-19T12:50:47.138Z",
+  "checkedAt": "2026-08-19T13:50:55.148Z",
   "endpointVersion": "2026-07-01",
   "enabledCount": 6,
   "successCount": 6,
   "skippedCount": 0,
   "failureCount": 0,
+  "needsReview": [],
   "skipped": [],
   "skippedCandidates": [],
   "errors": []

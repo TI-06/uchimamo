@@ -9,7 +9,7 @@
     "reviewCount": 127,
     "shopName": "SwitchBot公式店",
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/switchbot/cabinet/09377790/12586593/12587186/imgrc0095159618.jpg?_ex=128x128",
-    "fetchedAt": "2026-08-19T12:50:40.256Z"
+    "fetchedAt": "2026-08-19T13:50:48.522Z"
   },
   "switchbot-lock-pro": {
     "itemCode": "switchbot:10000121",
@@ -21,7 +21,7 @@
     "reviewCount": 1982,
     "shopName": "SwitchBot公式店",
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/switchbot/cabinet/09377790/09377966/09377967/imgrc0088773509.jpg?_ex=128x128",
-    "fetchedAt": "2026-08-19T12:50:41.690Z"
+    "fetchedAt": "2026-08-19T13:50:49.855Z"
   },
   "tapo-outdoor-battery-camera": {
     "itemCode": "tplinkdirect:10001237",
@@ -33,7 +33,7 @@
     "reviewCount": 148,
     "shopName": "TP-Linkダイレクト 楽天市場店",
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/06321509/tapo-c420s2.jpg?_ex=128x128",
-    "fetchedAt": "2026-08-19T12:50:43.027Z"
+    "fetchedAt": "2026-08-19T13:50:51.164Z"
   },
   "outdoor-lte-camera": {
     "itemCode": "shop-amanotori:10030960",
@@ -45,7 +45,7 @@
     "reviewCount": 0,
     "shopName": "ショップあまのとり",
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/shop-amanotori/cabinet/item16/020231113220248.jpg?_ex=128x128",
-    "fetchedAt": "2026-08-19T12:50:44.402Z"
+    "fetchedAt": "2026-08-19T13:50:52.504Z"
   },
   "window-sensor": {
     "itemCode": "arkham:10001427",
@@ -57,7 +57,7 @@
     "reviewCount": 146,
     "shopName": "防犯・防災・護身専門店 アーカム",
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/arkham/cabinet/item4/ark0023100-500.jpg?_ex=128x128",
-    "fetchedAt": "2026-08-19T12:50:45.740Z"
+    "fetchedAt": "2026-08-19T13:50:53.815Z"
   },
   "sensor-light-solar": {
     "itemCode": "suparee:10000239",
@@ -69,6 +69,6 @@
     "reviewCount": 1156,
     "shopName": "SUPAREE PRO",
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/suparee/cabinet/imgrc0099871544.jpg?_ex=128x128",
-    "fetchedAt": "2026-08-19T12:50:47.138Z"
+    "fetchedAt": "2026-08-19T13:50:55.148Z"
   }
 }

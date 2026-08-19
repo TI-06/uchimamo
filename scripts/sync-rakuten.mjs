@@ -3,6 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 const ENDPOINT = 'https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701';
 const PRODUCT_PATH = new URL('../src/data/products.json', import.meta.url);
 const CACHE_PATH = new URL('../src/data/rakuten-cache.json', import.meta.url);
+const STATUS_PATH = new URL('../src/data/rakuten-sync-status.json', import.meta.url);
 
 const { RAKUTEN_APP_ID, RAKUTEN_ACCESS_KEY, RAKUTEN_AFFILIATE_ID } = process.env;
 if (!RAKUTEN_APP_ID || !RAKUTEN_ACCESS_KEY || !RAKUTEN_AFFILIATE_ID) {
@@ -57,6 +58,8 @@ let enabledCount = 0;
 let successCount = 0;
 let skippedCount = 0;
 let failureCount = 0;
+const errors = [];
+const skipped = [];
 
 for (const [index, product] of products.entries()) {
   if (!product.rakuten?.enabled) continue;
@@ -84,6 +87,7 @@ for (const [index, product] of products.entries()) {
 
     if (!best || best.score < 0.35) {
       skippedCount += 1;
+      skipped.push(product.id);
       console.warn(`[skip] ${product.id}: 一致度の高い商品が見つかりませんでした`);
     } else {
       const item = best.item;
@@ -104,16 +108,32 @@ for (const [index, product] of products.entries()) {
     }
   } catch (error) {
     failureCount += 1;
-    console.error(`[error] ${product.id}: ${error instanceof Error ? error.message : error}`);
+    const message = error instanceof Error ? error.message : String(error);
+    errors.push({ productId: product.id, message: message.slice(0, 300) });
+    console.error(`[error] ${product.id}: ${message}`);
   }
 
   if (index < products.length - 1) await sleep(1100);
 }
 
+const ok = enabledCount === 0 || successCount > 0;
+const status = {
+  ok,
+  checkedAt: new Date().toISOString(),
+  endpointVersion: '2026-07-01',
+  enabledCount,
+  successCount,
+  skippedCount,
+  failureCount,
+  skipped,
+  errors
+};
+
+await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
 console.log(`楽天同期サマリー: enabled=${enabledCount}, success=${successCount}, skip=${skippedCount}, error=${failureCount}`);
 
-if (enabledCount > 0 && successCount === 0) {
-  console.error('楽天同期に成功した商品が0件です。Application ID / Access Key / Affiliate ID と楽天APIのエラー内容を確認してください。');
+if (!ok) {
+  console.error('楽天同期に成功した商品が0件です。rakuten-sync-status.json のエラー内容を確認してください。');
   process.exit(1);
 }
 

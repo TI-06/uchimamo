@@ -1,36 +1,18 @@
 {
   "ok": false,
-  "checkedAt": "2026-08-19T12:34:36.446Z",
+  "checkedAt": "2026-08-19T12:39:36.749Z",
   "endpointVersion": "2026-07-01",
   "enabledCount": 6,
   "successCount": 0,
-  "skippedCount": 0,
-  "failureCount": 6,
-  "skipped": [],
-  "errors": [
-    {
-      "productId": "switchbot-lock-ultra",
-      "message": "HTTP 403: {\n  \"errors\": {\n    \"errorCode\": 403,\n    \"errorMessage\": \"REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING\"\n  }\n}"
-    },
-    {
-      "productId": "switchbot-lock-pro",
-      "message": "HTTP 403: {\n  \"errors\": {\n    \"errorCode\": 403,\n    \"errorMessage\": \"REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING\"\n  }\n}"
-    },
-    {
-      "productId": "tapo-outdoor-battery-camera",
-      "message": "HTTP 403: {\n  \"errors\": {\n    \"errorCode\": 403,\n    \"errorMessage\": \"REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING\"\n  }\n}"
-    },
-    {
-      "productId": "outdoor-lte-camera",
-      "message": "HTTP 403: {\n  \"errors\": {\n    \"errorCode\": 403,\n    \"errorMessage\": \"REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING\"\n  }\n}"
-    },
-    {
-      "productId": "window-sensor",
-      "message": "HTTP 403: {\n  \"errors\": {\n    \"errorCode\": 403,\n    \"errorMessage\": \"REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING\"\n  }\n}"
-    },
-    {
-      "productId": "sensor-light-solar",
-      "message": "HTTP 403: {\n  \"errors\": {\n    \"errorCode\": 403,\n    \"errorMessage\": \"REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING\"\n  }\n}"
-    }
-  ]
+  "skippedCount": 6,
+  "failureCount": 0,
+  "skipped": [
+    "switchbot-lock-ultra",
+    "switchbot-lock-pro",
+    "tapo-outdoor-battery-camera",
+    "outdoor-lte-camera",
+    "window-sensor",
+    "sensor-light-solar"
+  ],
+  "errors": []
 }

@@ -1,12 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductCard from '../../components/ProductCard.astro';
+import DiscoveredProductCard from '../../components/DiscoveredProductCard.astro';
 import productsJson from '../../data/products.json';
 import cacheJson from '../../data/rakuten-cache.json';
+import discoveredJson from '../../data/discovered-products.json';
 import type { Product } from '../../types/product';
+import type { DiscoveredProduct } from '../../types/discovered-product';
 import type { RakutenCacheItem } from '../../lib/rakuten';
 const products = productsJson as Product[];
 const cache = cacheJson as Record<string, RakutenCacheItem>;
+const discovered = discoveredJson as DiscoveredProduct[];
 const latestCheckedAt = Object.values(cache).map((item) => item.fetchedAt).filter(Boolean).sort().at(-1);
 const latestCheckedLabel = latestCheckedAt ? new Intl.DateTimeFormat('ja-JP', { year:'numeric', month:'long', day:'numeric' }).format(new Date(latestCheckedAt)) : '商品情報を確認中';
 ---
@@ -14,7 +18,7 @@ const latestCheckedLabel = latestCheckedAt ? new Intl.DateTimeFormat('ja-JP', { 
   <section class="finder-hero">
     <div class="site-container hero-inner">
       <div><span class="eyebrow">PRODUCT SELECT</span><h1>わが家の条件に合う<br />防犯用品を選ぶ。</h1><p>商品名からではなく、設置場所・工事・通信・電源の条件から候補を絞り込みます。</p></div>
-      <div class="hero-meta"><span><small>掲載商品</small><strong>{products.length}商品</strong></span><span><small>商品情報</small><strong>{latestCheckedLabel}確認</strong></span><a href="/about/">選定・評価方針 →</a></div>
+      <div class="hero-meta"><span><small>編集済み</small><strong>{products.length}商品</strong></span><span><small>自動発掘</small><strong>{discovered.length}商品</strong></span><span><small>商品情報</small><strong>{latestCheckedLabel}確認</strong></span><a href="/about/">選定・評価方針 →</a></div>
     </div>
   </section>
 
@@ -29,13 +33,25 @@ const latestCheckedLabel = latestCheckedAt ? new Intl.DateTimeFormat('ja-JP', { 
       </aside>
 
       <div class="results">
-        <div class="results-head"><div><span class="eyebrow">MATCHING PRODUCTS</span><strong><b id="resultCount">{products.length}</b>件の商品候補</strong></div><div class="sort-note"><span>ウチマモ評価を基準に掲載</span><a href="/about/">評価基準</a></div></div>
+        <div class="results-head"><div><span class="eyebrow">MATCHING PRODUCTS</span><strong><b id="resultCount">{products.length}</b>件の商品候補</strong></div><div class="sort-note"><span>仕様確認済み商品のみ条件比較</span><a href="/about/">評価基準</a></div></div>
         <div class="active-filters" id="activeFilters" hidden></div>
         <div class="products-grid" id="productsGrid">{products.map((product) => <ProductCard product={product} rakuten={cache[product.id]} />)}</div>
         <div id="emptyState" class="empty surface" hidden><span aria-hidden="true">⌕</span><strong>条件に合う商品がありません</strong><p>条件を1つ外すか、防犯診断から探してみてください。</p><button class="btn-secondary" type="button">条件をリセット</button></div>
       </div>
     </div>
   </section>
+
+  {discovered.length > 0 && <section class="discovered-section">
+    <div class="site-container">
+      <div class="discovered-head">
+        <div><span class="eyebrow">MARKET DISCOVERY</span><h2>新着・自動発掘</h2><p>楽天市場の商品情報から自動発掘した高信頼候補です。価格・画像・楽天レビューは取得済みですが、設置条件などの詳細仕様は確認中です。</p></div>
+        <div class="discovered-count"><small>AUTO DISCOVERED</small><strong>{discovered.length}</strong><span>商品</span></div>
+      </div>
+      <div class="discovered-policy"><span>✓ 信頼ブランド</span><span>✓ 楽天レビュー4.0以上</span><span>✓ 10件以上のレビュー</span><span>✓ アクセサリ・中古・セット品を除外</span></div>
+      <div class="discovered-grid">{discovered.map((product) => <DiscoveredProductCard product={product} />)}</div>
+      <p class="discovered-footnote">自動発掘商品は、仕様確認が完了するまで防犯診断・条件比較・ウチマモ独自評価の対象外です。</p>
+    </div>
+  </section>}
 
   <div class="compare-bar" id="compareBar" hidden>
     <div class="compare-summary"><div class="compare-label"><small>COMPARE LIST</small><strong><span id="compareCount">0</span> / 3 商品</strong></div><div id="compareItems" class="compare-items"></div></div>
@@ -158,8 +174,9 @@ const latestCheckedLabel = latestCheckedAt ? new Intl.DateTimeFormat('ja-JP', { 
   .finder-hero{padding:64px 0 46px;background:#f5f6f4;border-bottom:1px solid var(--slate-200)}.hero-inner{display:flex;align-items:end;justify-content:space-between;gap:50px}.finder-hero h1{font-size:clamp(2.25rem,4.7vw,3.75rem);line-height:1.12;letter-spacing:-.055em;margin:9px 0 14px;color:var(--navy-950)}.finder-hero p{margin:0;color:var(--slate-700);max-width:680px}.hero-meta{min-width:300px;padding-left:28px;border-left:1px solid var(--slate-300);display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}.hero-meta span small{display:block;color:var(--slate-500);font-size:.58rem}.hero-meta span strong{display:block;color:var(--navy-950);font-size:.78rem;margin-top:2px}.hero-meta a{grid-column:1/-1;color:var(--blue-700);font-size:.65rem;font-weight:850;margin-top:4px}
   .finder-section{padding:42px 0 88px}.finder-layout{display:grid;grid-template-columns:265px 1fr;gap:34px;align-items:start}.filters{position:sticky;top:94px;background:#fff;border:1px solid var(--slate-200);border-radius:15px;padding:20px}.filter-head{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:16px;border-bottom:1px solid var(--slate-200)}.filter-head span{display:block;color:var(--slate-500);font-size:.52rem;font-weight:900;letter-spacing:.13em}.filter-head strong{display:block;color:var(--navy-950);font-size:.9rem;margin-top:2px}.filter-head button{border:0;background:none;color:var(--blue-700);font-size:.62rem;font-weight:800;cursor:pointer;padding:4px}.filter-block{display:grid;gap:6px;margin-top:17px}.filter-block label,.filters legend{color:var(--slate-700);font-size:.66rem;font-weight:850}.filters select{width:100%;border:1px solid var(--slate-300);background:#fff;border-radius:9px;padding:9px 10px;color:var(--slate-900);font-size:.74rem}.filters fieldset{border:0;padding:0;margin:20px 0 0}.filters legend{margin-bottom:8px}.check{display:flex;align-items:center;gap:8px;padding:7px 0;color:var(--slate-700);font-size:.72rem;cursor:pointer}.check input{accent-color:var(--navy-900)}.filter-note{margin-top:20px;padding:13px;border-radius:11px;background:#f4f6f7;display:grid;grid-template-columns:28px 1fr;gap:9px}.filter-note>span{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:var(--navy-900);color:#fff;font-size:.7rem;font-weight:900}.filter-note strong{font-size:.68rem}.filter-note p{font-size:.61rem;color:var(--slate-500);margin:2px 0 6px}.filter-note a{font-size:.62rem;color:var(--blue-700);font-weight:900}
   .results-head{min-height:58px;display:flex;justify-content:space-between;align-items:end;padding-bottom:14px;border-bottom:1px solid var(--slate-200);margin-bottom:14px}.results-head .eyebrow{font-size:.56rem}.results-head strong{display:block;font-size:.9rem;color:var(--slate-700);margin-top:2px}.results-head strong b{font-size:1.55rem;color:var(--navy-950);margin-right:3px}.sort-note{display:flex;align-items:center;gap:10px;color:var(--slate-500);font-size:.6rem}.sort-note a{color:var(--blue-700);font-weight:900}.active-filters{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}.active-filters span{background:var(--blue-100);color:var(--blue-700);border-radius:999px;padding:5px 9px;font-size:.6rem;font-weight:800}.products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.empty{padding:60px 24px;text-align:center}.empty>span{width:48px;height:48px;border:1px solid var(--slate-300);border-radius:14px;display:grid;place-items:center;margin:0 auto 12px;color:var(--slate-500)}.empty strong{display:block;font-size:1.05rem}.empty p{color:var(--slate-500);font-size:.76rem}.empty button{width:auto}
+  .discovered-section{padding:72px 0 90px;background:#f5f6f4;border-top:1px solid var(--slate-200)}.discovered-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:18px}.discovered-head h2{margin:6px 0 8px;color:var(--navy-950);font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.04em}.discovered-head p{max-width:760px;margin:0;color:var(--slate-600);font-size:.76rem;line-height:1.7}.discovered-count{min-width:120px;text-align:right}.discovered-count small{display:block;font-size:.5rem;letter-spacing:.1em;color:var(--slate-500);font-weight:900}.discovered-count strong{font-size:2.25rem;color:var(--navy-950);line-height:1}.discovered-count span{font-size:.62rem;color:var(--slate-500);margin-left:3px}.discovered-policy{display:flex;gap:8px;flex-wrap:wrap;padding:12px 0 22px;border-top:1px solid var(--slate-300)}.discovered-policy span{font-size:.58rem;font-weight:800;color:var(--green-700);background:#fff;border:1px solid var(--slate-200);border-radius:999px;padding:5px 9px}.discovered-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.discovered-footnote{margin:16px 0 0;color:var(--slate-500);font-size:.6rem;line-height:1.6}
   .compare-bar{position:fixed;z-index:65;left:50%;bottom:18px;transform:translateX(-50%);width:min(920px,calc(100% - 32px));background:rgba(9,21,34,.97);color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:15px;padding:10px 11px 10px 16px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:var(--shadow-float);backdrop-filter:blur(14px)}.compare-bar[hidden]{display:none}.compare-summary{display:flex;align-items:center;gap:16px;min-width:0}.compare-label{min-width:76px}.compare-label small{display:block;color:#91a4b6;font-size:.48rem;letter-spacing:.1em}.compare-label strong{font-size:.72rem}.compare-items{display:flex;gap:7px;min-width:0}.compare-mini{max-width:170px;height:42px;display:grid;grid-template-columns:34px 1fr 20px;align-items:center;gap:6px;background:rgba(255,255,255,.07);border-radius:9px;padding:4px;color:#dce5ed}.compare-mini img,.mini-placeholder{width:34px;height:34px;border-radius:7px;object-fit:contain;background:#fff}.mini-placeholder{display:grid;place-items:center;color:var(--navy-900);font-size:.65rem;font-weight:900}.compare-mini>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.58rem;font-weight:750}.compare-mini button{border:0;background:none;color:#91a4b6;cursor:pointer;font-size:.85rem;padding:0}.compare-bar .btn-primary{background:#fff;color:var(--navy-900);box-shadow:none;min-height:42px;font-size:.68rem;white-space:nowrap}
-  @media(max-width:1100px){.products-grid{grid-template-columns:repeat(2,1fr)}.hero-inner{align-items:start}.hero-meta{min-width:260px}}
-  @media(max-width:800px){.hero-inner{display:block}.hero-meta{margin-top:28px;padding:0;border:0;max-width:520px}.finder-layout{grid-template-columns:1fr}.filters{position:static}.products-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:640px){.finder-hero{padding:38px 0 30px}.finder-hero h1{font-size:2.35rem}.finder-section{padding-top:24px}.filters{padding:15px}.products-grid{grid-template-columns:1fr}.sort-note>span{display:none}.compare-bar{bottom:82px;width:calc(100% - 20px);padding:9px 9px 9px 12px}.compare-items{display:none}.compare-summary{gap:8px}.compare-bar .btn-primary{width:auto;padding-inline:14px}.compare-label{min-width:72px}}
+  @media(max-width:1100px){.products-grid,.discovered-grid{grid-template-columns:repeat(2,1fr)}.hero-inner{align-items:start}.hero-meta{min-width:260px}}
+  @media(max-width:800px){.hero-inner{display:block}.hero-meta{margin-top:28px;padding:0;border:0;max-width:520px}.finder-layout{grid-template-columns:1fr}.filters{position:static}.products-grid,.discovered-grid{grid-template-columns:repeat(2,1fr)}.discovered-head{align-items:start}.discovered-count{min-width:90px}}
+  @media(max-width:640px){.finder-hero{padding:38px 0 30px}.finder-hero h1{font-size:2.35rem}.finder-section{padding-top:24px}.filters{padding:15px}.products-grid,.discovered-grid{grid-template-columns:1fr}.sort-note>span{display:none}.discovered-section{padding:48px 0 70px}.discovered-head{display:block}.discovered-count{text-align:left;margin-top:16px}.compare-bar{bottom:82px;width:calc(100% - 20px);padding:9px 9px 9px 12px}.compare-items{display:none}.compare-summary{gap:8px}.compare-bar .btn-primary{width:auto;padding-inline:14px}.compare-label{min-width:72px}}
 </style>

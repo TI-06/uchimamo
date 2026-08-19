@@ -1,0 +1,37 @@
+---
+import type { Product } from '../types/product';
+import type { RakutenCacheItem } from '../lib/rakuten';
+
+interface Props { product: Product; rakuten?: RakutenCacheItem; compact?: boolean }
+const { product, rakuten, compact = false } = Astro.props;
+const price = rakuten?.price ? `¥${rakuten.price.toLocaleString('ja-JP')}` : '価格を同期後に表示';
+---
+<article class:list={['product-card', { compact }]} data-product-card data-id={product.id} data-category={product.category} data-place={product.places.join(',')} data-no-drilling={String(product.installation.noDrilling)} data-no-wifi={String(!product.connectivity.wifiRequired)} data-solar={String(product.power.solar)} data-monthly-free={String(!product.monthlyFeeRequired)}>
+  <div class="visual">
+    {rakuten?.imageUrl ? <img src={rakuten.imageUrl} alt={rakuten.name || product.name} loading="lazy" width="300" height="220" /> : <div class="visual-placeholder"><span>{product.brand.slice(0, 2)}</span><small>商品画像は楽天同期後に表示</small></div>}
+    <span class="score">{product.score}<small>/100</small></span>
+  </div>
+  <div class="body">
+    <div class="brand">{product.brand}</div>
+    <h3><a href={`/products/${product.id}/`}>{product.name}</a></h3>
+    <p>{product.description}</p>
+    <div class="features">
+      {product.installation.noDrilling && <span class="chip chip-green">工事不要</span>}
+      {!product.connectivity.wifiRequired && <span class="chip chip-blue">Wi-Fi不要</span>}
+      {product.power.solar && <span class="chip">ソーラー</span>}
+      {!product.monthlyFeeRequired && <span class="chip">月額不要</span>}
+    </div>
+    <div class="price"><small>楽天市場</small><strong>{price}</strong>{rakuten?.reviewAverage && <span>★ {rakuten.reviewAverage.toFixed(1)} ({rakuten.reviewCount ?? 0})</span>}</div>
+    <div class="actions">
+      <a class="btn-secondary" href={`/products/${product.id}/`}>詳しく見る</a>
+      {rakuten?.affiliateUrl ? <a class="btn-primary" href={rakuten.affiliateUrl} target="_blank" rel="nofollow sponsored noopener">楽天で見る</a> : <span class="sync-note">楽天連携待ち</span>}
+    </div>
+    <label class="compare-check"><input type="checkbox" data-compare-checkbox value={product.id} /> 比較リストに追加</label>
+  </div>
+</article>
+<style>
+  .product-card{overflow:hidden;background:#fff;border:1px solid var(--slate-200);border-radius:20px;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}.product-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+  .visual{height:210px;position:relative;background:linear-gradient(145deg,#eef6ff,#f7fbff);display:grid;place-items:center;overflow:hidden}.visual img{width:100%;height:100%;object-fit:contain;background:#fff;padding:16px}.visual-placeholder{display:grid;place-items:center;gap:5px;color:var(--slate-500)}.visual-placeholder span{width:70px;height:70px;border-radius:22px;display:grid;place-items:center;background:white;border:1px solid var(--slate-200);font-size:1.25rem;font-weight:900;color:var(--navy-900);box-shadow:var(--shadow-sm)}.visual-placeholder small{font-size:.7rem}
+  .score{position:absolute;right:12px;top:12px;background:var(--navy-900);color:white;border-radius:10px;padding:6px 9px;font-size:.85rem;font-weight:900}.score small{font-size:.55rem;color:#b9cae0}.body{padding:19px}.brand{color:var(--blue-600);font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.body h3{margin:3px 0 7px;font-size:1.06rem;line-height:1.45;color:var(--navy-950)}.body h3 a:hover{color:var(--blue-600)}.body p{margin:0 0 12px;color:var(--slate-700);font-size:.8rem;min-height:2.7em}.features{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}.features .chip{font-size:.66rem;min-height:27px;padding:0 8px}.price{border-top:1px solid var(--slate-200);padding-top:13px;display:grid;grid-template-columns:1fr auto;align-items:end}.price small{grid-column:1/-1;color:var(--slate-500);font-size:.65rem}.price strong{font-size:1.08rem;color:var(--navy-950)}.price span{font-size:.66rem;color:var(--orange-600)}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.actions a{min-height:42px;padding:0 10px;font-size:.76rem}.sync-note{min-height:42px;border-radius:12px;background:var(--slate-100);display:grid;place-items:center;color:var(--slate-500);font-size:.7rem;font-weight:800}.compare-check{display:flex;align-items:center;gap:7px;margin-top:12px;color:var(--slate-700);font-size:.72rem;font-weight:700}.compare-check input{accent-color:var(--blue-600)}
+  .compact .visual{height:160px}
+</style>

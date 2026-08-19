@@ -4,11 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import productsJson from '../data/products.json';
 import cacheJson from '../data/rakuten-cache.json';
+import discoveredJson from '../data/discovered-products.json';
 import type { Product } from '../types/product';
+import type { DiscoveredProduct } from '../types/discovered-product';
 import type { RakutenCacheItem } from '../lib/rakuten';
 
 const products = productsJson as Product[];
 const cache = cacheJson as Record<string, RakutenCacheItem>;
+const discoveredProducts = discoveredJson as DiscoveredProduct[];
 const places = [
   { label:'玄関', slug:'entrance', desc:'スマートロック・ドア周り', icon:'<svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20H4v-9.5Z"/><path d="M9 20v-7h6v7"/></svg>' },
   { label:'窓', slug:'window', desc:'開閉センサー・補助錠', icon:'<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M12 4v16M4 12h16"/></svg>' },
@@ -89,7 +92,7 @@ const latestCheckedLabel = latestCheckedAt ? new Intl.DateTimeFormat('ja-JP', { 
 
   <section class="trust-strip">
     <div class="site-container trust-grid">
-      <div><small>CATALOG</small><strong>{products.length}商品を比較対象</strong><span>カメラ・鍵・センサーなど</span></div>
+      <div><small>CATALOG</small><strong>編集済み {products.length}商品</strong><span>{discoveredProducts.length > 0 ? `+ 自動発掘 ${discoveredProducts.length}商品` : '自動発掘は毎日更新'}</span></div>
       <div><small>UPDATED</small><strong>{latestCheckedLabel}</strong><span>楽天商品情報を定期確認</span></div>
       <div><small>TRANSPARENT</small><strong>評価軸を公開</strong><a href="/about/">評価方法を見る →</a></div>
       <div><small>PR POLICY</small><strong>広告掲載方針を明示</strong><a href="/affiliate-policy/">掲載方針を見る →</a></div>

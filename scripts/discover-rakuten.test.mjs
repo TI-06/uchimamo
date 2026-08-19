@@ -50,6 +50,10 @@ describe('curated duplicate detection', () => {
     expect(matchesCuratedModel('SwitchBot ロックUltra 顔認証パッドセット', 'smart-lock', curated)).toBe(true);
   });
 
+  it('空白や記号の差があっても既存モデルを重複扱いにする', () => {
+    expect(matchesCuratedModel('SwitchBot スマートロック Ultra 顔認証パッドPro', 'smart-lock', curated)).toBe(true);
+  });
+
   it('別モデルは重複扱いにしない', () => {
     expect(matchesCuratedModel('Tapo C530WS 防犯カメラ', 'camera', curated)).toBe(false);
   });

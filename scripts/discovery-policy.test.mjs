@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { detectBrand, evaluateCandidate, scoreCandidate } from './discovery-policy.mjs';
+import { detectBrand, evaluateCandidate, extractModelIdentity, scoreCandidate } from './discovery-policy.mjs';
 
 const cameraRule = {
   category: 'camera',
@@ -39,14 +39,31 @@ describe('discovery policy', () => {
     expect(detectBrand('Tapo C425 防犯カメラ', '')).toBe('Tapo');
   });
 
+  it('製品型番を抽出しIP等の仕様値は型番扱いしない', () => {
+    expect(extractModelIdentity('Tapo C530WS 防犯カメラ IP66 4MP')).toBe('C530WS');
+    expect(extractModelIdentity('Tapo 防犯カメラ IP66 4MP 2K')).toBe('');
+  });
+
   it('ブランド不明商品は自動公開しない', () => {
-    const result = evaluateCandidate({ ...baseItem, itemName: '無名メーカー 防犯カメラ', shopName: '無名ショップ' }, cameraRule);
+    const result = evaluateCandidate({ ...baseItem, itemName: '無名メーカー C900 防犯カメラ', shopName: '無名ショップ' }, cameraRule);
     expect(result.status).toBe('candidate');
     expect(result.reasons).toContain('trusted-brand-required');
   });
 
-  it('4.0点・10レビュー・trusted brand・必須語一致なら公開基準を満たす', () => {
-    const result = evaluateCandidate(baseItem, cameraRule);
+  it('型番不明の汎用商品ページはレビューが高くても自動公開しない', () => {
+    const result = evaluateCandidate({
+      ...baseItem,
+      itemName: 'TP-Link Tapo 防犯カメラ 屋外 360° 2K 4MP IP66',
+      shopName: 'TP-Linkダイレクト 楽天市場店',
+      reviewAverage: 4.8,
+      reviewCount: 2000
+    }, cameraRule);
+    expect(result.status).toBe('candidate');
+    expect(result.reasons).toContain('model-identity-required');
+  });
+
+  it('型番あり・4.0点・10レビュー・trusted brand・必須語一致なら公開基準を満たす', () => {
+    const result = evaluateCandidate({ ...baseItem, itemName: 'Tapo C530WS 防犯カメラ 屋外', shopName: 'TP-Linkダイレクト' }, cameraRule);
     expect(result.qualityScore).toBeGreaterThanOrEqual(80);
     expect(result.status).toBe('published');
   });

@@ -1,11 +1,11 @@
 {
   "ok": true,
-  "checkedAt": "2026-08-19T14:41:39.483Z",
+  "checkedAt": "2026-08-19T14:47:56.570Z",
   "endpointVersion": "2026-07-01",
   "enabledCount": 30,
-  "successCount": 23,
-  "skippedCount": 4,
-  "failureCount": 3,
+  "successCount": 27,
+  "skippedCount": 3,
+  "failureCount": 0,
   "needsReview": [
     {
       "productId": "aqara-smart-lock-u200",
@@ -30,21 +30,12 @@
         "Aqara",
         "FP2"
       ]
-    },
-    {
-      "productId": "nomura-onetouch-small-n1184",
-      "reason": "fixed-item-not-found",
-      "expectedItemCode": "anshin-hiroba:0110079",
-      "modelTokens": [
-        "N-1184"
-      ]
     }
   ],
   "skipped": [
     "aqara-smart-lock-u200",
     "aqara-door-window-p2",
-    "aqara-presence-fp2",
-    "nomura-onetouch-small-n1184"
+    "aqara-presence-fp2"
   ],
   "skippedCandidates": [
     {
@@ -73,29 +64,7 @@
         "FP2"
       ],
       "candidates": []
-    },
-    {
-      "productId": "nomura-onetouch-small-n1184",
-      "keyword": "ノムラテック N-1184 ワンタッチ シマリ",
-      "expectedItemCode": "anshin-hiroba:0110079",
-      "modelTokens": [
-        "N-1184"
-      ],
-      "candidates": []
     }
   ],
-  "errors": [
-    {
-      "productId": "switchbot-lock-ultra-standalone",
-      "message": "HTTP 400: itemCode is not valid"
-    },
-    {
-      "productId": "sesame-5",
-      "message": "HTTP 400: keyword is not valid"
-    },
-    {
-      "productId": "sesame-6-pro",
-      "message": "HTTP 400: keyword is not valid"
-    }
-  ]
+  "errors": []
 }

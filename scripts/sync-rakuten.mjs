@@ -24,34 +24,30 @@ try {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const unwrap = (row) => row?.Item ?? row?.item ?? row;
+const extractRows = (data) => {
+  const raw = Array.isArray(data?.Items) ? data.Items : Array.isArray(data?.items) ? data.items : [];
+  return raw.map(unwrap).filter(Boolean);
+};
 const firstImageUrl = (list) => {
   const first = Array.isArray(list) ? list[0] : undefined;
   if (typeof first === 'string') return first;
   return first?.imageUrl ?? '';
 };
-const describeValue = (value) => {
-  if (Array.isArray(value)) {
-    const first = value[0];
-    return {
-      type: 'array',
-      length: value.length,
-      firstKeys: first && typeof first === 'object' ? Object.keys(first).slice(0, 20) : []
-    };
-  }
-  if (value === null) return { type: 'null' };
-  if (typeof value === 'object') return { type: 'object', keys: Object.keys(value).slice(0, 20) };
-  return { type: typeof value };
-};
+
+function normalizeText(value) {
+  return String(value ?? '').normalize('NFKC').toLowerCase().replace(/候補/g, '').replace(/[^\p{L}\p{N}]+/gu, '');
+}
 
 function candidateScore(itemName, product) {
   if (!itemName) return 0;
   if (product.rakuten.itemCode) return 1;
-  const tokens = `${product.brand} ${product.name}`
+  const item = normalizeText(itemName);
+  const tokens = `${product.rakuten.keyword} ${product.brand} ${product.name}`
     .split(/[\s・]+/)
-    .map((token) => token.trim())
-    .filter((token) => token.length >= 2 && !['候補', '楽天市場から照合'].includes(token));
+    .map(normalizeText)
+    .filter((token, index, all) => token.length >= 1 && token !== '楽天市場から照合' && all.indexOf(token) === index);
   if (tokens.length === 0) return 0.5;
-  return tokens.filter((token) => itemName.toLowerCase().includes(token.toLowerCase())).length / tokens.length;
+  return tokens.filter((token) => item.includes(token)).length / tokens.length;
 }
 
 async function responseError(response) {
@@ -77,7 +73,6 @@ let failureCount = 0;
 const errors = [];
 const skipped = [];
 const skippedCandidates = [];
-const responseShapes = [];
 
 for (const [index, product] of products.entries()) {
   if (!product.rakuten?.enabled) continue;
@@ -104,21 +99,13 @@ for (const [index, product] of products.entries()) {
     if (!response.ok) throw new Error(await responseError(response));
 
     const data = await response.json();
-    responseShapes.push({
-      productId: product.id,
-      topLevelKeys: data && typeof data === 'object' ? Object.keys(data).slice(0, 30) : [],
-      fields: data && typeof data === 'object'
-        ? Object.fromEntries(Object.entries(data).slice(0, 20).map(([key, value]) => [key, describeValue(value)]))
-        : {}
-    });
-
-    const rows = Array.isArray(data.items) ? data.items.map(unwrap) : [];
+    const rows = extractRows(data);
     const ranked = rows
       .map((item) => ({ item, score: candidateScore(item?.itemName ?? '', product) }))
       .sort((a, b) => b.score - a.score);
     const best = ranked[0];
 
-    if (!best || best.score < 0.35) {
+    if (!best || best.score < 0.3) {
       skippedCount += 1;
       skipped.push(product.id);
       skippedCandidates.push({
@@ -170,7 +157,6 @@ const status = {
   failureCount,
   skipped,
   skippedCandidates,
-  responseShapes,
   errors
 };
 
@@ -178,7 +164,7 @@ await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
 console.log(`楽天同期サマリー: enabled=${enabledCount}, success=${successCount}, skip=${skippedCount}, error=${failureCount}`);
 
 if (!ok) {
-  console.error('楽天同期に成功した商品が0件です。rakuten-sync-status.json のレスポンス構造を確認してください。');
+  console.error('楽天同期に成功した商品が0件です。rakuten-sync-status.json の候補商品を確認してください。');
   process.exit(1);
 }
 

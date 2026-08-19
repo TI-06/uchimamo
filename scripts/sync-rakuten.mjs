@@ -1,4 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
+import { candidateScore, selectRakutenCandidate } from './rakuten-match.mjs';
 
 const ENDPOINT = 'https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701';
 const PRODUCT_PATH = new URL('../src/data/products.json', import.meta.url);
@@ -34,22 +35,6 @@ const firstImageUrl = (list) => {
   return first?.imageUrl ?? '';
 };
 
-function normalizeText(value) {
-  return String(value ?? '').normalize('NFKC').toLowerCase().replace(/候補/g, '').replace(/[^\p{L}\p{N}]+/gu, '');
-}
-
-function candidateScore(itemName, product) {
-  if (!itemName) return 0;
-  if (product.rakuten.itemCode) return 1;
-  const item = normalizeText(itemName);
-  const tokens = `${product.rakuten.keyword} ${product.brand} ${product.name}`
-    .split(/[\s・]+/)
-    .map(normalizeText)
-    .filter((token, index, all) => token.length >= 1 && token !== '楽天市場から照合' && all.indexOf(token) === index);
-  if (tokens.length === 0) return 0.5;
-  return tokens.filter((token) => item.includes(token)).length / tokens.length;
-}
-
 async function responseError(response) {
   let detail = '';
   try {
@@ -73,6 +58,7 @@ let failureCount = 0;
 const errors = [];
 const skipped = [];
 const skippedCandidates = [];
+const needsReview = [];
 
 for (const [index, product] of products.entries()) {
   if (!product.rakuten?.enabled) continue;
@@ -100,18 +86,38 @@ for (const [index, product] of products.entries()) {
 
     const data = await response.json();
     const rows = extractRows(data);
-    const ranked = rows
+    const selected = selectRakutenCandidate(rows, product);
+    const fallbackRanked = rows
       .map((item) => ({ item, score: candidateScore(item?.itemName ?? '', product) }))
       .sort((a, b) => b.score - a.score);
-    const best = ranked[0];
 
-    if (!best || best.score < 0.3) {
+    if (selected.needsReview) {
+      skippedCount += 1;
+      skipped.push(product.id);
+      needsReview.push({
+        productId: product.id,
+        reason: 'fixed-item-not-found',
+        expectedItemCode: product.rakuten.itemCode
+      });
+      skippedCandidates.push({
+        productId: product.id,
+        keyword: product.rakuten.keyword,
+        expectedItemCode: product.rakuten.itemCode,
+        candidates: fallbackRanked.slice(0, 5).map(({ item, score }) => ({
+          itemCode: String(item?.itemCode ?? ''),
+          name: String(item?.itemName ?? '').slice(0, 180),
+          price: Number(item?.itemPrice ?? 0),
+          score: Number(score.toFixed(3))
+        }))
+      });
+      console.warn(`[review] ${product.id}: 固定商品 ${product.rakuten.itemCode} が見つからないため、別商品へ切り替えませんでした`);
+    } else if (!selected.item || selected.score < 0.3) {
       skippedCount += 1;
       skipped.push(product.id);
       skippedCandidates.push({
         productId: product.id,
         keyword: product.rakuten.keyword,
-        candidates: ranked.slice(0, 5).map(({ item, score }) => ({
+        candidates: fallbackRanked.slice(0, 5).map(({ item, score }) => ({
           itemCode: String(item?.itemCode ?? ''),
           name: String(item?.itemName ?? '').slice(0, 180),
           price: Number(item?.itemPrice ?? 0),
@@ -120,7 +126,7 @@ for (const [index, product] of products.entries()) {
       });
       console.warn(`[skip] ${product.id}: 一致度の高い商品が見つかりませんでした`);
     } else {
-      const item = best.item;
+      const item = selected.item;
       cache[product.id] = {
         itemCode: item.itemCode ?? '',
         name: item.itemName ?? product.name,
@@ -155,13 +161,14 @@ const status = {
   successCount,
   skippedCount,
   failureCount,
+  needsReview,
   skipped,
   skippedCandidates,
   errors
 };
 
 await writeFile(STATUS_PATH, `${JSON.stringify(status, null, 2)}\n`, 'utf8');
-console.log(`楽天同期サマリー: enabled=${enabledCount}, success=${successCount}, skip=${skippedCount}, error=${failureCount}`);
+console.log(`楽天同期サマリー: enabled=${enabledCount}, success=${successCount}, skip=${skippedCount}, review=${needsReview.length}, error=${failureCount}`);
 
 if (!ok) {
   console.error('楽天同期に成功した商品が0件です。rakuten-sync-status.json の候補商品を確認してください。');

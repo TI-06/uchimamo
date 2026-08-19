@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
 import productsJson from '../../data/products.json';
 import cacheJson from '../../data/rakuten-cache.json';
 import type { Product } from '../../types/product';
@@ -13,37 +14,77 @@ export function getStaticPaths() {
 interface Props { product: Product }
 const { product } = Astro.props;
 const rakuten = cache[product.id];
+const checkedAt = rakuten?.fetchedAt ? new Intl.DateTimeFormat('ja-JP', { year:'numeric', month:'long', day:'numeric' }).format(new Date(rakuten.fetchedAt)) : undefined;
+const placeNames: Record<string,string> = { entrance:'玄関', window:'窓', parking:'駐車場', garden:'庭', backdoor:'勝手口', indoor:'室内' };
 const labels = [
-  ['工事・穴あけ不要', product.installation.noDrilling], ['DIY設置', product.installation.diy], ['屋外対応', product.installation.outdoor],
-  ['Wi-Fi不要', !product.connectivity.wifiRequired], ['バッテリー', product.power.battery], ['ソーラー', product.power.solar], ['月額不要', !product.monthlyFeeRequired]
-];
+  ['工事・穴あけ不要', product.installation.noDrilling, '設置'], ['DIY設置', product.installation.diy, '設置'], ['屋外対応', product.installation.outdoor, '設置'],
+  ['Wi-Fi不要', !product.connectivity.wifiRequired, '通信'], ['LTE対応', product.connectivity.lteSupported, '通信'], ['バッテリー', product.power.battery, '電源'], ['ソーラー', product.power.solar, '電源'], ['月額不要', !product.monthlyFeeRequired, '維持費']
+] as const;
+const breakdown = product.editorial?.scoreBreakdown ?? { installation: product.score, features: product.score, cost: product.score, maintenance: product.score };
+const breakdownRows = [['設置しやすさ',breakdown.installation],['機能性',breakdown.features],['コスト',breakdown.cost],['維持しやすさ',breakdown.maintenance]] as const;
+const alternatives = products.filter((item) => item.id !== product.id && (item.category === product.category || item.places.some((place) => product.places.includes(place)))).slice(0,2);
 ---
 <BaseLayout title={`${product.name}｜ウチマモ`} description={product.description}>
   <div class="site-container breadcrumb"><a href="/">TOP</a><span>›</span><a href="/products/">商品を探す</a><span>›</span><b>{product.name}</b></div>
-  <section class="detail">
+
+  <section class="detail-hero">
     <div class="site-container detail-grid">
-      <div class="media card">{rakuten?.imageUrl ? <img src={rakuten.imageUrl} alt={rakuten.name || product.name} /> : <div class="placeholder"><span>{product.brand.slice(0,2)}</span><small>楽天同期後に商品画像を表示</small></div>}</div>
+      <div class="media surface">{rakuten?.imageUrl ? <img src={rakuten.imageUrl} alt={rakuten.name || product.name} width="520" height="420" /> : <div class="placeholder"><span>{product.brand.slice(0,2)}</span><small>商品画像を確認中</small></div>}</div>
       <div class="info">
-        <div class="brand">{product.brand}</div><h1>{product.name}</h1><p class="lead">{product.description}</p>
-        <div class="fit"><div><small>ウチマモ適合スコア</small><strong>{product.score}</strong><span>/100</span></div><p>設置条件・使いやすさなど、ウチマモの選定軸で整理した目安です。</p></div>
-        <div class="chips">{product.features.map((feature) => <span class="chip chip-blue">{feature}</span>)}</div>
-        <div class="spec-grid">{labels.map(([label,value]) => <div class:list={['spec', { ok: value }]}><span>{value ? '✓' : '—'}</span><small>{label}</small></div>)}</div>
+        <div class="brand">{product.brand}</div>
+        <h1>{product.name}</h1>
+        <p class="lead">{product.description}</p>
+        <div class="verdict-inline"><span class="chip chip-gold">ウチマモの結論</span><strong>{product.editorial?.verdict ?? `${product.places.map((p) => placeNames[p]).join('・')}の防犯対策として比較したい候補です。`}</strong></div>
+        <div class="score-line"><div><small>ウチマモ評価</small><strong>{product.score}</strong><span>/100</span></div><p>設置性・機能・コスト・維持しやすさをウチマモの選定軸で整理した独自評価です。</p></div>
+        <div class="chips">{product.features.map((feature) => <span class="chip">{feature}</span>)}</div>
+        <div class="quick-actions"><a class="btn-secondary" href={`/compare/?ids=${product.id}`}>比較画面で見る</a><a class="text-link" href="/about/">評価方針を見る →</a></div>
       </div>
-      <aside class="buy-card card">
-        <span class="pr">PR</span><small>楽天市場</small><strong class="price">{rakuten?.price ? `¥${rakuten.price.toLocaleString('ja-JP')}` : '価格同期前'}</strong>
-        {rakuten?.reviewAverage && <div class="review">★ {rakuten.reviewAverage.toFixed(1)} <span>({rakuten.reviewCount ?? 0}件)</span></div>}
-        {rakuten?.shopName && <p>{rakuten.shopName}</p>}
-        {rakuten?.affiliateUrl ? <a class="btn-primary" href={rakuten.affiliateUrl} target="_blank" rel="nofollow sponsored noopener">楽天市場で最新価格を見る →</a> : <div class="pending">楽天APIを設定すると<br />アフィリエイトリンクが自動表示されます</div>}
+      <aside class="buy-card surface">
+        <div class="market-label"><span>PR</span><strong>楽天市場</strong></div>
+        <strong class="price">{rakuten?.price ? `¥${rakuten.price.toLocaleString('ja-JP')}` : '価格確認中'}</strong>
+        {rakuten?.reviewAverage != null && rakuten.reviewAverage > 0 && <div class="review"><small>楽天市場レビュー</small><strong>★ {rakuten.reviewAverage.toFixed(1)}</strong><span>({rakuten.reviewCount ?? 0}件)</span></div>}
+        {rakuten?.shopName && <div class="shop"><small>販売ショップ</small><span>{rakuten.shopName}</span></div>}
+        {checkedAt && <div class="checked"><small>商品情報</small><time datetime={rakuten?.fetchedAt}>{checkedAt}確認</time></div>}
+        {rakuten?.affiliateUrl ? <a class="btn-primary" href={rakuten.affiliateUrl} target="_blank" rel="nofollow sponsored noopener">楽天市場で最新価格を見る <span>→</span></a> : <div class="pending">楽天市場の商品情報を確認中です</div>}
         {product.asp?.url && <a class="btn-secondary" href={product.asp.url} target="_blank" rel="nofollow sponsored noopener">{product.asp.label}</a>}
-        <p class="buy-note">価格・在庫・仕様は販売ページで最新情報をご確認ください。</p>
+        <p class="buy-note">価格・在庫・セット内容・仕様は販売ページで最新情報をご確認ください。</p>
       </aside>
     </div>
   </section>
-  <section class="section section-soft"><div class="site-container"><span class="eyebrow">SUITABLE FOR</span><h2 class="section-title">こんな条件で比較したい人向け</h2><div class="target-grid">{product.targetUsers.map((target) => <div class="card"><span>✓</span><strong>{target}</strong><small>{product.places.map((p) => ({entrance:'玄関',window:'窓',parking:'駐車場',garden:'庭',backdoor:'勝手口',indoor:'室内'}[p])).join('・')}の対策候補</small></div>)}</div></div></section>
-  <section class="section"><div class="site-container next"><div><span class="eyebrow">NOT SURE?</span><h2 class="section-title">この商品が自宅に合うか迷ったら</h2><p>6つの条件から、別の商品も含めて候補を再計算できます。</p></div><a class="btn-primary" href="/diagnosis/">30秒で防犯診断 →</a></div></section>
+
+  <section class="section conclusion-section">
+    <div class="site-container editorial-grid">
+      <div class="editorial-copy"><span class="eyebrow">EDITOR'S VIEW</span><h2 class="section-title">この商品の見方</h2><p>{product.editorial?.verdict ?? product.description}</p><div class="best-for"><small>特に向いている人</small><strong>{product.editorial?.bestFor ?? product.targetUsers.join('・')}</strong></div></div>
+      <div class="pros-cons">
+        <div><span class="positive">PLUS</span><h3>良いところ</h3><ul>{(product.editorial?.pros ?? product.features).map((item) => <li>{item}</li>)}</ul></div>
+        <div><span class="caution">CHECK</span><h3>確認したいところ</h3><ul>{(product.editorial?.cautions ?? ['設置場所と商品仕様の適合を販売ページで確認してください。']).map((item) => <li>{item}</li>)}</ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="site-container score-layout">
+      <div><span class="eyebrow">UCHIMAMO SCORE</span><h2 class="section-title">評価の内訳</h2><p class="section-lead">総合点だけでなく、どこを評価しているかを4つの軸で表示します。楽天市場のレビューとは別の独自評価です。</p></div>
+      <div class="score-panel surface">{breakdownRows.map(([label,value]) => <div class="score-row"><div><strong>{label}</strong><span>{value}</span></div><div class="bar"><i style={`width:${value}%`}></i></div></div>)}</div>
+    </div>
+  </section>
+
+  <section class="section specs-section">
+    <div class="site-container"><span class="eyebrow">INSTALLATION & SPECS</span><h2 class="section-title">自宅で使えるかを確認</h2><div class="spec-grid">{labels.map(([label,value,group]) => <div class:list={['spec', { ok: value }]}><small>{group}</small><span>{value ? '✓ 対応' : '— 非対応 / 要確認'}</span><strong>{label}</strong></div>)}</div></div>
+  </section>
+
+  <section class="section section-soft"><div class="site-container"><span class="eyebrow">SUITABLE FOR</span><h2 class="section-title">こんな条件で比較したい人向け</h2><div class="target-grid">{product.targetUsers.map((target) => <div class="surface"><span>✓</span><strong>{target}</strong><small>{product.places.map((p) => placeNames[p]).join('・')}の対策候補</small></div>)}</div></div></section>
+
+  {alternatives.length > 0 && <section class="section"><div class="site-container"><div class="section-heading-row"><div><span class="eyebrow">ALTERNATIVES</span><h2 class="section-title">あわせて比較したい商品</h2></div><a href="/products/">商品一覧へ →</a></div><div class="alternative-grid">{alternatives.map((item) => <ProductCard product={item} rakuten={cache[item.id]} compact />)}</div></div></section>}
+
+  <section class="section final-cta"><div class="site-container next"><div><span class="eyebrow">NOT SURE?</span><h2>この商品が自宅に合うか、まだ迷ったら。</h2><p>住まい・設置場所・Wi-Fi・電源・予算から別商品も含めて候補を整理します。</p></div><a class="btn-primary" href="/diagnosis/">30秒で防犯診断 <span>→</span></a></div></section>
 </BaseLayout>
 <style>
-  .breadcrumb{padding-top:24px;display:flex;gap:8px;align-items:center;color:var(--slate-500);font-size:.68rem}.breadcrumb a:hover{color:var(--blue-600)}.breadcrumb b{font-weight:700;color:var(--slate-700);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.detail{padding:28px 0 72px}.detail-grid{display:grid;grid-template-columns:minmax(300px,1fr) 1.15fr 300px;gap:28px;align-items:start}.media{min-height:390px;display:grid;place-items:center;overflow:hidden;background:#f5f9fe}.media img{width:100%;max-height:390px;object-fit:contain;padding:26px}.placeholder{display:grid;place-items:center;gap:8px;color:var(--slate-500)}.placeholder span{width:100px;height:100px;border-radius:28px;background:white;border:1px solid var(--slate-200);box-shadow:var(--shadow-sm);display:grid;place-items:center;font-size:1.6rem;font-weight:900;color:var(--navy-900)}.placeholder small{font-size:.7rem}.brand{font-size:.72rem;font-weight:900;letter-spacing:.1em;color:var(--blue-600);text-transform:uppercase}.info h1{font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.25;letter-spacing:-.04em;color:var(--navy-950);margin:6px 0 12px}.lead{color:var(--slate-700);font-size:.92rem}.fit{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:16px;margin:22px 0;padding:15px 17px;background:var(--blue-100);border-radius:14px}.fit small{display:block;font-size:.6rem;color:var(--blue-600);font-weight:900}.fit strong{font-size:1.8rem;color:var(--navy-950)}.fit span{font-size:.65rem;color:var(--slate-500)}.fit p{font-size:.7rem;color:var(--slate-700);margin:0}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.spec{display:flex;align-items:center;gap:8px;padding:9px 11px;border:1px solid var(--slate-200);border-radius:10px;color:var(--slate-400)}.spec.ok{color:var(--green-600);background:#fbfffd}.spec small{color:var(--slate-700);font-size:.68rem;font-weight:700}.buy-card{position:sticky;top:94px;padding:21px}.pr{position:absolute;right:14px;top:12px;font-size:.55rem;color:var(--slate-500)}.buy-card>small{display:block;color:var(--slate-500);font-size:.68rem}.price{display:block;font-size:1.6rem;color:var(--navy-950);margin:4px 0}.review{color:var(--orange-600);font-weight:900;font-size:.8rem}.review span{color:var(--slate-500);font-weight:600}.buy-card>p{color:var(--slate-500);font-size:.68rem}.buy-card .btn-primary,.buy-card .btn-secondary{width:100%;margin-top:10px;font-size:.76rem;padding-inline:8px}.pending{margin-top:12px;padding:14px;background:var(--slate-100);border-radius:11px;text-align:center;color:var(--slate-500);font-size:.67rem;font-weight:700}.buy-note{border-top:1px solid var(--slate-200);padding-top:12px}.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}.target-grid>div{padding:18px;display:grid;grid-template-columns:30px 1fr;gap:3px 8px;align-items:center}.target-grid span{grid-row:1/3;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--green-100);color:var(--green-600);font-weight:900}.target-grid strong{font-size:.84rem}.target-grid small{color:var(--slate-500);font-size:.65rem}.next{display:flex;justify-content:space-between;align-items:center;gap:30px}.next p{color:var(--slate-700)}
-  @media(max-width:1050px){.detail-grid{grid-template-columns:1fr 1.2fr}.buy-card{grid-column:1/-1;position:static;display:grid;grid-template-columns:1fr auto;gap:6px 20px}.buy-card .btn-primary,.buy-card .btn-secondary{grid-column:2;min-width:260px}.buy-card .price,.buy-card .review,.buy-card>p{grid-column:1}.pending{grid-column:2;grid-row:1/4}}
-  @media(max-width:700px){.detail{padding-bottom:45px}.detail-grid{grid-template-columns:1fr}.media{min-height:280px}.info h1{font-size:2rem}.buy-card{display:block}.buy-card .btn-primary,.buy-card .btn-secondary{min-width:0}.target-grid{grid-template-columns:1fr}.next{display:block}.next .btn-primary{margin-top:18px}}
+  .breadcrumb{padding-top:22px;display:flex;gap:8px;align-items:center;color:var(--slate-500);font-size:.62rem}.breadcrumb a:hover{color:var(--blue-700)}.breadcrumb b{font-weight:700;color:var(--slate-700);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.detail-hero{padding:28px 0 76px}.detail-grid{display:grid;grid-template-columns:minmax(320px,.95fr) 1.1fr 300px;gap:30px;align-items:start}.media{min-height:410px;display:grid;place-items:center;overflow:hidden;background:#fff}.media img{width:100%;height:410px;object-fit:contain;padding:30px}.placeholder{display:grid;place-items:center;gap:8px;color:var(--slate-500)}.placeholder span{width:90px;height:90px;border-radius:20px;background:var(--warm-50);border:1px solid var(--slate-200);display:grid;place-items:center;font-size:1.5rem;font-weight:900;color:var(--navy-900)}.brand{font-size:.66rem;font-weight:900;letter-spacing:.12em;color:var(--blue-700);text-transform:uppercase}.info h1{font-size:clamp(2rem,3.3vw,2.85rem);line-height:1.2;letter-spacing:-.045em;color:var(--navy-950);margin:6px 0 12px}.lead{color:var(--slate-700);font-size:.88rem}.verdict-inline{border-block:1px solid var(--slate-200);padding:16px 0;margin:20px 0}.verdict-inline strong{display:block;color:var(--navy-950);font-size:.82rem;line-height:1.65;margin-top:8px}.score-line{display:grid;grid-template-columns:115px 1fr;gap:15px;align-items:center}.score-line>div{border-right:1px solid var(--slate-200)}.score-line small{display:block;color:var(--slate-500);font-size:.56rem;font-weight:800}.score-line strong{font-size:1.8rem;color:var(--navy-950)}.score-line span{font-size:.6rem;color:var(--slate-500)}.score-line p{font-size:.65rem;color:var(--slate-500);margin:0}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0}.quick-actions{display:flex;align-items:center;gap:15px}.quick-actions .btn-secondary{min-height:40px;font-size:.68rem}.text-link{color:var(--blue-700);font-size:.64rem;font-weight:850}
+  .buy-card{position:sticky;top:94px;padding:20px}.market-label{display:flex;align-items:center;gap:7px}.market-label span{font-size:.48rem;border:1px solid var(--slate-300);border-radius:4px;padding:1px 4px;color:var(--slate-500)}.market-label strong{font-size:.68rem;color:var(--slate-700)}.price{display:block;font-size:1.65rem;color:var(--navy-950);margin:7px 0 10px;letter-spacing:-.025em}.review{padding:10px 0;border-block:1px solid var(--slate-200);display:grid;grid-template-columns:1fr auto;align-items:end}.review small{grid-column:1/-1;color:var(--slate-500);font-size:.56rem}.review strong{color:var(--orange-600);font-size:.82rem}.review span{color:var(--slate-500);font-size:.6rem}.shop,.checked{display:flex;justify-content:space-between;gap:10px;padding-top:10px;font-size:.6rem}.shop small,.checked small{color:var(--slate-500)}.shop span,.checked time{text-align:right;color:var(--slate-700);font-weight:700}.buy-card .btn-primary,.buy-card .btn-secondary{width:100%;margin-top:13px;font-size:.7rem;padding-inline:8px}.pending{margin-top:12px;padding:13px;background:var(--slate-100);border-radius:10px;text-align:center;color:var(--slate-500);font-size:.64rem;font-weight:700}.buy-note{border-top:1px solid var(--slate-200);padding-top:11px;margin:13px 0 0;color:var(--slate-500);font-size:.58rem}
+  .conclusion-section{border-top:1px solid var(--slate-200);background:#fff}.editorial-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}.editorial-copy>p{color:var(--slate-700);font-size:.88rem;max-width:500px}.best-for{margin-top:24px;padding:15px 17px;border-left:2px solid var(--gold-600);background:#fbfaf7}.best-for small{display:block;color:var(--gold-600);font-size:.58rem;font-weight:900}.best-for strong{display:block;font-size:.8rem;margin-top:3px}.pros-cons{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--slate-200);border-radius:16px;overflow:hidden;background:#fff}.pros-cons>div{padding:24px}.pros-cons>div+div{border-left:1px solid var(--slate-200)}.pros-cons>div>span{font-size:.54rem;font-weight:900;letter-spacing:.12em}.positive{color:var(--green-600)}.caution{color:var(--orange-600)}.pros-cons h3{font-size:.92rem;margin:4px 0 12px}.pros-cons ul{padding-left:17px;margin:0;color:var(--slate-700);font-size:.72rem}.pros-cons li+li{margin-top:8px}
+  .score-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}.score-panel{padding:24px 26px}.score-row+ .score-row{margin-top:18px}.score-row>div:first-child{display:flex;justify-content:space-between;align-items:center}.score-row strong{font-size:.7rem}.score-row span{font-size:.76rem;font-weight:900;color:var(--navy-950)}.bar{height:5px;background:var(--slate-100);border-radius:999px;margin-top:7px;overflow:hidden}.bar i{display:block;height:100%;background:var(--navy-900);border-radius:999px}
+  .specs-section{background:#fff}.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}.spec{padding:15px;border:1px solid var(--slate-200);border-radius:12px;background:#fafafa}.spec small{display:block;color:var(--slate-500);font-size:.52rem}.spec span{display:block;color:var(--slate-400);font-size:.6rem;font-weight:900;margin:4px 0}.spec.ok span{color:var(--green-600)}.spec strong{display:block;font-size:.7rem;color:var(--slate-700)}.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}.target-grid>div{padding:17px;display:grid;grid-template-columns:30px 1fr;gap:3px 8px;align-items:center}.target-grid span{grid-row:1/3;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--green-100);color:var(--green-600);font-weight:900}.target-grid strong{font-size:.8rem}.target-grid small{color:var(--slate-500);font-size:.62rem}.section-heading-row{display:flex;justify-content:space-between;align-items:end;margin-bottom:24px}.section-heading-row>a{color:var(--blue-700);font-size:.68rem;font-weight:900}.alternative-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:800px}.final-cta{padding-top:20px}.next{background:var(--navy-950);color:#fff;border-radius:18px;padding:32px 36px;display:flex;justify-content:space-between;align-items:center;gap:30px}.next .eyebrow{color:#9ab8d1}.next h2{font-size:1.55rem;margin:4px 0}.next p{color:#aebdca;font-size:.78rem;margin:0}.next .btn-primary{background:#fff;color:var(--navy-950);box-shadow:none;white-space:nowrap}
+  @media(max-width:1080px){.detail-grid{grid-template-columns:1fr 1.15fr}.buy-card{grid-column:1/-1;position:static;display:grid;grid-template-columns:1fr auto;gap:4px 24px}.buy-card .btn-primary,.buy-card .btn-secondary{grid-column:2;min-width:270px}.buy-note{grid-column:1/-1}.spec-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:760px){.detail-grid,.editorial-grid,.score-layout{grid-template-columns:1fr;gap:28px}.media{min-height:300px}.media img{height:300px}.info h1{font-size:2rem}.buy-card{display:block}.buy-card .btn-primary,.buy-card .btn-secondary{min-width:0}.pros-cons{grid-template-columns:1fr}.pros-cons>div+div{border-left:0;border-top:1px solid var(--slate-200)}.target-grid{grid-template-columns:1fr}.alternative-grid{grid-template-columns:1fr}.next{display:block;padding:26px 22px}.next .btn-primary{margin-top:18px}}
 </style>

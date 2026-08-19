@@ -7,26 +7,42 @@ import type { Product } from '../../types/product';
 import type { RakutenCacheItem } from '../../lib/rakuten';
 const products = productsJson as Product[];
 const cache = cacheJson as Record<string, RakutenCacheItem>;
+const latestCheckedAt = Object.values(cache).map((item) => item.fetchedAt).filter(Boolean).sort().at(-1);
+const latestCheckedLabel = latestCheckedAt ? new Intl.DateTimeFormat('ja-JP', { year:'numeric', month:'long', day:'numeric' }).format(new Date(latestCheckedAt)) : '商品情報を確認中';
 ---
 <BaseLayout title="防犯用品を条件から探す｜ウチマモ" description="工事不要、Wi-Fi不要、電源不要、ソーラー、月額不要などの条件から家庭用防犯用品を比較できます。">
   <section class="finder-hero">
-    <div class="site-container"><span class="eyebrow">PRODUCT FINDER</span><h1>条件から防犯用品を探す</h1><p>住まいの制約に合わない商品を最初から外して、比較しやすい候補だけに絞り込みます。</p></div>
-  </section>
-  <section class="finder-section">
-    <div class="site-container finder-layout">
-      <aside class="filters card" aria-label="商品絞り込み">
-        <div class="filter-head"><strong>絞り込み</strong><button type="button" id="resetFilters">リセット</button></div>
-        <label>カテゴリ<select id="categoryFilter"><option value="">すべて</option><option value="camera">防犯カメラ</option><option value="smart-lock">スマートロック</option><option value="sensor">センサー</option><option value="window-lock">補助錠</option><option value="light">センサーライト</option></select></label>
-        <label>設置場所<select id="placeFilter"><option value="">すべて</option><option value="entrance">玄関</option><option value="window">窓</option><option value="parking">駐車場</option><option value="garden">庭</option><option value="backdoor">勝手口</option><option value="indoor">室内</option></select></label>
-        <fieldset><legend>設置条件</legend><label class="check"><input type="checkbox" id="noDrilling" /> 工事・穴あけ不要</label><label class="check"><input type="checkbox" id="noWifi" /> Wi-Fi不要</label><label class="check"><input type="checkbox" id="noPower" /> コンセント電源不要</label><label class="check"><input type="checkbox" id="solar" /> ソーラー対応</label><label class="check"><input type="checkbox" id="monthlyFree" /> 月額不要</label></fieldset>
-        <div class="filter-note"><strong>選び方が分からない？</strong><p>6問の防犯診断なら条件を自動で整理します。</p><a href="/diagnosis/">防犯診断へ →</a></div>
-      </aside>
-      <div class="results"><div class="results-head"><div><strong><span id="resultCount">{products.length}</span>件</strong><small>の商品候補</small></div><span>おすすめ順</span></div><div class="products-grid" id="productsGrid">{products.map((product) => <ProductCard product={product} rakuten={cache[product.id]} />)}</div><div id="emptyState" class="empty card" hidden><strong>条件に合う商品がありません</strong><p>条件を1つ外すか、防犯診断から探してみてください。</p><button class="btn-secondary" type="button">条件をリセット</button></div></div>
+    <div class="site-container hero-inner">
+      <div><span class="eyebrow">PRODUCT SELECT</span><h1>わが家の条件に合う<br />防犯用品を選ぶ。</h1><p>商品名からではなく、設置場所・工事・通信・電源の条件から候補を絞り込みます。</p></div>
+      <div class="hero-meta"><span><small>掲載商品</small><strong>{products.length}商品</strong></span><span><small>商品情報</small><strong>{latestCheckedLabel}確認</strong></span><a href="/about/">選定・評価方針 →</a></div>
     </div>
   </section>
-  <div class="compare-bar" id="compareBar" hidden><div><small>比較リスト</small><strong><span id="compareCount">0</span>/3 商品</strong></div><a id="compareLink" class="btn-primary" href="/compare/">比較する →</a></div>
+
+  <section class="finder-section">
+    <div class="site-container finder-layout">
+      <aside class="filters" aria-label="商品絞り込み">
+        <div class="filter-head"><div><span>FILTERS</span><strong>条件を絞り込む</strong></div><button type="button" id="resetFilters">すべて解除</button></div>
+        <div class="filter-block"><label for="categoryFilter">カテゴリ</label><select id="categoryFilter"><option value="">すべての商品</option><option value="camera">防犯カメラ</option><option value="smart-lock">スマートロック</option><option value="sensor">センサー</option><option value="window-lock">補助錠</option><option value="light">センサーライト</option></select></div>
+        <div class="filter-block"><label for="placeFilter">守りたい場所</label><select id="placeFilter"><option value="">すべての場所</option><option value="entrance">玄関</option><option value="window">窓</option><option value="parking">駐車場</option><option value="garden">庭</option><option value="backdoor">勝手口</option><option value="indoor">室内</option></select></div>
+        <fieldset><legend>設置条件</legend><label class="check"><input type="checkbox" id="noDrilling" /><span>工事・穴あけ不要</span></label><label class="check"><input type="checkbox" id="noWifi" /><span>Wi-Fi不要</span></label><label class="check"><input type="checkbox" id="noPower" /><span>コンセント電源不要</span></label><label class="check"><input type="checkbox" id="solar" /><span>ソーラー対応</span></label><label class="check"><input type="checkbox" id="monthlyFree" /><span>月額不要</span></label></fieldset>
+        <div class="filter-note"><span aria-hidden="true">?</span><div><strong>どれを選べばいい？</strong><p>6問の診断で、住まいの条件を整理できます。</p><a href="/diagnosis/">30秒防犯診断 →</a></div></div>
+      </aside>
+
+      <div class="results">
+        <div class="results-head"><div><span class="eyebrow">MATCHING PRODUCTS</span><strong><b id="resultCount">{products.length}</b>件の商品候補</strong></div><div class="sort-note"><span>ウチマモ評価を基準に掲載</span><a href="/about/">評価基準</a></div></div>
+        <div class="active-filters" id="activeFilters" hidden></div>
+        <div class="products-grid" id="productsGrid">{products.map((product) => <ProductCard product={product} rakuten={cache[product.id]} />)}</div>
+        <div id="emptyState" class="empty surface" hidden><span aria-hidden="true">⌕</span><strong>条件に合う商品がありません</strong><p>条件を1つ外すか、防犯診断から探してみてください。</p><button class="btn-secondary" type="button">条件をリセット</button></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="compare-bar" id="compareBar" hidden>
+    <div class="compare-summary"><div class="compare-label"><small>COMPARE LIST</small><strong><span id="compareCount">0</span> / 3 商品</strong></div><div id="compareItems" class="compare-items"></div></div>
+    <a id="compareLink" class="btn-primary" href="/compare/">選んだ商品を比較 <span>→</span></a>
+  </div>
 </BaseLayout>
-<script>
+<script define:vars={{ products, cache }}>
   const cards = [...document.querySelectorAll('[data-product-card]')];
   const category = document.querySelector('#categoryFilter');
   const place = document.querySelector('#placeFilter');
@@ -41,7 +57,13 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
   const compareBar = document.querySelector('#compareBar');
   const compareCount = document.querySelector('#compareCount');
   const compareLink = document.querySelector('#compareLink');
+  const compareItems = document.querySelector('#compareItems');
+  const activeFilters = document.querySelector('#activeFilters');
   const selected = new Set();
+
+  const conditionLabels = [
+    [noDrilling, '工事不要'], [noWifi, 'Wi-Fi不要'], [noPower, '電源不要'], [solar, 'ソーラー'], [monthlyFree, '月額不要']
+  ];
 
   function applyInitialQuery() {
     const q = new URLSearchParams(location.search);
@@ -54,12 +76,23 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
     if (condition === 'solar' && solar instanceof HTMLInputElement) solar.checked = true;
     if (condition === 'no-monthly-fee' && monthlyFree instanceof HTMLInputElement) monthlyFree.checked = true;
   }
+
+  function renderActiveFilters() {
+    if (!(activeFilters instanceof HTMLElement)) return;
+    const labels = [];
+    if (category instanceof HTMLSelectElement && category.value) labels.push(category.options[category.selectedIndex]?.text || 'カテゴリ');
+    if (place instanceof HTMLSelectElement && place.value) labels.push(place.options[place.selectedIndex]?.text || '場所');
+    conditionLabels.forEach(([input, label]) => { if (input instanceof HTMLInputElement && input.checked) labels.push(label); });
+    activeFilters.innerHTML = labels.map((label) => `<span>${label}</span>`).join('');
+    activeFilters.hidden = labels.length === 0;
+  }
+
   function applyFilters() {
     let visible = 0;
     cards.forEach((node) => {
       if (!(node instanceof HTMLElement)) return;
-      const matches = (!category?.value || node.dataset.category === category.value)
-        && (!place?.value || (node.dataset.place || '').split(',').includes(place.value))
+      const matches = (!(category instanceof HTMLSelectElement) || !category.value || node.dataset.category === category.value)
+        && (!(place instanceof HTMLSelectElement) || !place.value || (node.dataset.place || '').split(',').includes(place.value))
         && (!(noDrilling instanceof HTMLInputElement) || !noDrilling.checked || node.dataset.noDrilling === 'true')
         && (!(noWifi instanceof HTMLInputElement) || !noWifi.checked || node.dataset.noWifi === 'true')
         && (!(noPower instanceof HTMLInputElement) || !noPower.checked || node.dataset.noPower === 'true')
@@ -70,7 +103,9 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
     });
     if (count) count.textContent = String(visible);
     if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+    renderActiveFilters();
   }
+
   function resetFilters() {
     if (category instanceof HTMLSelectElement) category.value = '';
     if (place instanceof HTMLSelectElement) place.value = '';
@@ -78,6 +113,29 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
     history.replaceState({}, '', location.pathname);
     applyFilters();
   }
+
+  function renderCompare() {
+    if (compareBar instanceof HTMLElement) compareBar.hidden = selected.size === 0;
+    if (compareCount) compareCount.textContent = String(selected.size);
+    if (compareLink instanceof HTMLAnchorElement) compareLink.href = `/compare/?ids=${encodeURIComponent([...selected].join(','))}`;
+    if (!(compareItems instanceof HTMLElement)) return;
+    compareItems.innerHTML = [...selected].map((id) => {
+      const product = products.find((item) => item.id === id);
+      const rakuten = cache[id];
+      if (!product) return '';
+      const image = rakuten?.imageUrl ? `<img src="${rakuten.imageUrl}" alt="" />` : `<span class="mini-placeholder">${product.brand.slice(0,1)}</span>`;
+      return `<div class="compare-mini" title="${product.name}">${image}<span>${product.name}</span><button type="button" data-remove-compare="${id}" aria-label="${product.name}を比較から外す">×</button></div>`;
+    }).join('');
+    compareItems.querySelectorAll('[data-remove-compare]').forEach((button) => button.addEventListener('click', () => {
+      const id = button.getAttribute('data-remove-compare');
+      if (!id) return;
+      selected.delete(id);
+      const checkbox = document.querySelector(`[data-compare-checkbox][value="${CSS.escape(id)}"]`);
+      if (checkbox instanceof HTMLInputElement) checkbox.checked = false;
+      renderCompare();
+    }));
+  }
+
   [category,place,noDrilling,noWifi,noPower,solar,monthlyFree].forEach((el) => el?.addEventListener('change', applyFilters));
   reset?.addEventListener('click', resetFilters);
   empty?.querySelector('button')?.addEventListener('click', resetFilters);
@@ -89,13 +147,19 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
       if (selected.size >= 3) { input.checked = false; return; }
       selected.add(input.value);
     } else selected.delete(input.value);
-    if (compareBar instanceof HTMLElement) compareBar.hidden = selected.size === 0;
-    if (compareCount) compareCount.textContent = String(selected.size);
-    if (compareLink instanceof HTMLAnchorElement) compareLink.href = `/compare/?ids=${encodeURIComponent([...selected].join(','))}`;
+    renderCompare();
   }));
-  applyInitialQuery(); applyFilters();
+
+  applyInitialQuery();
+  applyFilters();
+  renderCompare();
 </script>
 <style>
-  .finder-hero{padding:58px 0 38px;background:linear-gradient(180deg,#f4f9ff,#fff);border-bottom:1px solid var(--slate-200)}.finder-hero h1{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.045em;margin:8px 0;color:var(--navy-950)}.finder-hero p{margin:0;color:var(--slate-700)}.finder-section{padding:34px 0 76px}.finder-layout{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:start}.filters{position:sticky;top:94px;padding:20px}.filter-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:15px;border-bottom:1px solid var(--slate-200);margin-bottom:16px}.filter-head strong{color:var(--navy-950)}.filter-head button{border:0;background:none;color:var(--blue-600);font-size:.7rem;font-weight:800;cursor:pointer}.filters>label,.filters fieldset{display:grid;gap:7px;color:var(--slate-700);font-size:.72rem;font-weight:800;margin:15px 0}.filters select{width:100%;border:1px solid var(--slate-300);background:white;border-radius:10px;padding:9px 10px;color:var(--slate-900)}.filters fieldset{border:0;padding:0}.filters legend{margin-bottom:8px}.filters .check{display:flex;align-items:center;gap:8px;padding:7px 0;font-size:.75rem;font-weight:600}.filters input{accent-color:var(--blue-600)}.filter-note{margin-top:20px;padding:15px;border-radius:12px;background:var(--blue-100)}.filter-note strong{font-size:.75rem}.filter-note p{font-size:.66rem;color:var(--slate-700);margin:4px 0 8px}.filter-note a{font-size:.68rem;color:var(--blue-600);font-weight:900}.results-head{height:48px;display:flex;justify-content:space-between;align-items:center}.results-head strong{font-size:1.2rem;color:var(--navy-950)}.results-head small,.results-head>span{color:var(--slate-500);font-size:.7rem;margin-left:4px}.products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.empty{padding:50px;text-align:center}.empty strong{display:block;font-size:1.2rem}.empty p{color:var(--slate-500)}.empty button{width:auto}.compare-bar{position:fixed;z-index:65;left:50%;bottom:20px;transform:translateX(-50%);min-width:360px;background:rgba(7,20,38,.96);color:white;border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:10px 12px 10px 18px;display:flex;align-items:center;justify-content:space-between;gap:28px;box-shadow:0 16px 50px rgba(7,20,38,.3);backdrop-filter:blur(12px)}.compare-bar[hidden]{display:none}.compare-bar small{display:block;color:#90a6be;font-size:.6rem}.compare-bar strong{font-size:.84rem}.compare-bar .btn-primary{min-height:40px;font-size:.75rem}
-  @media(max-width:1050px){.products-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.finder-layout{grid-template-columns:1fr}.filters{position:static}.products-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.finder-hero{padding:36px 0 28px}.filters{padding:16px}.products-grid{grid-template-columns:1fr}.compare-bar{bottom:80px;min-width:0;width:calc(100% - 24px)}}
+  .finder-hero{padding:64px 0 46px;background:#f5f6f4;border-bottom:1px solid var(--slate-200)}.hero-inner{display:flex;align-items:end;justify-content:space-between;gap:50px}.finder-hero h1{font-size:clamp(2.25rem,4.7vw,3.75rem);line-height:1.12;letter-spacing:-.055em;margin:9px 0 14px;color:var(--navy-950)}.finder-hero p{margin:0;color:var(--slate-700);max-width:680px}.hero-meta{min-width:300px;padding-left:28px;border-left:1px solid var(--slate-300);display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}.hero-meta span small{display:block;color:var(--slate-500);font-size:.58rem}.hero-meta span strong{display:block;color:var(--navy-950);font-size:.78rem;margin-top:2px}.hero-meta a{grid-column:1/-1;color:var(--blue-700);font-size:.65rem;font-weight:850;margin-top:4px}
+  .finder-section{padding:42px 0 88px}.finder-layout{display:grid;grid-template-columns:265px 1fr;gap:34px;align-items:start}.filters{position:sticky;top:94px;background:#fff;border:1px solid var(--slate-200);border-radius:15px;padding:20px}.filter-head{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:16px;border-bottom:1px solid var(--slate-200)}.filter-head span{display:block;color:var(--slate-500);font-size:.52rem;font-weight:900;letter-spacing:.13em}.filter-head strong{display:block;color:var(--navy-950);font-size:.9rem;margin-top:2px}.filter-head button{border:0;background:none;color:var(--blue-700);font-size:.62rem;font-weight:800;cursor:pointer;padding:4px}.filter-block{display:grid;gap:6px;margin-top:17px}.filter-block label,.filters legend{color:var(--slate-700);font-size:.66rem;font-weight:850}.filters select{width:100%;border:1px solid var(--slate-300);background:#fff;border-radius:9px;padding:9px 10px;color:var(--slate-900);font-size:.74rem}.filters fieldset{border:0;padding:0;margin:20px 0 0}.filters legend{margin-bottom:8px}.check{display:flex;align-items:center;gap:8px;padding:7px 0;color:var(--slate-700);font-size:.72rem;cursor:pointer}.check input{accent-color:var(--navy-900)}.filter-note{margin-top:20px;padding:13px;border-radius:11px;background:#f4f6f7;display:grid;grid-template-columns:28px 1fr;gap:9px}.filter-note>span{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:var(--navy-900);color:#fff;font-size:.7rem;font-weight:900}.filter-note strong{font-size:.68rem}.filter-note p{font-size:.61rem;color:var(--slate-500);margin:2px 0 6px}.filter-note a{font-size:.62rem;color:var(--blue-700);font-weight:900}
+  .results-head{min-height:58px;display:flex;justify-content:space-between;align-items:end;padding-bottom:14px;border-bottom:1px solid var(--slate-200);margin-bottom:14px}.results-head .eyebrow{font-size:.56rem}.results-head strong{display:block;font-size:.9rem;color:var(--slate-700);margin-top:2px}.results-head strong b{font-size:1.55rem;color:var(--navy-950);margin-right:3px}.sort-note{display:flex;align-items:center;gap:10px;color:var(--slate-500);font-size:.6rem}.sort-note a{color:var(--blue-700);font-weight:900}.active-filters{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}.active-filters span{background:var(--blue-100);color:var(--blue-700);border-radius:999px;padding:5px 9px;font-size:.6rem;font-weight:800}.products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.empty{padding:60px 24px;text-align:center}.empty>span{width:48px;height:48px;border:1px solid var(--slate-300);border-radius:14px;display:grid;place-items:center;margin:0 auto 12px;color:var(--slate-500)}.empty strong{display:block;font-size:1.05rem}.empty p{color:var(--slate-500);font-size:.76rem}.empty button{width:auto}
+  .compare-bar{position:fixed;z-index:65;left:50%;bottom:18px;transform:translateX(-50%);width:min(920px,calc(100% - 32px));background:rgba(9,21,34,.97);color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:15px;padding:10px 11px 10px 16px;display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:var(--shadow-float);backdrop-filter:blur(14px)}.compare-bar[hidden]{display:none}.compare-summary{display:flex;align-items:center;gap:16px;min-width:0}.compare-label{min-width:76px}.compare-label small{display:block;color:#91a4b6;font-size:.48rem;letter-spacing:.1em}.compare-label strong{font-size:.72rem}.compare-items{display:flex;gap:7px;min-width:0}.compare-mini{max-width:170px;height:42px;display:grid;grid-template-columns:34px 1fr 20px;align-items:center;gap:6px;background:rgba(255,255,255,.07);border-radius:9px;padding:4px;color:#dce5ed}.compare-mini img,.mini-placeholder{width:34px;height:34px;border-radius:7px;object-fit:contain;background:#fff}.mini-placeholder{display:grid;place-items:center;color:var(--navy-900);font-size:.65rem;font-weight:900}.compare-mini>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.58rem;font-weight:750}.compare-mini button{border:0;background:none;color:#91a4b6;cursor:pointer;font-size:.85rem;padding:0}.compare-bar .btn-primary{background:#fff;color:var(--navy-900);box-shadow:none;min-height:42px;font-size:.68rem;white-space:nowrap}
+  @media(max-width:1100px){.products-grid{grid-template-columns:repeat(2,1fr)}.hero-inner{align-items:start}.hero-meta{min-width:260px}}
+  @media(max-width:800px){.hero-inner{display:block}.hero-meta{margin-top:28px;padding:0;border:0;max-width:520px}.finder-layout{grid-template-columns:1fr}.filters{position:static}.products-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.finder-hero{padding:38px 0 30px}.finder-hero h1{font-size:2.35rem}.finder-section{padding-top:24px}.filters{padding:15px}.products-grid{grid-template-columns:1fr}.sort-note>span{display:none}.compare-bar{bottom:82px;width:calc(100% - 20px);padding:9px 9px 9px 12px}.compare-items{display:none}.compare-summary{gap:8px}.compare-bar .btn-primary{width:auto;padding-inline:14px}.compare-label{min-width:72px}}
 </style>

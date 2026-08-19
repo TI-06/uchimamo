@@ -56,6 +56,18 @@ export function buildRakutenRequest(input: RakutenRequestInput): RakutenRequest 
   };
 }
 
+export function extractRakutenItems(data: Record<string, unknown>): Record<string, unknown>[] {
+  const raw = Array.isArray(data.Items) ? data.Items : Array.isArray(data.items) ? data.items : [];
+  return raw
+    .map((row) => {
+      if (!row || typeof row !== 'object') return undefined;
+      const record = row as Record<string, unknown>;
+      const nested = record.Item ?? record.item;
+      return nested && typeof nested === 'object' ? nested as Record<string, unknown> : record;
+    })
+    .filter((row): row is Record<string, unknown> => Boolean(row));
+}
+
 function imageUrlFrom(value: unknown): string | undefined {
   if (typeof value === 'string') return value;
   if (value && typeof value === 'object' && 'imageUrl' in value) {

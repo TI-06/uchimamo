@@ -20,16 +20,18 @@ describe('buildRakutenRequest', () => {
     expect(request.headers.Origin).toBe('https://uchimamo.pages.dev');
   });
 
-  it('レビュー済みitemCodeをAPIリクエストに含める', () => {
+  it('レビュー済みitemCodeではkeywordを送らず完全一致検索する', () => {
     const request = buildRakutenRequest({
       appId: 'app-id',
       accessKey: 'secret-key',
       affiliateId: 'affiliate-id',
-      keyword: 'SwitchBot ロックUltra',
-      itemCode: 'switchbot:10000315',
+      keyword: 'SESAME 5 スマートロック',
+      itemCode: 'candyhouse:10000000',
       referer: 'https://uchimamo.pages.dev/'
     });
-    expect(new URL(request.url).searchParams.get('itemCode')).toBe('switchbot:10000315');
+    const url = new URL(request.url);
+    expect(url.searchParams.get('itemCode')).toBe('candyhouse:10000000');
+    expect(url.searchParams.get('keyword')).toBeNull();
   });
 });
 

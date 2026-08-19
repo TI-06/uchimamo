@@ -49,9 +49,9 @@ describe('launch product catalog', () => {
     ...extraProductsJson.filter((product) => product.id !== 'qrio-lock-q-sl2'),
     ...replacementProductsJson
   ] as Product[];
-  const pins = pinsJson as Record<string, { itemCode: string }>;
-  const catalog = rawCatalog.map((product) => pins[product.id]
-    ? { ...product, rakuten: { ...product.rakuten, ...pins[product.id] } }
+  const overrides = pinsJson as Record<string, Partial<Product['rakuten']>>;
+  const catalog = rawCatalog.map((product) => overrides[product.id]
+    ? { ...product, rakuten: { ...product.rakuten, ...overrides[product.id] } }
     : product);
 
   it('30商品を5カテゴリで提供する', () => {
@@ -74,15 +74,23 @@ describe('launch product catalog', () => {
     expect(enabled.every((product) => Boolean(product.rakuten.itemCode) || Boolean(product.rakuten.modelTokens?.length))).toBe(true);
   });
 
-  it('レビュー済み10商品の固定itemCodeを維持する', () => {
+  it('レビュー済み8商品の固定itemCodeを維持する', () => {
     const expected = new Map([
       ['switchbot-lock-ultra', 'switchbot:10000315'], ['switchbot-lock-pro', 'switchbot:10000121'],
       ['tapo-outdoor-battery-camera', 'tplinkdirect:10001237'], ['outdoor-lte-camera', 'shop-amanotori:10030960'],
       ['window-sensor', 'arkham:10001427'], ['sensor-light-solar', 'suparee:10000239'],
-      ['switchbot-lock-ultra-standalone', 'switchbot:lockultra'], ['sesame-5', 'candyhouse:10000000'],
-      ['sesame-6-pro', 'candyhouse:10000006'], ['nomura-onetouch-small-n1184', 'anshin-hiroba:0110079']
+      ['sesame-5', 'candyhouse:10000000'], ['sesame-6-pro', 'candyhouse:10000006']
     ]);
     for (const [id, itemCode] of expected) expect(catalog.find((product) => product.id === id)?.rakuten.itemCode).toBe(itemCode);
+  });
+
+  it('itemCode未確認の商品は厳格検索へ戻す', () => {
+    expect(catalog.find((product) => product.id === 'switchbot-lock-ultra-standalone')?.rakuten).toEqual(expect.objectContaining({
+      keyword: 'SwitchBot ロックUltra', modelTokens: ['SwitchBot', 'ロックUltra']
+    }));
+    expect(catalog.find((product) => product.id === 'nomura-onetouch-small-n1184')?.rakuten).toEqual(expect.objectContaining({
+      keyword: 'N-1184', modelTokens: ['N-1184']
+    }));
   });
 
   it('商品IDは重複しない', () => {

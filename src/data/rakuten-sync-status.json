@@ -1,6 +1,6 @@
 {
   "ok": false,
-  "checkedAt": "2026-08-19T12:44:06.068Z",
+  "checkedAt": "2026-08-19T12:46:48.982Z",
   "endpointVersion": "2026-07-01",
   "enabledCount": 6,
   "successCount": 0,
@@ -44,6 +44,452 @@
       "productId": "sensor-light-solar",
       "keyword": "ソーラー 人感 センサーライト 防犯 屋外",
       "candidates": []
+    }
+  ],
+  "responseShapes": [
+    {
+      "productId": "switchbot-lock-ultra",
+      "topLevelKeys": [
+        "count",
+        "page",
+        "first",
+        "last",
+        "hits",
+        "carrier",
+        "pageCount",
+        "Items",
+        "GenreInformation",
+        "Attributes"
+      ],
+      "fields": {
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "first": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        },
+        "hits": {
+          "type": "number"
+        },
+        "carrier": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        },
+        "Items": {
+          "type": "array",
+          "length": 5,
+          "firstKeys": [
+            "itemName",
+            "catchcopy",
+            "itemCode",
+            "itemPrice",
+            "itemPriceBaseField",
+            "itemPriceMax1",
+            "itemPriceMax2",
+            "itemPriceMax3",
+            "itemPriceMin1",
+            "itemPriceMin2",
+            "itemPriceMin3",
+            "itemCaption",
+            "itemUrl",
+            "shopUrl",
+            "smallImageUrls",
+            "mediumImageUrls",
+            "affiliateUrl",
+            "shopAffiliateUrl",
+            "imageFlag",
+            "availability"
+          ]
+        },
+        "GenreInformation": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        },
+        "Attributes": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        }
+      }
+    },
+    {
+      "productId": "switchbot-lock-pro",
+      "topLevelKeys": [
+        "count",
+        "page",
+        "first",
+        "last",
+        "hits",
+        "carrier",
+        "pageCount",
+        "Items",
+        "GenreInformation",
+        "Attributes"
+      ],
+      "fields": {
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "first": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        },
+        "hits": {
+          "type": "number"
+        },
+        "carrier": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        },
+        "Items": {
+          "type": "array",
+          "length": 5,
+          "firstKeys": [
+            "itemName",
+            "catchcopy",
+            "itemCode",
+            "itemPrice",
+            "itemPriceBaseField",
+            "itemPriceMax1",
+            "itemPriceMax2",
+            "itemPriceMax3",
+            "itemPriceMin1",
+            "itemPriceMin2",
+            "itemPriceMin3",
+            "itemCaption",
+            "itemUrl",
+            "shopUrl",
+            "smallImageUrls",
+            "mediumImageUrls",
+            "affiliateUrl",
+            "shopAffiliateUrl",
+            "imageFlag",
+            "availability"
+          ]
+        },
+        "GenreInformation": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        },
+        "Attributes": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        }
+      }
+    },
+    {
+      "productId": "tapo-outdoor-battery-camera",
+      "topLevelKeys": [
+        "count",
+        "page",
+        "first",
+        "last",
+        "hits",
+        "carrier",
+        "pageCount",
+        "Items",
+        "GenreInformation",
+        "Attributes"
+      ],
+      "fields": {
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "first": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        },
+        "hits": {
+          "type": "number"
+        },
+        "carrier": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        },
+        "Items": {
+          "type": "array",
+          "length": 5,
+          "firstKeys": [
+            "itemName",
+            "catchcopy",
+            "itemCode",
+            "itemPrice",
+            "itemPriceBaseField",
+            "itemPriceMax1",
+            "itemPriceMax2",
+            "itemPriceMax3",
+            "itemPriceMin1",
+            "itemPriceMin2",
+            "itemPriceMin3",
+            "itemCaption",
+            "itemUrl",
+            "shopUrl",
+            "smallImageUrls",
+            "mediumImageUrls",
+            "affiliateUrl",
+            "shopAffiliateUrl",
+            "imageFlag",
+            "availability"
+          ]
+        },
+        "GenreInformation": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        },
+        "Attributes": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        }
+      }
+    },
+    {
+      "productId": "outdoor-lte-camera",
+      "topLevelKeys": [
+        "count",
+        "page",
+        "first",
+        "last",
+        "hits",
+        "carrier",
+        "pageCount",
+        "Items",
+        "GenreInformation",
+        "Attributes"
+      ],
+      "fields": {
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "first": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        },
+        "hits": {
+          "type": "number"
+        },
+        "carrier": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        },
+        "Items": {
+          "type": "array",
+          "length": 5,
+          "firstKeys": [
+            "itemName",
+            "catchcopy",
+            "itemCode",
+            "itemPrice",
+            "itemPriceBaseField",
+            "itemPriceMax1",
+            "itemPriceMax2",
+            "itemPriceMax3",
+            "itemPriceMin1",
+            "itemPriceMin2",
+            "itemPriceMin3",
+            "itemCaption",
+            "itemUrl",
+            "shopUrl",
+            "smallImageUrls",
+            "mediumImageUrls",
+            "affiliateUrl",
+            "shopAffiliateUrl",
+            "imageFlag",
+            "availability"
+          ]
+        },
+        "GenreInformation": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        },
+        "Attributes": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        }
+      }
+    },
+    {
+      "productId": "window-sensor",
+      "topLevelKeys": [
+        "count",
+        "page",
+        "first",
+        "last",
+        "hits",
+        "carrier",
+        "pageCount",
+        "Items",
+        "GenreInformation",
+        "Attributes"
+      ],
+      "fields": {
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "first": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        },
+        "hits": {
+          "type": "number"
+        },
+        "carrier": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        },
+        "Items": {
+          "type": "array",
+          "length": 5,
+          "firstKeys": [
+            "itemName",
+            "catchcopy",
+            "itemCode",
+            "itemPrice",
+            "itemPriceBaseField",
+            "itemPriceMax1",
+            "itemPriceMax2",
+            "itemPriceMax3",
+            "itemPriceMin1",
+            "itemPriceMin2",
+            "itemPriceMin3",
+            "itemCaption",
+            "itemUrl",
+            "shopUrl",
+            "smallImageUrls",
+            "mediumImageUrls",
+            "affiliateUrl",
+            "shopAffiliateUrl",
+            "imageFlag",
+            "availability"
+          ]
+        },
+        "GenreInformation": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        },
+        "Attributes": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        }
+      }
+    },
+    {
+      "productId": "sensor-light-solar",
+      "topLevelKeys": [
+        "count",
+        "page",
+        "first",
+        "last",
+        "hits",
+        "carrier",
+        "pageCount",
+        "Items",
+        "GenreInformation",
+        "Attributes"
+      ],
+      "fields": {
+        "count": {
+          "type": "number"
+        },
+        "page": {
+          "type": "number"
+        },
+        "first": {
+          "type": "number"
+        },
+        "last": {
+          "type": "number"
+        },
+        "hits": {
+          "type": "number"
+        },
+        "carrier": {
+          "type": "number"
+        },
+        "pageCount": {
+          "type": "number"
+        },
+        "Items": {
+          "type": "array",
+          "length": 5,
+          "firstKeys": [
+            "itemName",
+            "catchcopy",
+            "itemCode",
+            "itemPrice",
+            "itemPriceBaseField",
+            "itemPriceMax1",
+            "itemPriceMax2",
+            "itemPriceMax3",
+            "itemPriceMin1",
+            "itemPriceMin2",
+            "itemPriceMin3",
+            "itemCaption",
+            "itemUrl",
+            "shopUrl",
+            "smallImageUrls",
+            "mediumImageUrls",
+            "affiliateUrl",
+            "shopAffiliateUrl",
+            "imageFlag",
+            "availability"
+          ]
+        },
+        "GenreInformation": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        },
+        "Attributes": {
+          "type": "array",
+          "length": 0,
+          "firstKeys": []
+        }
+      }
     }
   ],
   "errors": []

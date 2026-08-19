@@ -1,16 +1,22 @@
 <footer class="footer">
-  <div class="site-container footer-grid">
-    <div>
-      <div class="footer-brand">ウチマモ</div>
-      <p>工事なしで始める、わが家の防犯。<br />住まいの条件に合う防犯用品選びをサポートします。</p>
-      <p class="disclaimer">本サイトの情報は防犯を保証するものではありません。商品仕様・価格・販売状況は各販売ページで最新情報をご確認ください。</p>
+  <div class="site-container footer-top">
+    <div class="footer-brand-block">
+      <div class="footer-brand"><span aria-hidden="true">⌂</span><strong>ウチマモ</strong></div>
+      <p>工事なしで始める、わが家の防犯。<br />住まいの条件に合う防犯用品選びを、比較と診断でサポートします。</p>
+      <div class="trust-note"><span>独自評価</span><span>楽天市場レビューを分離表示</span><span>価格・在庫は定期更新</span></div>
     </div>
-    <div><strong>探す</strong><a href="/products/">商品を探す</a><a href="/diagnosis/">防犯診断</a><a href="/compare/">商品比較</a></div>
-    <div><strong>サイト情報</strong><a href="/about/">運営方針</a><a href="/affiliate-policy/">広告掲載方針</a><a href="/privacy/">プライバシー</a><a href="/contact/">お問い合わせ</a></div>
+    <div class="footer-links"><strong>商品を選ぶ</strong><a href="/products/">商品を探す</a><a href="/compare/">商品比較</a><a href="/diagnosis/">30秒防犯診断</a></div>
+    <div class="footer-links"><strong>読みもの</strong><a href="/guide/">防犯ガイド</a><a href="/about/">選定・運営方針</a><a href="/affiliate-policy/">広告掲載方針</a></div>
+    <div class="footer-links"><strong>サイト情報</strong><a href="/privacy/">プライバシー</a><a href="/contact/">お問い合わせ</a></div>
   </div>
-  <div class="site-container copyright">© 2026 ウチマモ</div>
+  <div class="site-container footer-bottom">
+    <p>本サイトの情報は防犯を保証するものではありません。商品仕様・価格・在庫・販売条件は各販売ページで最新情報をご確認ください。</p>
+    <span>© 2026 UCHIMAMO</span>
+  </div>
 </footer>
 <style>
-  .footer{margin-top:72px;background:var(--navy-950);color:#dce8f5;padding:58px 0 28px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:54px}.footer-brand{font-size:1.35rem;font-weight:900;color:white;margin-bottom:10px}.footer p{color:#aebed1;font-size:.86rem;max-width:540px}.footer .disclaimer{font-size:.74rem;color:#8295aa;margin-top:18px}.footer strong{display:block;color:white;margin-bottom:14px}.footer a{display:block;color:#aebed1;font-size:.84rem;padding:5px 0}.footer a:hover{color:white}.copyright{border-top:1px solid rgba(255,255,255,.1);margin-top:38px;padding-top:22px;font-size:.72rem;color:#8093a9}
-  @media(max-width:700px){.footer{margin-top:48px}.footer-grid{grid-template-columns:1fr 1fr;gap:34px}.footer-grid>div:first-child{grid-column:1/-1}}
+  .footer{margin-top:86px;background:#091522;color:#d8e1e9;padding:64px 0 28px;border-top:1px solid rgba(255,255,255,.04)}
+  .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:46px}.footer-brand{display:flex;align-items:center;gap:9px;color:white;margin-bottom:12px}.footer-brand span{width:35px;height:35px;border:1px solid rgba(255,255,255,.2);border-radius:10px;display:grid;place-items:center}.footer-brand strong{font-size:1.2rem;letter-spacing:.07em}.footer-brand-block>p{color:#a8b6c5;font-size:.82rem;max-width:480px;margin:0}.trust-note{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.trust-note span{font-size:.58rem;color:#9fb0c1;border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 8px}.footer-links strong{display:block;color:#f6f8fa;font-size:.76rem;margin-bottom:13px;letter-spacing:.04em}.footer-links a{display:block;color:#a8b6c5;font-size:.76rem;padding:5px 0}.footer-links a:hover{color:#fff}.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:42px;padding-top:22px;display:flex;align-items:flex-start;justify-content:space-between;gap:30px;color:#7f91a4}.footer-bottom p{margin:0;max-width:760px;font-size:.64rem}.footer-bottom span{font-size:.62rem;white-space:nowrap;letter-spacing:.08em}
+  @media(max-width:850px){.footer-top{grid-template-columns:1.5fr 1fr 1fr}.footer-links:last-child{grid-column:2}.footer-brand-block{grid-row:1/3}}
+  @media(max-width:640px){.footer{margin-top:54px;padding-top:46px}.footer-top{grid-template-columns:1fr 1fr;gap:30px}.footer-brand-block{grid-column:1/-1;grid-row:auto}.footer-links:last-child{grid-column:auto}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:14px}}
 </style>

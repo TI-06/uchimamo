@@ -31,6 +31,7 @@ const readJson = async (url, fallback) => {
   }
 };
 const normalizeText = (value) => String(value ?? '').normalize('NFKC').trim();
+const normalizeMatch = (value) => normalizeText(value).toLowerCase().replace(/\s+/g, ' ');
 const asNumber = (value) => {
   const number = Number(value ?? 0);
   return Number.isFinite(number) ? number : 0;
@@ -38,6 +39,16 @@ const asNumber = (value) => {
 
 function makePublicId(itemCode) {
   return `rakuten-${Buffer.from(String(itemCode), 'utf8').toString('base64url').toLowerCase().slice(0, 36)}`;
+}
+
+export function matchesCuratedModel(name, category, curatedProducts) {
+  const haystack = normalizeMatch(name);
+  return curatedProducts.some((product) => {
+    if (product?.category !== category) return false;
+    const tokens = product?.rakuten?.modelTokens;
+    if (!Array.isArray(tokens) || tokens.length === 0) return false;
+    return tokens.every((token) => haystack.includes(normalizeMatch(token)));
+  });
 }
 
 export function mergeCandidatePool(existing, incoming, nowIso = new Date().toISOString()) {
@@ -132,19 +143,23 @@ async function responseError(response) {
   return `HTTP ${response.status}${detail ? `: ${String(detail).slice(0, 300)}` : ''}`;
 }
 
-async function loadCuratedItemCodes() {
-  const codes = new Set();
+async function loadCuratedCatalog() {
+  const itemCodes = new Set();
+  const products = [];
   const cache = await readJson(CACHE_PATH, {});
-  Object.values(cache).forEach((row) => { if (row?.itemCode) codes.add(String(row.itemCode)); });
+  Object.values(cache).forEach((row) => { if (row?.itemCode) itemCodes.add(String(row.itemCode)); });
 
   const pins = await readJson(PINS_PATH, {});
-  Object.values(pins).forEach((row) => { if (row?.itemCode) codes.add(String(row.itemCode)); });
+  Object.values(pins).forEach((row) => { if (row?.itemCode) itemCodes.add(String(row.itemCode)); });
 
   for (const path of PRODUCT_PATHS) {
     const rows = await readJson(path, []);
-    rows.forEach((product) => { if (product?.rakuten?.itemCode) codes.add(String(product.rakuten.itemCode)); });
+    for (const product of rows) {
+      products.push(product);
+      if (product?.rakuten?.itemCode) itemCodes.add(String(product.rakuten.itemCode));
+    }
   }
-  return codes;
+  return { itemCodes, products };
 }
 
 function buildSearchUrl(rule, sort, appId, affiliateId) {
@@ -178,7 +193,7 @@ export async function runDiscovery({ fetchImpl = fetch, now = new Date() } = {})
 
   const nowIso = now.toISOString();
   const previousCandidates = await readJson(CANDIDATE_PATH, []);
-  const curatedCodes = await loadCuratedItemCodes();
+  const curated = await loadCuratedCatalog();
   const incomingByCode = new Map();
   let successfulQueries = 0;
   const errors = [];
@@ -202,8 +217,15 @@ export async function runDiscovery({ fetchImpl = fetch, now = new Date() } = {})
       const data = await response.json();
       successfulQueries += 1;
       for (const item of extractRows(data)) {
-        const candidate = normalizeCandidate(item, rule, nowIso);
-        if (!candidate.itemCode || curatedCodes.has(candidate.itemCode)) continue;
+        let candidate = normalizeCandidate(item, rule, nowIso);
+        if (!candidate.itemCode || curated.itemCodes.has(candidate.itemCode)) continue;
+        if (matchesCuratedModel(candidate.name, candidate.category, curated.products)) {
+          candidate = {
+            ...candidate,
+            status: 'rejected',
+            reasons: [...new Set([...(candidate.reasons ?? []), 'curated-model-duplicate'])]
+          };
+        }
         const previous = incomingByCode.get(candidate.itemCode);
         if (!previous || candidate.qualityScore > previous.qualityScore) incomingByCode.set(candidate.itemCode, candidate);
       }
@@ -220,7 +242,7 @@ export async function runDiscovery({ fetchImpl = fetch, now = new Date() } = {})
 
   const incoming = [...incomingByCode.values()];
   let merged = mergeCandidatePool(previousCandidates, incoming, nowIso);
-  merged = merged.map((row) => curatedCodes.has(row.itemCode)
+  merged = merged.map((row) => curated.itemCodes.has(row.itemCode)
     ? { ...row, status: 'rejected', reasons: [...new Set([...(row.reasons ?? []), 'curated-duplicate'])] }
     : row);
   const publicRows = buildPublicDiscovered(merged);

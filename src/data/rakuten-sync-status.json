@@ -1,0 +1,11 @@
+{
+  "ok": null,
+  "checkedAt": null,
+  "endpointVersion": "2026-07-01",
+  "enabledCount": 0,
+  "successCount": 0,
+  "skippedCount": 0,
+  "failureCount": 0,
+  "skipped": [],
+  "errors": []
+}

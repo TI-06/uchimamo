@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="お問い合わせ｜ウチマモ" description="ウチマモへのサイト内容・商品情報・不具合に関するお問い合わせ方法です。">
+  <section class="static">
+    <div class="site-container narrow">
+      <span class="eyebrow">CONTACT</span>
+      <h1>お問い合わせ</h1>
+      <p class="lead">ウチマモの表示不具合、商品情報の誤り、サイト内容に関するご連絡を受け付けています。</p>
+      <div class="card contact-card">
+        <div class="icon">↗</div>
+        <div>
+          <h2>GitHub Issuesから連絡する</h2>
+          <p>公開リポジトリのIssueを無料の問い合わせ窓口として利用しています。個人情報・住所・防犯設備の詳細など、公開したくない情報は記載しないでください。</p>
+          <a class="btn-primary" href="https://github.com/TI-06/uchimamo/issues" target="_blank" rel="noopener noreferrer">お問い合わせページを開く →</a>
+        </div>
+      </div>
+      <div class="note"><strong>営業・個別相談について</strong><p>公開Issueは誰でも閲覧できます。非公開情報を伴う個別相談窓口は設けていません。</p></div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .static{padding:68px 0}.narrow{max-width:820px}.static h1{font-size:clamp(2rem,4vw,3rem);color:var(--navy-950);letter-spacing:-.04em;margin:8px 0}.lead{color:var(--slate-700);margin-bottom:28px}.contact-card{padding:28px;display:grid;grid-template-columns:58px 1fr;gap:20px}.icon{width:56px;height:56px;border-radius:17px;background:var(--blue-100);color:var(--blue-600);display:grid;place-items:center;font-size:1.4rem;font-weight:900}.contact-card h2{margin:0 0 7px;color:var(--navy-950);font-size:1.15rem}.contact-card p{font-size:.82rem;color:var(--slate-700);margin:0 0 18px}.contact-card .btn-primary{font-size:.78rem}.note{margin-top:18px;padding:18px 20px;border:1px solid var(--slate-200);border-radius:14px;background:var(--slate-100)}.note strong{font-size:.78rem;color:var(--navy-950)}.note p{font-size:.7rem;color:var(--slate-500);margin:3px 0 0}@media(max-width:640px){.static{padding:44px 0}.contact-card{grid-template-columns:1fr;padding:22px 18px}.contact-card .btn-primary{width:100%}}
+</style>

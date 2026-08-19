@@ -43,6 +43,7 @@ const websiteJsonLd = {
     <meta property="og:site_name" content="ウチマモ" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+    <slot name="head" />
     <title>{title}</title>
   </head>
   <body>

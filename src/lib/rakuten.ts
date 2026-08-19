@@ -9,7 +9,7 @@ export interface RakutenRequestInput {
 
 export interface RakutenRequest {
   url: string;
-  headers: { accessKey: string; Referer?: string };
+  headers: { accessKey: string; Referer?: string; Origin?: string };
 }
 
 export interface RakutenCacheItem {
@@ -37,11 +37,21 @@ export function buildRakutenRequest(input: RakutenRequestInput): RakutenRequest 
   if (input.affiliateId) url.searchParams.set('affiliateId', input.affiliateId);
   if (input.itemCode) url.searchParams.set('itemCode', input.itemCode);
 
+  let origin: string | undefined;
+  if (input.referer) {
+    try {
+      origin = new URL(input.referer).origin;
+    } catch {
+      origin = undefined;
+    }
+  }
+
   return {
     url: url.toString(),
     headers: {
       accessKey: input.accessKey,
-      ...(input.referer ? { Referer: input.referer } : {})
+      ...(input.referer ? { Referer: input.referer } : {}),
+      ...(origin ? { Origin: origin } : {})
     }
   };
 }

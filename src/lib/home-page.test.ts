@@ -35,4 +35,10 @@ describe('premium home page', () => {
     expect(homeSource).toContain('href="/products/"');
     expect(homeSource).toContain('href="/compare/"');
   });
+
+  it('編集済み商品と自動発掘商品を分けて表示する', () => {
+    expect(homeSource).toContain('discovered-products.json');
+    expect(homeSource).toContain('編集済み');
+    expect(homeSource).toContain('自動発掘');
+  });
 });

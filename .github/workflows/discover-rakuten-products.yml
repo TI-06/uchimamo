@@ -1,0 +1,74 @@
+name: Discover Rakuten Products
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/discover-rakuten-products.yml'
+      - 'scripts/discover-rakuten.mjs'
+      - 'scripts/discovery-policy.mjs'
+      - 'src/data/discovery-rules.json'
+  schedule:
+    # 04:10 JST (19:10 UTC)
+    - cron: '10 19 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: discover-rakuten-products
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    env:
+      RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+      RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+      RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.20.0'
+          package-manager-cache: false
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Check Rakuten credentials
+        id: credentials
+        shell: bash
+        run: |
+          if [ -n "$RAKUTEN_APP_ID" ] && [ -n "$RAKUTEN_ACCESS_KEY" ] && [ -n "$RAKUTEN_AFFILIATE_ID" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "Rakuten Secrets are not configured. Skipping discovery."
+          fi
+      - name: Install dependencies
+        if: steps.credentials.outputs.available == 'true'
+        run: pnpm install --no-frozen-lockfile
+      - name: Discover Rakuten products
+        id: discovery
+        if: steps.credentials.outputs.available == 'true'
+        continue-on-error: true
+        run: pnpm discover:rakuten
+      - name: Commit discovery result
+        if: always() && steps.credentials.outputs.available == 'true'
+        shell: bash
+        run: |
+          if [ -z "$(git status --porcelain -- src/data/product-candidates.json src/data/discovered-products.json)" ]; then
+            echo "No discovery changes."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/product-candidates.json src/data/discovered-products.json
+            git commit -m "chore: refresh discovered product catalog"
+            git push origin main
+          fi
+      - name: Fail when discovery failed
+        if: steps.credentials.outputs.available == 'true' && steps.discovery.outcome == 'failure'
+        run: exit 1

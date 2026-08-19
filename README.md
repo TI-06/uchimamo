@@ -12,6 +12,7 @@
 - 商品詳細
 - 楽天市場の商品情報キャッシュ
 - 楽天アフィリエイトリンク自動表示
+- 楽天市場からの新商品候補自動発掘
 - 家庭防犯ガイド基盤
 - レスポンシブUI
 - SEOメタ / sitemap / robots
@@ -82,9 +83,33 @@ RAKUTEN_ACCESS_KEY
 RAKUTEN_AFFILIATE_ID
 ```
 
-`.github/workflows/sync-rakuten.yml` が毎日03:20 JSTに同期します。
+`.github/workflows/sync-rakuten.yml` が毎日03:20 JSTに価格・レビュー等を同期します。
 
 Secretsが未設定の場合は同期をスキップするため、サイト本体はそのまま利用できます。
+
+## 商品自動発掘
+
+既存の編集済み商品とは別に、楽天市場から家庭防犯の新商品・人気商品候補を自動発掘します。
+
+```bash
+pnpm discover:rakuten
+```
+
+保存先:
+
+- `src/data/product-candidates.json` — 非公開を含む候補プール
+- `src/data/discovered-products.json` — 自動公開基準を満たした商品
+
+`.github/workflows/discover-rakuten-products.yml` が毎日04:10 JSTに実行します。既存の価格同期と50分ずらし、mainへの同時pushを避けています。
+
+### curated と discovered
+
+- **curated（編集済み）**: 工事・Wi-Fi・電源・月額等の仕様を確認済み。条件検索、診断、最大3商品比較、ウチマモ独自評価の対象。
+- **discovered（自動発掘）**: 楽天市場の商品名・画像・価格・楽天レビュー・ブランド等の確認可能な情報のみ表示。詳細仕様の確認が完了するまで条件検索、診断、比較、独自評価の対象外。
+
+自動発掘では、信頼ブランド、カテゴリ一致、レビュー平均4.0以上、レビュー10件以上、画像・価格・アフィリエイトURLの存在などを判定します。中古、アクセサリ、交換部品、複数台セット等は除外します。
+
+**アフィリエイト率は品質スコアや自動公開判定に使用しません。**
 
 ## Cloudflare Pagesへ無料公開
 
@@ -110,11 +135,11 @@ PUBLIC_SITE_URL=https://<Cloudflareで確定したプロジェクト名>.pages.d
 
 Cloudflare PagesのGit連携後は、`main` 更新時に自動再デプロイされます。
 
-楽天APIのSecretはサイトのブラウザ側では使いません。商品同期をGitHub Actionsで行う構成なので、Cloudflare Pagesへ楽天Secretを登録する必要はありません。
+楽天APIのSecretはサイトのブラウザ側では使いません。商品同期・発掘をGitHub Actionsで行う構成なので、Cloudflare Pagesへ楽天Secretを登録する必要はありません。
 
 ## 商品追加
 
-`src/data/products.json` に商品候補を追加します。
+編集済み商品は `src/data/products.json`、`src/data/products-extra.json`、`src/data/products-replacements.json` で管理します。
 
 楽天連携例:
 
@@ -129,10 +154,14 @@ Cloudflare PagesのGit連携後は、`main` 更新時に自動再デプロイさ
 
 可能であれば商品を確認後 `itemCode` を固定し、誤った商品への自動マッチを防ぎます。
 
+自動発掘商品を編集済み商品へ昇格する場合は、工事・通信・電源・月額等の仕様を確認して通常の商品マスタへ移します。
+
 ## 設計ドキュメント
 
 - `docs/superpowers/specs/2026-08-19-uchimamo-design.md`
 - `docs/superpowers/plans/2026-08-19-mvp-foundation.md`
+- `docs/superpowers/specs/2026-08-20-product-auto-discovery-design.md`
+- `docs/superpowers/plans/2026-08-20-product-auto-discovery.md`
 
 ## 運営上の注意
 

@@ -1,0 +1,128 @@
+{
+  "trustedBrands": [
+    { "name": "SwitchBot", "tokens": ["switchbot"] },
+    { "name": "Tapo", "tokens": ["tapo", "tp-link", "tp link"] },
+    { "name": "Eufy", "tokens": ["eufy", "anker"] },
+    { "name": "Ring", "tokens": ["ring"] },
+    { "name": "Aqara", "tokens": ["aqara"] },
+    { "name": "SESAME", "tokens": ["sesame", "candy house", "candyhouse"] },
+    { "name": "アイリスオーヤマ", "tokens": ["アイリスオーヤマ", "iris ohyama"] },
+    { "name": "ELPA", "tokens": ["elpa", "朝日電器"] },
+    { "name": "ムサシ", "tokens": ["ムサシ", "ritex", "ライテックス"] },
+    { "name": "ノムラテック", "tokens": ["ノムラテック", "nomura tec"] },
+    { "name": "Panasonic", "tokens": ["panasonic", "パナソニック"] }
+  ],
+  "excludeTokens": [
+    "中古",
+    "ジャンク",
+    "訳あり",
+    "部品",
+    "交換用",
+    "ケース",
+    "カバー",
+    "ホルダー",
+    "ステッカー",
+    "取付金具",
+    "取り付け金具",
+    "ブラケット",
+    "ケーブルのみ",
+    "アダプターのみ",
+    "2台セット",
+    "３台セット",
+    "3台セット",
+    "４台セット",
+    "4台セット",
+    "まとめ買い",
+    "福袋"
+  ],
+  "rules": [
+    {
+      "id": "camera-outdoor",
+      "category": "camera",
+      "keyword": "防犯カメラ 屋外",
+      "requiredAny": ["防犯カメラ", "監視カメラ", "ネットワークカメラ"],
+      "minPrice": 2000,
+      "maxPrice": 150000
+    },
+    {
+      "id": "camera-battery",
+      "category": "camera",
+      "keyword": "防犯カメラ バッテリー",
+      "requiredAny": ["防犯カメラ", "監視カメラ", "ネットワークカメラ"],
+      "minPrice": 2000,
+      "maxPrice": 150000
+    },
+    {
+      "id": "camera-solar",
+      "category": "camera",
+      "keyword": "防犯カメラ ソーラー",
+      "requiredAny": ["防犯カメラ", "監視カメラ", "ネットワークカメラ"],
+      "minPrice": 2000,
+      "maxPrice": 150000
+    },
+    {
+      "id": "smart-lock-retrofit",
+      "category": "smart-lock",
+      "keyword": "スマートロック 後付け",
+      "requiredAny": ["スマートロック", "電子錠", "オートロック"],
+      "minPrice": 3000,
+      "maxPrice": 100000
+    },
+    {
+      "id": "electronic-lock-retrofit",
+      "category": "smart-lock",
+      "keyword": "電子錠 後付け",
+      "requiredAny": ["スマートロック", "電子錠", "オートロック"],
+      "minPrice": 3000,
+      "maxPrice": 100000
+    },
+    {
+      "id": "door-window-sensor",
+      "category": "sensor",
+      "keyword": "開閉センサー 防犯",
+      "requiredAny": ["開閉センサー", "ドアセンサー", "窓センサー", "センサー"],
+      "minPrice": 1000,
+      "maxPrice": 50000
+    },
+    {
+      "id": "motion-sensor",
+      "category": "sensor",
+      "keyword": "人感センサー 防犯",
+      "requiredAny": ["人感センサー", "モーションセンサー", "センサー"],
+      "minPrice": 1000,
+      "maxPrice": 50000
+    },
+    {
+      "id": "window-lock",
+      "category": "window-lock",
+      "keyword": "窓 防犯 補助錠",
+      "requiredAny": ["補助錠", "窓ロック", "サッシロック", "防犯錠"],
+      "minPrice": 500,
+      "maxPrice": 30000
+    },
+    {
+      "id": "sash-lock",
+      "category": "window-lock",
+      "keyword": "サッシ 防犯 錠",
+      "requiredAny": ["補助錠", "窓ロック", "サッシロック", "防犯錠"],
+      "minPrice": 500,
+      "maxPrice": 30000
+    },
+    {
+      "id": "security-light",
+      "category": "light",
+      "keyword": "センサーライト 防犯",
+      "requiredAny": ["センサーライト", "防犯ライト", "人感ライト"],
+      "minPrice": 1000,
+      "maxPrice": 80000
+    },
+    {
+      "id": "solar-light",
+      "category": "light",
+      "keyword": "ソーラー センサーライト",
+      "requiredAny": ["センサーライト", "防犯ライト", "人感ライト"],
+      "minPrice": 1000,
+      "maxPrice": 80000
+    }
+  ]
+}

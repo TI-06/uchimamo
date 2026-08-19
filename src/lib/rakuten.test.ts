@@ -2,14 +2,16 @@ import { describe, expect, it } from 'vitest';
 import { buildRakutenRequest, normalizeRakutenItem } from './rakuten';
 
 describe('buildRakutenRequest', () => {
-  it('認証情報とaffiliateIdをURLに含める', () => {
-    const url = new URL(buildRakutenRequest({
+  it('App IDとaffiliateIdはURL、Access Keyはヘッダーへ分離する', () => {
+    const request = buildRakutenRequest({
       appId: 'app-id', accessKey: 'secret-key', affiliateId: 'affiliate-id', keyword: '防犯カメラ'
-    }));
+    });
+    const url = new URL(request.url);
     expect(url.searchParams.get('applicationId')).toBe('app-id');
-    expect(url.searchParams.get('accessKey')).toBe('secret-key');
     expect(url.searchParams.get('affiliateId')).toBe('affiliate-id');
     expect(url.searchParams.get('keyword')).toBe('防犯カメラ');
+    expect(url.searchParams.get('accessKey')).toBeNull();
+    expect(request.headers.accessKey).toBe('secret-key');
   });
 });
 

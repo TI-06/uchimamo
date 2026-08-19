@@ -6,7 +6,7 @@ interface Props { product: Product; rakuten?: RakutenCacheItem; compact?: boolea
 const { product, rakuten, compact = false } = Astro.props;
 const price = rakuten?.price ? `¥${rakuten.price.toLocaleString('ja-JP')}` : '価格を同期後に表示';
 ---
-<article class:list={['product-card', { compact }]} data-product-card data-id={product.id} data-category={product.category} data-place={product.places.join(',')} data-no-drilling={String(product.installation.noDrilling)} data-no-wifi={String(!product.connectivity.wifiRequired)} data-solar={String(product.power.solar)} data-monthly-free={String(!product.monthlyFeeRequired)}>
+<article class:list={['product-card', { compact }]} data-product-card data-id={product.id} data-category={product.category} data-place={product.places.join(',')} data-no-drilling={String(product.installation.noDrilling)} data-no-wifi={String(!product.connectivity.wifiRequired)} data-no-power={String(product.power.battery || product.power.solar)} data-solar={String(product.power.solar)} data-monthly-free={String(!product.monthlyFeeRequired)}>
   <div class="visual">
     {rakuten?.imageUrl ? <img src={rakuten.imageUrl} alt={rakuten.name || product.name} loading="lazy" width="300" height="220" /> : <div class="visual-placeholder"><span>{product.brand.slice(0, 2)}</span><small>商品画像は楽天同期後に表示</small></div>}
     <span class="score">{product.score}<small>/100</small></span>
@@ -18,6 +18,7 @@ const price = rakuten?.price ? `¥${rakuten.price.toLocaleString('ja-JP')}` : '�
     <div class="features">
       {product.installation.noDrilling && <span class="chip chip-green">工事不要</span>}
       {!product.connectivity.wifiRequired && <span class="chip chip-blue">Wi-Fi不要</span>}
+      {(product.power.battery || product.power.solar) && <span class="chip">電源工事不要</span>}
       {product.power.solar && <span class="chip">ソーラー</span>}
       {!product.monthlyFeeRequired && <span class="chip">月額不要</span>}
     </div>

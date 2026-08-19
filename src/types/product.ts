@@ -49,6 +49,8 @@ export interface Product {
     enabled: boolean;
     keyword: string;
     itemCode?: string;
+    modelTokens?: string[];
+    excludeTokens?: string[];
   };
   asp?: {
     provider: string;

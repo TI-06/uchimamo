@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "sync:rakuten": "node scripts/sync-rakuten.mjs"
+    "sync:rakuten": "node scripts/sync-rakuten.mjs",
+    "discover:rakuten": "node scripts/discover-rakuten.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "4.3.3",

@@ -33,6 +33,18 @@ export interface Product {
   features: string[];
   targetUsers: string[];
   places: ProductPlace[];
+  editorial?: {
+    verdict: string;
+    bestFor: string;
+    pros: string[];
+    cautions: string[];
+    scoreBreakdown?: {
+      installation: number;
+      features: number;
+      cost: number;
+      maintenance: number;
+    };
+  };
   rakuten: {
     enabled: boolean;
     keyword: string;

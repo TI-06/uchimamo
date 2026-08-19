@@ -3,6 +3,7 @@ import { candidateScore, selectRakutenCandidate } from './rakuten-match.mjs';
 
 const ENDPOINT = 'https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701';
 const PRODUCT_PATH = new URL('../src/data/products.json', import.meta.url);
+const EXTRA_PRODUCT_PATH = new URL('../src/data/products-extra.json', import.meta.url);
 const CACHE_PATH = new URL('../src/data/rakuten-cache.json', import.meta.url);
 const STATUS_PATH = new URL('../src/data/rakuten-sync-status.json', import.meta.url);
 const RAKUTEN_REFERER = process.env.RAKUTEN_REFERER || 'https://uchimamo.pages.dev/';
@@ -15,7 +16,10 @@ if (!RAKUTEN_APP_ID || !RAKUTEN_ACCESS_KEY || !RAKUTEN_AFFILIATE_ID) {
   process.exit(1);
 }
 
-const products = JSON.parse(await readFile(PRODUCT_PATH, 'utf8'));
+const products = [
+  ...JSON.parse(await readFile(PRODUCT_PATH, 'utf8')),
+  ...JSON.parse(await readFile(EXTRA_PRODUCT_PATH, 'utf8'))
+];
 let cache = {};
 try {
   cache = JSON.parse(await readFile(CACHE_PATH, 'utf8'));

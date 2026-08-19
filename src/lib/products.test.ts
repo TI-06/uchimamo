@@ -35,6 +35,23 @@ const products: Product[] = [
     targetUsers: ['賃貸'],
     places: ['entrance'],
     rakuten: { enabled: true, keyword: 'スマートロック' }
+  },
+  {
+    id: 'cam-ac',
+    name: 'ACカメラ',
+    brand: 'Demo',
+    category: 'camera',
+    description: '常時給電向け',
+    score: 80,
+    installation: { noDrilling: false, diy: true, outdoor: true, indoor: false },
+    connectivity: { wifiRequired: true, lteSupported: false },
+    power: { ac: true, battery: false, solar: false },
+    storage: { sd: true, cloud: false, local: true },
+    monthlyFeeRequired: false,
+    features: [],
+    targetUsers: ['戸建て'],
+    places: ['parking'],
+    rakuten: { enabled: false, keyword: '' }
   }
 ];
 
@@ -42,6 +59,11 @@ describe('filterProducts', () => {
   it('工事不要かつソーラーの商品だけを返す', () => {
     const result = filterProducts(products, { noDrilling: true, solar: true });
     expect(result.map((item) => item.id)).toEqual(['cam-solar']);
+  });
+
+  it('電源不要ではバッテリーまたはソーラー駆動の商品だけを返す', () => {
+    const result = filterProducts(products, { powerNotRequired: true });
+    expect(result.map((item) => item.id)).toEqual(['cam-solar', 'lock-smart']);
   });
 });
 

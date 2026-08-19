@@ -8,7 +8,7 @@ import type { RakutenCacheItem } from '../../lib/rakuten';
 const products = productsJson as Product[];
 const cache = cacheJson as Record<string, RakutenCacheItem>;
 ---
-<BaseLayout title="防犯用品を条件から探す｜ウチマモ" description="工事不要、Wi-Fi不要、ソーラー、月額不要などの条件から家庭用防犯用品を比較できます。">
+<BaseLayout title="防犯用品を条件から探す｜ウチマモ" description="工事不要、Wi-Fi不要、電源不要、ソーラー、月額不要などの条件から家庭用防犯用品を比較できます。">
   <section class="finder-hero">
     <div class="site-container"><span class="eyebrow">PRODUCT FINDER</span><h1>条件から防犯用品を探す</h1><p>住まいの制約に合わない商品を最初から外して、比較しやすい候補だけに絞り込みます。</p></div>
   </section>
@@ -18,7 +18,7 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
         <div class="filter-head"><strong>絞り込み</strong><button type="button" id="resetFilters">リセット</button></div>
         <label>カテゴリ<select id="categoryFilter"><option value="">すべて</option><option value="camera">防犯カメラ</option><option value="smart-lock">スマートロック</option><option value="sensor">センサー</option><option value="window-lock">補助錠</option><option value="light">センサーライト</option></select></label>
         <label>設置場所<select id="placeFilter"><option value="">すべて</option><option value="entrance">玄関</option><option value="window">窓</option><option value="parking">駐車場</option><option value="garden">庭</option><option value="backdoor">勝手口</option><option value="indoor">室内</option></select></label>
-        <fieldset><legend>設置条件</legend><label class="check"><input type="checkbox" id="noDrilling" /> 工事・穴あけ不要</label><label class="check"><input type="checkbox" id="noWifi" /> Wi-Fi不要</label><label class="check"><input type="checkbox" id="solar" /> ソーラー対応</label><label class="check"><input type="checkbox" id="monthlyFree" /> 月額不要</label></fieldset>
+        <fieldset><legend>設置条件</legend><label class="check"><input type="checkbox" id="noDrilling" /> 工事・穴あけ不要</label><label class="check"><input type="checkbox" id="noWifi" /> Wi-Fi不要</label><label class="check"><input type="checkbox" id="noPower" /> コンセント電源不要</label><label class="check"><input type="checkbox" id="solar" /> ソーラー対応</label><label class="check"><input type="checkbox" id="monthlyFree" /> 月額不要</label></fieldset>
         <div class="filter-note"><strong>選び方が分からない？</strong><p>6問の防犯診断なら条件を自動で整理します。</p><a href="/diagnosis/">防犯診断へ →</a></div>
       </aside>
       <div class="results"><div class="results-head"><div><strong><span id="resultCount">{products.length}</span>件</strong><small>の商品候補</small></div><span>おすすめ順</span></div><div class="products-grid" id="productsGrid">{products.map((product) => <ProductCard product={product} rakuten={cache[product.id]} />)}</div><div id="emptyState" class="empty card" hidden><strong>条件に合う商品がありません</strong><p>条件を1つ外すか、防犯診断から探してみてください。</p><button class="btn-secondary" type="button">条件をリセット</button></div></div>
@@ -32,6 +32,7 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
   const place = document.querySelector('#placeFilter');
   const noDrilling = document.querySelector('#noDrilling');
   const noWifi = document.querySelector('#noWifi');
+  const noPower = document.querySelector('#noPower');
   const solar = document.querySelector('#solar');
   const monthlyFree = document.querySelector('#monthlyFree');
   const count = document.querySelector('#resultCount');
@@ -44,10 +45,12 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
 
   function applyInitialQuery() {
     const q = new URLSearchParams(location.search);
+    if (q.get('category') && category instanceof HTMLSelectElement) category.value = q.get('category') || '';
     if (q.get('place') && place instanceof HTMLSelectElement) place.value = q.get('place') || '';
     const condition = q.get('condition');
     if (condition === 'no-drilling' && noDrilling instanceof HTMLInputElement) noDrilling.checked = true;
     if (condition === 'no-wifi' && noWifi instanceof HTMLInputElement) noWifi.checked = true;
+    if (condition === 'no-power' && noPower instanceof HTMLInputElement) noPower.checked = true;
     if (condition === 'solar' && solar instanceof HTMLInputElement) solar.checked = true;
     if (condition === 'no-monthly-fee' && monthlyFree instanceof HTMLInputElement) monthlyFree.checked = true;
   }
@@ -59,6 +62,7 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
         && (!place?.value || (node.dataset.place || '').split(',').includes(place.value))
         && (!(noDrilling instanceof HTMLInputElement) || !noDrilling.checked || node.dataset.noDrilling === 'true')
         && (!(noWifi instanceof HTMLInputElement) || !noWifi.checked || node.dataset.noWifi === 'true')
+        && (!(noPower instanceof HTMLInputElement) || !noPower.checked || node.dataset.noPower === 'true')
         && (!(solar instanceof HTMLInputElement) || !solar.checked || node.dataset.solar === 'true')
         && (!(monthlyFree instanceof HTMLInputElement) || !monthlyFree.checked || node.dataset.monthlyFree === 'true');
       node.hidden = !matches;
@@ -70,11 +74,11 @@ const cache = cacheJson as Record<string, RakutenCacheItem>;
   function resetFilters() {
     if (category instanceof HTMLSelectElement) category.value = '';
     if (place instanceof HTMLSelectElement) place.value = '';
-    [noDrilling,noWifi,solar,monthlyFree].forEach((el) => { if (el instanceof HTMLInputElement) el.checked = false; });
+    [noDrilling,noWifi,noPower,solar,monthlyFree].forEach((el) => { if (el instanceof HTMLInputElement) el.checked = false; });
     history.replaceState({}, '', location.pathname);
     applyFilters();
   }
-  [category,place,noDrilling,noWifi,solar,monthlyFree].forEach((el) => el?.addEventListener('change', applyFilters));
+  [category,place,noDrilling,noWifi,noPower,solar,monthlyFree].forEach((el) => el?.addEventListener('change', applyFilters));
   reset?.addEventListener('click', resetFilters);
   empty?.querySelector('button')?.addEventListener('click', resetFilters);
 

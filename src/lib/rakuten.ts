@@ -4,11 +4,12 @@ export interface RakutenRequestInput {
   affiliateId?: string;
   keyword: string;
   itemCode?: string;
+  referer?: string;
 }
 
 export interface RakutenRequest {
   url: string;
-  headers: { accessKey: string };
+  headers: { accessKey: string; Referer?: string };
 }
 
 export interface RakutenCacheItem {
@@ -38,7 +39,10 @@ export function buildRakutenRequest(input: RakutenRequestInput): RakutenRequest 
 
   return {
     url: url.toString(),
-    headers: { accessKey: input.accessKey }
+    headers: {
+      accessKey: input.accessKey,
+      ...(input.referer ? { Referer: input.referer } : {})
+    }
   };
 }
 

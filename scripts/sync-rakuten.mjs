@@ -5,6 +5,8 @@ const PRODUCT_PATH = new URL('../src/data/products.json', import.meta.url);
 const CACHE_PATH = new URL('../src/data/rakuten-cache.json', import.meta.url);
 const STATUS_PATH = new URL('../src/data/rakuten-sync-status.json', import.meta.url);
 const RAKUTEN_REFERER = process.env.RAKUTEN_REFERER || 'https://uchimamo.pages.dev/';
+const RAKUTEN_ORIGIN = new URL(RAKUTEN_REFERER).origin;
+const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36';
 
 const { RAKUTEN_APP_ID, RAKUTEN_ACCESS_KEY, RAKUTEN_AFFILIATE_ID } = process.env;
 if (!RAKUTEN_APP_ID || !RAKUTEN_ACCESS_KEY || !RAKUTEN_AFFILIATE_ID) {
@@ -79,7 +81,9 @@ for (const [index, product] of products.entries()) {
     const response = await fetch(url, {
       headers: {
         accessKey: RAKUTEN_ACCESS_KEY,
-        Referer: RAKUTEN_REFERER
+        Referer: RAKUTEN_REFERER,
+        Origin: RAKUTEN_ORIGIN,
+        'User-Agent': USER_AGENT
       }
     });
     if (!response.ok) throw new Error(await responseError(response));

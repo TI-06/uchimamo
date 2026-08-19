@@ -2,7 +2,7 @@ export interface RakutenRequestInput {
   appId: string;
   accessKey: string;
   affiliateId?: string;
-  keyword: string;
+  keyword?: string;
   itemCode?: string;
   referer?: string;
 }
@@ -32,10 +32,10 @@ export function buildRakutenRequest(input: RakutenRequestInput): RakutenRequest 
   url.searchParams.set('format', 'json');
   url.searchParams.set('formatVersion', '2');
   url.searchParams.set('applicationId', input.appId);
-  url.searchParams.set('keyword', input.keyword);
   url.searchParams.set('hits', '3');
   if (input.affiliateId) url.searchParams.set('affiliateId', input.affiliateId);
   if (input.itemCode) url.searchParams.set('itemCode', input.itemCode);
+  else if (input.keyword) url.searchParams.set('keyword', input.keyword);
 
   let origin: string | undefined;
   if (input.referer) {

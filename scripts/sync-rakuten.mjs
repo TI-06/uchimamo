@@ -4,6 +4,7 @@ const ENDPOINT = 'https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/2
 const PRODUCT_PATH = new URL('../src/data/products.json', import.meta.url);
 const CACHE_PATH = new URL('../src/data/rakuten-cache.json', import.meta.url);
 const STATUS_PATH = new URL('../src/data/rakuten-sync-status.json', import.meta.url);
+const RAKUTEN_REFERER = process.env.RAKUTEN_REFERER || 'https://uchimamo.pages.dev/';
 
 const { RAKUTEN_APP_ID, RAKUTEN_ACCESS_KEY, RAKUTEN_AFFILIATE_ID } = process.env;
 if (!RAKUTEN_APP_ID || !RAKUTEN_ACCESS_KEY || !RAKUTEN_AFFILIATE_ID) {
@@ -75,7 +76,12 @@ for (const [index, product] of products.entries()) {
   if (product.rakuten.itemCode) url.searchParams.set('itemCode', product.rakuten.itemCode);
 
   try {
-    const response = await fetch(url, { headers: { accessKey: RAKUTEN_ACCESS_KEY } });
+    const response = await fetch(url, {
+      headers: {
+        accessKey: RAKUTEN_ACCESS_KEY,
+        Referer: RAKUTEN_REFERER
+      }
+    });
     if (!response.ok) throw new Error(await responseError(response));
 
     const data = await response.json();

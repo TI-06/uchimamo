@@ -3,39 +3,179 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import productsJson from '../data/products.json';
 import cacheJson from '../data/rakuten-cache.json';
 import type { Product } from '../types/product';
+import type { RakutenCacheItem } from '../lib/rakuten';
 const products = productsJson as Product[];
-const cache = cacheJson;
+const cache = cacheJson as Record<string, RakutenCacheItem>;
 ---
-<BaseLayout title="防犯用品を3商品まで比較｜ウチマモ" description="防犯カメラやスマートロックを最大3商品まで同じ条件で比較できます。">
-  <section class="compare-hero"><div class="site-container"><span class="eyebrow">COMPARE</span><h1>防犯用品を横並びで比較</h1><p>価格だけでなく、工事・通信・電源・月額など「自宅で使えるか」を中心に比べます。</p></div></section>
-  <section class="compare-section"><div class="site-container"><div id="emptyCompare" class="empty card"><span>⇄</span><h2>比較する商品を選んでください</h2><p>商品一覧で最大3つまで「比較リストに追加」できます。</p><a class="btn-primary" href="/products/">商品を選びに行く →</a></div><div id="compareContent" hidden><div class="compare-toolbar"><div><strong><span id="selectedCount">0</span>商品を比較中</strong><small>最大3商品</small></div><a href="/products/">＋ 商品を選び直す</a></div><div class="table-wrap card"><table><thead id="compareHead"></thead><tbody id="compareBody"></tbody></table></div><div class="compare-tip card"><strong>比較だけで決めきれない場合</strong><p>自宅の設置条件を入力すると、条件との相性で候補を並べ直せます。</p><a class="btn-secondary" href="/diagnosis/">防犯診断を試す →</a></div></div></div></section>
+<BaseLayout title="防犯用品を3商品まで比較｜ウチマモ" description="防犯カメラやスマートロックを最大3商品まで、設置・通信・電源・月額・価格・レビューで比較できます。">
+  <section class="compare-hero">
+    <div class="site-container hero-inner"><div><span class="eyebrow">PRODUCT COMPARE</span><h1>違いが分かれば、<br />選びやすくなる。</h1><p>価格だけでなく「自宅で使えるか」を中心に、最大3商品を同じ基準で比較します。</p></div><div class="hero-note"><strong>比較の見方</strong><span>01. まず結論を見る</span><span>02. 違う項目だけ確認</span><span>03. 最後に販売条件を確認</span></div></div>
+  </section>
+
+  <section class="compare-section">
+    <div class="site-container">
+      <div id="emptyCompare" class="empty surface"><span aria-hidden="true">⇄</span><h2>比較する商品を選んでください</h2><p>商品一覧から最大3商品を選ぶと、このページに比較結果が表示されます。</p><a class="btn-primary" href="/products/">商品を選びに行く <span>→</span></a></div>
+
+      <div id="compareContent" hidden>
+        <div class="compare-toolbar"><div><span class="eyebrow">SELECTED ITEMS</span><strong><span id="selectedCount">0</span>商品を比較中</strong></div><a href="/products/">＋ 商品を選び直す</a></div>
+        <div id="productSummaries" class="summary-grid"></div>
+
+        <section class="verdict-section">
+          <div class="section-heading"><div><span class="eyebrow">QUICK VERDICT</span><h2>先に、比較の結論。</h2></div><p>用途ごとの強みを自動で整理しています。最終判断は設置条件と販売ページの最新仕様をご確認ください。</p></div>
+          <div id="verdictGrid" class="verdict-grid"></div>
+        </section>
+
+        <section class="matrix-section">
+          <div class="matrix-toolbar"><div><span class="eyebrow">DETAIL COMPARE</span><h2>項目ごとに比較</h2></div><label class="difference-toggle"><input id="differenceOnly" type="checkbox" /><span aria-hidden="true"></span><strong>違いがある項目だけ表示</strong></label></div>
+          <div class="matrix-hint">← 横にスワイプして商品を比較できます →</div>
+          <div class="matrix-wrap surface" id="matrixWrap"><div id="compareMatrix" class="compare-matrix"></div></div>
+        </section>
+
+        <div class="compare-tip"><div><span class="eyebrow">STILL NOT SURE?</span><strong>自宅条件との相性で選び直す</strong><p>住まい・設置場所・電源・Wi-Fi・工事可否・予算から候補を整理します。</p></div><a class="btn-primary" href="/diagnosis/">30秒防犯診断 <span>→</span></a></div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 <script define:vars={{ products, cache }}>
   const ids = (new URLSearchParams(location.search).get('ids') || '').split(',').filter(Boolean).slice(0,3);
   const selected = ids.map((id) => products.find((p) => p.id === id)).filter(Boolean);
-  const empty = document.querySelector('#emptyCompare'); const content = document.querySelector('#compareContent');
-  const yes = (value) => value ? '<span class="yes">✓ 対応</span>' : '<span class="no">—</span>';
-  const labels = { camera:'防犯カメラ','smart-lock':'スマートロック',sensor:'センサー','window-lock':'補助錠',light:'ライト' };
+  const empty = document.querySelector('#emptyCompare');
+  const content = document.querySelector('#compareContent');
+  const summaries = document.querySelector('#productSummaries');
+  const verdictGrid = document.querySelector('#verdictGrid');
+  const matrix = document.querySelector('#compareMatrix');
+  const differenceOnly = document.querySelector('#differenceOnly');
+  const count = document.querySelector('#selectedCount');
+  const categoryLabels = { camera:'防犯カメラ','smart-lock':'スマートロック',sensor:'センサー','window-lock':'補助錠',light:'センサーライト' };
+  const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[char]));
+  const priceOf = (p) => Number(cache[p.id]?.price || 0);
+  const reviewOf = (p) => Number(cache[p.id]?.reviewAverage || 0);
+  const bool = (value, positive='対応', negative='非対応') => value
+    ? { key:'yes', html:`<span class="matrix-yes">✓ ${positive}</span>` }
+    : { key:'no', html:`<span class="matrix-no">— ${negative}</span>` };
+  const textValue = (value, key = String(value)) => ({ key, html: escapeHtml(value) });
+
+  function formatCheckedAt(value) {
+    if (!value) return '';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return '';
+    return new Intl.DateTimeFormat('ja-JP', { year:'numeric', month:'numeric', day:'numeric' }).format(date);
+  }
+
+  function renderSummary(p, index) {
+    const r = cache[p.id];
+    const price = r?.price ? `¥${Number(r.price).toLocaleString('ja-JP')}` : '価格確認中';
+    const review = r?.reviewAverage > 0 ? `<div class="summary-review"><small>楽天市場レビュー</small><strong>★ ${Number(r.reviewAverage).toFixed(1)}</strong><span>(${Number(r.reviewCount || 0).toLocaleString('ja-JP')}件)</span></div>` : '';
+    const image = r?.imageUrl ? `<img src="${escapeHtml(r.imageUrl)}" alt="" />` : `<div class="summary-placeholder">${escapeHtml(p.brand.slice(0,2))}</div>`;
+    const buy = r?.affiliateUrl ? `<a class="btn-secondary" href="${escapeHtml(r.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">楽天で価格を見る</a>` : '';
+    const checked = formatCheckedAt(r?.fetchedAt);
+    return `<article class="summary-card"><button class="summary-remove" type="button" data-remove-id="${escapeHtml(p.id)}" aria-label="比較から外す">×</button><div class="summary-number">0${index+1}</div><div class="summary-image">${image}</div><div class="summary-body"><small>${escapeHtml(p.brand)}</small><h2>${escapeHtml(p.name)}</h2><div class="summary-score"><span>ウチマモ評価</span><strong>${p.score}</strong><small>/100</small></div><div class="summary-price"><small>楽天市場</small><strong>${price}</strong></div>${review}${checked ? `<div class="summary-checked">${checked}確認</div>` : ''}<div class="summary-actions"><a class="btn-primary" href="/products/${encodeURIComponent(p.id)}/">商品詳細</a>${buy}</div></div></article>`;
+  }
+
+  function addVerdict(label, product, reason, tone='normal') {
+    if (!product) return '';
+    return `<article class="verdict-card ${tone}"><span>${escapeHtml(label)}</span><strong>${escapeHtml(product.name)}</strong><p>${escapeHtml(reason)}</p><a href="/products/${encodeURIComponent(product.id)}/">詳細を見る →</a></article>`;
+  }
+
+  function renderVerdicts() {
+    if (!(verdictGrid instanceof HTMLElement) || selected.length === 0) return;
+    const overall = [...selected].sort((a,b) => b.score - a.score)[0];
+    const install = [...selected].sort((a,b) => Number(b.installation.noDrilling) - Number(a.installation.noDrilling) || b.score-a.score)[0];
+    const prices = selected.filter((p) => priceOf(p) > 0);
+    const cost = prices.length ? [...prices].sort((a,b) => priceOf(a)-priceOf(b))[0] : overall;
+    const constrained = selected.find((p) => !p.connectivity.wifiRequired && (p.power.battery || p.power.solar)) || selected.find((p) => !p.connectivity.wifiRequired) || overall;
+    verdictGrid.innerHTML = [
+      addVerdict('総合おすすめ', overall, `ウチマモ評価 ${overall.score}点。比較中の商品で総合評価が最も高い候補です。`, 'best'),
+      addVerdict('工事を抑えたい', install, install.installation.noDrilling ? '穴あけを抑えた設置を優先したい場合の候補です。' : '設置条件を販売ページで確認したい候補です。'),
+      addVerdict('価格を抑えたい', cost, priceOf(cost) ? `現在の楽天取得価格は ¥${priceOf(cost).toLocaleString('ja-JP')}。価格重視で比較したい候補です。` : '価格確認後に比較してください。'),
+      addVerdict('通信・電源の制約', constrained, !constrained.connectivity.wifiRequired ? 'Wi-Fi不要の条件を優先したい場合に比較しやすい候補です。' : '通信・電源条件を確認して選びたい候補です。')
+    ].join('');
+  }
+
+  const groups = [
+    { title:'基本情報', rows:[
+      { label:'カテゴリ', render:(p) => textValue(categoryLabels[p.category] || p.category) },
+      { label:'ウチマモ評価', render:(p) => ({ key:String(p.score), html:`<strong class="matrix-score">${p.score}</strong><small>/100</small>` }) },
+      { label:'楽天価格', render:(p) => ({ key:String(priceOf(p)), html:priceOf(p) ? `<strong class="matrix-price">¥${priceOf(p).toLocaleString('ja-JP')}</strong>` : '<span class="matrix-muted">確認中</span>' }) },
+      { label:'楽天市場レビュー', render:(p) => ({ key:String(reviewOf(p)), html:reviewOf(p) ? `<span class="matrix-review">★ ${reviewOf(p).toFixed(1)}</span><small> (${Number(cache[p.id]?.reviewCount || 0).toLocaleString('ja-JP')}件)</small>` : '<span class="matrix-muted">レビュー情報なし</span>' }) }
+    ]},
+    { title:'設置', rows:[
+      { label:'工事・穴あけ不要', render:(p) => bool(p.installation.noDrilling) },
+      { label:'DIY設置', render:(p) => bool(p.installation.diy) },
+      { label:'屋外対応', render:(p) => bool(p.installation.outdoor) }
+    ]},
+    { title:'電源・通信', rows:[
+      { label:'Wi-Fi', render:(p) => !p.connectivity.wifiRequired ? {key:'not-required',html:'<span class="matrix-yes">✓ 不要</span>'} : {key:'required',html:'<span class="matrix-neutral">必要</span>'} },
+      { label:'LTE / SIM', render:(p) => bool(p.connectivity.lteSupported) },
+      { label:'バッテリー', render:(p) => bool(p.power.battery) },
+      { label:'ソーラー', render:(p) => bool(p.power.solar) },
+      { label:'コンセント給電', render:(p) => bool(p.power.ac) }
+    ]},
+    { title:'維持費・保存', rows:[
+      { label:'月額', render:(p) => !p.monthlyFeeRequired ? {key:'free',html:'<span class="matrix-yes">月額不要</span>'} : {key:'paid',html:'<span class="matrix-caution">月額が必要な場合あり</span>'} },
+      { label:'SDカード保存', render:(p) => p.storage ? bool(p.storage.sd) : {key:'na',html:'<span class="matrix-muted">対象外 / 要確認</span>'} },
+      { label:'クラウド保存', render:(p) => p.storage ? bool(p.storage.cloud) : {key:'na',html:'<span class="matrix-muted">対象外 / 要確認</span>'} }
+    ]}
+  ];
+
+  function productHeader(p) {
+    const r = cache[p.id];
+    const image = r?.imageUrl ? `<img src="${escapeHtml(r.imageUrl)}" alt="" />` : '';
+    const price = r?.price ? `¥${Number(r.price).toLocaleString('ja-JP')}` : '価格確認中';
+    const buy = r?.affiliateUrl ? `<a href="${escapeHtml(r.affiliateUrl)}" target="_blank" rel="nofollow sponsored noopener">楽天で見る</a>` : `<a href="/products/${encodeURIComponent(p.id)}/">詳細を見る</a>`;
+    return `<div class="matrix-product">${image}<div><small>${escapeHtml(p.brand)}</small><strong>${escapeHtml(p.name)}</strong><span>${price}</span>${buy}</div></div>`;
+  }
+
+  function renderMatrix() {
+    if (!(matrix instanceof HTMLElement)) return;
+    matrix.style.setProperty('--product-count', String(Math.max(selected.length,1)));
+    let html = `<div class="matrix-cell matrix-corner matrix-sticky-top">比較項目</div>${selected.map((p) => `<div class="matrix-cell matrix-head matrix-sticky-top">${productHeader(p)}</div>`).join('')}`;
+    groups.forEach((group) => {
+      html += `<div class="matrix-group" style="grid-column:1 / span ${selected.length+1}">${group.title}</div>`;
+      group.rows.forEach((row) => {
+        const rendered = selected.map((p) => row.render(p));
+        const keys = rendered.map((item) => item.key);
+        const differs = new Set(keys).size > 1;
+        html += `<div class="matrix-row-label" data-diff="${differs}">${escapeHtml(row.label)}</div>${rendered.map((item) => `<div class="matrix-cell matrix-value" data-diff="${differs}">${item.html}</div>`).join('')}`;
+      });
+    });
+    matrix.innerHTML = html;
+    applyDifferenceFilter();
+  }
+
+  function applyDifferenceFilter() {
+    const only = differenceOnly instanceof HTMLInputElement && differenceOnly.checked;
+    matrix?.querySelectorAll('[data-diff="false"]').forEach((node) => { if (node instanceof HTMLElement) node.hidden = only; });
+    matrix?.querySelectorAll('[data-diff="true"]').forEach((node) => { if (node instanceof HTMLElement) node.hidden = false; });
+  }
+
+  function removeProduct(id) {
+    const next = ids.filter((value) => value !== id);
+    if (next.length === 0) location.href = '/products/';
+    else location.href = `/compare/?ids=${encodeURIComponent(next.join(','))}`;
+  }
+
   if (selected.length) {
-    if (empty instanceof HTMLElement) empty.hidden = true; if (content instanceof HTMLElement) content.hidden = false;
-    const count = document.querySelector('#selectedCount'); if (count) count.textContent = String(selected.length);
-    const head = document.querySelector('#compareHead'); if (head) head.innerHTML = `<tr><th>比較項目</th>${selected.map((p) => `<th><small>${p.brand}</small><strong>${p.name}</strong><a href="/products/${p.id}/">詳細を見る →</a></th>`).join('')}</tr>`;
-    const rows = [
-      ['カテゴリ', (p) => labels[p.category] || p.category],
-      ['ウチマモ評価', (p) => `<b class="score">${p.score}</b><small>/100</small>`],
-      ['工事・穴あけ不要', (p) => yes(p.installation.noDrilling)],
-      ['屋外対応', (p) => yes(p.installation.outdoor)],
-      ['Wi-Fi不要', (p) => yes(!p.connectivity.wifiRequired)],
-      ['バッテリー', (p) => yes(p.power.battery)],
-      ['ソーラー', (p) => yes(p.power.solar)],
-      ['月額不要', (p) => yes(!p.monthlyFeeRequired)],
-      ['楽天価格', (p) => cache[p.id]?.price ? `<strong>¥${Number(cache[p.id].price).toLocaleString('ja-JP')}</strong>` : '同期後に表示'],
-      ['購入', (p) => cache[p.id]?.affiliateUrl ? `<a class="buy" href="${cache[p.id].affiliateUrl}" target="_blank" rel="nofollow sponsored noopener">楽天で見る</a>` : '<small>楽天連携待ち</small>']
-    ];
-    const body = document.querySelector('#compareBody'); if (body) body.innerHTML = rows.map(([label,render]) => `<tr><th>${label}</th>${selected.map((p) => `<td>${render(p)}</td>`).join('')}</tr>`).join('');
+    if (empty instanceof HTMLElement) empty.hidden = true;
+    if (content instanceof HTMLElement) content.hidden = false;
+    if (count) count.textContent = String(selected.length);
+    if (summaries instanceof HTMLElement) {
+      summaries.innerHTML = selected.map(renderSummary).join('');
+      summaries.querySelectorAll('[data-remove-id]').forEach((button) => button.addEventListener('click', () => removeProduct(button.getAttribute('data-remove-id'))));
+    }
+    renderVerdicts();
+    renderMatrix();
+    differenceOnly?.addEventListener('change', applyDifferenceFilter);
   }
 </script>
 <style>
-  .compare-hero{padding:58px 0 36px;background:linear-gradient(180deg,#f4f9ff,#fff);border-bottom:1px solid var(--slate-200)}.compare-hero h1{font-size:clamp(2rem,4vw,3.1rem);letter-spacing:-.045em;margin:7px 0;color:var(--navy-950)}.compare-hero p{margin:0;color:var(--slate-700)}.compare-section{padding:36px 0 76px}.empty{text-align:center;padding:70px 20px}.empty>span{width:60px;height:60px;display:grid;place-items:center;border-radius:18px;background:var(--blue-100);color:var(--blue-600);font-size:1.6rem;margin:0 auto 14px}.empty h2{margin:0;color:var(--navy-950)}.empty p{color:var(--slate-500);font-size:.82rem}.empty .btn-primary{margin-top:10px}.compare-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.compare-toolbar strong{display:block}.compare-toolbar small{display:block;color:var(--slate-500);font-size:.65rem}.compare-toolbar>a{color:var(--blue-600);font-size:.72rem;font-weight:900}.table-wrap{overflow:auto}.table-wrap table{width:100%;border-collapse:collapse;min-width:720px}.table-wrap th,.table-wrap td{padding:15px;border-bottom:1px solid var(--slate-200);text-align:center;vertical-align:middle}.table-wrap tbody th,.table-wrap thead th:first-child{width:160px;text-align:left;background:#f8fafc;color:var(--slate-700);font-size:.72rem}.table-wrap thead th{padding:20px 15px;background:#fff}.table-wrap thead small{display:block;color:var(--blue-600);font-size:.6rem;font-weight:900}.table-wrap thead strong{display:block;color:var(--navy-950);font-size:.85rem;max-width:220px;margin:3px auto}.table-wrap thead a{font-size:.62rem;color:var(--blue-600);font-weight:800}.table-wrap td{font-size:.75rem;color:var(--slate-700)}.table-wrap :global(.yes){color:var(--green-600);font-weight:900}.table-wrap :global(.no){color:var(--slate-300)}.table-wrap :global(.score){font-size:1.25rem;color:var(--navy-950)}.table-wrap :global(.buy){display:inline-block;padding:8px 12px;background:var(--blue-600);color:white;border-radius:9px;font-weight:900;font-size:.68rem}.compare-tip{margin-top:18px;padding:20px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 20px}.compare-tip strong{color:var(--navy-950)}.compare-tip p{margin:0;color:var(--slate-500);font-size:.72rem}.compare-tip a{grid-column:2;grid-row:1/3;font-size:.72rem}
-  @media(max-width:640px){.compare-hero{padding:36px 0 26px}.compare-section{padding-top:24px}.table-wrap{margin-inline:-12px;border-radius:0;border-inline:0}.compare-tip{grid-template-columns:1fr}.compare-tip a{grid-column:1;grid-row:auto;margin-top:10px}}
+  .compare-hero{padding:66px 0 46px;background:#f5f6f4;border-bottom:1px solid var(--slate-200)}.hero-inner{display:flex;align-items:end;justify-content:space-between;gap:50px}.compare-hero h1{font-size:clamp(2.4rem,5vw,4rem);line-height:1.08;letter-spacing:-.055em;margin:8px 0 14px;color:var(--navy-950)}.compare-hero p{margin:0;color:var(--slate-700);max-width:650px}.hero-note{min-width:300px;border-left:1px solid var(--slate-300);padding-left:28px;display:grid;gap:5px}.hero-note strong{font-size:.7rem;color:var(--navy-950);margin-bottom:3px}.hero-note span{font-size:.62rem;color:var(--slate-500)}
+  .compare-section{padding:38px 0 90px}.empty{text-align:center;padding:72px 20px}.empty>span{width:56px;height:56px;display:grid;place-items:center;border-radius:16px;background:var(--navy-900);color:white;font-size:1.3rem;margin:0 auto 15px}.empty h2{margin:0;color:var(--navy-950)}.empty p{color:var(--slate-500);font-size:.78rem}.empty .btn-primary{margin-top:12px}.compare-toolbar{display:flex;align-items:end;justify-content:space-between;margin-bottom:15px}.compare-toolbar .eyebrow{font-size:.54rem}.compare-toolbar strong{display:block;font-size:1rem}.compare-toolbar strong span{font-size:1.6rem;margin-right:3px}.compare-toolbar>a{color:var(--blue-700);font-size:.66rem;font-weight:900}
+  .summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.summary-card{position:relative;background:#fff;border:1px solid var(--slate-200);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:42% 58%;min-height:310px}.summary-number{position:absolute;left:12px;top:10px;z-index:2;color:var(--slate-400);font-size:.56rem;font-weight:900;letter-spacing:.1em}.summary-remove{position:absolute;right:10px;top:9px;z-index:3;width:27px;height:27px;border:1px solid var(--slate-200);border-radius:8px;background:rgba(255,255,255,.92);color:var(--slate-500);cursor:pointer}.summary-image{background:#f5f6f4;display:grid;place-items:center;padding:16px;border-right:1px solid var(--slate-200)}.summary-image img{width:100%;height:190px;object-fit:contain}.summary-placeholder{width:70px;height:70px;border-radius:16px;background:#fff;border:1px solid var(--slate-200);display:grid;place-items:center;font-weight:900}.summary-body{padding:38px 16px 15px}.summary-body>small{font-size:.56rem;color:var(--blue-700);font-weight:900;letter-spacing:.08em}.summary-body h2{font-size:.78rem;line-height:1.45;margin:3px 0 10px;color:var(--navy-950);min-height:3.5em}.summary-score{display:flex;align-items:baseline;gap:4px;padding-bottom:8px;border-bottom:1px solid var(--slate-200)}.summary-score span{font-size:.52rem;color:var(--slate-500);margin-right:auto}.summary-score strong{font-size:1.2rem}.summary-score small{font-size:.5rem;color:var(--slate-500)}.summary-price{margin-top:8px}.summary-price small{display:block;color:var(--slate-500);font-size:.52rem}.summary-price strong{font-size:.95rem;color:var(--navy-950)}.summary-review{display:flex;align-items:baseline;gap:4px;margin-top:5px}.summary-review small{font-size:.48rem;color:var(--slate-500);margin-right:auto}.summary-review strong{font-size:.62rem;color:var(--orange-600)}.summary-review span{font-size:.48rem;color:var(--slate-500)}.summary-checked{font-size:.48rem;color:var(--slate-400);margin-top:5px}.summary-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}.summary-actions a{min-height:36px;padding:0 7px;font-size:.58rem}
+  .verdict-section{padding:70px 0 22px}.section-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:22px}.section-heading h2,.matrix-toolbar h2{font-size:1.7rem;letter-spacing:-.035em;margin:5px 0 0;color:var(--navy-950)}.section-heading>p{max-width:520px;color:var(--slate-500);font-size:.65rem;margin:0}.verdict-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.verdict-card{padding:18px;border:1px solid var(--slate-200);border-radius:13px;background:#fff}.verdict-card.best{background:var(--navy-950);border-color:var(--navy-950);color:#fff}.verdict-card>span{font-size:.52rem;font-weight:900;letter-spacing:.08em;color:var(--blue-700)}.verdict-card.best>span{color:#b4cade}.verdict-card>strong{display:block;font-size:.74rem;line-height:1.45;margin:6px 0}.verdict-card>p{font-size:.6rem;color:var(--slate-500);margin:0 0 9px}.verdict-card.best>p{color:#9fb2c4}.verdict-card>a{font-size:.58rem;color:var(--blue-700);font-weight:900}.verdict-card.best>a{color:#fff}
+  .matrix-section{padding:54px 0 20px}.matrix-toolbar{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:14px}.difference-toggle{display:flex;align-items:center;gap:9px;cursor:pointer;font-size:.66rem;color:var(--slate-700)}.difference-toggle input{position:absolute;opacity:0}.difference-toggle>span{width:34px;height:19px;border-radius:999px;background:var(--slate-300);position:relative;transition:.18s ease}.difference-toggle>span::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:white;left:3px;top:3px;transition:.18s ease;box-shadow:0 1px 3px rgba(0,0,0,.15)}.difference-toggle:has(input:checked)>span{background:var(--navy-900)}.difference-toggle:has(input:checked)>span::after{transform:translateX(15px)}.matrix-hint{display:none;color:var(--slate-500);font-size:.55rem;text-align:right;margin-bottom:6px}.matrix-wrap{overflow:auto;position:relative}.compare-matrix{--product-count:3;display:grid;grid-template-columns:160px repeat(var(--product-count),minmax(200px,1fr));min-width:max-content;width:100%;background:#fff}.matrix-cell,.matrix-row-label{padding:13px 14px;border-bottom:1px solid var(--slate-200);border-right:1px solid var(--slate-200);min-width:0}.matrix-corner,.matrix-row-label{position:sticky;left:0;z-index:4;background:#f5f6f4;color:var(--slate-700);font-size:.64rem;font-weight:800}.matrix-sticky-top{position:sticky;top:72px;z-index:7}.matrix-corner{z-index:9;display:flex;align-items:flex-end}.matrix-head{background:#fff;padding:12px}.matrix-group{padding:8px 14px;background:var(--navy-950);color:white;font-size:.58rem;font-weight:900;letter-spacing:.1em;position:sticky;left:0;z-index:5}.matrix-value{text-align:center;font-size:.68rem;color:var(--slate-700);display:grid;place-items:center;min-height:54px}.matrix-product{display:grid;grid-template-columns:52px 1fr;gap:9px;align-items:center}.matrix-product img{width:52px;height:52px;object-fit:contain;background:#f5f6f4;border-radius:8px}.matrix-product small{display:block;color:var(--blue-700);font-size:.48rem;font-weight:900}.matrix-product strong{display:block;color:var(--navy-950);font-size:.6rem;line-height:1.35;max-width:180px}.matrix-product span{display:block;color:var(--navy-950);font-size:.62rem;font-weight:900;margin-top:2px}.matrix-product a{display:inline-block;color:var(--blue-700);font-size:.5rem;font-weight:900;margin-top:2px}.compare-matrix :global(.matrix-yes){color:var(--green-600);font-weight:900}.compare-matrix :global(.matrix-no),.compare-matrix :global(.matrix-muted){color:var(--slate-400);font-size:.62rem}.compare-matrix :global(.matrix-neutral){color:var(--slate-700);font-weight:800}.compare-matrix :global(.matrix-caution){color:var(--orange-600);font-size:.62rem;font-weight:800}.compare-matrix :global(.matrix-score){font-size:1.2rem;color:var(--navy-950)}.compare-matrix :global(.matrix-price){font-size:.8rem;color:var(--navy-950)}.compare-matrix :global(.matrix-review){color:var(--orange-600);font-weight:900}
+  .compare-tip{margin-top:42px;background:var(--navy-950);border-radius:17px;padding:28px 30px;display:flex;align-items:center;justify-content:space-between;gap:30px;color:#fff}.compare-tip .eyebrow{color:#9dbbd4}.compare-tip strong{display:block;font-size:1.12rem;margin:3px 0}.compare-tip p{margin:0;color:#9fb1c3;font-size:.7rem}.compare-tip .btn-primary{background:#fff;color:var(--navy-950);box-shadow:none;white-space:nowrap}
+  @media(max-width:1000px){.summary-grid{grid-template-columns:1fr}.summary-card{grid-template-columns:220px 1fr;min-height:240px}.summary-image img{height:190px}.summary-body h2{min-height:0}.verdict-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:720px){.compare-hero{padding:40px 0 30px}.hero-inner{display:block}.compare-hero h1{font-size:2.55rem}.hero-note{margin-top:25px;border-left:0;border-top:1px solid var(--slate-300);padding:15px 0 0}.compare-section{padding-top:24px}.summary-card{grid-template-columns:42% 58%;min-height:310px}.summary-image img{height:180px}.section-heading{display:block}.section-heading>p{margin-top:10px}.verdict-grid{grid-template-columns:1fr 1fr}.matrix-toolbar{align-items:start;display:block}.difference-toggle{margin-top:13px}.matrix-hint{display:block}.matrix-wrap{margin-inline:-12px;border-radius:0;border-inline:0}.compare-matrix{grid-template-columns:118px repeat(var(--product-count),185px)}.matrix-sticky-top{top:62px}.matrix-cell,.matrix-row-label{padding:11px 9px}.matrix-product{grid-template-columns:38px 1fr}.matrix-product img{width:38px;height:38px}.compare-tip{display:block;padding:24px 20px}.compare-tip .btn-primary{margin-top:17px}}
+  @media(max-width:480px){.summary-card{grid-template-columns:1fr;min-height:0}.summary-image{border-right:0;border-bottom:1px solid var(--slate-200);height:190px}.summary-image img{height:170px}.summary-body{padding-top:16px}.summary-actions{grid-template-columns:1fr 1fr}.verdict-grid{grid-template-columns:1fr}.compare-matrix{grid-template-columns:112px repeat(var(--product-count),176px)}}
 </style>

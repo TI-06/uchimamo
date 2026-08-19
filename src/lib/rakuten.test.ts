@@ -2,9 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { buildRakutenRequest, normalizeRakutenItem } from './rakuten';
 
 describe('buildRakutenRequest', () => {
-  it('App IDとaffiliateIdはURL、Access Keyはヘッダーへ分離する', () => {
+  it('App IDとaffiliateIdはURL、Access KeyとRefererはヘッダーへ分離する', () => {
     const request = buildRakutenRequest({
-      appId: 'app-id', accessKey: 'secret-key', affiliateId: 'affiliate-id', keyword: '防犯カメラ'
+      appId: 'app-id',
+      accessKey: 'secret-key',
+      affiliateId: 'affiliate-id',
+      keyword: '防犯カメラ',
+      referer: 'https://uchimamo.pages.dev/'
     });
     const url = new URL(request.url);
     expect(url.searchParams.get('applicationId')).toBe('app-id');
@@ -12,6 +16,7 @@ describe('buildRakutenRequest', () => {
     expect(url.searchParams.get('keyword')).toBe('防犯カメラ');
     expect(url.searchParams.get('accessKey')).toBeNull();
     expect(request.headers.accessKey).toBe('secret-key');
+    expect(request.headers.Referer).toBe('https://uchimamo.pages.dev/');
   });
 });
 

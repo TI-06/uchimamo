@@ -7,6 +7,8 @@ on:
       - main
     paths:
       - '.github/rakuten-sync-trigger'
+      - 'scripts/sync-rakuten.mjs'
+      - 'src/data/products.json'
   schedule:
     # 03:20 JST (18:20 UTC)
     - cron: '20 18 * * *'

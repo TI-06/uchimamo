@@ -19,6 +19,18 @@ describe('buildRakutenRequest', () => {
     expect(request.headers.Referer).toBe('https://uchimamo.pages.dev/');
     expect(request.headers.Origin).toBe('https://uchimamo.pages.dev');
   });
+
+  it('レビュー済みitemCodeをAPIリクエストに含める', () => {
+    const request = buildRakutenRequest({
+      appId: 'app-id',
+      accessKey: 'secret-key',
+      affiliateId: 'affiliate-id',
+      keyword: 'SwitchBot ロックUltra',
+      itemCode: 'switchbot:10000315',
+      referer: 'https://uchimamo.pages.dev/'
+    });
+    expect(new URL(request.url).searchParams.get('itemCode')).toBe('switchbot:10000315');
+  });
 });
 
 describe('extractRakutenItems', () => {

@@ -3,11 +3,35 @@ import { readFileSync } from 'node:fs';
 const config = JSON.parse(readFileSync(new URL('../src/data/discovery-rules.json', import.meta.url), 'utf8'));
 
 const normalize = (value) => String(value ?? '').normalize('NFKC').toLowerCase();
+const MODEL_SPEC_PATTERNS = [
+  /^ip\d+$/i,
+  /^\d+k$/i,
+  /^\d+mp$/i,
+  /^\d+w$/i,
+  /^\d+mah$/i,
+  /^\d+led$/i,
+  /^wifi\d+$/i,
+  /^usb\d+$/i,
+  /^\d+hz$/i,
+  /^\d+v$/i,
+  /^\d+db$/i
+];
 
 export function detectBrand(name, shopName, customConfig = config) {
   const haystack = normalize(`${name} ${shopName}`);
   for (const brand of customConfig.trustedBrands ?? []) {
     if ((brand.tokens ?? []).some((token) => haystack.includes(normalize(token)))) return brand.name;
+  }
+  return '';
+}
+
+export function extractModelIdentity(name) {
+  const source = String(name ?? '').normalize('NFKC');
+  const matches = source.match(/[A-Za-z]+[-_]?\d+[A-Za-z0-9-]*|\d+[A-Za-z]+[A-Za-z0-9-]*/g) ?? [];
+  for (const match of matches) {
+    const cleaned = match.replace(/_/g, '-');
+    if (MODEL_SPEC_PATTERNS.some((pattern) => pattern.test(cleaned))) continue;
+    return cleaned;
   }
   return '';
 }
@@ -66,6 +90,7 @@ export function evaluateCandidate(item, rule, customConfig = config) {
   const excluded = hasExcludedToken(name, customConfig);
   const categoryExcluded = categoryExcludedToken(name, rule);
   const detectedBrand = detectBrand(name, item?.shopName, customConfig);
+  const modelIdentity = extractModelIdentity(name);
   const qualityScore = scoreCandidate(item, rule, customConfig);
   const average = Number(item?.reviewAverage ?? 0);
   const count = Number(item?.reviewCount ?? 0);
@@ -79,10 +104,11 @@ export function evaluateCandidate(item, rule, customConfig = config) {
   if (!isCategoryMatch(name, rule)) reasons.push('category-mismatch');
 
   if (reasons.length > 0) {
-    return { status: 'rejected', qualityScore, detectedBrand, reasons };
+    return { status: 'rejected', qualityScore, detectedBrand, modelIdentity, reasons };
   }
 
   if (!detectedBrand) reasons.push('trusted-brand-required');
+  if (!modelIdentity) reasons.push('model-identity-required');
   if (!available) reasons.push('unavailable');
   if (!imageUrl(item)) reasons.push('image-required');
   if (!(price > 0)) reasons.push('price-required');
@@ -96,6 +122,7 @@ export function evaluateCandidate(item, rule, customConfig = config) {
     status: reasons.length === 0 ? 'published' : 'candidate',
     qualityScore,
     detectedBrand,
+    modelIdentity,
     reasons
   };
 }

@@ -15,42 +15,6 @@
     "shopName": "TP-Linkダイレクト 楽天市場店",
     "shopCode": "tplinkdirect",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-19T15:57:24.122Z"
-  },
-  {
-    "id": "rakuten-c3dpdgnoym90ojewmdawmzez",
-    "source": "discovered",
-    "itemCode": "switchbot:10000313",
-    "name": "【150万ポイント抽選】SwitchBot スイッチボット スマートロック Ultra 顔認証パッドPro 手のひら静脈認証 - 指紋認証 暗証番号 スイッチボット 鍵 ドアロック スマホ操作 交通系ICカード Suica PASMO Alexa/Google Home/Siri対応 遠隔対応 工事不要 防犯対策 後付け",
-    "brand": "SwitchBot",
-    "category": "smart-lock",
-    "price": 39980,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/switchbot/cabinet/09377790/12586591/12586944/imgrc0095158470.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uc4wk.216woc3b.g00uc4wk.216wpb78/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fswitchbot%2Flockultra-keypadvision-pro%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fswitchbot%2Fi%2F10000313%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uc4wk.216woc3b.g00uc4wk.216wpb78/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fswitchbot%2Flockultra-keypadvision-pro%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fswitchbot%2Fi%2F10000313%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 4.6,
-    "reviewCount": 149,
-    "shopName": "SwitchBot公式店",
-    "shopCode": "switchbot",
-    "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-19T15:57:24.122Z"
-  },
-  {
-    "id": "rakuten-y2fuzhlob3vzztoxmdawmdaxnq",
-    "source": "discovered",
-    "itemCode": "candyhouse:10000015",
-    "name": "【公式ストア】SESAME CYCLE2 セサミサイクル2 ママチャリ2 鍵 電子錠 スマホ 防水 IPX4 取付カンタン 防犯対策 後付け",
-    "brand": "SESAME",
-    "category": "smart-lock",
-    "price": 6380,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/candyhouse/cabinet/imgrc0157774225.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ucowk.216woa3b.g00ucowk.216wp02b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcandyhouse%2F10000007%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcandyhouse%2Fi%2F10000015%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ucowk.216woa3b.g00ucowk.216wp02b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcandyhouse%2F10000007%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcandyhouse%2Fi%2F10000015%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 4.58,
-    "reviewCount": 12,
-    "shopName": "CANDY HOUSE STORE",
-    "shopCode": "candyhouse",
-    "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-19T15:57:24.122Z"
+    "lastSeenAt": "2026-08-19T16:03:37.253Z"
   }
 ]

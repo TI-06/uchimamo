@@ -31,7 +31,7 @@ const readJson = async (url, fallback) => {
   }
 };
 const normalizeText = (value) => String(value ?? '').normalize('NFKC').trim();
-const normalizeMatch = (value) => normalizeText(value).toLowerCase().replace(/\s+/g, ' ');
+const normalizeMatch = (value) => normalizeText(value).toLowerCase().replace(/[\s\-_‐‑–—・/]+/g, '');
 const asNumber = (value) => {
   const number = Number(value ?? 0);
   return Number.isFinite(number) ? number : 0;

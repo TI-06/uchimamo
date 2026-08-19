@@ -82,9 +82,9 @@ for (const [index, product] of products.entries()) {
   url.searchParams.set('formatVersion', '2');
   url.searchParams.set('applicationId', RAKUTEN_APP_ID);
   url.searchParams.set('affiliateId', RAKUTEN_AFFILIATE_ID);
-  url.searchParams.set('keyword', product.rakuten.keyword);
   url.searchParams.set('hits', '5');
   if (product.rakuten.itemCode) url.searchParams.set('itemCode', product.rakuten.itemCode);
+  else url.searchParams.set('keyword', product.rakuten.keyword);
 
   try {
     const response = await fetch(url, {

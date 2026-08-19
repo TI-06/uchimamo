@@ -33,7 +33,7 @@ describe('discovery policy', () => {
   });
 
   it('ブランド不明商品は自動公開しない', () => {
-    const result = evaluateCandidate({ ...baseItem, itemName: '無名メーカー 防犯カメラ' }, cameraRule);
+    const result = evaluateCandidate({ ...baseItem, itemName: '無名メーカー 防犯カメラ', shopName: '無名ショップ' }, cameraRule);
     expect(result.status).toBe('candidate');
     expect(result.reasons).toContain('trusted-brand-required');
   });

@@ -42,9 +42,17 @@ export function buildRakutenRequest(input: RakutenRequestInput): RakutenRequest 
   };
 }
 
+function imageUrlFrom(value: unknown): string | undefined {
+  if (typeof value === 'string') return value;
+  if (value && typeof value === 'object' && 'imageUrl' in value) {
+    const imageUrl = (value as { imageUrl?: unknown }).imageUrl;
+    return typeof imageUrl === 'string' ? imageUrl : undefined;
+  }
+  return undefined;
+}
+
 export function normalizeRakutenItem(item: Record<string, unknown>): RakutenCacheItem {
   const images = Array.isArray(item.mediumImageUrls) ? item.mediumImageUrls : [];
-  const firstImage = images[0] as { imageUrl?: string } | undefined;
   return {
     itemCode: String(item.itemCode ?? ''),
     name: String(item.itemName ?? ''),
@@ -54,7 +62,7 @@ export function normalizeRakutenItem(item: Record<string, unknown>): RakutenCach
     reviewAverage: item.reviewAverage == null ? undefined : Number(item.reviewAverage),
     reviewCount: item.reviewCount == null ? undefined : Number(item.reviewCount),
     shopName: item.shopName ? String(item.shopName) : undefined,
-    imageUrl: firstImage?.imageUrl,
+    imageUrl: imageUrlFrom(images[0]),
     fetchedAt: new Date().toISOString()
   };
 }

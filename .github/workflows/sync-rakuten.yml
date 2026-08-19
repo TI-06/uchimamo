@@ -51,18 +51,23 @@ jobs:
         if: steps.credentials.outputs.available == 'true'
         run: pnpm install --no-frozen-lockfile
       - name: Sync Rakuten products
+        id: sync
         if: steps.credentials.outputs.available == 'true'
+        continue-on-error: true
         run: pnpm sync:rakuten
-      - name: Commit cache update
-        if: steps.credentials.outputs.available == 'true'
+      - name: Commit Rakuten sync result
+        if: always() && steps.credentials.outputs.available == 'true'
         shell: bash
         run: |
-          if git diff --quiet -- src/data/rakuten-cache.json; then
-            echo "No Rakuten cache changes."
-            exit 0
+          if [ -z "$(git status --porcelain -- src/data/rakuten-cache.json src/data/rakuten-sync-status.json)" ]; then
+            echo "No Rakuten sync changes."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/rakuten-cache.json src/data/rakuten-sync-status.json
+            git commit -m "chore: refresh Rakuten product cache"
+            git push origin main
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/rakuten-cache.json
-          git commit -m "chore: refresh Rakuten product cache"
-          git push origin main
+      - name: Fail when Rakuten sync failed
+        if: steps.credentials.outputs.available == 'true' && steps.sync.outcome == 'failure'
+        run: exit 1

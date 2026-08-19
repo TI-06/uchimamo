@@ -3,11 +3,14 @@ import { candidateScore, selectRakutenCandidate } from './rakuten-match.mjs';
 
 const ENDPOINT = 'https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701';
 const PRODUCT_PATH = new URL('../src/data/products.json', import.meta.url);
+const EXTRA_PRODUCT_PATH = new URL('../src/data/products-extra.json', import.meta.url);
+const REPLACEMENT_PRODUCT_PATH = new URL('../src/data/products-replacements.json', import.meta.url);
 const CACHE_PATH = new URL('../src/data/rakuten-cache.json', import.meta.url);
 const STATUS_PATH = new URL('../src/data/rakuten-sync-status.json', import.meta.url);
 const RAKUTEN_REFERER = process.env.RAKUTEN_REFERER || 'https://uchimamo.pages.dev/';
 const RAKUTEN_ORIGIN = new URL(RAKUTEN_REFERER).origin;
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36';
+const DISCONTINUED_PRODUCT_IDS = new Set(['qrio-lock-q-sl2']);
 
 const { RAKUTEN_APP_ID, RAKUTEN_ACCESS_KEY, RAKUTEN_AFFILIATE_ID } = process.env;
 if (!RAKUTEN_APP_ID || !RAKUTEN_ACCESS_KEY || !RAKUTEN_AFFILIATE_ID) {
@@ -15,7 +18,12 @@ if (!RAKUTEN_APP_ID || !RAKUTEN_ACCESS_KEY || !RAKUTEN_AFFILIATE_ID) {
   process.exit(1);
 }
 
-const products = JSON.parse(await readFile(PRODUCT_PATH, 'utf8'));
+const extraProducts = JSON.parse(await readFile(EXTRA_PRODUCT_PATH, 'utf8'));
+const products = [
+  ...JSON.parse(await readFile(PRODUCT_PATH, 'utf8')),
+  ...extraProducts.filter((product) => !DISCONTINUED_PRODUCT_IDS.has(product.id)),
+  ...JSON.parse(await readFile(REPLACEMENT_PRODUCT_PATH, 'utf8'))
+];
 let cache = {};
 try {
   cache = JSON.parse(await readFile(CACHE_PATH, 'utf8'));
@@ -94,15 +102,18 @@ for (const [index, product] of products.entries()) {
     if (selected.needsReview) {
       skippedCount += 1;
       skipped.push(product.id);
+      const reason = selected.reason ?? 'needs-review';
       needsReview.push({
         productId: product.id,
-        reason: 'fixed-item-not-found',
-        expectedItemCode: product.rakuten.itemCode
+        reason,
+        ...(product.rakuten.itemCode ? { expectedItemCode: product.rakuten.itemCode } : {}),
+        ...(product.rakuten.modelTokens?.length ? { modelTokens: product.rakuten.modelTokens } : {})
       });
       skippedCandidates.push({
         productId: product.id,
         keyword: product.rakuten.keyword,
-        expectedItemCode: product.rakuten.itemCode,
+        ...(product.rakuten.itemCode ? { expectedItemCode: product.rakuten.itemCode } : {}),
+        ...(product.rakuten.modelTokens?.length ? { modelTokens: product.rakuten.modelTokens } : {}),
         candidates: fallbackRanked.slice(0, 5).map(({ item, score }) => ({
           itemCode: String(item?.itemCode ?? ''),
           name: String(item?.itemName ?? '').slice(0, 180),
@@ -110,7 +121,7 @@ for (const [index, product] of products.entries()) {
           score: Number(score.toFixed(3))
         }))
       });
-      console.warn(`[review] ${product.id}: 固定商品 ${product.rakuten.itemCode} が見つからないため、別商品へ切り替えませんでした`);
+      console.warn(`[review] ${product.id}: ${reason} のため、別商品へ自動切り替えしませんでした`);
     } else if (!selected.item || selected.score < 0.3) {
       skippedCount += 1;
       skipped.push(product.id);

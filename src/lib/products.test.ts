@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { compareProducts, filterProducts } from './products';
+import productsJson from '../data/products.json';
 import type { Product } from '../types/product';
 
 const products: Product[] = [
@@ -71,5 +72,15 @@ describe('compareProducts', () => {
   it('指定順を維持して最大3商品を返す', () => {
     const result = compareProducts(products, ['lock-smart', 'cam-solar', 'missing', 'extra']);
     expect(result.map((item) => item.id)).toEqual(['lock-smart', 'cam-solar']);
+  });
+});
+
+describe('launch product catalog', () => {
+  it('楽天連携を有効にしている初期商品はレビュー済みitemCodeを固定する', () => {
+    const catalog = productsJson as Product[];
+    const enabled = catalog.filter((product) => product.rakuten.enabled);
+    expect(enabled).toHaveLength(6);
+    expect(enabled.every((product) => Boolean(product.rakuten.itemCode))).toBe(true);
+    expect(new Set(enabled.map((product) => product.rakuten.itemCode)).size).toBe(enabled.length);
   });
 });

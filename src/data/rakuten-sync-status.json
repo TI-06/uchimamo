@@ -1,13 +1,113 @@
 {
   "ok": true,
-  "checkedAt": "2026-08-19T13:50:55.148Z",
+  "checkedAt": "2026-08-19T14:33:25.896Z",
   "endpointVersion": "2026-07-01",
-  "enabledCount": 6,
-  "successCount": 6,
-  "skippedCount": 0,
-  "failureCount": 0,
-  "needsReview": [],
-  "skipped": [],
-  "skippedCandidates": [],
-  "errors": []
+  "enabledCount": 30,
+  "successCount": 23,
+  "skippedCount": 5,
+  "failureCount": 2,
+  "needsReview": [
+    {
+      "productId": "switchbot-lock-ultra-standalone",
+      "reason": "model-token-mismatch",
+      "modelTokens": [
+        "SwitchBot",
+        "ロックUltra"
+      ]
+    },
+    {
+      "productId": "aqara-smart-lock-u200",
+      "reason": "model-token-mismatch",
+      "modelTokens": [
+        "Aqara",
+        "U200"
+      ]
+    },
+    {
+      "productId": "aqara-door-window-p2",
+      "reason": "model-token-mismatch",
+      "modelTokens": [
+        "Aqara",
+        "P2"
+      ]
+    },
+    {
+      "productId": "aqara-presence-fp2",
+      "reason": "model-token-mismatch",
+      "modelTokens": [
+        "Aqara",
+        "FP2"
+      ]
+    },
+    {
+      "productId": "nomura-onetouch-small-n1184",
+      "reason": "model-token-mismatch",
+      "modelTokens": [
+        "N-1184"
+      ]
+    }
+  ],
+  "skipped": [
+    "switchbot-lock-ultra-standalone",
+    "aqara-smart-lock-u200",
+    "aqara-door-window-p2",
+    "aqara-presence-fp2",
+    "nomura-onetouch-small-n1184"
+  ],
+  "skippedCandidates": [
+    {
+      "productId": "switchbot-lock-ultra-standalone",
+      "keyword": "SwitchBot ロックUltra 本体",
+      "modelTokens": [
+        "SwitchBot",
+        "ロックUltra"
+      ],
+      "candidates": []
+    },
+    {
+      "productId": "aqara-smart-lock-u200",
+      "keyword": "Aqara Smart Lock U200",
+      "modelTokens": [
+        "Aqara",
+        "U200"
+      ],
+      "candidates": []
+    },
+    {
+      "productId": "aqara-door-window-p2",
+      "keyword": "Aqara Door Window Sensor P2",
+      "modelTokens": [
+        "Aqara",
+        "P2"
+      ],
+      "candidates": []
+    },
+    {
+      "productId": "aqara-presence-fp2",
+      "keyword": "Aqara Presence Sensor FP2",
+      "modelTokens": [
+        "Aqara",
+        "FP2"
+      ],
+      "candidates": []
+    },
+    {
+      "productId": "nomura-onetouch-small-n1184",
+      "keyword": "ノムラテック N-1184 ワンタッチ シマリ",
+      "modelTokens": [
+        "N-1184"
+      ],
+      "candidates": []
+    }
+  ],
+  "errors": [
+    {
+      "productId": "sesame-5",
+      "message": "HTTP 400: keyword is not valid"
+    },
+    {
+      "productId": "sesame-6-pro",
+      "message": "HTTP 400: keyword is not valid"
+    }
+  ]
 }

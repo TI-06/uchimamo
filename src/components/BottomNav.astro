@@ -1,0 +1,20 @@
+---
+const path = Astro.url.pathname;
+const items = [
+  { href: '/', label: 'TOP', icon: '⌂' },
+  { href: '/products/', label: '探す', icon: '⌕' },
+  { href: '/diagnosis/', label: '診断', icon: '◇' },
+  { href: '/guide/', label: '記事', icon: '▤' },
+  { href: '/compare/', label: '比較', icon: '⇄' }
+];
+---
+<nav class="bottom-nav" aria-label="モバイルナビゲーション">
+  {items.map((item) => {
+    const active = item.href === '/' ? path === '/' : path.startsWith(item.href);
+    return <a class:list={[{ active }]} href={item.href}><span aria-hidden="true">{item.icon}</span><small>{item.label}</small></a>;
+  })}
+</nav>
+<style>
+  .bottom-nav{display:none}
+  @media(max-width:640px){.bottom-nav{position:fixed;z-index:70;left:8px;right:8px;bottom:8px;height:64px;display:grid;grid-template-columns:repeat(5,1fr);align-items:center;background:rgba(7,20,38,.96);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:0 12px 36px rgba(7,20,38,.25);padding:4px 6px}.bottom-nav a{height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#9db0c7;border-radius:13px}.bottom-nav a.active{background:rgba(47,140,255,.18);color:#fff}.bottom-nav span{font-size:1.15rem;line-height:1}.bottom-nav small{font-size:.62rem;font-weight:800}}
+</style>

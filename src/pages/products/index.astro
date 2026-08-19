@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsJson from '../../data/products.json';
+import cacheJson from '../../data/rakuten-cache.json';
+import type { Product } from '../../types/product';
+import type { RakutenCacheItem } from '../../lib/rakuten';
+const products = productsJson as Product[];
+const cache = cacheJson as Record<string, RakutenCacheItem>;
+---
+<BaseLayout title="防犯用品を条件から探す｜ウチマモ" description="工事不要、Wi-Fi不要、電源不要、ソーラー、月額不要などの条件から家庭用防犯用品を比較できます。">
+  <section class="finder-hero">
+    <div class="site-container"><span class="eyebrow">PRODUCT FINDER</span><h1>条件から防犯用品を探す</h1><p>住まいの制約に合わない商品を最初から外して、比較しやすい候補だけに絞り込みます。</p></div>
+  </section>
+  <section class="finder-section">
+    <div class="site-container finder-layout">
+      <aside class="filters card" aria-label="商品絞り込み">
+        <div class="filter-head"><strong>絞り込み</strong><button type="button" id="resetFilters">リセット</button></div>
+        <label>カテゴリ<select id="categoryFilter"><option value="">すべて</option><option value="camera">防犯カメラ</option><option value="smart-lock">スマートロック</option><option value="sensor">センサー</option><option value="window-lock">補助錠</option><option value="light">センサーライト</option></select></label>
+        <label>設置場所<select id="placeFilter"><option value="">すべて</option><option value="entrance">玄関</option><option value="window">窓</option><option value="parking">駐車場</option><option value="garden">庭</option><option value="backdoor">勝手口</option><option value="indoor">室内</option></select></label>
+        <fieldset><legend>設置条件</legend><label class="check"><input type="checkbox" id="noDrilling" /> 工事・穴あけ不要</label><label class="check"><input type="checkbox" id="noWifi" /> Wi-Fi不要</label><label class="check"><input type="checkbox" id="noPower" /> コンセント電源不要</label><label class="check"><input type="checkbox" id="solar" /> ソーラー対応</label><label class="check"><input type="checkbox" id="monthlyFree" /> 月額不要</label></fieldset>
+        <div class="filter-note"><strong>選び方が分からない？</strong><p>6問の防犯診断なら条件を自動で整理します。</p><a href="/diagnosis/">防犯診断へ →</a></div>
+      </aside>
+      <div class="results"><div class="results-head"><div><strong><span id="resultCount">{products.length}</span>件</strong><small>の商品候補</small></div><span>おすすめ順</span></div><div class="products-grid" id="productsGrid">{products.map((product) => <ProductCard product={product} rakuten={cache[product.id]} />)}</div><div id="emptyState" class="empty card" hidden><strong>条件に合う商品がありません</strong><p>条件を1つ外すか、防犯診断から探してみてください。</p><button class="btn-secondary" type="button">条件をリセット</button></div></div>
+    </div>
+  </section>
+  <div class="compare-bar" id="compareBar" hidden><div><small>比較リスト</small><strong><span id="compareCount">0</span>/3 商品</strong></div><a id="compareLink" class="btn-primary" href="/compare/">比較する →</a></div>
+</BaseLayout>
+<script>
+  const cards = [...document.querySelectorAll('[data-product-card]')];
+  const category = document.querySelector('#categoryFilter');
+  const place = document.querySelector('#placeFilter');
+  const noDrilling = document.querySelector('#noDrilling');
+  const noWifi = document.querySelector('#noWifi');
+  const noPower = document.querySelector('#noPower');
+  const solar = document.querySelector('#solar');
+  const monthlyFree = document.querySelector('#monthlyFree');
+  const count = document.querySelector('#resultCount');
+  const empty = document.querySelector('#emptyState');
+  const reset = document.querySelector('#resetFilters');
+  const compareBar = document.querySelector('#compareBar');
+  const compareCount = document.querySelector('#compareCount');
+  const compareLink = document.querySelector('#compareLink');
+  const selected = new Set();
+
+  function applyInitialQuery() {
+    const q = new URLSearchParams(location.search);
+    if (q.get('category') && category instanceof HTMLSelectElement) category.value = q.get('category') || '';
+    if (q.get('place') && place instanceof HTMLSelectElement) place.value = q.get('place') || '';
+    const condition = q.get('condition');
+    if (condition === 'no-drilling' && noDrilling instanceof HTMLInputElement) noDrilling.checked = true;
+    if (condition === 'no-wifi' && noWifi instanceof HTMLInputElement) noWifi.checked = true;
+    if (condition === 'no-power' && noPower instanceof HTMLInputElement) noPower.checked = true;
+    if (condition === 'solar' && solar instanceof HTMLInputElement) solar.checked = true;
+    if (condition === 'no-monthly-fee' && monthlyFree instanceof HTMLInputElement) monthlyFree.checked = true;
+  }
+  function applyFilters() {
+    let visible = 0;
+    cards.forEach((node) => {
+      if (!(node instanceof HTMLElement)) return;
+      const matches = (!category?.value || node.dataset.category === category.value)
+        && (!place?.value || (node.dataset.place || '').split(',').includes(place.value))
+        && (!(noDrilling instanceof HTMLInputElement) || !noDrilling.checked || node.dataset.noDrilling === 'true')
+        && (!(noWifi instanceof HTMLInputElement) || !noWifi.checked || node.dataset.noWifi === 'true')
+        && (!(noPower instanceof HTMLInputElement) || !noPower.checked || node.dataset.noPower === 'true')
+        && (!(solar instanceof HTMLInputElement) || !solar.checked || node.dataset.solar === 'true')
+        && (!(monthlyFree instanceof HTMLInputElement) || !monthlyFree.checked || node.dataset.monthlyFree === 'true');
+      node.hidden = !matches;
+      if (matches) visible++;
+    });
+    if (count) count.textContent = String(visible);
+    if (empty instanceof HTMLElement) empty.hidden = visible > 0;
+  }
+  function resetFilters() {
+    if (category instanceof HTMLSelectElement) category.value = '';
+    if (place instanceof HTMLSelectElement) place.value = '';
+    [noDrilling,noWifi,noPower,solar,monthlyFree].forEach((el) => { if (el instanceof HTMLInputElement) el.checked = false; });
+    history.replaceState({}, '', location.pathname);
+    applyFilters();
+  }
+  [category,place,noDrilling,noWifi,noPower,solar,monthlyFree].forEach((el) => el?.addEventListener('change', applyFilters));
+  reset?.addEventListener('click', resetFilters);
+  empty?.querySelector('button')?.addEventListener('click', resetFilters);
+
+  document.querySelectorAll('[data-compare-checkbox]').forEach((checkbox) => checkbox.addEventListener('change', (event) => {
+    const input = event.currentTarget;
+    if (!(input instanceof HTMLInputElement)) return;
+    if (input.checked) {
+      if (selected.size >= 3) { input.checked = false; return; }
+      selected.add(input.value);
+    } else selected.delete(input.value);
+    if (compareBar instanceof HTMLElement) compareBar.hidden = selected.size === 0;
+    if (compareCount) compareCount.textContent = String(selected.size);
+    if (compareLink instanceof HTMLAnchorElement) compareLink.href = `/compare/?ids=${encodeURIComponent([...selected].join(','))}`;
+  }));
+  applyInitialQuery(); applyFilters();
+</script>
+<style>
+  .finder-hero{padding:58px 0 38px;background:linear-gradient(180deg,#f4f9ff,#fff);border-bottom:1px solid var(--slate-200)}.finder-hero h1{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.045em;margin:8px 0;color:var(--navy-950)}.finder-hero p{margin:0;color:var(--slate-700)}.finder-section{padding:34px 0 76px}.finder-layout{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:start}.filters{position:sticky;top:94px;padding:20px}.filter-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:15px;border-bottom:1px solid var(--slate-200);margin-bottom:16px}.filter-head strong{color:var(--navy-950)}.filter-head button{border:0;background:none;color:var(--blue-600);font-size:.7rem;font-weight:800;cursor:pointer}.filters>label,.filters fieldset{display:grid;gap:7px;color:var(--slate-700);font-size:.72rem;font-weight:800;margin:15px 0}.filters select{width:100%;border:1px solid var(--slate-300);background:white;border-radius:10px;padding:9px 10px;color:var(--slate-900)}.filters fieldset{border:0;padding:0}.filters legend{margin-bottom:8px}.filters .check{display:flex;align-items:center;gap:8px;padding:7px 0;font-size:.75rem;font-weight:600}.filters input{accent-color:var(--blue-600)}.filter-note{margin-top:20px;padding:15px;border-radius:12px;background:var(--blue-100)}.filter-note strong{font-size:.75rem}.filter-note p{font-size:.66rem;color:var(--slate-700);margin:4px 0 8px}.filter-note a{font-size:.68rem;color:var(--blue-600);font-weight:900}.results-head{height:48px;display:flex;justify-content:space-between;align-items:center}.results-head strong{font-size:1.2rem;color:var(--navy-950)}.results-head small,.results-head>span{color:var(--slate-500);font-size:.7rem;margin-left:4px}.products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.empty{padding:50px;text-align:center}.empty strong{display:block;font-size:1.2rem}.empty p{color:var(--slate-500)}.empty button{width:auto}.compare-bar{position:fixed;z-index:65;left:50%;bottom:20px;transform:translateX(-50%);min-width:360px;background:rgba(7,20,38,.96);color:white;border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:10px 12px 10px 18px;display:flex;align-items:center;justify-content:space-between;gap:28px;box-shadow:0 16px 50px rgba(7,20,38,.3);backdrop-filter:blur(12px)}.compare-bar[hidden]{display:none}.compare-bar small{display:block;color:#90a6be;font-size:.6rem}.compare-bar strong{font-size:.84rem}.compare-bar .btn-primary{min-height:40px;font-size:.75rem}
+  @media(max-width:1050px){.products-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.finder-layout{grid-template-columns:1fr}.filters{position:static}.products-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.finder-hero{padding:36px 0 28px}.filters{padding:16px}.products-grid{grid-template-columns:1fr}.compare-bar{bottom:80px;min-width:0;width:calc(100% - 24px)}}
+</style>

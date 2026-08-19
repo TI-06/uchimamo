@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="30秒でわが家の防犯診断｜ウチマモ" description="住まい、守りたい場所、電源、Wi-Fi、工事可否、予算の6問から家庭防犯の優先対策と商品候補を診断します。">
+  <section class="diagnosis-shell">
+    <div class="site-container diagnosis-wrap">
+      <div class="diagnosis-head"><a href="/" class="back-home">← TOPへ</a><span>無料・登録不要</span></div>
+      <div id="diagnosisApp" class="diagnosis-card card">
+        <div class="progress-head"><div><small id="stepLabel">STEP 1 / 6</small><strong id="questionTitle">住まいのタイプを教えてください</strong></div><span id="percent">17%</span></div>
+        <div class="progress"><i id="progressBar"></i></div>
+        <div id="options" class="option-grid"></div>
+        <div class="controls"><button id="backButton" type="button" class="text-button" disabled>← 戻る</button><small>個人情報は入力しません</small></div>
+      </div>
+      <div id="resultPanel" class="result-panel" hidden>
+        <div class="result-top card"><div class="result-copy"><span class="eyebrow">YOUR SECURITY PLAN</span><h1>あなたの防犯プラン</h1><p>入力した条件から、設置しやすさを重視して優先対策を整理しました。</p></div><div class="score"><div class="score-ring"><strong id="scoreValue">0</strong><small>/100</small></div><div><small>防犯準備スコア</small><strong id="scoreStatus">要対策</strong></div></div></div>
+        <div class="result-grid"><div><h2>優先して対策したいこと</h2><div id="priorities" class="priority-list"></div></div><div><h2>条件に合う商品候補</h2><div id="recommendations" class="recommend-list"></div></div></div>
+        <div class="result-actions card"><div><strong>条件を変えてもう一度診断</strong><small>家族の住まいや別の場所でも試せます。</small></div><button id="restartButton" type="button" class="btn-secondary">最初からやり直す</button><a class="btn-primary" href="/products/">全商品から探す →</a></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<script>
+  import products from '../../data/products.json';
+  import cache from '../../data/rakuten-cache.json';
+  import { diagnoseSecurity } from '../../lib/diagnosis';
+
+  const questions = [
+    { key: 'residence', title: '住まいのタイプを教えてください', subtitle: '設置方法や守るべき場所の傾向が変わります', options: [['house','戸建て','持ち家の一戸建て'],['apartment','マンション','分譲マンション'],['rental','賃貸','賃貸住宅・アパート'],['parents-home','実家','離れて暮らす家族の家'],['vacant-home','空き家','普段は人がいない家']] },
+    { key: 'place', title: 'いちばん守りたい場所は？', subtitle: 'まず1か所に絞って優先順位を出します', options: [['entrance','玄関','鍵・来訪者対策'],['window','窓','侵入・開閉対策'],['parking','駐車場','車・屋外監視'],['garden','庭','敷地への侵入対策'],['backdoor','勝手口','死角になりやすい出入口'],['indoor','室内','見守り・異常検知']] },
+    { key: 'power', title: '設置場所に電源はありますか？', subtitle: 'カメラ・ライト選びで重要な条件です', options: [['available','ある','コンセント等を使える'],['none','ない','バッテリー・ソーラーを優先'],['unknown','わからない','条件を広めに判定']] },
+    { key: 'wifi', title: 'Wi-Fiは利用できますか？', subtitle: '実家・空き家・屋外では特に重要です', options: [['available','使える','設置場所までWi-Fiが届く'],['none','使えない','Wi-Fi不要・LTE等を優先'],['unknown','わからない','通信条件を広めに判定']] },
+    { key: 'drilling', title: '壁やドアへの穴あけは可能ですか？', subtitle: '工事不可なら後付け製品を優先します', options: [['no','穴あけNG','賃貸・外壁を傷つけたくない'],['yes','穴あけOK','固定方法の選択肢を広げる'],['unknown','わからない','工事不要をやや優先']] },
+    { key: 'budget', title: 'まず使える予算は？', subtitle: '1か所の対策に使う目安で選んでください', options: [[5000,'〜5,000円','補助錠・センサー中心'],[10000,'〜10,000円','ライト・簡易機器も候補'],[30000,'〜30,000円','カメラ・スマートロックも比較'],[50000,'〜50,000円','複数機器の組み合わせも候補'],[100000,'予算優先なし','機能を優先して選ぶ']] }
+  ];
+  let step = 0;
+  const answers = {};
+  const app = document.querySelector('#diagnosisApp');
+  const result = document.querySelector('#resultPanel');
+  const options = document.querySelector('#options');
+  const back = document.querySelector('#backButton');
+
+  function renderQuestion() {
+    const q = questions[step];
+    const label = document.querySelector('#stepLabel'); const title = document.querySelector('#questionTitle'); const percent = document.querySelector('#percent'); const bar = document.querySelector('#progressBar');
+    if (label) label.textContent = `STEP ${step + 1} / ${questions.length}`;
+    if (title) title.innerHTML = `${q.title}<small>${q.subtitle}</small>`;
+    const pct = Math.round(((step + 1) / questions.length) * 100);
+    if (percent) percent.textContent = `${pct}%`; if (bar instanceof HTMLElement) bar.style.width = `${pct}%`;
+    if (back instanceof HTMLButtonElement) back.disabled = step === 0;
+    if (!options) return;
+    options.innerHTML = '';
+    q.options.forEach(([value, text, sub]) => {
+      const button = document.createElement('button'); button.type = 'button'; button.className = 'option-card';
+      button.innerHTML = `<span class="option-icon">${answers[q.key] === value ? '✓' : '○'}</span><span><strong>${text}</strong><small>${sub}</small></span><b>→</b>`;
+      button.addEventListener('click', () => { answers[q.key] = value; if (step < questions.length - 1) { step++; renderQuestion(); } else showResult(); });
+      options.appendChild(button);
+    });
+  }
+  function showResult() {
+    const output = diagnoseSecurity(answers, products);
+    if (app instanceof HTMLElement) app.hidden = true; if (result instanceof HTMLElement) result.hidden = false;
+    const score = document.querySelector('#scoreValue'); if (score) score.textContent = String(output.score);
+    const status = document.querySelector('#scoreStatus'); if (status) status.textContent = output.score >= 75 ? '比較的整えやすい' : output.score >= 55 ? '対策を追加したい' : '優先対策あり';
+    const priorities = document.querySelector('#priorities'); if (priorities) priorities.innerHTML = output.priorities.map((item, i) => `<article class="priority card"><span>${i+1}</span><div><small class="level ${item.level}">${item.level.toUpperCase()}</small><strong>${item.title}</strong><p>${item.reason}</p></div></article>`).join('');
+    const recommendations = document.querySelector('#recommendations'); if (recommendations) {
+      recommendations.innerHTML = output.recommendedProductIds.map((id, i) => {
+        const p = products.find((item) => item.id === id); if (!p) return '';
+        const r = cache[id];
+        const price = r?.price ? `¥${Number(r.price).toLocaleString('ja-JP')}` : '楽天同期後に価格表示';
+        const rakuten = r?.affiliateUrl ? `<a href="${r.affiliateUrl}" target="_blank" rel="nofollow sponsored noopener">楽天で見る</a>` : '';
+        return `<article class="recommend card"><span class="rank">${i+1}</span><div><small>${p.brand}</small><strong>${p.name}</strong><p>${p.description}</p><b>${price}</b><div class="recommend-links"><a href="/products/${p.id}/">詳細を見る</a>${rakuten}</div></div></article>`;
+      }).join('') || '<div class="card no-match">該当候補が少ないため、商品一覧から条件を広げて探してください。</div>';
+    }
+    result?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  back?.addEventListener('click', () => { if (step > 0) { step--; renderQuestion(); } });
+  document.querySelector('#restartButton')?.addEventListener('click', () => { Object.keys(answers).forEach((key) => delete answers[key]); step = 0; if (result instanceof HTMLElement) result.hidden = true; if (app instanceof HTMLElement) app.hidden = false; renderQuestion(); window.scrollTo({top:0,behavior:'smooth'}); });
+  renderQuestion();
+</script>
+<style>
+  .diagnosis-shell{min-height:calc(100vh - 72px);padding:32px 0 70px;background:radial-gradient(circle at 50% 10%,#e7f3ff 0,#f7fbff 35%,#fff 72%)}.diagnosis-wrap{max-width:930px}.diagnosis-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-size:.68rem;font-weight:800;color:var(--slate-500)}.back-home:hover{color:var(--blue-600)}.diagnosis-head span{background:var(--green-100);color:var(--green-600);padding:6px 10px;border-radius:999px}.diagnosis-card{padding:34px 38px;min-height:530px}.progress-head{display:flex;justify-content:space-between;gap:20px}.progress-head small{display:block;color:var(--blue-600);font-size:.66rem;font-weight:900;letter-spacing:.1em}.progress-head strong{display:block;font-size:1.55rem;color:var(--navy-950);margin-top:5px;line-height:1.4}.progress-head strong :global(small){display:block;color:var(--slate-500);font-size:.72rem;font-weight:600;letter-spacing:0;margin-top:5px}.progress-head>span{color:var(--slate-500);font-size:.7rem;font-weight:800}.progress{height:5px;background:var(--slate-100);border-radius:99px;margin:18px 0 30px;overflow:hidden}.progress i{display:block;height:100%;width:17%;background:linear-gradient(90deg,var(--blue-600),#56abff);border-radius:99px;transition:width .25s ease}.option-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}.option-grid :global(.option-card){text-align:left;border:1px solid var(--slate-200);background:#fff;border-radius:15px;min-height:82px;padding:13px 15px;display:grid;grid-template-columns:36px 1fr 20px;align-items:center;gap:10px;cursor:pointer;color:var(--slate-900);transition:.16s ease}.option-grid :global(.option-card:hover){border-color:#9ec8f3;background:#f9fcff;transform:translateY(-1px);box-shadow:var(--shadow-sm)}.option-grid :global(.option-icon){width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:var(--blue-100);color:var(--blue-600);font-weight:900}.option-grid :global(.option-card strong){display:block;font-size:.84rem}.option-grid :global(.option-card small){display:block;color:var(--slate-500);font-size:.66rem;margin-top:3px}.option-grid :global(.option-card b){color:var(--blue-600)}.controls{display:flex;justify-content:space-between;align-items:center;margin-top:28px;border-top:1px solid var(--slate-200);padding-top:17px}.controls small{color:var(--slate-400);font-size:.62rem}.text-button{border:0;background:transparent;color:var(--blue-600);font-weight:800;font-size:.72rem;cursor:pointer}.text-button:disabled{color:var(--slate-300);cursor:default}.result-panel[hidden]{display:none}.result-top{padding:30px;display:flex;justify-content:space-between;align-items:center;gap:30px}.result-copy h1{font-size:2rem;color:var(--navy-950);margin:4px 0}.result-copy p{margin:0;color:var(--slate-700);font-size:.82rem}.score{display:flex;align-items:center;gap:12px}.score-ring{width:92px;height:92px;border-radius:50%;border:8px solid var(--blue-100);border-top-color:var(--blue-600);border-right-color:var(--blue-600);display:grid;place-items:center;position:relative}.score-ring strong{font-size:1.75rem;color:var(--navy-950)}.score-ring small{position:absolute;bottom:13px;font-size:.55rem;color:var(--slate-500)}.score>div:last-child small{display:block;color:var(--slate-500);font-size:.6rem}.score>div:last-child strong{font-size:.82rem;color:var(--navy-900)}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}.result-grid h2{font-size:1.05rem;color:var(--navy-950);margin:0 0 12px}.priority-list,.recommend-list{display:grid;gap:9px}.priority-list :global(.priority){padding:14px;display:grid;grid-template-columns:34px 1fr;gap:10px}.priority-list :global(.priority>span){width:32px;height:32px;border-radius:10px;background:var(--navy-900);color:#fff;display:grid;place-items:center;font-weight:900}.priority-list :global(.priority strong){display:block;font-size:.8rem}.priority-list :global(.priority p){font-size:.66rem;color:var(--slate-500);margin:3px 0}.priority-list :global(.level){font-size:.54rem;font-weight:900}.priority-list :global(.level.high){color:var(--red-600)}.priority-list :global(.level.medium){color:var(--orange-600)}.priority-list :global(.level.low){color:var(--green-600)}.recommend-list :global(.recommend){padding:14px;display:grid;grid-template-columns:34px 1fr;gap:10px}.recommend-list :global(.rank){width:32px;height:32px;border-radius:10px;background:var(--blue-100);color:var(--blue-600);display:grid;place-items:center;font-weight:900}.recommend-list :global(.recommend small){color:var(--blue-600);font-size:.58rem;font-weight:900}.recommend-list :global(.recommend strong){display:block;font-size:.8rem}.recommend-list :global(.recommend p){font-size:.65rem;color:var(--slate-500);margin:3px 0}.recommend-list :global(.recommend b){font-size:.72rem;color:var(--navy-900)}.recommend-list :global(.recommend-links){display:flex;gap:12px;margin-top:6px}.recommend-list :global(.recommend-links a){font-size:.64rem;color:var(--blue-600);font-weight:900}.result-actions{margin-top:22px;padding:18px;display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:10px}.result-actions strong{display:block;font-size:.8rem}.result-actions small{display:block;color:var(--slate-500);font-size:.64rem}.result-actions .btn-primary,.result-actions .btn-secondary{min-height:42px;font-size:.7rem}.no-match{padding:20px;color:var(--slate-500);font-size:.75rem}
+  @media(max-width:700px){.diagnosis-shell{padding-top:18px}.diagnosis-card{padding:24px 17px;min-height:520px}.progress-head strong{font-size:1.25rem}.option-grid{grid-template-columns:1fr}.option-grid :global(.option-card){min-height:72px}.result-top{display:block;padding:22px}.score{margin-top:20px}.result-grid{grid-template-columns:1fr}.result-actions{grid-template-columns:1fr}.result-actions .btn-primary,.result-actions .btn-secondary{width:100%}}
+</style>

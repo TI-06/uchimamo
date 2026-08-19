@@ -6,9 +6,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 const baseProductsPath = fileURLToPath(new URL('./src/data/products.json', import.meta.url));
 const extraProductsPath = fileURLToPath(new URL('./src/data/products-extra.json', import.meta.url));
+const replacementProductsPath = fileURLToPath(new URL('./src/data/products-replacements.json', import.meta.url));
+const discontinuedProductIds = new Set(['qrio-lock-q-sl2']);
+const extraProducts = JSON.parse(readFileSync(extraProductsPath, 'utf8'));
 const mergedProducts = [
   ...JSON.parse(readFileSync(baseProductsPath, 'utf8')),
-  ...JSON.parse(readFileSync(extraProductsPath, 'utf8'))
+  ...extraProducts.filter((product) => !discontinuedProductIds.has(product.id)),
+  ...JSON.parse(readFileSync(replacementProductsPath, 'utf8'))
 ];
 const VIRTUAL_CATALOG_ID = '\0uchimamo-product-catalog';
 

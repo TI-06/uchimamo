@@ -4,35 +4,52 @@ import type { RakutenCacheItem } from '../lib/rakuten';
 
 interface Props { product: Product; rakuten?: RakutenCacheItem; compact?: boolean }
 const { product, rakuten, compact = false } = Astro.props;
-const price = rakuten?.price ? `¥${rakuten.price.toLocaleString('ja-JP')}` : '価格を同期後に表示';
+const price = rakuten?.price ? `¥${rakuten.price.toLocaleString('ja-JP')}` : '価格確認中';
+const categoryLabels = {
+  camera: '防犯カメラ',
+  'smart-lock': 'スマートロック',
+  sensor: 'センサー',
+  'window-lock': '補助錠',
+  light: 'センサーライト'
+} as const;
+const checkedAt = rakuten?.fetchedAt
+  ? new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'numeric', day: 'numeric' }).format(new Date(rakuten.fetchedAt))
+  : undefined;
 ---
-<article class:list={['product-card', { compact }]} data-product-card data-id={product.id} data-category={product.category} data-place={product.places.join(',')} data-no-drilling={String(product.installation.noDrilling)} data-no-wifi={String(!product.connectivity.wifiRequired)} data-no-power={String(product.power.battery || product.power.solar)} data-solar={String(product.power.solar)} data-monthly-free={String(!product.monthlyFeeRequired)}>
+<article class:list={['product-card', { compact }]} data-product-card data-id={product.id} data-category={product.category} data-place={product.places.join(',')} data-no-drilling={String(product.installation.noDrilling)} data-no-wifi={String(!product.connectivity.wifiRequired)} data-no-power={String((product.power.battery || product.power.solar) && !product.power.ac)} data-solar={String(product.power.solar)} data-monthly-free={String(!product.monthlyFeeRequired)}>
   <div class="visual">
-    {rakuten?.imageUrl ? <img src={rakuten.imageUrl} alt={rakuten.name || product.name} loading="lazy" width="300" height="220" /> : <div class="visual-placeholder"><span>{product.brand.slice(0, 2)}</span><small>商品画像は楽天同期後に表示</small></div>}
-    <span class="score">{product.score}<small>/100</small></span>
+    <div class="visual-head"><span>{categoryLabels[product.category]}</span><span class="editor-score"><small>ウチマモ評価</small><strong>{product.score}</strong></span></div>
+    {rakuten?.imageUrl ? <img src={rakuten.imageUrl} alt={rakuten.name || product.name} loading="lazy" width="320" height="240" /> : <div class="visual-placeholder"><span>{product.brand.slice(0, 2)}</span><small>商品画像を確認中</small></div>}
   </div>
   <div class="body">
     <div class="brand">{product.brand}</div>
     <h3><a href={`/products/${product.id}/`}>{product.name}</a></h3>
-    <p>{product.description}</p>
+    <p class="description">{product.description}</p>
+    {product.editorial?.bestFor && <div class="best-for"><small>こんな人に</small><strong>{product.editorial.bestFor}</strong></div>}
     <div class="features">
       {product.installation.noDrilling && <span class="chip chip-green">工事不要</span>}
       {!product.connectivity.wifiRequired && <span class="chip chip-blue">Wi-Fi不要</span>}
-      {(product.power.battery || product.power.solar) && <span class="chip">電源工事不要</span>}
+      {(product.power.battery || product.power.solar) && !product.power.ac && <span class="chip">電源工事不要</span>}
       {product.power.solar && <span class="chip">ソーラー</span>}
       {!product.monthlyFeeRequired && <span class="chip">月額不要</span>}
     </div>
-    <div class="price"><small>楽天市場</small><strong>{price}</strong>{rakuten?.reviewAverage && <span>★ {rakuten.reviewAverage.toFixed(1)} ({rakuten.reviewCount ?? 0})</span>}</div>
-    <div class="actions">
-      <a class="btn-secondary" href={`/products/${product.id}/`}>詳しく見る</a>
-      {rakuten?.affiliateUrl ? <a class="btn-primary" href={rakuten.affiliateUrl} target="_blank" rel="nofollow sponsored noopener">楽天で見る</a> : <span class="sync-note">楽天連携待ち</span>}
+    <div class="marketplace">
+      <div class="market-head"><span>PR</span><small>楽天市場</small>{checkedAt && <time datetime={rakuten?.fetchedAt}>{checkedAt}確認</time>}</div>
+      <div class="price-row"><strong>{price}</strong>{rakuten?.reviewAverage != null && rakuten.reviewAverage > 0 && <span class="review">楽天市場レビュー <b>★ {rakuten.reviewAverage.toFixed(1)}</b> <small>({rakuten.reviewCount ?? 0}件)</small></span>}</div>
     </div>
-    <label class="compare-check"><input type="checkbox" data-compare-checkbox value={product.id} /> 比較リストに追加</label>
+    <div class="actions">
+      <a class="btn-primary" href={`/products/${product.id}/`}>詳しく見る <span>→</span></a>
+      {rakuten?.affiliateUrl ? <a class="btn-secondary" href={rakuten.affiliateUrl} target="_blank" rel="nofollow sponsored noopener">楽天で価格を見る</a> : <span class="sync-note">楽天価格を確認中</span>}
+    </div>
+    <label class="compare-control"><input type="checkbox" data-compare-checkbox value={product.id} /><span class="compare-icon" aria-hidden="true">＋</span><span><strong>比較に追加</strong><small>最大3商品</small></span></label>
   </div>
 </article>
 <style>
-  .product-card{overflow:hidden;background:#fff;border:1px solid var(--slate-200);border-radius:20px;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}.product-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
-  .visual{height:210px;position:relative;background:linear-gradient(145deg,#eef6ff,#f7fbff);display:grid;place-items:center;overflow:hidden}.visual img{width:100%;height:100%;object-fit:contain;background:#fff;padding:16px}.visual-placeholder{display:grid;place-items:center;gap:5px;color:var(--slate-500)}.visual-placeholder span{width:70px;height:70px;border-radius:22px;display:grid;place-items:center;background:white;border:1px solid var(--slate-200);font-size:1.25rem;font-weight:900;color:var(--navy-900);box-shadow:var(--shadow-sm)}.visual-placeholder small{font-size:.7rem}
-  .score{position:absolute;right:12px;top:12px;background:var(--navy-900);color:white;border-radius:10px;padding:6px 9px;font-size:.85rem;font-weight:900}.score small{font-size:.55rem;color:#b9cae0}.body{padding:19px}.brand{color:var(--blue-600);font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.body h3{margin:3px 0 7px;font-size:1.06rem;line-height:1.45;color:var(--navy-950)}.body h3 a:hover{color:var(--blue-600)}.body p{margin:0 0 12px;color:var(--slate-700);font-size:.8rem;min-height:2.7em}.features{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}.features .chip{font-size:.66rem;min-height:27px;padding:0 8px}.price{border-top:1px solid var(--slate-200);padding-top:13px;display:grid;grid-template-columns:1fr auto;align-items:end}.price small{grid-column:1/-1;color:var(--slate-500);font-size:.65rem}.price strong{font-size:1.08rem;color:var(--navy-950)}.price span{font-size:.66rem;color:var(--orange-600)}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.actions a{min-height:42px;padding:0 10px;font-size:.76rem}.sync-note{min-height:42px;border-radius:12px;background:var(--slate-100);display:grid;place-items:center;color:var(--slate-500);font-size:.7rem;font-weight:800}.compare-check{display:flex;align-items:center;gap:7px;margin-top:12px;color:var(--slate-700);font-size:.72rem;font-weight:700}.compare-check input{accent-color:var(--blue-600)}
-  .compact .visual{height:160px}
+  .product-card{overflow:hidden;background:#fff;border:1px solid var(--slate-200);border-radius:16px;box-shadow:var(--shadow-sm);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}.product-card:hover{transform:translateY(-2px);border-color:#c7d0d8;box-shadow:var(--shadow-md)}
+  .visual{height:228px;position:relative;background:#f5f6f5;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--slate-200)}.visual-head{position:absolute;z-index:2;left:12px;right:12px;top:11px;display:flex;align-items:start;justify-content:space-between;pointer-events:none}.visual-head>span:first-child{background:rgba(255,255,255,.94);border:1px solid var(--slate-200);border-radius:999px;padding:5px 9px;font-size:.6rem;font-weight:800;color:var(--slate-700);backdrop-filter:blur(8px)}.editor-score{display:flex;align-items:center;gap:6px;background:rgba(9,21,34,.94);color:white;border-radius:9px;padding:5px 8px}.editor-score small{font-size:.5rem;color:#aebdca;font-weight:700}.editor-score strong{font-size:.88rem;line-height:1}.visual img{width:100%;height:100%;object-fit:contain;background:#fff;padding:34px 22px 20px}.visual-placeholder{display:grid;place-items:center;gap:6px;color:var(--slate-500)}.visual-placeholder>span{width:68px;height:68px;border-radius:18px;display:grid;place-items:center;background:white;border:1px solid var(--slate-200);font-size:1.2rem;font-weight:900;color:var(--navy-900)}.visual-placeholder small{font-size:.66rem}
+  .body{padding:20px}.brand{color:var(--blue-700);font-size:.65rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.body h3{margin:4px 0 8px;font-size:1.04rem;line-height:1.45;color:var(--navy-950);letter-spacing:-.015em}.body h3 a:hover{color:var(--blue-700)}.description{margin:0 0 13px;color:var(--slate-700);font-size:.76rem;min-height:2.7em}.best-for{padding:10px 11px;border-left:2px solid var(--gold-600);background:#fbfaf7;margin-bottom:13px}.best-for small{display:block;color:var(--gold-600);font-size:.54rem;font-weight:900;letter-spacing:.08em}.best-for strong{display:block;color:var(--slate-900);font-size:.68rem;line-height:1.55;margin-top:2px}.features{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:15px}.features .chip{font-size:.61rem;min-height:25px;padding:0 8px}
+  .marketplace{border-top:1px solid var(--slate-200);padding-top:13px}.market-head{display:flex;align-items:center;gap:6px;color:var(--slate-500)}.market-head>span{font-size:.48rem;font-weight:900;border:1px solid var(--slate-300);border-radius:4px;padding:1px 4px}.market-head small{font-size:.62rem;font-weight:800}.market-head time{margin-left:auto;font-size:.56rem}.price-row{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-top:3px}.price-row>strong{font-size:1.18rem;color:var(--navy-950);letter-spacing:-.02em}.review{font-size:.56rem;color:var(--slate-500);text-align:right;line-height:1.4}.review b{color:var(--orange-600);font-size:.68rem}.review small{font-size:.54rem}
+  .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.actions a{min-height:42px;padding:0 10px;font-size:.7rem}.sync-note{min-height:42px;border-radius:11px;background:var(--slate-100);display:grid;place-items:center;color:var(--slate-500);font-size:.65rem;font-weight:800}.compare-control{position:relative;display:flex;align-items:center;gap:8px;margin-top:12px;padding:9px 10px;border:1px solid var(--slate-200);border-radius:10px;color:var(--slate-700);cursor:pointer;transition:.15s ease}.compare-control:hover{border-color:#b6c2cc;background:#fafbfb}.compare-control input{position:absolute;opacity:0;pointer-events:none}.compare-control:has(input:checked){background:var(--navy-900);border-color:var(--navy-900);color:white}.compare-control:has(input:checked) .compare-icon{background:white;color:var(--navy-900)}.compare-icon{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--slate-100);font-size:.9rem;font-weight:900}.compare-control strong{display:block;font-size:.66rem}.compare-control small{display:block;font-size:.52rem;color:var(--slate-500)}.compare-control:has(input:checked) small{color:#9fb1c2}
+  .compact .visual{height:170px}.compact .best-for{display:none}
+  @media(max-width:640px){.visual{height:245px}.description{min-height:0}}
 </style>

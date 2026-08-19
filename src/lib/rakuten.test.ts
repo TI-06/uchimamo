@@ -27,4 +27,12 @@ describe('normalizeRakutenItem', () => {
     }));
     expect(normalized.imageUrl).toBe('https://example.com/image.jpg');
   });
+
+  it('2026-07-01 APIの画像URL文字列配列を扱える', () => {
+    const normalized = normalizeRakutenItem({
+      itemCode: 'shop:456', itemName: '現行API商品', itemPrice: 12800,
+      mediumImageUrls: ['https://example.com/current-image.jpg']
+    });
+    expect(normalized.imageUrl).toBe('https://example.com/current-image.jpg');
+  });
 });

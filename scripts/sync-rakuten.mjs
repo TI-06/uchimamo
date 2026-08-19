@@ -94,15 +94,18 @@ for (const [index, product] of products.entries()) {
     if (selected.needsReview) {
       skippedCount += 1;
       skipped.push(product.id);
+      const reason = selected.reason ?? 'needs-review';
       needsReview.push({
         productId: product.id,
-        reason: 'fixed-item-not-found',
-        expectedItemCode: product.rakuten.itemCode
+        reason,
+        ...(product.rakuten.itemCode ? { expectedItemCode: product.rakuten.itemCode } : {}),
+        ...(product.rakuten.modelTokens?.length ? { modelTokens: product.rakuten.modelTokens } : {})
       });
       skippedCandidates.push({
         productId: product.id,
         keyword: product.rakuten.keyword,
-        expectedItemCode: product.rakuten.itemCode,
+        ...(product.rakuten.itemCode ? { expectedItemCode: product.rakuten.itemCode } : {}),
+        ...(product.rakuten.modelTokens?.length ? { modelTokens: product.rakuten.modelTokens } : {}),
         candidates: fallbackRanked.slice(0, 5).map(({ item, score }) => ({
           itemCode: String(item?.itemCode ?? ''),
           name: String(item?.itemName ?? '').slice(0, 180),
@@ -110,7 +113,7 @@ for (const [index, product] of products.entries()) {
           score: Number(score.toFixed(3))
         }))
       });
-      console.warn(`[review] ${product.id}: 固定商品 ${product.rakuten.itemCode} が見つからないため、別商品へ切り替えませんでした`);
+      console.warn(`[review] ${product.id}: ${reason} のため、別商品へ自動切り替えしませんでした`);
     } else if (!selected.item || selected.score < 0.3) {
       skippedCount += 1;
       skipped.push(product.id);

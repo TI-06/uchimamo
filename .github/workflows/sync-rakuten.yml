@@ -11,6 +11,7 @@ on:
       - 'src/data/products.json'
       - 'src/data/products-extra.json'
       - 'src/data/products-replacements.json'
+      - 'src/data/products-pins.json'
   schedule:
     # 03:20 JST (18:20 UTC)
     - cron: '20 18 * * *'

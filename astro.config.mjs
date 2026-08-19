@@ -7,13 +7,18 @@ import tailwindcss from '@tailwindcss/vite';
 const baseProductsPath = fileURLToPath(new URL('./src/data/products.json', import.meta.url));
 const extraProductsPath = fileURLToPath(new URL('./src/data/products-extra.json', import.meta.url));
 const replacementProductsPath = fileURLToPath(new URL('./src/data/products-replacements.json', import.meta.url));
+const pinsPath = fileURLToPath(new URL('./src/data/products-pins.json', import.meta.url));
 const discontinuedProductIds = new Set(['qrio-lock-q-sl2']);
+const pins = JSON.parse(readFileSync(pinsPath, 'utf8'));
+const applyPins = (product) => pins[product.id]
+  ? { ...product, rakuten: { ...product.rakuten, ...pins[product.id] } }
+  : product;
 const extraProducts = JSON.parse(readFileSync(extraProductsPath, 'utf8'));
 const mergedProducts = [
   ...JSON.parse(readFileSync(baseProductsPath, 'utf8')),
   ...extraProducts.filter((product) => !discontinuedProductIds.has(product.id)),
   ...JSON.parse(readFileSync(replacementProductsPath, 'utf8'))
-];
+].map(applyPins);
 const VIRTUAL_CATALOG_ID = '\0uchimamo-product-catalog';
 
 function productCatalogPlugin() {

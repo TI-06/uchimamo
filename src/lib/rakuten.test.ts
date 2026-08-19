@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildRakutenRequest, normalizeRakutenItem } from './rakuten';
+import { buildRakutenRequest, extractRakutenItems, normalizeRakutenItem } from './rakuten';
 
 describe('buildRakutenRequest', () => {
   it('App IDとaffiliateIdはURL、Access Keyとサイト識別ヘッダーはHTTPヘッダーへ分離する', () => {
@@ -18,6 +18,18 @@ describe('buildRakutenRequest', () => {
     expect(request.headers.accessKey).toBe('secret-key');
     expect(request.headers.Referer).toBe('https://uchimamo.pages.dev/');
     expect(request.headers.Origin).toBe('https://uchimamo.pages.dev');
+  });
+});
+
+describe('extractRakutenItems', () => {
+  it('実APIの大文字Items配列を取得する', () => {
+    const rows = extractRakutenItems({ Items: [{ itemName: 'SwitchBot ロックUltra' }] });
+    expect(rows).toEqual([{ itemName: 'SwitchBot ロックUltra' }]);
+  });
+
+  it('公式仕様の小文字items配列にも対応する', () => {
+    const rows = extractRakutenItems({ items: [{ itemName: '防犯カメラ' }] });
+    expect(rows).toEqual([{ itemName: '防犯カメラ' }]);
   });
 });
 

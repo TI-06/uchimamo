@@ -5,8 +5,8 @@ const PRODUCT_PATH = new URL('../src/data/products.json', import.meta.url);
 const CACHE_PATH = new URL('../src/data/rakuten-cache.json', import.meta.url);
 
 const { RAKUTEN_APP_ID, RAKUTEN_ACCESS_KEY, RAKUTEN_AFFILIATE_ID } = process.env;
-if (!RAKUTEN_APP_ID || !RAKUTEN_ACCESS_KEY) {
-  console.error('RAKUTEN_APP_ID と RAKUTEN_ACCESS_KEY を設定してください。');
+if (!RAKUTEN_APP_ID || !RAKUTEN_ACCESS_KEY || !RAKUTEN_AFFILIATE_ID) {
+  console.error('RAKUTEN_APP_ID / RAKUTEN_ACCESS_KEY / RAKUTEN_AFFILIATE_ID を設定してください。');
   process.exit(1);
 }
 
@@ -20,6 +20,11 @@ try {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const unwrap = (row) => row?.Item ?? row?.item ?? row;
+const firstImageUrl = (list) => {
+  const first = Array.isArray(list) ? list[0] : undefined;
+  if (typeof first === 'string') return first;
+  return first?.imageUrl ?? '';
+};
 
 function candidateScore(itemName, product) {
   if (!itemName) return 0;
@@ -32,27 +37,53 @@ function candidateScore(itemName, product) {
   return tokens.filter((token) => itemName.toLowerCase().includes(token.toLowerCase())).length / tokens.length;
 }
 
+async function responseError(response) {
+  let detail = '';
+  try {
+    const text = await response.text();
+    try {
+      const json = JSON.parse(text);
+      detail = json.error_description || json.error || text;
+    } catch {
+      detail = text;
+    }
+  } catch {
+    detail = '';
+  }
+  return `HTTP ${response.status}${detail ? `: ${String(detail).slice(0, 300)}` : ''}`;
+}
+
+let enabledCount = 0;
+let successCount = 0;
+let skippedCount = 0;
+let failureCount = 0;
+
 for (const [index, product] of products.entries()) {
   if (!product.rakuten?.enabled) continue;
+  enabledCount += 1;
+
   const url = new URL(ENDPOINT);
   url.searchParams.set('format', 'json');
   url.searchParams.set('formatVersion', '2');
   url.searchParams.set('applicationId', RAKUTEN_APP_ID);
-  url.searchParams.set('affiliateId', RAKUTEN_AFFILIATE_ID ?? '');
+  url.searchParams.set('affiliateId', RAKUTEN_AFFILIATE_ID);
   url.searchParams.set('keyword', product.rakuten.keyword);
   url.searchParams.set('hits', '5');
   if (product.rakuten.itemCode) url.searchParams.set('itemCode', product.rakuten.itemCode);
 
   try {
     const response = await fetch(url, { headers: { accessKey: RAKUTEN_ACCESS_KEY } });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    if (!response.ok) throw new Error(await responseError(response));
+
     const data = await response.json();
     const rows = Array.isArray(data.items) ? data.items.map(unwrap) : [];
     const ranked = rows
       .map((item) => ({ item, score: candidateScore(item?.itemName ?? '', product) }))
       .sort((a, b) => b.score - a.score);
     const best = ranked[0];
+
     if (!best || best.score < 0.35) {
+      skippedCount += 1;
       console.warn(`[skip] ${product.id}: 一致度の高い商品が見つかりませんでした`);
     } else {
       const item = best.item;
@@ -65,16 +96,25 @@ for (const [index, product] of products.entries()) {
         reviewAverage: item.reviewAverage == null ? null : Number(item.reviewAverage),
         reviewCount: item.reviewCount == null ? null : Number(item.reviewCount),
         shopName: item.shopName ?? '',
-        imageUrl: item.mediumImageUrls?.[0]?.imageUrl ?? item.smallImageUrls?.[0]?.imageUrl ?? '',
+        imageUrl: firstImageUrl(item.mediumImageUrls) || firstImageUrl(item.smallImageUrls),
         fetchedAt: new Date().toISOString()
       };
+      successCount += 1;
       console.log(`[ok] ${product.id}: ${cache[product.id].name}`);
     }
   } catch (error) {
-    console.warn(`[keep-cache] ${product.id}: ${error instanceof Error ? error.message : error}`);
+    failureCount += 1;
+    console.error(`[error] ${product.id}: ${error instanceof Error ? error.message : error}`);
   }
 
   if (index < products.length - 1) await sleep(1100);
+}
+
+console.log(`楽天同期サマリー: enabled=${enabledCount}, success=${successCount}, skip=${skippedCount}, error=${failureCount}`);
+
+if (enabledCount > 0 && successCount === 0) {
+  console.error('楽天同期に成功した商品が0件です。Application ID / Access Key / Affiliate ID と楽天APIのエラー内容を確認してください。');
+  process.exit(1);
 }
 
 await writeFile(CACHE_PATH, `${JSON.stringify(cache, null, 2)}\n`, 'utf8');

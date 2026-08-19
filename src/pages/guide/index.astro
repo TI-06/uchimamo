@@ -1,20 +1,27 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const guides = [
-  ['戸建ての防犯を自分で始める順番','玄関・窓・駐車場の優先順位を整理します。','戸建て'],
-  ['穴あけ不要で屋外カメラを設置する考え方','賃貸や外壁を傷つけたくない場合の選び方。','工事不要'],
-  ['Wi-Fiがない場所の防犯カメラ選び','LTE・ローカル保存など通信条件から比較します。','Wi-Fi不要'],
-  ['スマートロック選びで確認したいポイント','ドア形状・電池・解錠方法などを整理します。','玄関'],
-  ['空き家・実家の見守りで先に決めること','通信・電源・通知先を先に決めると選びやすくなります。','実家・空き家'],
-  ['防犯カメラの月額料金は必要？','クラウド保存とローカル保存の違いを整理します。','月額']
-];
+import { guides } from '../../data/guides';
 ---
-<BaseLayout title="家庭防犯ガイド｜ウチマモ" description="工事不要・後付けで始める家庭防犯の選び方を、場所や条件別に整理します。">
-  <section class="guide-hero"><div class="site-container"><span class="eyebrow">SECURITY GUIDE</span><h1>防犯用品を買う前に、<br />知っておきたいこと。</h1><p>商品を売るためだけではなく、自宅の条件に合わない買い物を減らすためのガイドです。</p></div></section>
-  <section class="section"><div class="site-container"><div class="guide-grid">{guides.map(([title,desc,tag],i) => <article class="guide-card card"><div class="thumb"><span>{String(i+1).padStart(2,'0')}</span></div><div class="body"><span class="chip chip-blue">{tag}</span><h2>{title}</h2><p>{desc}</p><span class="coming">記事準備中</span></div></article>)}</div></div></section>
+<BaseLayout title="家庭防犯ガイド｜ウチマモ" description="工事不要・後付けで始める家庭防犯の選び方を、玄関・窓・駐車場・実家など場所や条件別に整理します。">
+  <section class="guide-hero">
+    <div class="site-container hero-layout">
+      <div><span class="eyebrow">SECURITY GUIDE</span><h1>防犯用品を買う前に、<br />知っておきたいこと。</h1><p>施錠や住環境の見直しを基本に、カメラ・スマートロックなどの後付け対策をどう組み合わせるか整理します。</p></div>
+      <div class="guide-count card"><strong>{guides.length}</strong><span>GUIDES</span><small>初期公開ガイド</small></div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="site-container">
+      <div class="guide-grid">
+        {guides.map((guide,i) => <article class="guide-card card">
+          <a class="thumb" href={`/guide/${guide.slug}/`} aria-label={guide.title}><span>{String(i+1).padStart(2,'0')}</span><small>{guide.category}</small></a>
+          <div class="body"><div class="meta"><span class="chip chip-blue">{guide.category}</span><small>{guide.readMinutes}分で読めます</small></div><h2><a href={`/guide/${guide.slug}/`}>{guide.title}</a></h2><p>{guide.description}</p><a class="read" href={`/guide/${guide.slug}/`}>ガイドを読む <span>→</span></a></div>
+        </article>)}
+      </div>
+    </div>
+  </section>
   <section class="section section-soft"><div class="site-container diagnosis-link"><div><span class="eyebrow">QUICK CHECK</span><h2 class="section-title">読む前に、自宅の条件を整理する</h2><p>6問で優先対策と商品候補を確認できます。</p></div><a class="btn-primary" href="/diagnosis/">30秒で防犯診断 →</a></div></section>
 </BaseLayout>
 <style>
-  .guide-hero{padding:70px 0;background:linear-gradient(145deg,#f3f9ff,#fff);border-bottom:1px solid var(--slate-200)}.guide-hero h1{font-size:clamp(2.25rem,5vw,3.8rem);line-height:1.2;letter-spacing:-.05em;color:var(--navy-950);margin:9px 0 15px}.guide-hero p{color:var(--slate-700);max-width:680px}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.guide-card{overflow:hidden}.thumb{height:120px;background:linear-gradient(145deg,var(--navy-900),#174d78);display:grid;place-items:center}.thumb span{font-size:2rem;font-weight:900;color:rgba(255,255,255,.28)}.body{padding:18px}.body h2{font-size:1rem;line-height:1.5;margin:10px 0 6px;color:var(--navy-950)}.body p{font-size:.73rem;color:var(--slate-500);margin:0 0 14px}.coming{font-size:.65rem;color:var(--slate-400);font-weight:800}.diagnosis-link{display:flex;align-items:center;justify-content:space-between;gap:30px}.diagnosis-link p{color:var(--slate-700)}
-  @media(max-width:850px){.guide-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.guide-hero{padding:44px 0}.guide-grid{grid-template-columns:1fr}.diagnosis-link{display:block}.diagnosis-link .btn-primary{margin-top:15px}}
+  .guide-hero{padding:70px 0;background:linear-gradient(145deg,#f3f9ff,#fff);border-bottom:1px solid var(--slate-200)}.hero-layout{display:flex;align-items:end;justify-content:space-between;gap:30px}.guide-hero h1{font-size:clamp(2.25rem,5vw,3.8rem);line-height:1.2;letter-spacing:-.05em;color:var(--navy-950);margin:9px 0 15px}.guide-hero p{color:var(--slate-700);max-width:700px}.guide-count{width:150px;height:150px;flex:none;display:grid;place-items:center;align-content:center}.guide-count strong{font-size:2.5rem;line-height:1;color:var(--navy-950)}.guide-count span{font-size:.62rem;color:var(--blue-600);font-weight:900;letter-spacing:.12em;margin-top:5px}.guide-count small{font-size:.6rem;color:var(--slate-500);margin-top:7px}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.guide-card{overflow:hidden;transition:.18s ease}.guide-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}.thumb{height:130px;background:linear-gradient(145deg,var(--navy-900),#174d78);display:flex;justify-content:space-between;align-items:end;padding:17px;color:white}.thumb>span{font-size:2.1rem;font-weight:950;color:rgba(255,255,255,.28);line-height:1}.thumb small{font-size:.62rem;font-weight:900;background:rgba(255,255,255,.12);padding:5px 8px;border-radius:999px}.body{padding:18px}.meta{display:flex;align-items:center;justify-content:space-between;gap:8px}.meta small{color:var(--slate-400);font-size:.62rem}.body h2{font-size:1rem;line-height:1.55;margin:10px 0 7px;color:var(--navy-950)}.body h2 a:hover{color:var(--blue-600)}.body p{font-size:.73rem;color:var(--slate-500);margin:0;min-height:4.6em}.read{display:inline-flex;align-items:center;gap:7px;margin-top:15px;color:var(--blue-600);font-size:.7rem;font-weight:900}.read:hover span{transform:translateX(2px)}.read span{transition:.15s ease}.diagnosis-link{display:flex;align-items:center;justify-content:space-between;gap:30px}.diagnosis-link p{color:var(--slate-700)}
+  @media(max-width:850px){.guide-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.guide-hero{padding:44px 0}.hero-layout{display:block}.guide-count{display:none}.guide-grid{grid-template-columns:1fr}.body p{min-height:0}.diagnosis-link{display:block}.diagnosis-link .btn-primary{margin-top:15px}}
 </style>

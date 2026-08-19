@@ -6,6 +6,7 @@ export function filterProducts(products: Product[], filters: ProductFilters): Pr
     .filter((product) => !filters.place || product.places.includes(filters.place))
     .filter((product) => filters.noDrilling !== true || product.installation.noDrilling)
     .filter((product) => filters.wifiNotRequired !== true || !product.connectivity.wifiRequired)
+    .filter((product) => filters.powerNotRequired !== true || product.power.battery || product.power.solar)
     .filter((product) => filters.battery !== true || product.power.battery)
     .filter((product) => filters.solar !== true || product.power.solar)
     .filter((product) => filters.monthlyFeeFree !== true || !product.monthlyFeeRequired)

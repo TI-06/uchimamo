@@ -50,6 +50,7 @@ export interface ProductFilters {
   place?: ProductPlace;
   noDrilling?: boolean;
   wifiNotRequired?: boolean;
+  powerNotRequired?: boolean;
   battery?: boolean;
   solar?: boolean;
   monthlyFeeFree?: boolean;

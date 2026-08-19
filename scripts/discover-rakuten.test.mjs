@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildPublicDiscovered, mergeCandidatePool } from './discover-rakuten.mjs';
+import { buildPublicDiscovered, matchesCuratedModel, mergeCandidatePool } from './discover-rakuten.mjs';
 
 const published = {
   itemCode: 'shop:1001',
@@ -36,6 +36,22 @@ describe('candidate persistence', () => {
     const merged = mergeCandidatePool([published], [], '2026-08-20T00:00:00.000Z');
     expect(merged).toHaveLength(1);
     expect(merged[0].status).toBe('published');
+  });
+});
+
+describe('curated duplicate detection', () => {
+  const curated = [
+    { id: 'tapo-c425', brand: 'TP-Link Tapo', category: 'camera', rakuten: { modelTokens: ['Tapo', 'C425'] } },
+    { id: 'switchbot-ultra', brand: 'SwitchBot', category: 'smart-lock', rakuten: { modelTokens: ['SwitchBot', 'ロックUltra'] } }
+  ];
+
+  it('別ショップでも既存モデルと同じなら重複扱いにする', () => {
+    expect(matchesCuratedModel('Tapo C425 防犯カメラ 屋外', 'camera', curated)).toBe(true);
+    expect(matchesCuratedModel('SwitchBot ロックUltra 顔認証パッドセット', 'smart-lock', curated)).toBe(true);
+  });
+
+  it('別モデルは重複扱いにしない', () => {
+    expect(matchesCuratedModel('Tapo C530WS 防犯カメラ', 'camera', curated)).toBe(false);
   });
 });
 

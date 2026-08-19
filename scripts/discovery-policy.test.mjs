@@ -27,6 +27,13 @@ describe('discovery policy', () => {
     expect(result.reasons.join(' ')).toContain(token);
   });
 
+  it('カテゴリ固有の除外語に一致した商品をrejectする', () => {
+    const sensorRule = { category: 'sensor', requiredAny: ['人感センサー'], excludeAny: ['ライト', '照明'] };
+    const result = evaluateCandidate({ ...baseItem, itemName: 'ムサシ 人感センサーライト 防犯', shopName: 'ムサシ公式' }, sensorRule);
+    expect(result.status).toBe('rejected');
+    expect(result.reasons).toContain('category-excluded:ライト');
+  });
+
   it('trusted brandを商品名から検出する', () => {
     expect(detectBrand('SwitchBot ロックUltra', '')).toBe('SwitchBot');
     expect(detectBrand('Tapo C425 防犯カメラ', '')).toBe('Tapo');

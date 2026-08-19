@@ -27,11 +27,19 @@
     "ブラケット",
     "ケーブルのみ",
     "アダプターのみ",
+    "ダミーカメラ",
+    "防犯カメラ作動中",
     "2台セット",
     "３台セット",
     "3台セット",
     "４台セット",
     "4台セット",
+    "2個セット",
+    "３個セット",
+    "3個セット",
+    "４個セット",
+    "4個セット",
+    "8個セット",
     "まとめ買い",
     "福袋"
   ],
@@ -41,6 +49,7 @@
       "category": "camera",
       "keyword": "防犯カメラ 屋外",
       "requiredAny": ["防犯カメラ", "監視カメラ", "ネットワークカメラ"],
+      "excludeAny": ["ステッカー", "プレート", "看板", "ダミー", " kit", "キット"],
       "minPrice": 2000,
       "maxPrice": 150000
     },
@@ -49,6 +58,7 @@
       "category": "camera",
       "keyword": "防犯カメラ バッテリー",
       "requiredAny": ["防犯カメラ", "監視カメラ", "ネットワークカメラ"],
+      "excludeAny": ["ステッカー", "プレート", "看板", "ダミー", " kit", "キット"],
       "minPrice": 2000,
       "maxPrice": 150000
     },
@@ -57,6 +67,7 @@
       "category": "camera",
       "keyword": "防犯カメラ ソーラー",
       "requiredAny": ["防犯カメラ", "監視カメラ", "ネットワークカメラ"],
+      "excludeAny": ["ステッカー", "プレート", "看板", "ダミー", " kit", "キット"],
       "minPrice": 2000,
       "maxPrice": 150000
     },
@@ -65,6 +76,7 @@
       "category": "smart-lock",
       "keyword": "スマートロック 後付け",
       "requiredAny": ["スマートロック", "電子錠", "オートロック"],
+      "excludeAny": ["キーカバー", "保護カバー", "シール", "ステッカー", "セット"],
       "minPrice": 3000,
       "maxPrice": 100000
     },
@@ -73,6 +85,7 @@
       "category": "smart-lock",
       "keyword": "電子錠 後付け",
       "requiredAny": ["スマートロック", "電子錠", "オートロック"],
+      "excludeAny": ["キーカバー", "保護カバー", "シール", "ステッカー", "セット"],
       "minPrice": 3000,
       "maxPrice": 100000
     },
@@ -80,7 +93,8 @@
       "id": "door-window-sensor",
       "category": "sensor",
       "keyword": "開閉センサー 防犯",
-      "requiredAny": ["開閉センサー", "ドアセンサー", "窓センサー", "センサー"],
+      "requiredAny": ["開閉センサー", "ドアセンサー", "窓センサー"],
+      "excludeAny": ["ライト", "照明", "ランタン", "電球"],
       "minPrice": 1000,
       "maxPrice": 50000
     },
@@ -88,7 +102,8 @@
       "id": "motion-sensor",
       "category": "sensor",
       "keyword": "人感センサー 防犯",
-      "requiredAny": ["人感センサー", "モーションセンサー", "センサー"],
+      "requiredAny": ["人感センサー", "モーションセンサー", "存在センサー"],
+      "excludeAny": ["ライト", "照明", "ランタン", "電球"],
       "minPrice": 1000,
       "maxPrice": 50000
     },
@@ -97,6 +112,7 @@
       "category": "window-lock",
       "keyword": "窓 防犯 補助錠",
       "requiredAny": ["補助錠", "窓ロック", "サッシロック", "防犯錠"],
+      "excludeAny": ["チャイム", "アラームのみ", "センサーのみ"],
       "minPrice": 500,
       "maxPrice": 30000
     },
@@ -105,6 +121,7 @@
       "category": "window-lock",
       "keyword": "サッシ 防犯 錠",
       "requiredAny": ["補助錠", "窓ロック", "サッシロック", "防犯錠"],
+      "excludeAny": ["チャイム", "アラームのみ", "センサーのみ"],
       "minPrice": 500,
       "maxPrice": 30000
     },
@@ -113,6 +130,7 @@
       "category": "light",
       "keyword": "センサーライト 防犯",
       "requiredAny": ["センサーライト", "防犯ライト", "人感ライト"],
+      "excludeAny": ["交換電球", "替え球"],
       "minPrice": 1000,
       "maxPrice": 80000
     },
@@ -121,6 +139,7 @@
       "category": "light",
       "keyword": "ソーラー センサーライト",
       "requiredAny": ["センサーライト", "防犯ライト", "人感ライト"],
+      "excludeAny": ["交換電球", "替え球"],
       "minPrice": 1000,
       "maxPrice": 80000
     }

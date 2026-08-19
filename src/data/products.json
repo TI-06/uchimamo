@@ -1,100 +1,142 @@
 [
   {
     "id": "switchbot-lock-ultra",
-    "name": "SwitchBot ロックUltra",
+    "name": "SwitchBot ロックUltra 顔認証パッドProセット",
     "brand": "SwitchBot",
     "category": "smart-lock",
-    "description": "玄関を後付けでスマート化したい家庭向けの候補。",
+    "description": "玄関を後付けでスマート化し、複数の解錠方法までまとめて整えたい家庭向け。",
     "score": 94,
     "installation": { "noDrilling": true, "diy": true, "outdoor": false, "indoor": true },
     "connectivity": { "wifiRequired": false, "lteSupported": false },
     "power": { "ac": false, "battery": true, "solar": false },
     "monthlyFeeRequired": false,
-    "features": ["後付け", "スマートロック"],
+    "features": ["後付け", "スマートロック", "顔認証セット"],
     "targetUsers": ["戸建て", "マンション", "賃貸"],
     "places": ["entrance"],
-    "rakuten": { "enabled": true, "keyword": "SwitchBot ロックUltra" }
+    "editorial": {
+      "verdict": "玄関を一気にスマート化したい人向けの上位候補。後付けしやすさと解錠手段の多さを重視する場合に比較したいセットです。",
+      "bestFor": "玄関の使いやすさと防犯性をまとめて見直したい人",
+      "pros": ["穴あけを抑えた後付け運用", "複数の解錠手段をまとめて検討しやすい", "月額なしで基本機能を使いやすい"],
+      "cautions": ["セット商品のため単体購入より価格が高い", "設置前にドア形状との適合確認が必要"],
+      "scoreBreakdown": { "installation": 96, "features": 96, "cost": 78, "maintenance": 94 }
+    },
+    "rakuten": { "enabled": true, "keyword": "SwitchBot ロックUltra 顔認証パッドPro", "itemCode": "switchbot:10000315" }
   },
   {
     "id": "switchbot-lock-pro",
-    "name": "SwitchBot ロックPro",
+    "name": "SwitchBot ロックPro セット",
     "brand": "SwitchBot",
     "category": "smart-lock",
-    "description": "工事を抑えて玄関の施錠管理を改善したい方向け。",
+    "description": "工事を抑えながら玄関の施錠管理を改善したい家庭向けの定番候補。",
     "score": 91,
     "installation": { "noDrilling": true, "diy": true, "outdoor": false, "indoor": true },
     "connectivity": { "wifiRequired": false, "lteSupported": false },
     "power": { "ac": false, "battery": true, "solar": false },
     "monthlyFeeRequired": false,
-    "features": ["後付け", "スマートロック"],
+    "features": ["後付け", "スマートロック", "ICカード対応候補"],
     "targetUsers": ["戸建て", "マンション", "賃貸"],
     "places": ["entrance"],
-    "rakuten": { "enabled": true, "keyword": "SwitchBot ロックPro" }
+    "editorial": {
+      "verdict": "ロックUltraより予算を抑えつつ、後付けスマートロックの利便性を取り入れたい人に向く候補です。",
+      "bestFor": "コストと使いやすさのバランスを重視する玄関対策",
+      "pros": ["後付けしやすい", "月額なしで始めやすい", "スマートロック入門として比較しやすい"],
+      "cautions": ["セット内容は販売ページで最新構成を確認する必要がある", "ドア形状との適合確認が必要"],
+      "scoreBreakdown": { "installation": 95, "features": 90, "cost": 86, "maintenance": 93 }
+    },
+    "rakuten": { "enabled": true, "keyword": "SwitchBot ロックPro セット", "itemCode": "switchbot:10000121" }
   },
   {
     "id": "tapo-outdoor-battery-camera",
-    "name": "Tapo 屋外バッテリーカメラ候補",
+    "name": "Tapo 屋外バッテリーカメラ",
     "brand": "TP-Link Tapo",
     "category": "camera",
-    "description": "配線の制約がある屋外監視向けの商品候補。楽天同期時に最新商品を照合します。",
+    "description": "配線の制約がある屋外監視で、バッテリー運用と高画質を両立したい家庭向け。",
     "score": 90,
     "installation": { "noDrilling": true, "diy": true, "outdoor": true, "indoor": false },
     "connectivity": { "wifiRequired": true, "lteSupported": false },
     "power": { "ac": false, "battery": true, "solar": true },
     "storage": { "sd": true, "cloud": true, "local": false },
     "monthlyFeeRequired": false,
-    "features": ["屋外", "バッテリー", "ソーラー候補"],
+    "features": ["屋外", "バッテリー", "ソーラー運用候補"],
     "targetUsers": ["戸建て"],
     "places": ["parking", "garden", "backdoor"],
-    "rakuten": { "enabled": true, "keyword": "Tapo 防犯カメラ 屋外 バッテリー ソーラー" }
+    "editorial": {
+      "verdict": "屋外に電源配線を増やしたくない家庭で最初に比較したいカメラ候補。Wi-Fiが届く場所なら扱いやすい構成です。",
+      "bestFor": "駐車場・庭・勝手口の配線レス監視",
+      "pros": ["バッテリー運用", "屋外対応", "ソーラー運用を組み合わせやすい"],
+      "cautions": ["設置場所までWi-Fiが必要", "録画方法によってクラウド等の追加費用が発生する場合がある"],
+      "scoreBreakdown": { "installation": 92, "features": 92, "cost": 82, "maintenance": 88 }
+    },
+    "rakuten": { "enabled": true, "keyword": "Tapo 防犯カメラ 屋外 バッテリー ソーラー", "itemCode": "tplinkdirect:10001237" }
   },
   {
     "id": "outdoor-lte-camera",
-    "name": "Wi-Fi不要 LTE防犯カメラ候補",
-    "brand": "楽天市場から照合",
+    "name": "ANRAN 4G/LTE ソーラー防犯カメラ",
+    "brand": "ANRAN",
     "category": "camera",
-    "description": "Wi-Fiがない実家・空き家・駐車場向けに比較するための候補枠。",
+    "description": "Wi-Fiがない実家・空き家・駐車場で、4G/LTE通信とソーラー運用を組み合わせたい方向け。",
     "score": 88,
     "installation": { "noDrilling": true, "diy": true, "outdoor": true, "indoor": false },
     "connectivity": { "wifiRequired": false, "lteSupported": true },
     "power": { "ac": false, "battery": true, "solar": true },
     "storage": { "sd": true, "cloud": true, "local": false },
     "monthlyFeeRequired": true,
-    "features": ["LTE", "Wi-Fi不要", "屋外"],
+    "features": ["LTE", "Wi-Fi不要", "ソーラー", "屋外"],
     "targetUsers": ["実家", "空き家", "戸建て"],
     "places": ["parking", "garden", "backdoor"],
-    "rakuten": { "enabled": true, "keyword": "防犯カメラ LTE SIM WiFi不要 ソーラー" }
+    "editorial": {
+      "verdict": "Wi-Fiを用意できない場所の監視候補。通信費を許容してでも遠隔確認したい実家・空き家用途で比較価値があります。",
+      "bestFor": "Wi-Fiがない実家・空き家・離れた駐車場",
+      "pros": ["Wi-Fi不要", "ソーラー運用", "屋外の遠隔監視候補"],
+      "cautions": ["SIM通信費などランニングコストが必要", "販売店・サポート条件を購入前に確認したい"],
+      "scoreBreakdown": { "installation": 90, "features": 92, "cost": 74, "maintenance": 78 }
+    },
+    "rakuten": { "enabled": true, "keyword": "ANRAN 防犯カメラ 4G LTE ソーラー", "itemCode": "shop-amanotori:10030960" }
   },
   {
     "id": "window-sensor",
-    "name": "窓用開閉センサー候補",
-    "brand": "楽天市場から照合",
+    "name": "REVEX ドア・窓 開閉センサー HSA-M4",
+    "brand": "REVEX",
     "category": "sensor",
-    "description": "窓の開閉検知を追加したい家庭向け。",
+    "description": "窓や勝手口に低コストで開閉検知を追加したい家庭向け。",
     "score": 84,
     "installation": { "noDrilling": true, "diy": true, "outdoor": false, "indoor": true },
     "connectivity": { "wifiRequired": false, "lteSupported": false },
     "power": { "ac": false, "battery": true, "solar": false },
     "monthlyFeeRequired": false,
-    "features": ["開閉検知", "後付け"],
+    "features": ["開閉検知", "後付け", "低コスト"],
     "targetUsers": ["戸建て", "マンション", "賃貸"],
     "places": ["window", "backdoor"],
-    "rakuten": { "enabled": true, "keyword": "窓 開閉センサー 防犯" }
+    "editorial": {
+      "verdict": "まず窓・勝手口の侵入対策を低予算で始めたい人向け。高機能化より、シンプルな開閉警戒を足す用途に向きます。",
+      "bestFor": "低予算で窓や勝手口の警戒を追加したい人",
+      "pros": ["低コスト", "Wi-Fi不要", "後付けしやすい"],
+      "cautions": ["遠隔通知を主目的にする製品ではない", "設置位置によって検知精度を確認したい"],
+      "scoreBreakdown": { "installation": 96, "features": 72, "cost": 98, "maintenance": 92 }
+    },
+    "rakuten": { "enabled": true, "keyword": "REVEX HSA-M4 開閉センサー", "itemCode": "arkham:10001427" }
   },
   {
     "id": "sensor-light-solar",
-    "name": "ソーラー人感センサーライト候補",
-    "brand": "楽天市場から照合",
+    "name": "SUPAREE ソーラー人感センサーライト",
+    "brand": "SUPAREE",
     "category": "light",
-    "description": "電源工事を避けたい玄関・庭・駐車場向け。",
+    "description": "電源工事を避けながら玄関・庭・駐車場の夜間対策を追加したい家庭向け。",
     "score": 82,
     "installation": { "noDrilling": true, "diy": true, "outdoor": true, "indoor": false },
     "connectivity": { "wifiRequired": false, "lteSupported": false },
     "power": { "ac": false, "battery": true, "solar": true },
     "monthlyFeeRequired": false,
-    "features": ["人感センサー", "ソーラー", "屋外"],
+    "features": ["人感センサー", "ソーラー", "屋外", "月額不要"],
     "targetUsers": ["戸建て"],
     "places": ["entrance", "parking", "garden", "backdoor"],
-    "rakuten": { "enabled": true, "keyword": "ソーラー 人感 センサーライト 防犯 屋外" }
+    "editorial": {
+      "verdict": "夜間の死角を手軽に減らしたい家庭向け。カメラ導入前の一歩としても使いやすい低コスト対策です。",
+      "bestFor": "玄関・庭・駐車場の夜間照明を手軽に追加したい人",
+      "pros": ["ソーラー運用", "Wi-Fi不要", "月額不要", "導入コストを抑えやすい"],
+      "cautions": ["カメラのような記録機能はない", "日照条件によって充電効率が変わる"],
+      "scoreBreakdown": { "installation": 94, "features": 72, "cost": 96, "maintenance": 90 }
+    },
+    "rakuten": { "enabled": true, "keyword": "SUPAREE ソーラー 人感 センサーライト", "itemCode": "suparee:10000239" }
   }
 ]

@@ -1,0 +1,61 @@
+name: Sync Rakuten Products
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 03:20 JST (18:20 UTC)
+    - cron: '20 18 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-rakuten
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+      RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+      RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.20.0'
+          package-manager-cache: false
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Check Rakuten credentials
+        id: credentials
+        shell: bash
+        run: |
+          if [ -n "$RAKUTEN_APP_ID" ] && [ -n "$RAKUTEN_ACCESS_KEY" ] && [ -n "$RAKUTEN_AFFILIATE_ID" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "Rakuten Secrets are not configured. Skipping sync."
+          fi
+      - name: Install dependencies
+        if: steps.credentials.outputs.available == 'true'
+        run: pnpm install --no-frozen-lockfile
+      - name: Sync Rakuten products
+        if: steps.credentials.outputs.available == 'true'
+        run: pnpm sync:rakuten
+      - name: Commit cache update
+        if: steps.credentials.outputs.available == 'true'
+        shell: bash
+        run: |
+          if git diff --quiet -- src/data/rakuten-cache.json; then
+            echo "No Rakuten cache changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/rakuten-cache.json
+          git commit -m "chore: refresh Rakuten product cache"
+          git push origin main

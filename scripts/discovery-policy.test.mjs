@@ -21,7 +21,7 @@ const baseItem = {
 };
 
 describe('discovery policy', () => {
-  it.each(['2台セット', '中古', '交換用'])('%sを含む商品はrejectする', (token) => {
+  it.each(['2台セット', '中古', '交換用', 'サイクル'])('%sを含む商品はrejectする', (token) => {
     const result = evaluateCandidate({ ...baseItem, itemName: `SwitchBot 防犯カメラ ${token}` }, cameraRule);
     expect(result.status).toBe('rejected');
     expect(result.reasons.join(' ')).toContain(token);

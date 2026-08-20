@@ -3,6 +3,7 @@ import {
   applyPublicationRoutes,
   buildDiscoverySummary,
   buildPublicDiscovered,
+  dedupePublishedModels,
   matchesCuratedModel,
   mergeCandidatePool
 } from './discover-rakuten.mjs';
@@ -96,6 +97,46 @@ describe('publication routes', () => {
   });
 });
 
+describe('discovered model dedupe', () => {
+  const panasonicBase = {
+    ...published,
+    detectedBrand: 'Panasonic',
+    category: 'sensor',
+    name: 'Panasonic 開閉センサー KX-HJS100W-W',
+    modelIdentity: 'KX-HJS100W-W',
+    publicationRoute: 'new',
+    status: 'published'
+  };
+
+  it('同一ブランド・同一型番の別ショップは1商品だけ公開する', () => {
+    const rows = dedupePublishedModels([
+      { ...panasonicBase, itemCode: 'bic:1', reviewCount: 7, reviewAverage: 4.43 },
+      { ...panasonicBase, itemCode: 'kojima:1', modelIdentity: 'KXHJS100WW', reviewCount: 6, reviewAverage: 4.33 },
+      { ...panasonicBase, itemCode: 'popular:1', publicationRoute: 'popular', reviewCount: 20, reviewAverage: 4.2 }
+    ]);
+    const visible = rows.filter((row) => row.status === 'published');
+    expect(visible).toHaveLength(1);
+    expect(visible[0].itemCode).toBe('popular:1');
+    expect(rows.filter((row) => row.reasons?.includes('discovered-model-duplicate'))).toHaveLength(2);
+  });
+
+  it('同じnewルートならレビュー件数が多いlistingを代表にする', () => {
+    const rows = dedupePublishedModels([
+      { ...panasonicBase, itemCode: 'shop:a', reviewCount: 3, reviewAverage: 5.0 },
+      { ...panasonicBase, itemCode: 'shop:b', reviewCount: 9, reviewAverage: 4.1 }
+    ]);
+    expect(rows.find((row) => row.status === 'published')?.itemCode).toBe('shop:b');
+  });
+
+  it('別型番はそれぞれ公開を維持する', () => {
+    const rows = dedupePublishedModels([
+      panasonicBase,
+      { ...panasonicBase, itemCode: 'shop:other', name: 'Panasonic 開閉センサー KX-HJS200', modelIdentity: 'KX-HJS200' }
+    ]);
+    expect(rows.filter((row) => row.status === 'published')).toHaveLength(2);
+  });
+});
+
 describe('curated duplicate detection', () => {
   const curated = [
     { id: 'tapo-c425', brand: 'TP-Link Tapo', category: 'camera', rakuten: { modelTokens: ['Tapo', 'C425'] } },
@@ -145,7 +186,8 @@ describe('discovery summary', () => {
       { ...published, itemCode: 'shop:new', publicationRoute: 'new' },
       { ...published, itemCode: 'shop:candidate', status: 'candidate', publicationRoute: '' },
       { ...published, itemCode: 'shop:reject', status: 'rejected', publicationRoute: '' },
-      { ...published, itemCode: 'shop:dup', status: 'rejected', publicationRoute: '', reasons: ['curated-model-duplicate'] }
+      { ...published, itemCode: 'shop:dup', status: 'rejected', publicationRoute: '', reasons: ['curated-model-duplicate'] },
+      { ...published, itemCode: 'shop:discovered-dup', status: 'candidate', publicationRoute: '', reasons: ['discovered-model-duplicate'] }
     ];
     const summary = buildDiscoverySummary(rows, {
       checkedAt: '2026-08-20T00:00:00.000Z',
@@ -157,9 +199,10 @@ describe('discovery summary', () => {
       publishedProducts: 2,
       publishedNew: 1,
       publishedPopular: 1,
-      candidateOnly: 1,
+      candidateOnly: 2,
       rejected: 2,
-      curatedDuplicates: 1
+      curatedDuplicates: 1,
+      discoveredDuplicates: 1
     }));
   });
 });

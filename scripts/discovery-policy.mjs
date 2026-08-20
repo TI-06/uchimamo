@@ -86,6 +86,7 @@ export function scoreCandidate(item, rule, customConfig = config) {
 
 export function evaluateCandidate(item, rule, customConfig = config) {
   const reasons = [];
+  const coreReasons = [];
   const name = String(item?.itemName ?? '');
   const excluded = hasExcludedToken(name, customConfig);
   const categoryExcluded = categoryExcludedToken(name, rule);
@@ -104,22 +105,37 @@ export function evaluateCandidate(item, rule, customConfig = config) {
   if (!isCategoryMatch(name, rule)) reasons.push('category-mismatch');
 
   if (reasons.length > 0) {
-    return { status: 'rejected', qualityScore, detectedBrand, modelIdentity, reasons };
+    return {
+      status: 'rejected',
+      publicationRoute: '',
+      coreEligible: false,
+      qualityScore,
+      detectedBrand,
+      modelIdentity,
+      reasons
+    };
   }
 
-  if (!detectedBrand) reasons.push('trusted-brand-required');
-  if (!modelIdentity) reasons.push('model-identity-required');
-  if (!available) reasons.push('unavailable');
-  if (!imageUrl(item)) reasons.push('image-required');
-  if (!(price > 0)) reasons.push('price-required');
-  if (price > 0 && (price < minPrice || price > maxPrice)) reasons.push('price-out-of-range');
-  if (!item?.affiliateUrl) reasons.push('affiliate-url-required');
+  if (!detectedBrand) coreReasons.push('trusted-brand-required');
+  if (!modelIdentity) coreReasons.push('model-identity-required');
+  if (!available) coreReasons.push('unavailable');
+  if (!imageUrl(item)) coreReasons.push('image-required');
+  if (!(price > 0)) coreReasons.push('price-required');
+  if (price > 0 && (price < minPrice || price > maxPrice)) coreReasons.push('price-out-of-range');
+  if (!item?.affiliateUrl) coreReasons.push('affiliate-url-required');
+  reasons.push(...coreReasons);
+
+  const coreEligible = coreReasons.length === 0;
   if (average < 4.0) reasons.push('review-average-below-4.0');
   if (count < 10) reasons.push('review-count-below-10');
   if (qualityScore < 80) reasons.push('quality-score-below-80');
 
+  const popularEligible = coreEligible && average >= 4.0 && count >= 10 && qualityScore >= 80;
+
   return {
-    status: reasons.length === 0 ? 'published' : 'candidate',
+    status: popularEligible ? 'published' : 'candidate',
+    publicationRoute: popularEligible ? 'popular' : '',
+    coreEligible,
     qualityScore,
     detectedBrand,
     modelIdentity,

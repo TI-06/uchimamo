@@ -1,0 +1,13 @@
+{
+  "checkedAt": null,
+  "successfulQueries": 0,
+  "failedQueries": 0,
+  "incomingCandidates": 0,
+  "totalCandidates": 0,
+  "publishedProducts": 0,
+  "publishedNew": 0,
+  "publishedPopular": 0,
+  "candidateOnly": 0,
+  "rejected": 0,
+  "curatedDuplicates": 0
+}

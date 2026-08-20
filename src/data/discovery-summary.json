@@ -9,5 +9,6 @@
   "publishedPopular": 0,
   "candidateOnly": 680,
   "rejected": 388,
-  "curatedDuplicates": 55
+  "curatedDuplicates": 55,
+  "discoveredDuplicates": 0
 }

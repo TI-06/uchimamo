@@ -104,6 +104,64 @@ export function applyPublicationRoutes(candidates, previousMap = new Map(), nowI
   });
 }
 
+function routeRank(route) {
+  if (route === 'popular') return 2;
+  if (route === 'new') return 1;
+  return 0;
+}
+
+function isBetterRepresentative(candidate, current) {
+  const routeDifference = routeRank(candidate.publicationRoute) - routeRank(current.publicationRoute);
+  if (routeDifference !== 0) return routeDifference > 0;
+
+  const countDifference = asNumber(candidate.reviewCount) - asNumber(current.reviewCount);
+  if (countDifference !== 0) return countDifference > 0;
+
+  const averageDifference = asNumber(candidate.reviewAverage) - asNumber(current.reviewAverage);
+  if (averageDifference !== 0) return averageDifference > 0;
+
+  const candidatePrice = asNumber(candidate.price);
+  const currentPrice = asNumber(current.price);
+  if (candidatePrice > 0 && currentPrice > 0 && candidatePrice !== currentPrice) return candidatePrice < currentPrice;
+
+  return String(candidate.itemCode).localeCompare(String(current.itemCode)) < 0;
+}
+
+export function dedupePublishedModels(candidates) {
+  const cleaned = candidates.map((row) => ({
+    ...row,
+    reasons: (row.reasons ?? []).filter((reason) => reason !== 'discovered-model-duplicate'),
+    duplicateOf: undefined
+  }));
+  const representativeByKey = new Map();
+
+  for (const row of cleaned) {
+    if (row.status !== 'published' || !row.detectedBrand || !row.modelIdentity || !row.category) continue;
+    const key = `${normalizeMatch(row.detectedBrand)}|${row.category}|${normalizeMatch(row.modelIdentity)}`;
+    const current = representativeByKey.get(key);
+    if (!current || isBetterRepresentative(row, current)) representativeByKey.set(key, row);
+  }
+
+  const representativeCodes = new Set([...representativeByKey.values()].map((row) => row.itemCode));
+  const representativeCodeByKey = new Map(
+    [...representativeByKey.entries()].map(([key, row]) => [key, row.itemCode])
+  );
+
+  return cleaned.map((row) => {
+    if (row.status !== 'published' || !row.detectedBrand || !row.modelIdentity || !row.category) return row;
+    if (representativeCodes.has(row.itemCode)) return row;
+
+    const key = `${normalizeMatch(row.detectedBrand)}|${row.category}|${normalizeMatch(row.modelIdentity)}`;
+    return {
+      ...row,
+      status: 'candidate',
+      publicationRoute: '',
+      duplicateOf: representativeCodeByKey.get(key) ?? '',
+      reasons: [...new Set([...(row.reasons ?? []), 'discovered-model-duplicate'])]
+    };
+  });
+}
+
 export function buildPublicDiscovered(candidates) {
   return candidates
     .filter((row) => row.status === 'published')
@@ -133,7 +191,8 @@ export function buildPublicDiscovered(candidates) {
 }
 
 export function buildDiscoverySummary(candidates, stats = {}) {
-  const hasDuplicateReason = (row) => (row.reasons ?? []).some((reason) => reason === 'curated-duplicate' || reason === 'curated-model-duplicate');
+  const hasCuratedDuplicateReason = (row) => (row.reasons ?? []).some((reason) => reason === 'curated-duplicate' || reason === 'curated-model-duplicate');
+  const hasDiscoveredDuplicateReason = (row) => (row.reasons ?? []).includes('discovered-model-duplicate');
   return {
     checkedAt: stats.checkedAt ?? new Date().toISOString(),
     successfulQueries: stats.successfulQueries ?? 0,
@@ -145,7 +204,8 @@ export function buildDiscoverySummary(candidates, stats = {}) {
     publishedPopular: candidates.filter((row) => row.status === 'published' && row.publicationRoute === 'popular').length,
     candidateOnly: candidates.filter((row) => row.status === 'candidate').length,
     rejected: candidates.filter((row) => row.status === 'rejected').length,
-    curatedDuplicates: candidates.filter(hasDuplicateReason).length
+    curatedDuplicates: candidates.filter(hasCuratedDuplicateReason).length,
+    discoveredDuplicates: candidates.filter(hasDiscoveredDuplicateReason).length
   };
 }
 
@@ -298,6 +358,7 @@ export async function runDiscovery({ fetchImpl = fetch, now = new Date() } = {})
     ? { ...row, status: 'rejected', publicationRoute: '', reasons: [...new Set([...(row.reasons ?? []), 'curated-duplicate'])] }
     : row);
   merged = applyPublicationRoutes(merged, previousMap, nowIso);
+  merged = dedupePublishedModels(merged);
   const publicRows = buildPublicDiscovered(merged);
   const summary = buildDiscoverySummary(merged, {
     checkedAt: nowIso,

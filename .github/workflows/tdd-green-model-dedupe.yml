@@ -1,0 +1,41 @@
+name: TDD Green Model Dedupe
+
+on:
+  push:
+    branches:
+      - fix/discovery-model-dedupe
+    paths:
+      - '.github/workflows/tdd-green-model-dedupe.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  green:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: fix/discovery-model-dedupe
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.20.0'
+          package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --no-frozen-lockfile
+      - name: Verify full suite and build
+        id: verify
+        continue-on-error: true
+        run: |
+          pnpm test
+          pnpm build
+      - name: Persist verification result
+        if: always()
+        shell: bash
+        run: |
+          printf 'outcome=%s\n' "${{ steps.verify.outcome }}" > .tdd-green-model-dedupe.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .tdd-green-model-dedupe.txt
+          git commit -m "test: record model dedupe GREEN verification"
+          git push origin HEAD:fix/discovery-model-dedupe

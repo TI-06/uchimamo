@@ -1,9 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { buildPublicDiscovered, matchesCuratedModel, mergeCandidatePool } from './discover-rakuten.mjs';
+import {
+  applyPublicationRoutes,
+  buildDiscoverySummary,
+  buildPublicDiscovered,
+  matchesCuratedModel,
+  mergeCandidatePool
+} from './discover-rakuten.mjs';
 
 const published = {
   itemCode: 'shop:1001',
-  name: 'SwitchBot 防犯カメラ',
+  name: 'SwitchBot 防犯カメラ C900',
   shopName: 'SwitchBot公式店',
   shopCode: 'shop',
   itemUrl: 'https://example.com/item',
@@ -15,12 +21,27 @@ const published = {
   genreId: 1,
   category: 'camera',
   detectedBrand: 'SwitchBot',
+  modelIdentity: 'C900',
   sourceKeyword: '防犯カメラ 屋外',
   qualityScore: 95,
+  coreEligible: true,
+  publicationRoute: 'popular',
   status: 'published',
   reasons: [],
   discoveredAt: '2026-08-19T00:00:00.000Z',
   lastSeenAt: '2026-08-19T00:00:00.000Z'
+};
+
+const lowReviewCandidate = {
+  ...published,
+  itemCode: 'shop:new1',
+  name: 'Tapo C530WS 防犯カメラ',
+  reviewAverage: 0,
+  reviewCount: 0,
+  qualityScore: 50,
+  status: 'candidate',
+  publicationRoute: '',
+  reasons: ['review-average-below-4.0', 'review-count-below-10', 'quality-score-below-80']
 };
 
 describe('candidate persistence', () => {
@@ -36,6 +57,34 @@ describe('candidate persistence', () => {
     const merged = mergeCandidatePool([published], [], '2026-08-20T00:00:00.000Z');
     expect(merged).toHaveLength(1);
     expect(merged[0].status).toBe('published');
+  });
+});
+
+describe('publication routes', () => {
+  it('初回発見でコア条件を満たす低レビュー商品はnewとして公開する', () => {
+    const rows = applyPublicationRoutes([lowReviewCandidate], new Map());
+    expect(rows[0].status).toBe('published');
+    expect(rows[0].publicationRoute).toBe('new');
+  });
+
+  it('既に候補として見た低レビュー商品は新規扱いで勝手に公開しない', () => {
+    const previous = new Map([[lowReviewCandidate.itemCode, { ...lowReviewCandidate, status: 'candidate' }]]);
+    const rows = applyPublicationRoutes([lowReviewCandidate], previous);
+    expect(rows[0].status).toBe('candidate');
+    expect(rows[0].publicationRoute).toBe('');
+  });
+
+  it('一度new公開した商品はレビュー蓄積中でもnew公開を維持する', () => {
+    const previous = new Map([[lowReviewCandidate.itemCode, { ...lowReviewCandidate, status: 'published', publicationRoute: 'new' }]]);
+    const rows = applyPublicationRoutes([lowReviewCandidate], previous);
+    expect(rows[0].status).toBe('published');
+    expect(rows[0].publicationRoute).toBe('new');
+  });
+
+  it('人気基準を満たした商品はpopularを優先する', () => {
+    const rows = applyPublicationRoutes([published], new Map());
+    expect(rows[0].status).toBe('published');
+    expect(rows[0].publicationRoute).toBe('popular');
   });
 });
 
@@ -60,18 +109,49 @@ describe('curated duplicate detection', () => {
 });
 
 describe('public discovered catalog', () => {
-  it('publishedだけを公開し未確認スペックや独自scoreを含めない', () => {
+  it('publishedだけを公開しrouteを含め、未確認スペックや独自scoreを含めない', () => {
     const rows = buildPublicDiscovered([
       published,
       { ...published, itemCode: 'shop:2', status: 'candidate' },
       { ...published, itemCode: 'shop:3', status: 'rejected' }
     ]);
     expect(rows).toHaveLength(1);
-    expect(rows[0]).toEqual(expect.objectContaining({ itemCode: 'shop:1001', category: 'camera', brand: 'SwitchBot' }));
+    expect(rows[0]).toEqual(expect.objectContaining({
+      itemCode: 'shop:1001',
+      category: 'camera',
+      brand: 'SwitchBot',
+      publicationRoute: 'popular'
+    }));
     expect(rows[0]).not.toHaveProperty('installation');
     expect(rows[0]).not.toHaveProperty('connectivity');
     expect(rows[0]).not.toHaveProperty('power');
     expect(rows[0]).not.toHaveProperty('score');
     expect(rows[0]).not.toHaveProperty('qualityScore');
+  });
+});
+
+describe('discovery summary', () => {
+  it('new/popular/candidate/rejected/duplicateの件数を集計する', () => {
+    const rows = [
+      published,
+      { ...published, itemCode: 'shop:new', publicationRoute: 'new' },
+      { ...published, itemCode: 'shop:candidate', status: 'candidate', publicationRoute: '' },
+      { ...published, itemCode: 'shop:reject', status: 'rejected', publicationRoute: '' },
+      { ...published, itemCode: 'shop:dup', status: 'rejected', publicationRoute: '', reasons: ['curated-model-duplicate'] }
+    ];
+    const summary = buildDiscoverySummary(rows, {
+      checkedAt: '2026-08-20T00:00:00.000Z',
+      successfulQueries: 20,
+      failedQueries: 2,
+      incomingCandidates: 50
+    });
+    expect(summary).toEqual(expect.objectContaining({
+      publishedProducts: 2,
+      publishedNew: 1,
+      publishedPopular: 1,
+      candidateOnly: 1,
+      rejected: 2,
+      curatedDuplicates: 1
+    }));
   });
 });

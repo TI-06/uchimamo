@@ -1,0 +1,30 @@
+name: TDD Red Model Dedupe
+
+on:
+  push:
+    branches:
+      - fix/discovery-model-dedupe
+
+jobs:
+  red:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.20.0'
+          package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --no-frozen-lockfile
+      - name: Expected RED tests
+        id: redtests
+        continue-on-error: true
+        run: pnpm vitest run scripts/discover-rakuten.test.mjs
+      - name: Verify tests are RED
+        shell: bash
+        run: |
+          if [ "${{ steps.redtests.outcome }}" != "failure" ]; then
+            echo "Expected model dedupe tests to fail before implementation."
+            exit 1
+          fi
+          echo "RED confirmed without failing the workflow."

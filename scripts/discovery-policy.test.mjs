@@ -48,6 +48,7 @@ describe('discovery policy', () => {
     const result = evaluateCandidate({ ...baseItem, itemName: '無名メーカー C900 防犯カメラ', shopName: '無名ショップ' }, cameraRule);
     expect(result.status).toBe('candidate');
     expect(result.reasons).toContain('trusted-brand-required');
+    expect(result.coreEligible).toBe(false);
   });
 
   it('型番不明の汎用商品ページはレビューが高くても自動公開しない', () => {
@@ -60,12 +61,29 @@ describe('discovery policy', () => {
     }, cameraRule);
     expect(result.status).toBe('candidate');
     expect(result.reasons).toContain('model-identity-required');
+    expect(result.coreEligible).toBe(false);
   });
 
-  it('型番あり・4.0点・10レビュー・trusted brand・必須語一致なら公開基準を満たす', () => {
+  it('型番あり・レビュー0件でも新商品ルートのコア条件を満たす', () => {
+    const result = evaluateCandidate({
+      ...baseItem,
+      itemName: 'Tapo C530WS 防犯カメラ 屋外',
+      shopName: 'TP-Linkダイレクト',
+      reviewAverage: 0,
+      reviewCount: 0
+    }, cameraRule);
+    expect(result.status).toBe('candidate');
+    expect(result.coreEligible).toBe(true);
+    expect(result.reasons).toContain('review-average-below-4.0');
+    expect(result.reasons).toContain('review-count-below-10');
+  });
+
+  it('型番あり・4.0点・10レビュー・trusted brand・必須語一致なら人気商品ルートを満たす', () => {
     const result = evaluateCandidate({ ...baseItem, itemName: 'Tapo C530WS 防犯カメラ 屋外', shopName: 'TP-Linkダイレクト' }, cameraRule);
     expect(result.qualityScore).toBeGreaterThanOrEqual(80);
     expect(result.status).toBe('published');
+    expect(result.coreEligible).toBe(true);
+    expect(result.publicationRoute).toBe('popular');
   });
 
   it('affiliateRateは品質スコアへ影響しない', () => {

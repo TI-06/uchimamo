@@ -12,19 +12,28 @@ const categoryLabels = {
 } as const;
 const price = product.price > 0 ? `¥${product.price.toLocaleString('ja-JP')}` : '価格確認中';
 const checkedAt = new Intl.DateTimeFormat('ja-JP', { year:'numeric', month:'numeric', day:'numeric' }).format(new Date(product.lastSeenAt));
+const routeLabel = product.publicationRoute === 'new' ? '新着・レビュー蓄積中' : '人気商品';
+const routeNote = product.publicationRoute === 'new'
+  ? '新しく発掘した現行商品です。楽天レビューは蓄積中のため、詳細仕様とあわせて確認を進めています。'
+  : '楽天市場で一定のレビュー実績があり、ウチマモの自動発掘基準を満たした商品です。詳細仕様は確認中です。';
 ---
 <article class="discovered-card">
   <div class="visual">
-    <div class="visual-head"><span class="auto-badge"><i></i>自動発掘</span><span class="category">{categoryLabels[product.category]}</span></div>
+    <div class="visual-head"><span class:list={["auto-badge", product.publicationRoute]}><i></i>{routeLabel}</span><span class="category">{categoryLabels[product.category]}</span></div>
     <img src={product.imageUrl} alt={product.name} loading="lazy" width="320" height="240" />
   </div>
   <div class="body">
     <div class="brand-row"><strong>{product.brand}</strong><small>{product.shopName}</small></div>
     <h3>{product.name}</h3>
-    <p class="discovery-note">楽天市場の商品情報から自動発掘。詳細仕様は確認中です。</p>
+    <p class="discovery-note">{routeNote}</p>
     <div class="marketplace">
       <div class="market-head"><span>PR</span><small>楽天市場</small><time datetime={product.lastSeenAt}>{checkedAt}確認</time></div>
-      <div class="price-row"><strong>{price}</strong>{product.reviewAverage > 0 && <span class="review">楽天市場レビュー <b>★ {product.reviewAverage.toFixed(1)}</b> <small>({product.reviewCount}件)</small></span>}</div>
+      <div class="price-row">
+        <strong>{price}</strong>
+        {product.reviewCount > 0
+          ? <span class="review">楽天市場レビュー <b>★ {product.reviewAverage.toFixed(1)}</b> <small>({product.reviewCount}件)</small></span>
+          : <span class="review review-building">レビュー蓄積中</span>}
+      </div>
     </div>
     <a class="btn-primary marketplace-cta" href={product.affiliateUrl || product.itemUrl} target="_blank" rel="nofollow sponsored noopener">楽天で詳細を見る <span>→</span></a>
     <p class="boundary-note">設置条件・通信・電源などの比較項目は、仕様確認後に追加します。</p>
@@ -38,9 +47,10 @@ const checkedAt = new Intl.DateTimeFormat('ja-JP', { year:'numeric', month:'nume
   .visual-head{position:absolute;z-index:2;left:12px;right:12px;top:11px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
   .auto-badge,.category{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.96);border:1px solid var(--slate-200);border-radius:999px;padding:5px 9px;font-size:.58rem;font-weight:900;color:var(--slate-700);backdrop-filter:blur(8px)}
   .auto-badge{color:var(--blue-700)}.auto-badge i{width:6px;height:6px;border-radius:50%;background:var(--green-600);box-shadow:0 0 0 4px rgba(40,117,93,.08)}
+  .auto-badge.popular{color:#8a5b12}.auto-badge.popular i{background:#c18a2c;box-shadow:0 0 0 4px rgba(193,138,44,.1)}
   .body{padding:19px}.brand-row{display:flex;align-items:center;justify-content:space-between;gap:8px}.brand-row strong{font-size:.64rem;color:var(--blue-700);letter-spacing:.08em;text-transform:uppercase}.brand-row small{font-size:.54rem;color:var(--slate-500);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:50%}
   h3{margin:5px 0 9px;font-size:.96rem;line-height:1.48;color:var(--navy-950);letter-spacing:-.012em;min-height:2.9em}.discovery-note{margin:0 0 14px;padding:10px 11px;background:#f5f7f8;border-left:2px solid var(--blue-600);font-size:.65rem;line-height:1.55;color:var(--slate-600)}
-  .marketplace{border-top:1px solid var(--slate-200);padding-top:12px}.market-head{display:flex;align-items:center;gap:6px;color:var(--slate-500)}.market-head>span{font-size:.48rem;font-weight:900;border:1px solid var(--slate-300);border-radius:4px;padding:1px 4px}.market-head small{font-size:.61rem;font-weight:800}.market-head time{margin-left:auto;font-size:.54rem}.price-row{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-top:4px}.price-row>strong{font-size:1.14rem;color:var(--navy-950)}.review{font-size:.54rem;color:var(--slate-500);text-align:right}.review b{color:var(--orange-600);font-size:.66rem}.review small{font-size:.52rem}
+  .marketplace{border-top:1px solid var(--slate-200);padding-top:12px}.market-head{display:flex;align-items:center;gap:6px;color:var(--slate-500)}.market-head>span{font-size:.48rem;font-weight:900;border:1px solid var(--slate-300);border-radius:4px;padding:1px 4px}.market-head small{font-size:.61rem;font-weight:800}.market-head time{margin-left:auto;font-size:.54rem}.price-row{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-top:4px}.price-row>strong{font-size:1.14rem;color:var(--navy-950)}.review{font-size:.54rem;color:var(--slate-500);text-align:right}.review b{color:var(--orange-600);font-size:.66rem}.review small{font-size:.52rem}.review-building{font-weight:800;color:var(--blue-700)}
   .marketplace-cta{width:100%;margin-top:13px;min-height:43px}.boundary-note{margin:9px 0 0;color:var(--slate-500);font-size:.56rem;line-height:1.5}
   @media(max-width:640px){.visual{height:240px}h3{min-height:0}}
 </style>

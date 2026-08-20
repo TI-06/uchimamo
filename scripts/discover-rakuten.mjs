@@ -5,6 +5,7 @@ import { discoveryConfig, evaluateCandidate, firstImageUrl } from './discovery-p
 const ENDPOINT = 'https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20260701';
 const CANDIDATE_PATH = new URL('../src/data/product-candidates.json', import.meta.url);
 const DISCOVERED_PATH = new URL('../src/data/discovered-products.json', import.meta.url);
+const SUMMARY_PATH = new URL('../src/data/discovery-summary.json', import.meta.url);
 const CACHE_PATH = new URL('../src/data/rakuten-cache.json', import.meta.url);
 const PRODUCT_PATHS = [
   new URL('../src/data/products.json', import.meta.url),
@@ -16,6 +17,7 @@ const RAKUTEN_REFERER = process.env.RAKUTEN_REFERER || 'https://uchimamo.pages.d
 const RAKUTEN_ORIGIN = new URL(RAKUTEN_REFERER).origin;
 const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36';
 const STALE_AFTER_MS = 14 * 24 * 60 * 60 * 1000;
+const NEW_ROUTE_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const unwrap = (row) => row?.Item ?? row?.item ?? row;
@@ -71,20 +73,48 @@ export function mergeCandidatePool(existing, incoming, nowIso = new Date().toISO
     if (incomingCodes.has(itemCode)) continue;
     const lastSeen = new Date(row.lastSeenAt || row.discoveredAt || nowIso).getTime();
     if (Number.isFinite(lastSeen) && now - lastSeen >= STALE_AFTER_MS && row.status !== 'rejected') {
-      map.set(itemCode, { ...row, status: 'stale', reasons: [...new Set([...(row.reasons ?? []), 'not-seen-for-14-days'])] });
+      map.set(itemCode, { ...row, status: 'stale', publicationRoute: '', reasons: [...new Set([...(row.reasons ?? []), 'not-seen-for-14-days'])] });
     }
   }
 
   return [...map.values()].sort((a, b) => String(b.discoveredAt).localeCompare(String(a.discoveredAt)));
 }
 
+export function applyPublicationRoutes(candidates, previousMap = new Map(), nowIso = new Date().toISOString()) {
+  const now = new Date(nowIso).getTime();
+  return candidates.map((row) => {
+    if (row.status === 'rejected' || row.status === 'stale' || !row.coreEligible) {
+      return { ...row, publicationRoute: '' };
+    }
+
+    if (row.status === 'published' && row.publicationRoute === 'popular') return row;
+
+    const previous = previousMap.get(row.itemCode);
+    if (previous?.status === 'published' && previous?.publicationRoute === 'new') {
+      return { ...row, status: 'published', publicationRoute: 'new' };
+    }
+
+    const discoveredAt = new Date(row.discoveredAt || nowIso).getTime();
+    const isRecentlyDiscovered = Number.isFinite(discoveredAt) && now - discoveredAt <= NEW_ROUTE_WINDOW_MS;
+    if ((!previous || previous?.status === 'candidate') && isRecentlyDiscovered) {
+      return { ...row, status: 'published', publicationRoute: 'new' };
+    }
+
+    return { ...row, status: 'candidate', publicationRoute: '' };
+  });
+}
+
 export function buildPublicDiscovered(candidates) {
   return candidates
     .filter((row) => row.status === 'published')
-    .sort((a, b) => (b.reviewCount ?? 0) - (a.reviewCount ?? 0) || String(b.discoveredAt).localeCompare(String(a.discoveredAt)))
+    .sort((a, b) => {
+      if (a.publicationRoute !== b.publicationRoute) return a.publicationRoute === 'new' ? -1 : 1;
+      return (b.reviewCount ?? 0) - (a.reviewCount ?? 0) || String(b.discoveredAt).localeCompare(String(a.discoveredAt));
+    })
     .map((row) => ({
       id: makePublicId(row.itemCode),
       source: 'discovered',
+      publicationRoute: row.publicationRoute,
       itemCode: row.itemCode,
       name: row.name,
       brand: row.detectedBrand,
@@ -100,6 +130,23 @@ export function buildPublicDiscovered(candidates) {
       discoveredAt: row.discoveredAt,
       lastSeenAt: row.lastSeenAt
     }));
+}
+
+export function buildDiscoverySummary(candidates, stats = {}) {
+  const hasDuplicateReason = (row) => (row.reasons ?? []).some((reason) => reason === 'curated-duplicate' || reason === 'curated-model-duplicate');
+  return {
+    checkedAt: stats.checkedAt ?? new Date().toISOString(),
+    successfulQueries: stats.successfulQueries ?? 0,
+    failedQueries: stats.failedQueries ?? 0,
+    incomingCandidates: stats.incomingCandidates ?? 0,
+    totalCandidates: candidates.length,
+    publishedProducts: candidates.filter((row) => row.status === 'published').length,
+    publishedNew: candidates.filter((row) => row.status === 'published' && row.publicationRoute === 'new').length,
+    publishedPopular: candidates.filter((row) => row.status === 'published' && row.publicationRoute === 'popular').length,
+    candidateOnly: candidates.filter((row) => row.status === 'candidate').length,
+    rejected: candidates.filter((row) => row.status === 'rejected').length,
+    curatedDuplicates: candidates.filter(hasDuplicateReason).length
+  };
 }
 
 function normalizeCandidate(item, rule, nowIso) {
@@ -118,7 +165,10 @@ function normalizeCandidate(item, rule, nowIso) {
     genreId: asNumber(item?.genreId),
     category: rule.category,
     detectedBrand: evaluation.detectedBrand,
+    modelIdentity: evaluation.modelIdentity,
     sourceKeyword: rule.keyword,
+    coreEligible: evaluation.coreEligible,
+    publicationRoute: evaluation.publicationRoute,
     qualityScore: evaluation.qualityScore,
     status: evaluation.status,
     reasons: evaluation.reasons,
@@ -193,6 +243,7 @@ export async function runDiscovery({ fetchImpl = fetch, now = new Date() } = {})
 
   const nowIso = now.toISOString();
   const previousCandidates = await readJson(CANDIDATE_PATH, []);
+  const previousMap = new Map(previousCandidates.map((row) => [row.itemCode, row]));
   const curated = await loadCuratedCatalog();
   const incomingByCode = new Map();
   let successfulQueries = 0;
@@ -223,6 +274,7 @@ export async function runDiscovery({ fetchImpl = fetch, now = new Date() } = {})
           candidate = {
             ...candidate,
             status: 'rejected',
+            publicationRoute: '',
             reasons: [...new Set([...(candidate.reasons ?? []), 'curated-model-duplicate'])]
           };
         }
@@ -243,20 +295,21 @@ export async function runDiscovery({ fetchImpl = fetch, now = new Date() } = {})
   const incoming = [...incomingByCode.values()];
   let merged = mergeCandidatePool(previousCandidates, incoming, nowIso);
   merged = merged.map((row) => curated.itemCodes.has(row.itemCode)
-    ? { ...row, status: 'rejected', reasons: [...new Set([...(row.reasons ?? []), 'curated-duplicate'])] }
+    ? { ...row, status: 'rejected', publicationRoute: '', reasons: [...new Set([...(row.reasons ?? []), 'curated-duplicate'])] }
     : row);
+  merged = applyPublicationRoutes(merged, previousMap, nowIso);
   const publicRows = buildPublicDiscovered(merged);
+  const summary = buildDiscoverySummary(merged, {
+    checkedAt: nowIso,
+    successfulQueries,
+    failedQueries: errors.length,
+    incomingCandidates: incoming.length
+  });
 
   await writeFile(CANDIDATE_PATH, `${JSON.stringify(merged, null, 2)}\n`, 'utf8');
   await writeFile(DISCOVERED_PATH, `${JSON.stringify(publicRows, null, 2)}\n`, 'utf8');
+  await writeFile(SUMMARY_PATH, `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
 
-  const summary = {
-    successfulQueries,
-    failedQueries: errors.length,
-    incomingCandidates: incoming.length,
-    totalCandidates: merged.length,
-    publishedProducts: publicRows.length
-  };
   console.log(`楽天商品発掘サマリー: ${JSON.stringify(summary)}`);
   return { ...summary, errors, candidates: merged, published: publicRows };
 }

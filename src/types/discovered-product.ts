@@ -3,6 +3,7 @@ import type { ProductCategory } from './product';
 export interface DiscoveredProduct {
   id: string;
   source: 'discovered';
+  publicationRoute: 'new' | 'popular';
   itemCode: string;
   name: string;
   brand: string;

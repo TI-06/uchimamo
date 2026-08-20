@@ -4,12 +4,20 @@ on:
   push:
     branches:
       - fix/discovery-model-dedupe
+    paths:
+      - 'scripts/discover-rakuten.test.mjs'
+      - '.github/workflows/tdd-red-model-dedupe.yml'
+
+permissions:
+  contents: write
 
 jobs:
   red:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: fix/discovery-model-dedupe
       - uses: actions/setup-node@v6
         with:
           node-version: '22.20.0'
@@ -20,11 +28,16 @@ jobs:
         id: redtests
         continue-on-error: true
         run: pnpm vitest run scripts/discover-rakuten.test.mjs
-      - name: Verify tests are RED
+      - name: Verify tests are RED and persist marker
         shell: bash
         run: |
           if [ "${{ steps.redtests.outcome }}" != "failure" ]; then
             echo "Expected model dedupe tests to fail before implementation."
             exit 1
           fi
-          echo "RED confirmed without failing the workflow."
+          printf 'RED confirmed: dedupePublishedModels is not implemented yet.\n' > .tdd-red-model-dedupe.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .tdd-red-model-dedupe.txt
+          git commit -m "test: record model dedupe RED verification"
+          git push origin HEAD:fix/discovery-model-dedupe

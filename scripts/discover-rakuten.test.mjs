@@ -62,27 +62,35 @@ describe('candidate persistence', () => {
 
 describe('publication routes', () => {
   it('初回発見でコア条件を満たす低レビュー商品はnewとして公開する', () => {
-    const rows = applyPublicationRoutes([lowReviewCandidate], new Map());
+    const rows = applyPublicationRoutes([lowReviewCandidate], new Map(), '2026-08-20T00:00:00.000Z');
     expect(rows[0].status).toBe('published');
     expect(rows[0].publicationRoute).toBe('new');
   });
 
-  it('既に候補として見た低レビュー商品は新規扱いで勝手に公開しない', () => {
+  it('直近7日以内に候補化済みの安全商品もnewとして公開する', () => {
     const previous = new Map([[lowReviewCandidate.itemCode, { ...lowReviewCandidate, status: 'candidate' }]]);
-    const rows = applyPublicationRoutes([lowReviewCandidate], previous);
+    const rows = applyPublicationRoutes([lowReviewCandidate], previous, '2026-08-20T00:00:00.000Z');
+    expect(rows[0].status).toBe('published');
+    expect(rows[0].publicationRoute).toBe('new');
+  });
+
+  it('古い候補を新商品扱いで突然公開しない', () => {
+    const old = { ...lowReviewCandidate, discoveredAt: '2026-08-01T00:00:00.000Z' };
+    const previous = new Map([[old.itemCode, { ...old, status: 'candidate' }]]);
+    const rows = applyPublicationRoutes([old], previous, '2026-08-20T00:00:00.000Z');
     expect(rows[0].status).toBe('candidate');
     expect(rows[0].publicationRoute).toBe('');
   });
 
   it('一度new公開した商品はレビュー蓄積中でもnew公開を維持する', () => {
     const previous = new Map([[lowReviewCandidate.itemCode, { ...lowReviewCandidate, status: 'published', publicationRoute: 'new' }]]);
-    const rows = applyPublicationRoutes([lowReviewCandidate], previous);
+    const rows = applyPublicationRoutes([lowReviewCandidate], previous, '2026-08-20T00:00:00.000Z');
     expect(rows[0].status).toBe('published');
     expect(rows[0].publicationRoute).toBe('new');
   });
 
   it('人気基準を満たした商品はpopularを優先する', () => {
-    const rows = applyPublicationRoutes([published], new Map());
+    const rows = applyPublicationRoutes([published], new Map(), '2026-08-20T00:00:00.000Z');
     expect(rows[0].status).toBe('published');
     expect(rows[0].publicationRoute).toBe('popular');
   });

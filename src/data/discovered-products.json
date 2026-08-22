@@ -16,7 +16,7 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-ymljy2ftzxjhojexmdixntmy",
@@ -35,7 +35,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-a3nkzw5ratoxmdq1nty2oq",
@@ -54,7 +54,7 @@
     "shopName": "ケーズデンキ 楽天市場店",
     "shopCode": "ksdenki",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-agn2ywxvci1lc2hvcdoxmdezmdg4ng",
@@ -73,7 +73,102 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+  },
+  {
+    "id": "rakuten-zgvuy2hpewetymvra2fuojewmjyxnzi5",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "denchiya-bekkan:10261729",
+    "name": "VL-CX500XA-K 屋外 センサーカメラ 【ブラック】ワイヤレスカメラ ( 電源直結式 ) 住宅の外観に調和したシンプルスクエアデザイン 屋外センサーカメラ ( ドアホン専用 ) 防犯カメラ センサーカメラ パナソニック ( Panasonic )【 在庫あり 】",
+    "brand": "Panasonic",
+    "category": "camera",
+    "price": 43970,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/denchiya-bekkan/cabinet/other/doorphone/vlcx500xak-sn.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qomik.216wo1bd.g00qomik.216wp721/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenchiya-bekkan%2Fvlcx500xak%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenchiya-bekkan%2Fi%2F10261729%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qomik.216wo1bd.g00qomik.216wp721/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenchiya-bekkan%2Fvlcx500xak%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenchiya-bekkan%2Fi%2F10261729%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "商材館 楽天市場店",
+    "shopCode": "denchiya-bekkan",
+    "discoveredAt": "2026-08-22T19:30:30.378Z",
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+  },
+  {
+    "id": "rakuten-zgvuy2hpewetymvra2fuojewmjywmdyw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "denchiya-bekkan:10260060",
+    "name": "WV-S1536LTNUX i-PRO 2MP ( 1080p ) 屋外 ハウジング一体 AIカメラ 長焦点レンズ搭載 長焦点 屋外対応 光学2.3倍の電動ズーム長焦点レンズ搭載 ネットワークカメラ本体にAI機能を搭載 アイプロ パナソニック ( Panasonic ) ネットワークカメラ",
+    "brand": "Panasonic",
+    "category": "camera",
+    "price": 139340,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/denchiya-bekkan/cabinet/security/wvs1536ltnux-sn.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qomik.216wo1bd.g00qomik.216wp721/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenchiya-bekkan%2Fwvs1536ltnux%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenchiya-bekkan%2Fi%2F10260060%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qomik.216wo1bd.g00qomik.216wp721/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenchiya-bekkan%2Fwvs1536ltnux%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenchiya-bekkan%2Fi%2F10260060%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "商材館 楽天市場店",
+    "shopCode": "denchiya-bekkan",
+    "discoveredAt": "2026-08-22T19:30:30.378Z",
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+  },
+  {
+    "id": "rakuten-y29tcg1vdg8tcjoxmjywnte5mq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "compmoto-r:12605191",
+    "name": "ELPA 防犯カメラ(ソーラーパネル付) EA864CD-420(54-7728-92) 取り寄せ商品",
+    "brand": "ELPA",
+    "category": "camera",
+    "price": 36930,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/compmoto-r/cabinet/gf00006/4518340629196.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rfqvk.216wo379.g00rfqvk.216wp0ff/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcompmoto-r%2F4518340629196%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcompmoto-r%2Fi%2F12605191%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rfqvk.216wo379.g00rfqvk.216wp0ff/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcompmoto-r%2F4518340629196%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcompmoto-r%2Fi%2F12605191%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "コンプモト 楽天市場店",
+    "shopCode": "compmoto-r",
+    "discoveredAt": "2026-08-22T19:30:30.378Z",
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+  },
+  {
+    "id": "rakuten-bglnahqtzxhwzxj0ojewmtezntyz",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "light-expert:10113563",
+    "name": "○[即納在庫有り] TBC-BC400 エルパ ELPA 朝日電器 防犯士が作ったスゴイ防犯カメラ 屋外用 バレット形カメラ ソーラー充電 [ TBCBC400 ]",
+    "brand": "ELPA",
+    "category": "camera",
+    "price": 22598,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/light-expert/cabinet/jyutakusetubi_01/349k00019_s.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u79ok.216wo6ee.g00u79ok.216wp2d9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flight-expert%2F349k00019%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flight-expert%2Fi%2F10113563%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u79ok.216wo6ee.g00u79ok.216wp2d9/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flight-expert%2F349k00019%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flight-expert%2Fi%2F10113563%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "照明専門店ライトエキスパート",
+    "shopCode": "light-expert",
+    "discoveredAt": "2026-08-22T19:30:30.378Z",
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+  },
+  {
+    "id": "rakuten-agvsbg9kzwfyojewoti5mjcz",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "hellodear:10929273",
+    "name": "【送料無料】エルパ (ELPA) ソーラー式 センサーライト 2灯 (白色LED/防水仕様) お手軽サイズ/屋外 (ESL-N112SL)",
+    "brand": "ELPA",
+    "category": "light",
+    "price": 7684,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/hellodear/cabinet/rakus142_0097/b07dk8x6yv00.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ulv1k.216wo8c7.g00ulv1k.216wp0d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhellodear%2Fb07dk8x6yv%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhellodear%2Fi%2F10929273%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ulv1k.216wo8c7.g00ulv1k.216wp0d6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhellodear%2Fb07dk8x6yv%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhellodear%2Fi%2F10929273%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "ハローディア楽天市場店",
+    "shopCode": "hellodear",
+    "discoveredAt": "2026-08-22T19:30:30.378Z",
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdq0nzm3",
@@ -130,7 +225,7 @@
     "shopName": "ハローディア楽天市場店",
     "shopCode": "hellodear",
     "discoveredAt": "2026-08-21T19:32:44.440Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-zwrlbmtpoje5mdm4otkx",
@@ -586,7 +681,7 @@
     "shopName": "ディーショップワン",
     "shopCode": "d-shop1one",
     "discoveredAt": "2026-08-19T19:34:11.395Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-zgvuaxrzag9wlxi6mtawmdk5nti",
@@ -615,7 +710,7 @@
     "name": "キャンディハウス(Candy House) セサミ5+セサミタッチ2Pro スマートロック ブラック 後付け型 指紋認証 ICカードリーダー 暗証番号",
     "brand": "SESAME",
     "category": "smart-lock",
-    "price": 14895,
+    "price": 12802,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/lovelonestar/cabinet/r_1585049730/20260605044628_119_1.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tmhbk.216wo1c6.g00tmhbk.216wpe19/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flovelonestar%2F20260605044628_119%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flovelonestar%2Fi%2F10038239%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tmhbk.216wo1c6.g00tmhbk.216wpe19/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flovelonestar%2F20260605044628_119%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flovelonestar%2Fi%2F10038239%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -624,7 +719,7 @@
     "shopName": "Love Lone Star",
     "shopCode": "lovelonestar",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta0oty0ndg",
@@ -643,7 +738,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta0otcymdc",
@@ -662,7 +757,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-b21py2hplxn0b3jlojewndk1mtcw",
@@ -700,7 +795,7 @@
     "shopName": "ぴっぴストア 楽天市場店",
     "shopCode": "pippi-store",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-21T19:32:44.440Z"
+    "lastSeenAt": "2026-08-22T19:30:30.378Z"
   },
   {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdm5nza3",

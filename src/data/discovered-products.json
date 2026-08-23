@@ -16,7 +16,7 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-ymljy2ftzxjhojexmdixntmy",
@@ -35,7 +35,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-a3nkzw5ratoxmdq1nty2oq",
@@ -54,7 +54,7 @@
     "shopName": "ケーズデンキ 楽天市場店",
     "shopCode": "ksdenki",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-agn2ywxvci1lc2hvcdoxmdezmdg4ng",
@@ -73,7 +73,216 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm4ntc1",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14838575",
+    "name": "ムサシ|Musashi 5W×3灯スライド型LED充電式センサーライト LEDRC830 [白色 /充電式]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 7680,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10477/00000013045674_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540080%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838575%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540080%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838575%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm4ntc4",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14838578",
+    "name": "ムサシ|Musashi 7.5W×3灯スライド型LEDソーラーセンサーライト S340L [白色]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 9330,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10477/00000013045675_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540103%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838578%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540103%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838578%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm4ntc2",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14838576",
+    "name": "ムサシ|Musashi 5W×2灯スライド型LED充電式センサーライト LEDRC820 [白色 /充電式]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 6580,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10477/00000013045673_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540073%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838576%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540073%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838576%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm4ntcz",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14838573",
+    "name": "ムサシ|Musashi 12.5W×4灯スライド型LEDセンサーライト LEDAC4000 [コンセント式]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 12080,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10477/00000013045671_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540059%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838573%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540059%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838573%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm4ntcx",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14838571",
+    "name": "ムサシ|Musashi 12.5W×2灯スライド型LEDセンサーライト LEDAC2050 [コンセント式]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 8480,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10477/00000013045669_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540035%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838571%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540035%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838571%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhojeznjgyodgw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:13682880",
+    "name": "ムサシ|Musashi 5W2灯 フリーアーム式 LED乾電池センサーライト LED270",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 5180,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/6861/00000009836795_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849532702%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F13682880%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849532702%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F13682880%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm4ntcy",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14838572",
+    "name": "ムサシ|Musashi 12.5W×3灯スライド型LEDセンサーライト LEDAC3050 [コンセント式]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 10430,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10477/00000013045670_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540042%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838572%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540042%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838572%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm4ntcw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14838570",
+    "name": "ムサシ|Musashi 7.5W×2灯スライド型LEDセンサーライト LEDAC2014 [白色 /コンセント式]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 5480,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10477/00000013045668_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540028%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838570%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540028%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14838570%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm0nti3",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14834527",
+    "name": "ムサシ|Musashi ガーデンソーラーセンサーライト2W丸型 ブラック GLS100-BK",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 8778,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10442/00000013032132_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540158%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14834527%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540158%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14834527%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm0ntmw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14834530",
+    "name": "ムサシ|Musashi ガーデンソーラーセンサーライト7.5W角型 ブラック GLS120-BK",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 11880,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10442/00000013032136_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540196%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14834530%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540196%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14834530%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-ymljy2ftzxjhoje0odm0nti5",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "biccamera:14834529",
+    "name": "ムサシ|Musashi ガーデンソーラーセンサーライト5W丸型 シルバー GLS110-SV",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 9980,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/10442/00000013032135_a01.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540189%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14834529%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4954849540189%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F14834529%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "楽天ビック(ビックカメラ×楽天)",
+    "shopCode": "biccamera",
+    "discoveredAt": "2026-08-23T19:29:53.474Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-zgvuy2hpewetymvra2fuojewmjyxnzi5",
@@ -130,7 +339,7 @@
     "shopName": "コンプモト 楽天市場店",
     "shopCode": "compmoto-r",
     "discoveredAt": "2026-08-22T19:30:30.378Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-bglnahqtzxhwzxj0ojewmtezntyz",
@@ -149,7 +358,7 @@
     "shopName": "照明専門店ライトエキスパート",
     "shopCode": "light-expert",
     "discoveredAt": "2026-08-22T19:30:30.378Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-agvsbg9kzwfyojewoti5mjcz",
@@ -225,7 +434,7 @@
     "shopName": "ハローディア楽天市場店",
     "shopCode": "hellodear",
     "discoveredAt": "2026-08-21T19:32:44.440Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-zwrlbmtpoje5mdm4otkx",
@@ -681,7 +890,26 @@
     "shopName": "ディーショップワン",
     "shopCode": "d-shop1one",
     "discoveredAt": "2026-08-19T19:34:11.395Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+  },
+  {
+    "id": "rakuten-zgvuaxrzag9wlxi6mtawmteznju",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "denitshop-r:10011365",
+    "name": "TP-Link ONVIF VIGI 4MP屋外用フルカラー パンチルト ネットワーク カメラ 防犯カメラ VIGI C540(4mm)",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 39827,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/denitshop-r/cabinet/13295298/b0bjp6jjb3_main.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utszk.216wo8b5.g00utszk.216wp290/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenitshop-r%2F4897098683781%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenitshop-r%2Fi%2F10011365%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utszk.216wo8b5.g00utszk.216wp290/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenitshop-r%2F4897098683781%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenitshop-r%2Fi%2F10011365%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "denit_shop楽天市場店",
+    "shopCode": "denitshop-r",
+    "discoveredAt": "2026-08-19T15:57:24.122Z",
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-zgvuaxrzag9wlxi6mtawmdk5nti",
@@ -691,7 +919,7 @@
     "name": "TP-Link tapo 屋外カメラ WiFi ネットワークカメラ 無線/有線接続 みまもりカメラ 防犯カメラ 屋内/屋外 パン/チルト対応 スマホ アプリ 動体/人物/車両検知 2K QHD スターライト IP66 防水防塵 音声通話 Tapo C52",
     "brand": "Tapo",
     "category": "camera",
-    "price": 10068,
+    "price": 9950,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/denitshop-r/cabinet/13297871/b0ccv51f5r_main.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utszk.216wo8b5.g00utszk.216wp290/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenitshop-r%2F4895252504279%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenitshop-r%2Fi%2F10009952%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utszk.216wo8b5.g00utszk.216wp290/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenitshop-r%2F4895252504279%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenitshop-r%2Fi%2F10009952%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -700,7 +928,7 @@
     "shopName": "denit_shop楽天市場店",
     "shopCode": "denitshop-r",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-20T03:39:46.665Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdm4mjm5",
@@ -719,7 +947,7 @@
     "shopName": "Love Lone Star",
     "shopCode": "lovelonestar",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta0oty0ndg",
@@ -738,7 +966,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta0otcymdc",
@@ -748,7 +976,7 @@
     "name": "パナソニック 宅配ボックス e-COMBO Light (イーコンボライト) CTN6220RB ミドルタイプ (高さ59cm) マットブラック 〈前取出し 右開き〉 後付け用 電池式(電池別売) 電子錠 テンキー 非常用キー付属 簡単設置 受取 発送 返",
     "brand": "Panasonic",
     "category": "smart-lock",
-    "price": 59378,
+    "price": 59196,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/makana--/cabinet/root_sniper_folder/sniper_folder_00078/imgrc0140512034.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tziwk.216wo444.g00tziwk.216wp930/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0ccxb45by%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10497207%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tziwk.216wo444.g00tziwk.216wp930/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0ccxb45by%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10497207%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -757,7 +985,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-b21py2hplxn0b3jlojewndk1mtcw",
@@ -795,7 +1023,7 @@
     "shopName": "ぴっぴストア 楽天市場店",
     "shopCode": "pippi-store",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-22T19:30:30.378Z"
+    "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdm5nza3",

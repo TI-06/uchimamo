@@ -16,7 +16,7 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-ymljy2ftzxjhojexmdixntmy",
@@ -35,7 +35,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-a3nkzw5ratoxmdq1nty2oq",
@@ -54,7 +54,26 @@
     "shopName": "ケーズデンキ 楽天市場店",
     "shopCode": "ksdenki",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmdazoduw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10003850",
+    "name": "ムサシ 4.5W×1灯乾電池式シンプルスタイルセンサーライト LED-CY130",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 2530,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/1/4954849990083.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990083%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10003850%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990083%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10003850%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 5,
+    "reviewCount": 1,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-08-24T19:37:44.012Z",
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-agn2ywxvci1lc2hvcdoxmdezmdg4ng",
@@ -73,7 +92,26 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmdewmti2",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10010126",
+    "name": "ムサシ センサーライト かげあかり02 白練(しろねり) KA-02SN",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 2670,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/19/4954849540592.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540592%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10010126%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540592%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10010126%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-08-24T19:37:44.012Z",
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-ymljy2ftzxjhoje0odm4ntc1",
@@ -339,7 +377,7 @@
     "shopName": "コンプモト 楽天市場店",
     "shopCode": "compmoto-r",
     "discoveredAt": "2026-08-22T19:30:30.378Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-bglnahqtzxhwzxj0ojewmtezntyz",
@@ -608,25 +646,6 @@
     "lastSeenAt": "2026-08-20T03:39:46.665Z"
   },
   {
-    "id": "rakuten-dhv6dwtpewe6mtgznze1mtc",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "tuzukiya:18371517",
-    "name": "ムサシ 4.5W×1灯 乾電池式シンプルスタイルセンサーライト LED-CY130 1点",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 1851,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tuzukiya/cabinet/0/0/8271/m17-0359.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00powok.216wo11f.g00powok.216wpe33/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftuzukiya%2Fm17-0359%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftuzukiya%2Fi%2F18371517%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00powok.216wo11f.g00powok.216wpe33/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftuzukiya%2Fm17-0359%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftuzukiya%2Fi%2F18371517%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "DIY FACTORY ONLINE SHOP",
-    "shopCode": "tuzukiya",
-    "discoveredAt": "2026-08-20T03:39:46.665Z",
-    "lastSeenAt": "2026-08-20T03:39:46.665Z"
-  },
-  {
     "id": "rakuten-m3jkc2hvcdoxmtqynzi3ng",
     "source": "discovered",
     "publicationRoute": "new",
@@ -699,6 +718,25 @@
     "reviewCount": 0,
     "shopName": "Love Lone Star",
     "shopCode": "lovelonestar",
+    "discoveredAt": "2026-08-20T03:29:19.616Z",
+    "lastSeenAt": "2026-08-20T03:29:19.616Z"
+  },
+  {
+    "id": "rakuten-zs1raxrjagvuojewmtiznjq0",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "e-kitchen:10123644",
+    "name": "防犯カメラ 屋外 家庭用 Tapo C420S2 2K QHD ワイヤレス 電源 工事不要 夜間 フルカラー wifi スマホ連動 スマートAI検知 動体検知 ライト 警告音 IP66 防水 防塵 フルワイヤレスセキュリティカメラシステム TP-Link *",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 34800,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/e-kitchen/cabinet/11074597/12548851/7294426_enet.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qwnlk.216wof54.g00qwnlk.216wpd57/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-kitchen%2F7294426%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-kitchen%2Fi%2F10123644%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qwnlk.216wof54.g00qwnlk.216wpd57/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fe-kitchen%2F7294426%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fe-kitchen%2Fi%2F10123644%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "キッチン・雑貨の店 ラクチーナ!",
+    "shopCode": "e-kitchen",
     "discoveredAt": "2026-08-20T03:29:19.616Z",
     "lastSeenAt": "2026-08-20T03:29:19.616Z"
   },
@@ -878,7 +916,7 @@
     "source": "discovered",
     "publicationRoute": "new",
     "itemCode": "d-shop1one:10238220",
-    "name": "ティーピーリンク 防犯カメラ フルワイヤレスセキュリティカメラ バッテリー内蔵 TAPO C420S2 TP-Link【転送不可】",
+    "name": "◆最大3000円CP+P3倍!!8/25◆ティーピーリンク 防犯カメラ フルワイヤレスセキュリティカメラ バッテリー内蔵 TAPO C420S2 TP-Link【転送不可】",
     "brand": "Tapo",
     "category": "camera",
     "price": 26037,
@@ -890,7 +928,7 @@
     "shopName": "ディーショップワン",
     "shopCode": "d-shop1one",
     "discoveredAt": "2026-08-19T19:34:11.395Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-zgvuaxrzag9wlxi6mtawmteznju",
@@ -931,6 +969,25 @@
     "lastSeenAt": "2026-08-23T19:29:53.474Z"
   },
   {
+    "id": "rakuten-a2fndwluojewmta5njg5",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "kaguin:10109689",
+    "name": "◆25日はP5倍◆SwitchBot ロック スマートロック 玄関ドア ドアロック パスワード カード 解錠方法 最大8種 オートロック 閉め忘れ防止 防犯対策 工事不要 簡単取付 後付け 玄関 自宅 スマートキー 鍵 キーレス W1601703 W1601700 *",
+    "brand": "SwitchBot",
+    "category": "smart-lock",
+    "price": 15800,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaguin/cabinet/11848108/11995539/enet_7293327.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qea0k.216wo1fd.g00qea0k.216wpd03/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaguin%2F7293327%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaguin%2Fi%2F10109689%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qea0k.216wo1fd.g00qea0k.216wpd03/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaguin%2F7293327%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaguin%2Fi%2F10109689%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "家具インテリア館",
+    "shopCode": "kaguin",
+    "discoveredAt": "2026-08-19T15:48:15.690Z",
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+  },
+  {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdm4mjm5",
     "source": "discovered",
     "publicationRoute": "new",
@@ -947,7 +1004,7 @@
     "shopName": "Love Lone Star",
     "shopCode": "lovelonestar",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta0oty0ndg",
@@ -985,7 +1042,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-b21py2hplxn0b3jlojewndk1mtcw",
@@ -1023,7 +1080,7 @@
     "shopName": "ぴっぴストア 楽天市場店",
     "shopCode": "pippi-store",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-24T19:37:44.012Z"
   },
   {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdm5nza3",

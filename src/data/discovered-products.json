@@ -16,7 +16,7 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-ymljy2ftzxjhojexmdixntmy",
@@ -35,7 +35,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-a3nkzw5ratoxmdq1nty2oq",
@@ -54,7 +54,7 @@
     "shopName": "ケーズデンキ 楽天市場店",
     "shopCode": "ksdenki",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdazoduw",
@@ -92,7 +92,26 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
+  },
+  {
+    "id": "rakuten-dw5pdgvklxnob3awmtoxmdmzndi5nq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "united-shop01:10334295",
+    "name": "パナソニック 宅配ボックス e-COMBO Light (イーコンボライト) CTN6250RMW ラージタイプ (高さ79cm) ダークウッド 〈前取出し 右開き〉 後付け用 電池式(電池別売) 電子錠 テンキー 非常用キー付属 簡",
+    "brand": "Panasonic",
+    "category": "smart-lock",
+    "price": 48700,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/united-shop01/cabinet/13598990/36325774_1.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00urlyk.216wo55d.g00urlyk.216wp146/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Funited-shop01%2Fp4f5eu27ht3yos42tlvh6ynuiq%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Funited-shop01%2Fi%2F10334295%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00urlyk.216wo55d.g00urlyk.216wp146/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Funited-shop01%2Fp4f5eu27ht3yos42tlvh6ynuiq%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Funited-shop01%2Fi%2F10334295%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "ユナイテッドショップ",
+    "shopCode": "united-shop01",
+    "discoveredAt": "2026-08-25T19:40:11.335Z",
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdewmti2",
@@ -928,7 +947,7 @@
     "shopName": "ディーショップワン",
     "shopCode": "d-shop1one",
     "discoveredAt": "2026-08-19T19:34:11.395Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-zgvuaxrzag9wlxi6mtawmteznju",
@@ -966,26 +985,7 @@
     "shopName": "denit_shop楽天市場店",
     "shopCode": "denitshop-r",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
-  },
-  {
-    "id": "rakuten-a2fndwluojewmta5njg5",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "kaguin:10109689",
-    "name": "◆25日はP5倍◆SwitchBot ロック スマートロック 玄関ドア ドアロック パスワード カード 解錠方法 最大8種 オートロック 閉め忘れ防止 防犯対策 工事不要 簡単取付 後付け 玄関 自宅 スマートキー 鍵 キーレス W1601703 W1601700 *",
-    "brand": "SwitchBot",
-    "category": "smart-lock",
-    "price": 15800,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kaguin/cabinet/11848108/11995539/enet_7293327.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qea0k.216wo1fd.g00qea0k.216wpd03/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaguin%2F7293327%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaguin%2Fi%2F10109689%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qea0k.216wo1fd.g00qea0k.216wpd03/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkaguin%2F7293327%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkaguin%2Fi%2F10109689%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "家具インテリア館",
-    "shopCode": "kaguin",
-    "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdm4mjm5",
@@ -1004,7 +1004,7 @@
     "shopName": "Love Lone Star",
     "shopCode": "lovelonestar",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta0oty0ndg",
@@ -1023,7 +1023,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-23T19:29:53.474Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta0otcymdc",
@@ -1042,26 +1042,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
-  },
-  {
-    "id": "rakuten-b21py2hplxn0b3jlojewndk1mtcw",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "omichi-store:10495170",
-    "name": "パナソニック 宅配ボックス e-COMBO Light (イーコンボライト) CTN6250RMW ラージタイプ (高さ79cm) ダークウッド 〈前取出し 右開き〉 後付け用 電池式(電池別売) 電子錠 テンキー 非常用キー付属 簡",
-    "brand": "Panasonic",
-    "category": "smart-lock",
-    "price": 52800,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/omichi-store/cabinet/13556786/35690229_1.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00unb1k.216wo96f.g00unb1k.216wpaf0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fomichi-store%2F4u6o6acf322wcyuyzt45swa6uy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fomichi-store%2Fi%2F10495170%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00unb1k.216wo96f.g00unb1k.216wpaf0/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fomichi-store%2F4u6o6acf322wcyuyzt45swa6uy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fomichi-store%2Fi%2F10495170%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "シオカゼ商店",
-    "shopCode": "omichi-store",
-    "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-20T03:39:46.665Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-cglwcgktc3rvcmu6mta3mja5mde",
@@ -1080,7 +1061,7 @@
     "shopName": "ぴっぴストア 楽天市場店",
     "shopCode": "pippi-store",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-24T19:37:44.012Z"
+    "lastSeenAt": "2026-08-25T19:40:11.335Z"
   },
   {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdm5nza3",

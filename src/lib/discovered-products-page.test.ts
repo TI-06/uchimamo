@@ -10,10 +10,22 @@ const cardSource = readFileSync(cardPath, 'utf8');
 const typeSource = readFileSync(typePath, 'utf8');
 
 describe('auto-discovered product UI', () => {
-  it('商品一覧に自動発掘カタログを別セクションで表示する', () => {
+  it('自動発掘商品をメイン商品件数と一覧へ統合する', () => {
     expect(pageSource).toContain('discovered-products.json');
-    expect(pageSource).toContain('新着・自動発掘');
-    expect(pageSource).toContain('詳細仕様は確認中');
+    expect(pageSource).toContain('const totalProducts = products.length + discovered.length');
+    expect(pageSource).toContain('{totalProducts}商品');
+    expect(pageSource).toContain('id="resultCount">{totalProducts}');
+    expect(pageSource).toContain('<DiscoveredProductCard product={product} />');
+    expect(pageSource).not.toContain('<section class="discovered-section">');
+  });
+
+  it('カテゴリ絞り込みでは自動発掘品も対象にし、詳細条件指定時だけ除外する', () => {
+    expect(cardSource).toContain('data-discovered-card');
+    expect(cardSource).toContain('data-category={product.category}');
+    expect(pageSource).toContain("document.querySelectorAll('[data-product-card], [data-discovered-card]')");
+    expect(pageSource).toContain('const detailedFilterActive');
+    expect(pageSource).toContain("node.hasAttribute('data-discovered-card')");
+    expect(pageSource).toContain('仕様確認前の商品は詳細条件検索から除外');
   });
 
   it('新商品ルートと人気商品ルートを表示上で区別する', () => {

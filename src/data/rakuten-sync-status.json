@@ -1,22 +1,12 @@
 {
   "ok": true,
-  "checkedAt": "2026-08-25T19:04:55.560Z",
+  "checkedAt": "2026-08-26T20:13:52.855Z",
   "endpointVersion": "2026-07-01",
   "enabledCount": 30,
-  "successCount": 26,
-  "skippedCount": 4,
+  "successCount": 27,
+  "skippedCount": 3,
   "failureCount": 0,
   "needsReview": [
-    {
-      "productId": "sesame-6-pro",
-      "reason": "fixed-item-not-found",
-      "expectedItemCode": "candyhouse:10000006",
-      "modelTokens": [
-        "SESAME",
-        "6",
-        "Pro"
-      ]
-    },
     {
       "productId": "aqara-smart-lock-u200",
       "reason": "model-token-mismatch",
@@ -43,23 +33,11 @@
     }
   ],
   "skipped": [
-    "sesame-6-pro",
     "aqara-smart-lock-u200",
     "aqara-door-window-p2",
     "aqara-presence-fp2"
   ],
   "skippedCandidates": [
-    {
-      "productId": "sesame-6-pro",
-      "keyword": "SESAME 6 Pro スマートロック",
-      "expectedItemCode": "candyhouse:10000006",
-      "modelTokens": [
-        "SESAME",
-        "6",
-        "Pro"
-      ],
-      "candidates": []
-    },
     {
       "productId": "aqara-smart-lock-u200",
       "keyword": "Aqara Smart Lock U200",

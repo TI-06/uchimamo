@@ -1,0 +1,33 @@
+name: TDD Red Product List Integration
+
+on:
+  push:
+    branches:
+      - fix/integrate-discovered-products
+    paths:
+      - 'src/lib/discovered-products-page.test.ts'
+      - '.github/workflows/tdd-red-product-list.yml'
+
+jobs:
+  red:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.20.0'
+          package-manager-cache: false
+      - run: corepack enable
+      - run: pnpm install --no-frozen-lockfile
+      - name: Expected RED test
+        id: redtest
+        continue-on-error: true
+        run: pnpm vitest run src/lib/discovered-products-page.test.ts
+      - name: Verify RED without failing workflow
+        shell: bash
+        run: |
+          if [ "${{ steps.redtest.outcome }}" != "failure" ]; then
+            echo "Expected integration test to fail before implementation."
+            exit 1
+          fi
+          echo "RED confirmed: discovered products are not integrated into main results yet."

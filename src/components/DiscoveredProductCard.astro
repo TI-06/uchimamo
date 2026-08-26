@@ -17,7 +17,7 @@ const routeNote = product.publicationRoute === 'new'
   ? '新しく発掘した現行商品です。楽天レビューは蓄積中のため、詳細仕様とあわせて確認を進めています。'
   : '楽天市場で一定のレビュー実績があり、ウチマモの自動発掘基準を満たした商品です。詳細仕様は確認中です。';
 ---
-<article class="discovered-card">
+<article class="discovered-card" data-discovered-card data-category={product.category}>
   <div class="visual">
     <div class="visual-head"><span class:list={["auto-badge", product.publicationRoute]}><i></i>{routeLabel}</span><span class="category">{categoryLabels[product.category]}</span></div>
     <img src={product.imageUrl} alt={product.name} loading="lazy" width="320" height="240" />

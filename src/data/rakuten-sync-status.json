@@ -1,12 +1,17 @@
 {
   "ok": true,
-  "checkedAt": "2026-08-26T20:13:52.855Z",
+  "checkedAt": "2026-08-28T02:13:37.274Z",
   "endpointVersion": "2026-07-01",
   "enabledCount": 30,
-  "successCount": 27,
-  "skippedCount": 3,
+  "successCount": 26,
+  "skippedCount": 4,
   "failureCount": 0,
   "needsReview": [
+    {
+      "productId": "outdoor-lte-camera",
+      "reason": "fixed-item-not-found",
+      "expectedItemCode": "shop-amanotori:10030960"
+    },
     {
       "productId": "aqara-smart-lock-u200",
       "reason": "model-token-mismatch",
@@ -33,11 +38,18 @@
     }
   ],
   "skipped": [
+    "outdoor-lte-camera",
     "aqara-smart-lock-u200",
     "aqara-door-window-p2",
     "aqara-presence-fp2"
   ],
   "skippedCandidates": [
+    {
+      "productId": "outdoor-lte-camera",
+      "keyword": "ANRAN 防犯カメラ 4G LTE ソーラー",
+      "expectedItemCode": "shop-amanotori:10030960",
+      "candidates": []
+    },
     {
       "productId": "aqara-smart-lock-u200",
       "keyword": "Aqara Smart Lock U200",

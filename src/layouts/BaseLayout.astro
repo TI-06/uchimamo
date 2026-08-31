@@ -4,7 +4,12 @@ import '../styles/compare-dynamic.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BottomNav from '../components/BottomNav.astro';
+import productsJson from '../data/products.json';
+import cacheJson from '../data/rakuten-cache.json';
+import type { Product } from '../types/product';
+import type { RakutenCacheItem } from '../lib/rakuten';
 import { absoluteUrl, normalizeSiteUrl } from '../lib/seo';
+import { buildProductStructuredData } from '../lib/product-structured-data';
 
 interface Props {
   title?: string;
@@ -23,7 +28,19 @@ const {
 } = Astro.props;
 const base = normalizeSiteUrl(import.meta.env.PUBLIC_SITE_URL || 'https://uchimamo.pages.dev');
 const canonical = absoluteUrl(base, Astro.url.pathname);
-const resolvedOgImage = ogImage ? new URL(ogImage, `${base}/`).toString() : undefined;
+const products = productsJson as Product[];
+const cache = cacheJson as Record<string, RakutenCacheItem>;
+const productMatch = Astro.url.pathname.match(/^\/products\/([^/]+)\/?$/);
+const currentProduct = productMatch
+  ? products.find((product) => product.id === decodeURIComponent(productMatch[1]))
+  : undefined;
+const currentRakuten = currentProduct ? cache[currentProduct.id] : undefined;
+const fallbackOgImage = currentRakuten?.imageUrl;
+const resolvedOgImage = ogImage
+  ? new URL(ogImage, `${base}/`).toString()
+  : fallbackOgImage
+    ? new URL(fallbackOgImage, `${base}/`).toString()
+    : undefined;
 const robots = noindex
   ? 'noindex,nofollow'
   : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
@@ -35,6 +52,14 @@ const websiteJsonLd = {
   description: '工事不要・後付けで始める家庭防犯の商品検索・比較・診断サービス。',
   inLanguage: 'ja'
 };
+const productStructuredData = currentProduct
+  ? buildProductStructuredData({
+      product: currentProduct,
+      rakuten: currentRakuten,
+      baseUrl: base,
+      canonicalUrl: canonical
+    })
+  : undefined;
 ---
 <!doctype html>
 <html lang="ja">
@@ -60,6 +85,7 @@ const websiteJsonLd = {
     <meta name="twitter:description" content={description} />
     {resolvedOgImage && <meta name="twitter:image" content={resolvedOgImage} />}
     <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+    {productStructuredData && <script type="application/ld+json" set:html={JSON.stringify(productStructuredData)} />}
     <slot name="head" />
     <title>{title}</title>
   </head>

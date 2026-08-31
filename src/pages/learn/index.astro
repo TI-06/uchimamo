@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { seoArticles } from '../../data/seo-articles';
+
+const categories = [...new Set(seoArticles.map((article) => article.category))];
+---
+<BaseLayout
+  title="家庭防犯の選び方・設置ガイド｜ウチマモ"
+  description="防犯カメラ、窓の補助錠、センサーライトなど、家庭防犯用品を選ぶ前に知っておきたい設置・費用・録画・通信の考え方を解説します。"
+>
+  <section class="learn-hero">
+    <div class="site-container hero-inner">
+      <div>
+        <span class="eyebrow">HOME SECURITY KNOWLEDGE</span>
+        <h1>買う前に知っておきたい、<br />家の防犯の選び方。</h1>
+        <p>商品名からではなく、「月額をかけたくない」「夜でも見たい」「窓を強くしたい」など、実際の悩みから防犯用品の選び方を整理します。</p>
+      </div>
+      <div class="hero-stats">
+        <span><small>公開中</small><strong>{seoArticles.length}記事</strong></span>
+        <span><small>更新</small><strong>2026.08.31</strong></span>
+        <span><small>参考</small><strong>公的情報を確認</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-container">
+      <div class="intro-grid">
+        <div><span class="eyebrow">START HERE</span><h2 class="section-title">悩みから読む</h2><p class="section-lead">同じ「防犯カメラ」でも、月額、電源、夜間撮影、録画方法で選び方が変わります。</p></div>
+        <div class="category-list">{categories.map((category) => <span>{category}</span>)}</div>
+      </div>
+
+      <div class="article-grid">
+        {seoArticles.map((article, index) => (
+          <a class="article-card" href={`/learn/${article.slug}/`}>
+            <div class="article-meta"><span>{article.category}</span><small>{article.readMinutes}分</small></div>
+            <strong>{article.title}</strong>
+            <p>{article.description}</p>
+            <div class="article-foot"><small>{String(index + 1).padStart(2, '0')}</small><b>読む →</b></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="site-container next-grid">
+      <div><span class="eyebrow">NEXT STEP</span><h2 class="section-title">条件が決まったら商品を絞る</h2><p class="section-lead">記事で必要な条件が整理できたら、工事不要・Wi-Fi不要・月額なしなどから対応商品だけを探せます。</p></div>
+      <div class="next-links"><a href="/security/">条件別の防犯テーマを見る <span>→</span></a><a href="/products/">防犯用品を探す <span>→</span></a><a href="/diagnosis/">30秒防犯診断 <span>→</span></a></div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .learn-hero{padding:72px 0 62px;background:linear-gradient(135deg,#f5f6f4 0%,#eef2f4 100%);border-bottom:1px solid var(--slate-200)}
+  .hero-inner{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:70px;align-items:end}.learn-hero h1{font-size:clamp(2.5rem,5.4vw,4.4rem);line-height:1.1;letter-spacing:-.055em;color:var(--navy-950);margin:9px 0 18px}.learn-hero p{max-width:720px;color:var(--slate-700);font-size:.9rem}.hero-stats{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--slate-300);border-radius:16px;background:#fff;overflow:hidden}.hero-stats span{padding:16px}.hero-stats span:nth-child(3){grid-column:1/-1;border-top:1px solid var(--slate-200)}.hero-stats span+span{border-left:1px solid var(--slate-200)}.hero-stats small{display:block;color:var(--slate-500);font-size:.54rem;font-weight:800}.hero-stats strong{display:block;color:var(--navy-950);font-size:.8rem;margin-top:3px}
+  .intro-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:end;margin-bottom:32px}.category-list{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.category-list span{border:1px solid var(--slate-300);border-radius:999px;padding:7px 11px;background:#fff;color:var(--slate-600);font-size:.62rem;font-weight:800}.article-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.article-card{padding:24px;border:1px solid var(--slate-200);border-radius:16px;background:#fff;transition:transform .18s,border-color .18s}.article-card:hover{transform:translateY(-2px);border-color:var(--slate-400)}.article-meta{display:flex;justify-content:space-between;gap:12px;color:var(--slate-500);font-size:.56rem}.article-meta span{color:var(--blue-700);font-weight:900}.article-card>strong{display:block;color:var(--navy-950);font-size:1.03rem;line-height:1.55;margin:10px 0 8px}.article-card p{color:var(--slate-600);font-size:.7rem;line-height:1.8;margin:0}.article-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--slate-200);margin-top:18px;padding-top:13px}.article-foot small{color:var(--slate-400);font-weight:900}.article-foot b{color:var(--blue-700);font-size:.64rem}.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.next-links{display:grid;gap:8px}.next-links a{display:flex;justify-content:space-between;gap:20px;padding:15px 17px;border:1px solid var(--slate-200);border-radius:12px;background:#fff;color:var(--navy-950);font-size:.72rem;font-weight:850}.next-links a span{color:var(--blue-700)}
+  @media(max-width:800px){.hero-inner,.intro-grid,.next-grid{grid-template-columns:1fr}.category-list{justify-content:flex-start}.article-grid{grid-template-columns:1fr}.hero-inner{gap:30px}.hero-stats{max-width:430px}}
+  @media(max-width:600px){.learn-hero{padding:45px 0}.learn-hero h1{font-size:2.25rem}.article-card{padding:20px}}
+</style>

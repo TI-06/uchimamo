@@ -12,7 +12,7 @@ const homePath = fileURLToPath(new URL('../pages/index.astro', import.meta.url))
 const packagePath = fileURLToPath(new URL('../../package.json', import.meta.url));
 
 describe('SEO v0.3.0', () => {
-  it('商品詳細用のProduct/Breadcrumb構造化データを生成できる', async () => {
+  it('商品詳細用のProduct/Breadcrumb構造化データを生成し、外部サイトの評価は集計しない', async () => {
     expect(existsSync(productSchemaPath)).toBe(true);
     if (!existsSync(productSchemaPath)) return;
 
@@ -52,7 +52,8 @@ describe('SEO v0.3.0', () => {
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@graph'][0]['@type']).toBe('Product');
     expect(schema['@graph'][0].offers.priceCurrency).toBe('JPY');
-    expect(schema['@graph'][0].aggregateRating.ratingCount).toBe(20);
+    expect(schema['@graph'][0].offers.price).toBe('12800');
+    expect(schema['@graph'][0].aggregateRating).toBeUndefined();
     expect(schema['@graph'][1]['@type']).toBe('BreadcrumbList');
   });
 

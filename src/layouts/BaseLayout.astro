@@ -10,21 +10,30 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
 }
 
 const {
   title = 'ウチマモ｜工事なしで始める、わが家の防犯',
   description = '住まい・設置場所・Wi-Fi・電源・予算から、自分に合う防犯用品を探せる家庭防犯サービス。',
-  noindex = false
+  noindex = false,
+  ogImage,
+  ogType = 'website'
 } = Astro.props;
 const base = normalizeSiteUrl(import.meta.env.PUBLIC_SITE_URL || 'https://uchimamo.pages.dev');
 const canonical = absoluteUrl(base, Astro.url.pathname);
+const resolvedOgImage = ogImage ? new URL(ogImage, `${base}/`).toString() : undefined;
+const robots = noindex
+  ? 'noindex,nofollow'
+  : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'ウチマモ',
   url: base,
-  description: '工事不要・後付けで始める家庭防犯の商品検索・比較・診断サービス。'
+  description: '工事不要・後付けで始める家庭防犯の商品検索・比較・診断サービス。',
+  inLanguage: 'ja'
 };
 ---
 <!doctype html>
@@ -33,17 +42,23 @@ const websiteJsonLd = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="author" content="ウチマモ編集部" />
+    <meta name="robots" content={robots} />
     <meta name="google-site-verification" content="sF2foqS0K9hluvQTJslEp1ZGHOZv6p19uIvzsBXb03E" />
     <meta name="theme-color" content="#0b1f36" />
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
-    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="ウチマモ" />
-    <meta name="twitter:card" content="summary_large_image" />
+    {resolvedOgImage && <meta property="og:image" content={resolvedOgImage} />}
+    <meta name="twitter:card" content={resolvedOgImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {resolvedOgImage && <meta name="twitter:image" content={resolvedOgImage} />}
     <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
     <slot name="head" />
     <title>{title}</title>

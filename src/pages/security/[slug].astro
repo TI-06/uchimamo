@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsJson from '../../data/products.json';
+import cacheJson from '../../data/rakuten-cache.json';
+import { securityLandings, type SecurityLanding } from '../../data/security-landings';
+import type { Product } from '../../types/product';
+import type { RakutenCacheItem } from '../../lib/rakuten';
+import { absoluteUrl, normalizeSiteUrl } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return securityLandings.map((landing) => ({ params: { slug: landing.slug }, props: { landing } }));
+}
+
+interface Props { landing: SecurityLanding }
+const { landing } = Astro.props;
+const products = productsJson as Product[];
+const cache = cacheJson as Record<string, RakutenCacheItem>;
+const matchedProducts = products
+  .filter((product) => {
+    const filter = landing.filter;
+    if (filter.category && product.category !== filter.category) return false;
+    if (filter.place && !product.places.includes(filter.place)) return false;
+    if (filter.noDrilling && !product.installation.noDrilling) return false;
+    if (filter.wifiNotRequired && product.connectivity.wifiRequired) return false;
+    if (filter.monthlyFeeFree && product.monthlyFeeRequired) return false;
+    if (filter.outdoor && !product.installation.outdoor) return false;
+    return true;
+  })
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 8);
+const relatedLandings = securityLandings.filter((item) => item.slug !== landing.slug).slice(0, 3);
+const checkedDates = matchedProducts.map((product) => cache[product.id]?.fetchedAt).filter((value): value is string => Boolean(value)).sort();
+const latestCheckedAt = checkedDates.at(-1);
+const latestCheckedLabel = latestCheckedAt
+  ? new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(latestCheckedAt))
+  : '商品情報を確認中';
+const updatedLabel = new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(`${landing.updatedAt}T00:00:00+09:00`));
+const base = normalizeSiteUrl(import.meta.env.PUBLIC_SITE_URL || 'https://uchimamo.pages.dev');
+const pageUrl = absoluteUrl(base, `/security/${landing.slug}/`);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      name: landing.title,
+      description: landing.description,
+      url: pageUrl,
+      dateModified: landing.updatedAt,
+      isPartOf: { '@type': 'WebSite', name: 'ウチマモ', url: base }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'TOP', item: absoluteUrl(base, '/') },
+        { '@type': 'ListItem', position: 2, name: '目的・条件から探す', item: absoluteUrl(base, '/security/') },
+        { '@type': 'ListItem', position: 3, name: landing.headline, item: pageUrl }
+      ]
+    },
+    {
+      '@type': 'ItemList',
+      name: `${landing.headline}の比較候補`,
+      itemListElement: matchedProducts.map((product, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: product.name,
+        url: absoluteUrl(base, `/products/${product.id}/`)
+      }))
+    }
+  ]
+};
+---
+<BaseLayout title={landing.title} description={landing.description}>
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(jsonLd)} /></Fragment>
+
+  <div class="site-container breadcrumb"><a href="/">TOP</a><span>›</span><a href="/security/">目的・条件から探す</a><span>›</span><b>{landing.headline}</b></div>
+
+  <section class="landing-hero">
+    <div class="site-container hero-layout">
+      <div>
+        <span class="eyebrow">{landing.eyebrow}</span>
+        <h1>{landing.headline}</h1>
+        <p class="lead">{landing.lead}</p>
+        <div class="meta"><time datetime={landing.updatedAt}>更新 {updatedLabel}</time><span>仕様確認済み商品から抽出</span><a href="/about/">選定・評価方針</a></div>
+      </div>
+      <aside class="conclusion-card">
+        <small>先に結論</small>
+        <strong>{landing.conclusion}</strong>
+        <a href="#products">比較候補を見る ↓</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section checkpoints-section">
+    <div class="site-container">
+      <div class="section-head"><div><span class="eyebrow">BEFORE YOU BUY</span><h2 class="section-title">購入前に確認したい3つ</h2><p class="section-lead">スペック表より先に、自宅の設置条件を確認します。</p></div></div>
+      <div class="checkpoint-grid">
+        {landing.checkpoints.map((checkpoint, index) => (
+          <article><span>{String(index + 1).padStart(2, '0')}</span><h3>{checkpoint.heading}</h3><p>{checkpoint.body}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="products">
+    <div class="site-container">
+      <div class="products-head">
+        <div><span class="eyebrow">MATCHING PRODUCTS</span><h2 class="section-title">条件に合う比較候補</h2><p class="section-lead">仕様確認済み商品のうち条件に合うものを、ウチマモ評価順に最大8件表示しています。評価は防犯性能の保証ではなく比較用の目安です。</p></div>
+        <div class="update-box"><small>商品情報</small><strong>{latestCheckedLabel}</strong><span>{matchedProducts.length}件表示</span></div>
+      </div>
+      {matchedProducts.length > 0 ? (
+        <div class="product-grid">{matchedProducts.map((product) => <ProductCard product={product} rakuten={cache[product.id]} />)}</div>
+      ) : (
+        <div class="empty"><strong>現在、条件一致の仕様確認済み商品はありません。</strong><p>商品情報を確認でき次第、候補を追加します。</p></div>
+      )}
+      <div class="product-note"><p>価格・在庫・セット内容・通信料金などは変動します。購入時は販売ページの最新情報をご確認ください。</p><a href="/products/">全商品から探す →</a></div>
+    </div>
+  </section>
+
+  <section class="section guide-section">
+    <div class="site-container guide-layout">
+      <div><span class="eyebrow">SECURITY GUIDE</span><h2 class="section-title">商品を決める前に、設置の考え方も確認</h2><p class="section-lead">機器の追加だけでなく、施錠・見通し・照明など基本対策と合わせて検討してください。</p></div>
+      <a class="guide-card" href={landing.guideHref}><small>関連ガイド</small><strong>{landing.guideLabel}</strong><span>読む →</span></a>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="site-container">
+      <div class="section-head"><div><span class="eyebrow">RELATED CONDITIONS</span><h2 class="section-title">別の条件から探す</h2></div><a href="/security/">すべて見る →</a></div>
+      <div class="related-grid">{relatedLandings.map((item) => <a href={`/security/${item.slug}/`}><small>{item.eyebrow}</small><strong>{item.headline}</strong><span>→</span></a>)}</div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb{padding-top:20px;display:flex;gap:8px;align-items:center;color:var(--slate-500);font-size:.6rem}.breadcrumb a:hover{color:var(--blue-700)}.breadcrumb b{font-weight:700;color:var(--slate-700);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .landing-hero{padding:42px 0 68px;border-bottom:1px solid var(--slate-200)}.hero-layout{display:grid;grid-template-columns:minmax(0,1.25fr) .75fr;gap:64px;align-items:center}.landing-hero h1{font-size:clamp(2.35rem,5vw,4rem);line-height:1.15;letter-spacing:-.055em;color:var(--navy-950);margin:9px 0 17px}.lead{max-width:820px;color:var(--slate-700);font-size:.9rem;line-height:1.9}.meta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:20px;color:var(--slate-500);font-size:.58rem}.meta a{color:var(--blue-700);font-weight:900}.conclusion-card{background:var(--navy-950);border-radius:17px;padding:26px;color:#fff}.conclusion-card small{color:#94afc6;font-size:.53rem;font-weight:900;letter-spacing:.1em}.conclusion-card strong{display:block;font-size:.88rem;line-height:1.8;margin:8px 0 18px}.conclusion-card a{color:#fff;font-size:.64rem;font-weight:900}
+  .checkpoint-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.checkpoint-grid article{padding:23px;border:1px solid var(--slate-200);border-radius:15px;background:#fff}.checkpoint-grid article>span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--slate-300);color:var(--slate-500);font-size:.55rem;font-weight:900}.checkpoint-grid h3{font-size:.95rem;color:var(--navy-950);margin:15px 0 8px}.checkpoint-grid p{font-size:.72rem;color:var(--slate-600);line-height:1.85;margin:0}
+  .products-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:24px}.update-box{min-width:180px;border-left:2px solid var(--gold-600);padding-left:14px}.update-box small,.update-box span{display:block;color:var(--slate-500);font-size:.56rem}.update-box strong{display:block;color:var(--navy-950);font-size:.82rem;margin:2px 0}.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.product-note{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-top:22px;padding-top:18px;border-top:1px solid var(--slate-300)}.product-note p{font-size:.62rem;color:var(--slate-500);margin:0}.product-note a{color:var(--blue-700);font-size:.64rem;font-weight:900;white-space:nowrap}.empty{padding:26px;border:1px solid var(--slate-200);border-radius:14px;background:#fff}.empty strong{color:var(--navy-950)}.empty p{color:var(--slate-500);font-size:.72rem;margin-bottom:0}
+  .guide-layout{display:grid;grid-template-columns:1fr .8fr;gap:50px;align-items:center}.guide-card{padding:22px 24px;border:1px solid var(--slate-200);border-radius:15px;background:#fff}.guide-card small{display:block;color:var(--blue-700);font-size:.52rem;font-weight:900}.guide-card strong{display:block;color:var(--navy-950);font-size:.92rem;line-height:1.55;margin:7px 0 16px}.guide-card span{color:var(--blue-700);font-size:.64rem;font-weight:900}.related-section .section-head{display:flex;justify-content:space-between;align-items:end}.related-section .section-head>a{color:var(--blue-700);font-size:.64rem;font-weight:900}.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.related-grid a{position:relative;padding:18px 42px 18px 18px;border:1px solid var(--slate-200);border-radius:12px}.related-grid small{display:block;color:var(--slate-500);font-size:.48rem;font-weight:900}.related-grid strong{display:block;color:var(--navy-950);font-size:.74rem;line-height:1.5;margin-top:4px}.related-grid span{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--blue-700)}
+  @media(max-width:960px){.hero-layout{grid-template-columns:1fr;gap:28px}.product-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:760px){.checkpoint-grid,.related-grid{grid-template-columns:1fr}.guide-layout{grid-template-columns:1fr;gap:18px}.products-head{display:block}.update-box{margin-top:18px}.product-grid{grid-template-columns:1fr}.product-note{display:block}.product-note a{display:inline-block;margin-top:9px}}
+</style>

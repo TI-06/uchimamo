@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { securityLandings } from '../../data/security-landings';
+---
+<BaseLayout
+  title="目的・設置条件から家庭防犯を選ぶ｜ウチマモ"
+  description="工事不要、Wi-Fi不要、月額なし、玄関、窓、駐車場など、目的と住まいの条件から家庭防犯の選び方と比較候補を確認できます。"
+>
+  <section class="security-hero">
+    <div class="site-container hero-grid">
+      <div>
+        <span class="eyebrow">SECURITY BY NEED</span>
+        <h1>商品名ではなく、<br />家の条件から防犯を選ぶ。</h1>
+        <p>工事できない、Wi-Fiがない、月額を増やしたくない。玄関・窓・駐車場が気になる。そんな実際の条件ごとに、先に確認することと比較候補をまとめています。</p>
+      </div>
+      <div class="hero-note">
+        <small>UCHIMAMO POLICY</small>
+        <strong>先に設置条件、あとから商品。</strong>
+        <p>検索キーワードに合わせて商品を並べるだけではなく、購入前に確認したい固定方法・通信・電源・維持費まで整理します。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="site-container">
+      <div class="section-head">
+        <div><span class="eyebrow">SELECT A CONDITION</span><h2 class="section-title">目的別の防犯ガイド</h2><p class="section-lead">気になる条件を選ぶと、確認ポイントと条件に合う仕様確認済み商品を見られます。</p></div>
+      </div>
+      <div class="landing-grid">
+        {securityLandings.map((landing, index) => (
+          <a class="landing-card" href={`/security/${landing.slug}/`}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <small>{landing.eyebrow}</small>
+            <strong>{landing.headline}</strong>
+            <p>{landing.description}</p>
+            <b>詳しく見る →</b>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="site-container next-grid">
+      <div><span class="eyebrow">QUICK CHECK</span><h2 class="section-title">条件がまだ決まっていない場合</h2><p class="section-lead">住まい・気になる場所・工事可否・通信・電源・予算を6問で整理できます。</p></div>
+      <div class="actions"><a class="btn-primary" href="/diagnosis/">30秒防犯診断 <span>→</span></a><a class="btn-secondary" href="/products/">全商品を見る</a></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .security-hero{padding:72px 0 64px;background:#f5f6f4;border-bottom:1px solid var(--slate-200)}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:end}.security-hero h1{font-size:clamp(2.35rem,5vw,4rem);line-height:1.12;letter-spacing:-.055em;color:var(--navy-950);margin:9px 0 16px}.security-hero p{max-width:760px;color:var(--slate-700);font-size:.9rem}.hero-note{background:#fff;border:1px solid var(--slate-200);border-radius:16px;padding:24px}.hero-note small{color:var(--blue-700);font-size:.52rem;font-weight:900;letter-spacing:.12em}.hero-note strong{display:block;color:var(--navy-950);font-size:1rem;margin:7px 0}.hero-note p{font-size:.7rem;margin:0;color:var(--slate-600)}
+  .landing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.landing-card{position:relative;min-height:300px;padding:24px;border:1px solid var(--slate-200);border-radius:16px;background:#fff;display:flex;flex-direction:column;transition:.18s ease}.landing-card:hover{transform:translateY(-3px);border-color:var(--slate-300);box-shadow:0 14px 32px rgba(14,31,49,.08)}.landing-card>span{position:absolute;right:20px;top:16px;color:var(--slate-300);font-size:1.5rem;font-weight:900}.landing-card small{color:var(--blue-700);font-size:.52rem;font-weight:900;letter-spacing:.1em;padding-right:42px}.landing-card strong{display:block;color:var(--navy-950);font-size:1.08rem;line-height:1.5;margin:18px 0 10px}.landing-card p{color:var(--slate-600);font-size:.72rem;line-height:1.8;margin:0 0 20px}.landing-card b{margin-top:auto;color:var(--blue-700);font-size:.66rem}.next-grid{display:flex;align-items:center;justify-content:space-between;gap:32px}.actions{display:flex;gap:9px;flex-wrap:wrap}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:28px}.landing-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:640px){.security-hero{padding:48px 0}.landing-grid{grid-template-columns:1fr}.landing-card{min-height:0}.next-grid{display:block}.actions{margin-top:20px}.actions a{width:100%}}
+</style>

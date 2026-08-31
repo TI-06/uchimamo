@@ -1,16 +1,21 @@
 import type { APIRoute } from 'astro';
 import productsJson from '../data/products.json';
+import cacheJson from '../data/rakuten-cache.json';
 import { guides } from '../data/guides';
+import { securityLandings } from '../data/security-landings';
 import type { Product } from '../types/product';
 import { absoluteUrl, normalizeSiteUrl } from '../lib/seo';
 
 export const prerender = true;
+
+type SitemapEntry = { path: string; lastmod?: string };
 
 const staticPaths = [
   '/',
   '/diagnosis/',
   '/products/',
   '/compare/',
+  '/security/',
   '/guide/',
   '/about/',
   '/affiliate-policy/',
@@ -20,11 +25,18 @@ const staticPaths = [
 
 export const GET: APIRoute = () => {
   const base = normalizeSiteUrl(import.meta.env.PUBLIC_SITE_URL || 'https://uchimamo.pages.dev');
-  const productPaths = (productsJson as Product[]).map((product) => `/products/${product.id}/`);
-  const guidePaths = guides.map((guide) => `/guide/${guide.slug}/`);
-  const urls = [...staticPaths, ...productPaths, ...guidePaths];
-  const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
-    .map((path) => `  <url><loc>${absoluteUrl(base, path)}</loc></url>`)
+  const cache = cacheJson as Record<string, { fetchedAt?: string }>;
+  const entries: SitemapEntry[] = [
+    ...staticPaths.map((path) => ({ path })),
+    ...securityLandings.map((landing) => ({ path: `/security/${landing.slug}/`, lastmod: landing.updatedAt })),
+    ...(productsJson as Product[]).map((product) => ({
+      path: `/products/${product.id}/`,
+      lastmod: cache[product.id]?.fetchedAt?.slice(0, 10)
+    })),
+    ...guides.map((guide) => ({ path: `/guide/${guide.slug}/`, lastmod: '2026-08-19' }))
+  ];
+  const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries
+    .map(({ path, lastmod }) => `  <url><loc>${absoluteUrl(base, path)}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}</url>`)
     .join('\n')}\n</urlset>\n`;
 
   return new Response(body, {

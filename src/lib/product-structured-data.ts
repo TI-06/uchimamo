@@ -39,21 +39,6 @@ export function buildProductStructuredData({ product, rakuten, baseUrl, canonica
     };
   }
 
-  if (
-    rakuten?.reviewAverage != null &&
-    rakuten.reviewAverage > 0 &&
-    rakuten.reviewCount != null &&
-    rakuten.reviewCount > 0
-  ) {
-    productNode.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: rakuten.reviewAverage,
-      ratingCount: rakuten.reviewCount,
-      bestRating: 5,
-      worstRating: 1
-    };
-  }
-
   const breadcrumbNode: JsonLdNode = {
     '@type': 'BreadcrumbList',
     itemListElement: [

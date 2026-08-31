@@ -3,6 +3,7 @@ import productsJson from '../data/products.json';
 import cacheJson from '../data/rakuten-cache.json';
 import { guides } from '../data/guides';
 import { securityLandings } from '../data/security-landings';
+import { seoArticles } from '../data/seo-articles';
 import type { Product } from '../types/product';
 import { absoluteUrl, normalizeSiteUrl } from '../lib/seo';
 
@@ -17,6 +18,7 @@ const staticPaths = [
   '/compare/',
   '/security/',
   '/guide/',
+  '/learn/',
   '/about/',
   '/affiliate-policy/',
   '/privacy/',
@@ -29,6 +31,7 @@ export const GET: APIRoute = () => {
   const entries: SitemapEntry[] = [
     ...staticPaths.map((path) => ({ path })),
     ...securityLandings.map((landing) => ({ path: `/security/${landing.slug}/`, lastmod: landing.updatedAt })),
+    ...seoArticles.map((article) => ({ path: `/learn/${article.slug}/`, lastmod: article.updatedAt })),
     ...(productsJson as Product[]).map((product) => ({
       path: `/products/${product.id}/`,
       lastmod: cache[product.id]?.fetchedAt?.slice(0, 10)

@@ -16,7 +16,7 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-30T21:53:40.262Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-ymljy2ftzxjhojexmdixntmy",
@@ -35,7 +35,45 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-30T21:53:40.262Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
+  },
+  {
+    "id": "rakuten-awlrywtha3vzdg9yztoxmdawmta5nq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "iikakakustore:10001095",
+    "name": "\\ワンダフルデー! 全品P2倍+最大2000円OFF/Anker eufyCam 2C 屋外防犯/ネットワークカメラ バッテリー180日 1080p 「セキュリティカメラ」「防犯カメラ屋外」「ネットワークカメラ」「バッテリー搭載」「180日間連続使用」「1080p フルHD",
+    "brand": "Eufy",
+    "category": "camera",
+    "price": 11800,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/iikakakustore/cabinet/12160026/compass1758266485.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u90kk.216woaf6.g00u90kk.216wp73d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fiikakakustore%2Fx0010ij903%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fiikakakustore%2Fi%2F10001095%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u90kk.216woaf6.g00u90kk.216wp73d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fiikakakustore%2Fx0010ij903%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fiikakakustore%2Fi%2F10001095%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 4.4,
+    "reviewCount": 5,
+    "shopName": "いい価格デジタルストア",
+    "shopCode": "iikakakustore",
+    "discoveredAt": "2026-08-31T23:11:03.066Z",
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmdaxmtk1",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10001195",
+    "name": "ムサシ5W×2灯 フリーアーム式 LEDソーラーセンサーライト S-220L",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 6058,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/default4/4954849532207.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849532207%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10001195%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849532207%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10001195%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 2.6,
+    "reviewCount": 5,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-08-31T23:11:03.066Z",
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-zwrlbmtpojiymtcwodi0",
@@ -111,7 +149,26 @@
     "shopName": "ケーズデンキ 楽天市場店",
     "shopCode": "ksdenki",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-30T21:53:40.262Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmdaxmtk0",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10001194",
+    "name": "ムサシ 12W×1灯 フリーアーム式 LEDセンサーライト リモコン付 LED-AC1015",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 6083,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/default4/4954849531132.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849531132%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10001194%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849531132%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10001194%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 3,
+    "reviewCount": 1,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-08-31T23:11:03.066Z",
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-agn2ywxvci1lc2hvcdoxmdezmdg4ng",
@@ -130,7 +187,102 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-30T21:53:40.262Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
+  },
+  {
+    "id": "rakuten-amlzbtoxndcyotm4ng",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "jism:14729386",
+    "name": "Amazon 屋外向け防犯カメラ(ホワイト) B0D4RM82BN Ring Outdoor Cam Plus Battery [B0D4RM82BN]",
+    "brand": "Ring",
+    "category": "camera",
+    "price": 6460,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0054/0840414633100.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F0840414633100-21-49845-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14729386%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F0840414633100-21-49845-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14729386%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "Joshin web 家電とPCの大型専門店",
+    "shopCode": "jism",
+    "discoveredAt": "2026-08-31T23:11:03.066Z",
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
+  },
+  {
+    "id": "rakuten-bwfryw5hls06mta1njy0nji",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "makana--:10566462",
+    "name": "Anker Eufy (ユーフィ) eufyCam S3 Pro増設用カメラ(屋外用防犯カメラ)【ソーラー充電/顔認識AI技術 / 800万超高画素 / 4K画質 / 防犯対策/ワイヤレス対応/連続給電可能/バッテリー搭載/配線不要 / IP67 防塵防水",
+    "brand": "Eufy",
+    "category": "camera",
+    "price": 29617,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/makana--/cabinet/root_sniper_folder/sniper_folder_00070/imgrc0151228446.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tziwk.216wo444.g00tziwk.216wp930/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0f2mrvcvr%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10566462%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tziwk.216wo444.g00tziwk.216wp930/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0f2mrvcvr%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10566462%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "SelectSHOP 岐阜 楽天市場店",
+    "shopCode": "makana--",
+    "discoveredAt": "2026-08-31T23:11:03.066Z",
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
+  },
+  {
+    "id": "rakuten-bwfryw5hls06mta1otawndu",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "makana--:10590045",
+    "name": "Anker Eufy (ユーフィ) eufyCam S4 (屋外用防犯カメラ)【固定式と追尾式の2-in-1 / ソーラー充電 / 360°撮影 / 約800万画素 / 4K画質 / バッテリー搭載/パンチルト/防犯カメラ/セキュリティカメラ/屋外カメラ/",
+    "brand": "Eufy",
+    "category": "camera",
+    "price": 40152,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/makana--/cabinet/root_sniper_folder/sniper_folder_00070/imgrc0151228464.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tziwk.216wo444.g00tziwk.216wp930/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0f62yyc73%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10590045%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tziwk.216wo444.g00tziwk.216wp930/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0f62yyc73%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10590045%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "SelectSHOP 岐阜 楽天市場店",
+    "shopCode": "makana--",
+    "discoveredAt": "2026-08-31T23:11:03.066Z",
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmda5otaw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10009900",
+    "name": "ムサシ ソーラー式 LEDセンサーライト(3.5W×1灯) musashi S-100L 返品種別A",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 5880,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/19/4954849540479.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540479%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10009900%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540479%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10009900%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-08-31T23:11:03.066Z",
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
+  },
+  {
+    "id": "rakuten-d29ybgqtzgvwbzoxnte4njkxoq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "world-depo:15186919",
+    "name": "ムサシ LEDセンサーライト ソーラー式 S-330L",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 13370,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/world-depo/cabinet/dsproducts/790/0002378589-1.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rjgtk.216wob13.g00rjgtk.216wpa10/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworld-depo%2Fds-2378589%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworld-depo%2Fi%2F15186919%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rjgtk.216wob13.g00rjgtk.216wpa10/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fworld-depo%2Fds-2378589%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fworld-depo%2Fi%2F15186919%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "ワールドデポ",
+    "shopCode": "world-depo",
+    "discoveredAt": "2026-08-31T23:11:03.066Z",
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta1njywmde",
@@ -586,7 +738,7 @@
     "shopName": "でんでんショッピング 楽天市場店",
     "shopCode": "ddshop",
     "discoveredAt": "2026-08-26T21:47:16.297Z",
-    "lastSeenAt": "2026-08-26T21:47:16.297Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmda0mja4",
@@ -596,7 +748,7 @@
     "name": "ムサシ どこでもセンサーライト ソーラー 防雨型 ASL-093",
     "brand": "ムサシ",
     "category": "light",
-    "price": 3410,
+    "price": 3535,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/3/4954849990939.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990939%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10004208%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990939%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10004208%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -605,7 +757,7 @@
     "shopName": "でんでんショッピング 楽天市場店",
     "shopCode": "ddshop",
     "discoveredAt": "2026-08-26T21:47:16.297Z",
-    "lastSeenAt": "2026-08-26T21:47:16.297Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmda5odi2",
@@ -1273,25 +1425,6 @@
     "lastSeenAt": "2026-08-20T03:29:19.616Z"
   },
   {
-    "id": "rakuten-a3nozwvwmtoxmdexmtuxoq",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "ksheep1:10111519",
-    "name": "【納期約3週間】ムサシ LEDセンサーライト(12W×1灯) musashi LED-AC1015",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 9020,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ksheep1/cabinet/img19/4954849531132.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00quxbk.216woaf1.g00quxbk.216wpb4b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksheep1%2F4954849531132%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksheep1%2Fi%2F10111519%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00quxbk.216woaf1.g00quxbk.216wpb4b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksheep1%2F4954849531132%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksheep1%2Fi%2F10111519%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "シープワン",
-    "shopCode": "ksheep1",
-    "discoveredAt": "2026-08-20T03:29:19.616Z",
-    "lastSeenAt": "2026-08-20T03:29:19.616Z"
-  },
-  {
     "id": "rakuten-a3nozwvwmtoxmdewnzu4mw",
     "source": "discovered",
     "publicationRoute": "new",
@@ -1384,7 +1517,7 @@
     "shopName": "Love Lone Star",
     "shopCode": "lovelonestar",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-30T21:53:40.262Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta0oty0ndg",
@@ -1403,7 +1536,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-30T21:53:40.262Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-cglwcgktc3rvcmu6mta3mja5mde",
@@ -1422,7 +1555,7 @@
     "shopName": "ぴっぴストア 楽天市場店",
     "shopCode": "pippi-store",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-08-30T21:53:40.262Z"
+    "lastSeenAt": "2026-08-31T23:11:03.066Z"
   },
   {
     "id": "rakuten-bg92zwxvbmvzdgfyojewmdm5nza3",

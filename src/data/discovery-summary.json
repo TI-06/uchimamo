@@ -1,14 +1,14 @@
 {
-  "checkedAt": "2026-09-14T22:25:41.297Z",
+  "checkedAt": "2026-09-15T22:07:53.618Z",
   "successfulQueries": 22,
   "failedQueries": 0,
-  "incomingCandidates": 460,
-  "totalCandidates": 3528,
-  "publishedProducts": 74,
-  "publishedNew": 73,
-  "publishedPopular": 1,
-  "candidateOnly": 1280,
-  "rejected": 1271,
+  "incomingCandidates": 486,
+  "totalCandidates": 3597,
+  "publishedProducts": 72,
+  "publishedNew": 68,
+  "publishedPopular": 4,
+  "candidateOnly": 1224,
+  "rejected": 1295,
   "curatedDuplicates": 105,
-  "discoveredDuplicates": 18
+  "discoveredDuplicates": 16
 }

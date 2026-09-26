@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
     "id": "rakuten-agfwchlsawzlc3r5bgvzag9wojewmtmwmdcw",
@@ -92,7 +92,45 @@
     "shopName": "測定器・工具のイーデンキ",
     "shopCode": "edenki",
     "discoveredAt": "2026-08-29T21:40:58.682Z",
-    "lastSeenAt": "2026-09-19T21:26:00.114Z"
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmdawmzk4",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10000398",
+    "name": "ムサシ RITEX フリーアーム式LEDセンサーライト(4.5Wワイド) 「乾電池式」 防雨型 LED-150",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 3885,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/default2/4954849531507.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849531507%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10000398%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849531507%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10000398%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 5,
+    "reviewCount": 2,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmda1nju2",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10005656",
+    "name": "ムサシ 9Wワイド フリーアーム式LED乾電池センサーライト LED-170",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 4398,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/1/4954849531705.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849531705%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10005656%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849531705%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10005656%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 5,
+    "reviewCount": 2,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
     "id": "rakuten-a3nkzw5ratoxmdq1nty2oq",
@@ -168,7 +206,140 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-zi1wyxjrojewmdgymde3",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "f-park:10082017",
+    "name": "TP-Link VIGI 8MP 屋外用フルカラーバレット型ネットワークカメラ INSIGHT S385(4MM)(UN) 時間指定不可",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 61228,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/f-park/cabinet/mr/003/8885020628180.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u5cck.216wocb0.g00u5cck.216wp381/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-park%2F8885020628180%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff-park%2Fi%2F10082017%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u5cck.216wocb0.g00u5cck.216wp381/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-park%2F8885020628180%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff-park%2Fi%2F10082017%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "F-Park",
+    "shopCode": "f-park",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-zi1wyxjrojewmdgxote0",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "f-park:10081914",
+    "name": "TP-Link VIGI 4MP 屋外用フルカラーバレット型ネットワークカメラ INSIGHT S345(4MM)(UN) 時間指定不可",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 50296,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/f-park/cabinet/mr/002/8885020628067.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u5cck.216wocb0.g00u5cck.216wp381/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-park%2F8885020628067%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff-park%2Fi%2F10081914%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u5cck.216wocb0.g00u5cck.216wp381/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-park%2F8885020628067%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff-park%2Fi%2F10081914%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "F-Park",
+    "shopCode": "f-park",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-zi1wyxjrojewmdc5nte5",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "f-park:10079519",
+    "name": "TP-Link VIGI 4MP屋外用バレット型IRネットワークカメラ(2.8mm) VIGI C340I(2.8MM)(UN) 時間指定不可",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 16243,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/f-park/cabinet/mr/002/4897098688991.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u5cck.216wocb0.g00u5cck.216wp381/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-park%2F4897098688991%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff-park%2Fi%2F10079519%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u5cck.216wocb0.g00u5cck.216wp381/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-park%2F4897098688991%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff-park%2Fi%2F10079519%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "F-Park",
+    "shopCode": "f-park",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-zi1wyxjrojewmdc5ndix",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "f-park:10079421",
+    "name": "TP-Link VIGI 4MP屋外用バレット型フルカラーネットワークカメラ(4mm) VIGI C340(4MM)(UN) 時間指定不可",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 30682,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/f-park/cabinet/mr/002/4897098688625.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u5cck.216wocb0.g00u5cck.216wp381/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-park%2F4897098688625%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff-park%2Fi%2F10079421%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u5cck.216wocb0.g00u5cck.216wp381/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ff-park%2F4897098688625%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ff-park%2Fi%2F10079421%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "F-Park",
+    "shopCode": "f-park",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-bmfnb21plxboyxjtywn5ojewmdi5mte3",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "nagomi-pharmacy:10029117",
+    "name": "エルパ(ELPA) ワイヤレスチャイムドア開閉センサー送信器 インターホン 工事不要 介護 無線 配線不要 防犯 開閉検知 EWS-P34",
+    "brand": "ELPA",
+    "category": "sensor",
+    "price": 3290,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/nagomi-pharmacy/cabinet/rakuten1pic/systempic130/b07bkw3vfy-00.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00usmek.216wo6af.g00usmek.216wp235/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnagomi-pharmacy%2Fnag07bkw3vfy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnagomi-pharmacy%2Fi%2F10029117%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00usmek.216wo6af.g00usmek.216wp235/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fnagomi-pharmacy%2Fnag07bkw3vfy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fnagomi-pharmacy%2Fi%2F10029117%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "天六なごみ楽天市場店",
+    "shopCode": "nagomi-pharmacy",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmdawmdgx",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10000081",
+    "name": "ムサシ RITEX どこでもセンサーライト ワイヤレス(1個入り) W-505",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 3283,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/default/4954849995057.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849995057%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10000081%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849995057%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10000081%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-dxj1dg9yywdpb246mtaxnta4otm",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "urutoragion:10150893",
+    "name": "【在庫あり】ムサシ 5W×2灯 フリーアーム式 LEDソーラーセンサーライト S-220L【/srm】",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 5950,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/urutoragion/cabinet/shopping131/s-220l.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rgcgk.216wo95d.g00rgcgk.216wpf5c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Furutoragion%2Fs-220l%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Furutoragion%2Fi%2F10150893%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rgcgk.216wo95d.g00rgcgk.216wpf5c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Furutoragion%2Fs-220l%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Furutoragion%2Fi%2F10150893%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "ウルトラぎおん楽天市場店",
+    "shopCode": "urutoragion",
+    "discoveredAt": "2026-09-26T21:56:32.314Z",
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
     "id": "rakuten-ewfraw5pa3v5dxrha2e6mtaxmty2otg",
@@ -475,25 +646,6 @@
     "lastSeenAt": "2026-09-25T22:13:43.384Z"
   },
   {
-    "id": "rakuten-zwxpbwlubzoxmdi2nzkyoq",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "elimino:10267929",
-    "name": "エルパ(ELPA) ワイヤレスチャイムドア開閉センサー送信器 インターホン 工事不要 介護 無線 配線不要 防犯 開閉検知 EWS-P34",
-    "brand": "ELPA",
-    "category": "sensor",
-    "price": 3350,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/elimino/cabinet/rakutentool4pic/systempic134/b07bkw3vfy-00.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ujdmk.216wo4ad.g00ujdmk.216wp181/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Felimino%2F9a07bkw3vfy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Felimino%2Fi%2F10267929%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ujdmk.216wo4ad.g00ujdmk.216wp181/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Felimino%2F9a07bkw3vfy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Felimino%2Fi%2F10267929%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "eli-mino ゆらぎ薬局",
-    "shopCode": "elimino",
-    "discoveredAt": "2026-09-23T22:13:21.767Z",
-    "lastSeenAt": "2026-09-23T22:13:21.767Z"
-  },
-  {
     "id": "rakuten-ewfraw5pa3v5dxrha2e6mtaxmdcxodu",
     "source": "discovered",
     "publicationRoute": "new",
@@ -729,7 +881,7 @@
     "name": "【送料無料】エルパ (ELPA) ソーラー式 センサーライト 2灯 (白色LED/防水仕様) お手軽サイズ/屋外 (ESL-N112SL)",
     "brand": "ELPA",
     "category": "light",
-    "price": 7926,
+    "price": 7100,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/donzstore/cabinet/rakus142_0097/b07dk8x6yv00.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ulrik.216wo163.g00ulrik.216wp573/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdonzstore%2Fb07dk8x6yv%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdonzstore%2Fi%2F11044364%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ulrik.216wo163.g00ulrik.216wp573/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdonzstore%2Fb07dk8x6yv%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdonzstore%2Fi%2F11044364%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -738,7 +890,7 @@
     "shopName": "DONZ STORE",
     "shopCode": "donzstore",
     "discoveredAt": "2026-09-18T21:36:14.563Z",
-    "lastSeenAt": "2026-09-18T21:36:14.563Z"
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
     "id": "rakuten-a29uyw5vbmxpbmu6mtaznzc4otk",
@@ -1337,7 +1489,7 @@
     "name": "パナソニック 宅配ボックス e-COMBO Light (イーコンボライト) CTN6250RMA ラージタイプ (高さ79cm) エイジングブラウン 〈前取出し 右開き〉 後付け用 電池式(電池別売) 電子錠 テンキー 非常用キー",
     "brand": "Panasonic",
     "category": "smart-lock",
-    "price": 62000,
+    "price": 58800,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/pippi-store/cabinet/12166940/34284069_1.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u86dk.216wo995.g00u86dk.216wp8da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpippi-store%2Figvf4rf3rxoxjt6oezwnzjqvfy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpippi-store%2Fi%2F10715754%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u86dk.216wo995.g00u86dk.216wp8da/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpippi-store%2Figvf4rf3rxoxjt6oezwnzjqvfy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpippi-store%2Fi%2F10715754%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -1346,7 +1498,7 @@
     "shopName": "ぴっぴストア 楽天市場店",
     "shopCode": "pippi-store",
     "discoveredAt": "2026-09-06T21:15:10.658Z",
-    "lastSeenAt": "2026-09-22T22:00:03.779Z"
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
     "id": "rakuten-zgvuaxrzzwxly3q6mtawmdqyotm",
@@ -1365,7 +1517,7 @@
     "shopName": "denit_select楽天市場店",
     "shopCode": "denitselect",
     "discoveredAt": "2026-09-05T21:08:17.118Z",
-    "lastSeenAt": "2026-09-20T21:28:37.319Z"
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
     "id": "rakuten-zg9uenn0b3jlojexmdywnjq5",
@@ -1517,7 +1669,7 @@
     "shopName": "ぴっぴストア 楽天市場店",
     "shopCode": "pippi-store",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
     "id": "rakuten-dhbsaw5rzglyzwn0ojewmdaxnjq0",
@@ -1588,11 +1740,11 @@
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kitcut-ps/cabinet/item/152/p-271051.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rwh8k.216wod18.g00rwh8k.216wp708/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2F517046%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkitcut-ps%2Fi%2F10130739%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rwh8k.216wod18.g00rwh8k.216wp708/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2F517046%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkitcut-ps%2Fi%2F10130739%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 4.4,
-    "reviewCount": 10,
+    "reviewAverage": 4.45,
+    "reviewCount": 11,
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
+    "lastSeenAt": "2026-09-26T21:56:32.314Z"
   }
 ]

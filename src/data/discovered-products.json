@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-01T23:06:03.156Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
   {
     "id": "rakuten-zg91zgfizxnhojewmda1mte2",
@@ -190,25 +190,6 @@
     "lastSeenAt": "2026-09-30T22:57:39.268Z"
   },
   {
-    "id": "rakuten-zwrlbmtpoje5ntkwmziw",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "edenki:19590320",
-    "name": "【即納在庫品】ムサシ MUSASHI S-330L 5Wx3灯 フリーアーム式 LEDソーラーセンサーライト LED ソーラーライト 屋外 防犯ライト センサー 自動点灯 太陽光充電 防雨 玄関 ガレージ 駐車場 庭 防犯対策 屋外照明 太陽光発電",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 6712,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/edenki/cabinet/newitem567/ed3835741.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qct7k.216woe6b.g00qct7k.216wp680/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fedenki%2Fed3835741%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fedenki%2Fi%2F19590320%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qct7k.216woe6b.g00qct7k.216wp680/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fedenki%2Fed3835741%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fedenki%2Fi%2F19590320%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 5,
-    "reviewCount": 1,
-    "shopName": "測定器・工具のイーデンキ",
-    "shopCode": "edenki",
-    "discoveredAt": "2026-09-18T21:36:14.563Z",
-    "lastSeenAt": "2026-09-18T21:36:14.563Z"
-  },
-  {
     "id": "rakuten-dhjlbmqtdgvjadoxmdawotaxna",
     "source": "discovered",
     "publicationRoute": "new",
@@ -244,7 +225,178 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-01T23:06:03.156Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-y29zbwv0cxvlojewmdaxmtcy",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "cosmetque:10001172",
+    "name": "TP-Link WiFi ネットワークカメラ みまもりカメラ 屋外カメラ 防犯カメラ パン/チルト対応 スマホ アプリ 1080p FullHD IP65 防水 防塵 音声通話 メーカー保証1年 Tapo C500",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 9506,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/cosmetque/cabinet/13889731/b0bqjvkvqr_main.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00usufk.216wo8de.g00usufk.216wp560/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmetque%2F4897098685860%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcosmetque%2Fi%2F10001172%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00usufk.216wo8de.g00usufk.216wp560/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmetque%2F4897098685860%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcosmetque%2Fi%2F10001172%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "PRIME BOX 楽天市場店",
+    "shopCode": "cosmetque",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-chbwlxnob3a6mtawmja4otu",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ppp-shop:10020895",
+    "name": "TP-Link フルワイヤレス ネットワークカメラ 屋外カメラ ペットカメラ 防犯カメラ 2K QHD 照明 ライト 搭載 音声通話可能 ハブ搭載 メーカー保証1年 カメラx2+ハブ1セット IP65準拠 Tapo C420S2/A",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 24370,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ppp-shop/cabinet/aaapic/systempic002/b0bhw1d4hp-00.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u0ork.216wo371.g00u0ork.216wp329/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fppp-shop%2F10bhw1d4hp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fppp-shop%2Fi%2F10020895%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u0ork.216wo371.g00u0ork.216wp329/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fppp-shop%2F10bhw1d4hp%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fppp-shop%2Fi%2F10020895%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "ピースリーショップ 楽天市場店",
+    "shopCode": "ppp-shop",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-dmxvb2t1chn0b3jlojewnza2mjk3",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "vlookupstore:10706297",
+    "name": "6W/5V 防犯カメラ用ソーラーパネル micorUSB/Type-C/DC3513コネクタ付き IP66 3m充電ケーブル EUFYcam 2/2pro/2c/2c pro/E/3C/L20/L40/S40,Ring,Arlo Essential",
+    "brand": "Eufy",
+    "category": "camera",
+    "price": 4459,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/vlookupstore/cabinet/g/34/e9rrog5q5g-1.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u4uxk.216wo8a1.g00u4uxk.216wp55f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvlookupstore%2Fgr-e9rrog5q5g%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvlookupstore%2Fi%2F10706297%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u4uxk.216wo8a1.g00u4uxk.216wp55f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fvlookupstore%2Fgr-e9rrog5q5g%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fvlookupstore%2Fi%2F10706297%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "VlookupStore 楽天市場店",
+    "shopCode": "vlookupstore",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-b3jhbmdldg9vbdoxmzy1mtuzmw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "orangetool:13651533",
+    "name": "ノムラテック サッシ用簡易補助錠 お知らせマーク付 サッシロックMINI ( N-1108 )",
+    "brand": "ノムラテック",
+    "category": "window-lock",
+    "price": 570,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/orangetool/cabinet/trusco/main2/342/6809160.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t21rk.216wo817.g00t21rk.216wp474/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forangetool%2F6809160%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Forangetool%2Fi%2F13651533%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t21rk.216wo817.g00t21rk.216wp474/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forangetool%2F6809160%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Forangetool%2Fi%2F13651533%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "Orange Tool Tokiwa",
+    "shopCode": "orangetool",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-bxvyyxvjagktzhzkojezndcwmze4oa",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "murauchi-dvd:134703188",
+    "name": "musashi ムサシ RITEX/ライテックス 12W×3灯 フリーアーム式 LEDセンサーライト リモコン付 LED-AC3045",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 9528,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/murauchi-dvd/cabinet/m2/00321/4954849533457.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1a0k.216wo31f.g00q1a0k.216wpc43/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-dvd%2F4954849533457%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-dvd%2Fi%2F134703188%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1a0k.216wo31f.g00q1a0k.216wpc43/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-dvd%2F4954849533457%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-dvd%2Fi%2F134703188%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "エムスタ",
+    "shopCode": "murauchi-dvd",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-bxvyyxvjagktzhzkojezndcwmze4nw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "murauchi-dvd:134703187",
+    "name": "musashi ムサシ RITEX/ライテックス 12W×1灯 フリーアーム式 LEDセンサーライト リモコン付 LED-AC1015",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 6619,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/murauchi-dvd/cabinet/m2/00321/4954849531132.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1a0k.216wo31f.g00q1a0k.216wpc43/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-dvd%2F4954849531132%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-dvd%2Fi%2F134703187%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1a0k.216wo31f.g00q1a0k.216wpc43/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-dvd%2F4954849531132%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-dvd%2Fi%2F134703187%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "エムスタ",
+    "shopCode": "murauchi-dvd",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-bxvyyxvjagktzhzkojezndy4mja2mw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "murauchi-dvd:134682063",
+    "name": "musashi ムサシ RITEX/ライテックス 5W×1灯 フリーアーム式 LEDソーラーセンサーライト S-110L",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 4424,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/murauchi-dvd/cabinet/m2/00321/4954849531101.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1a0k.216wo31f.g00q1a0k.216wpc43/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-dvd%2F4954849531101%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-dvd%2Fi%2F134682063%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1a0k.216wo31f.g00q1a0k.216wpc43/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-dvd%2F4954849531101%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-dvd%2Fi%2F134682063%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "エムスタ",
+    "shopCode": "murauchi-dvd",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-bxvyyxvjagktzhzkojezndu3nzaxna",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "murauchi-dvd:134577014",
+    "name": "musashi ムサシ RITEX/ライテックス 5W×3灯 フリーアーム式 LEDソーラーセンサーライト S-330L",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 7427,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/murauchi-dvd/cabinet/m2/00321/4954849533303.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1a0k.216wo31f.g00q1a0k.216wpc43/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-dvd%2F4954849533303%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-dvd%2Fi%2F134577014%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q1a0k.216wo31f.g00q1a0k.216wpc43/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-dvd%2F4954849533303%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-dvd%2Fi%2F134577014%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "エムスタ",
+    "shopCode": "murauchi-dvd",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmda3ntu3",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10007557",
+    "name": "ムサシ ガーデンソーラーセンサーライト2W丸型 シルバー GL-S100SV",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 8700,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/12/4954849540165.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540165%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10007557%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540165%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10007557%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
   {
     "id": "rakuten-ci1zdhlszs1yytoxmda2nteyng",
@@ -320,7 +472,7 @@
     "shopName": "Joshin web 家電とPCの大型専門店",
     "shopCode": "jism",
     "discoveredAt": "2026-10-01T23:06:03.156Z",
-    "lastSeenAt": "2026-10-01T23:06:03.156Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
   {
     "id": "rakuten-zs16b2e6mtaxmzu3ndk",
@@ -1631,7 +1783,7 @@
     "shopName": "Orange Tool Tokiwa",
     "shopCode": "orangetool",
     "discoveredAt": "2026-09-19T21:26:00.114Z",
-    "lastSeenAt": "2026-09-19T21:26:00.114Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
   {
     "id": "rakuten-c2npbnrpdhvyojewmdc3otkz",
@@ -1783,7 +1935,7 @@
     "shopName": "denit_select楽天市場店",
     "shopCode": "denitselect",
     "discoveredAt": "2026-09-05T21:08:17.118Z",
-    "lastSeenAt": "2026-09-29T22:55:47.360Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
   {
     "id": "rakuten-amlzbtoxndcyotm4ng",
@@ -1802,7 +1954,7 @@
     "shopName": "Joshin web 家電とPCの大型専門店",
     "shopCode": "jism",
     "discoveredAt": "2026-08-31T23:11:03.066Z",
-    "lastSeenAt": "2026-10-01T23:06:03.156Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmda5otaw",
@@ -1878,7 +2030,26 @@
     "shopName": "ぴっぴストア 楽天市場店",
     "shopCode": "pippi-store",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-09-28T23:48:20.507Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-a2f6yw1pzg9yatoxmdaxntqymg",
+    "source": "discovered",
+    "publicationRoute": "popular",
+    "itemCode": "kazamidori:10015422",
+    "name": "LEDセンサーライト 防犯ライト 7.5W 2灯 明るさ1300lm MUSASHI RITEX ムサシ AC電源 ハロゲン260W相当 昼夜切替 常夜灯モード LED-AC315 ◆宅 【楽天ロジ発送】",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 4948,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kazamidori/cabinet/products10/4954849503153.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q2htk.216woc9a.g00q2htk.216wpe16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkazamidori%2F4954849503153%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkazamidori%2Fi%2F10015422%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q2htk.216woc9a.g00q2htk.216wpe16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkazamidori%2F4954849503153%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkazamidori%2Fi%2F10015422%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 4.45,
+    "reviewCount": 31,
+    "shopName": "風見鶏",
+    "shopCode": "kazamidori",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
   {
     "id": "rakuten-a2fnaxrvym91agfuojewmdawmdy3",
@@ -1897,7 +2068,26 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-10-01T23:06:03.156Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-a2f6yw1pzg9yatoxmdaymtu3mq",
+    "source": "discovered",
+    "publicationRoute": "popular",
+    "itemCode": "kazamidori:10021571",
+    "name": "LEDセンサーライト 防犯ライト 投光器 作業灯 14W 3灯 明るさ4000lm MUSASHI RITEX ムサシ AC電源 ハロゲン800W相当 防雨タイプ 常夜灯モード フリーアーム式 LED-AC3042 ◆宅 【楽天ロジ発送】",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 7708,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kazamidori/cabinet/products21/4954849533426.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q2htk.216woc9a.g00q2htk.216wpe16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkazamidori%2F4954849533426%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkazamidori%2Fi%2F10021571%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q2htk.216woc9a.g00q2htk.216wpe16/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkazamidori%2F4954849533426%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkazamidori%2Fi%2F10021571%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 4.8,
+    "reviewCount": 15,
+    "shopName": "風見鶏",
+    "shopCode": "kazamidori",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
   {
     "id": "rakuten-a2l0y3v0lxbzojewmtmwnzm5",
@@ -1907,7 +2097,7 @@
     "name": "SwitchBot スマートロック 玄関ドア スマートリモコン オートロック 後付け ブラック # W1601700-GH スイッチボット 本体 単品 スマホから開閉 工事不要 遠隔操作 解錠 施錠 音声操作 通知 開閉記録 防犯 アレクサ対応",
     "brand": "SwitchBot",
     "category": "smart-lock",
-    "price": 9380,
+    "price": 9980,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kitcut-ps/cabinet/item/152/p-271051.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rwh8k.216wod18.g00rwh8k.216wp708/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2F517046%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkitcut-ps%2Fi%2F10130739%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rwh8k.216wod18.g00rwh8k.216wp708/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2F517046%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkitcut-ps%2Fi%2F10130739%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -1916,6 +2106,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-01T23:06:03.156Z"
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
   }
 ]

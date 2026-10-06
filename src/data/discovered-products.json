@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-04T22:18:20.221Z"
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
   },
   {
     "id": "rakuten-zg91zgfizxnhojewmda1mte2",
@@ -114,6 +114,25 @@
     "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
+    "id": "rakuten-yxj1ojewmda5nzmw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "aru:10009730",
+    "name": "【限定P5倍/送料無料】3年保証 WV-S7130WUX アイプロ i-PRO i-PRO mini 無線LANモデル AI 屋内 | 防犯カメラ 監視カメラ ネットワークカメラ 小型カメラ コンパクト USB TypeC 防犯 監視 オフィス 商業 施設 店舗 駐車場 パナソニック Panasonic",
+    "brand": "Panasonic",
+    "category": "camera",
+    "price": 65972,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/aru/cabinet/thum/wv-s7130wux_3y.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ptx5k.216wof50.g00ptx5k.216wpf04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faru%2Fwv-s7130wux%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faru%2Fi%2F10009730%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ptx5k.216wof50.g00ptx5k.216wpf04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faru%2Fwv-s7130wux%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faru%2Fi%2F10009730%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 5,
+    "reviewCount": 1,
+    "shopName": "防犯カメラ専門店 アルコム",
+    "shopCode": "aru",
+    "discoveredAt": "2026-10-06T00:45:00.958Z",
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
+  },
+  {
     "id": "rakuten-zs13zwxsbmvzczoxmda3mzi1na",
     "source": "discovered",
     "publicationRoute": "new",
@@ -209,6 +228,44 @@
     "lastSeenAt": "2026-10-04T22:18:20.221Z"
   },
   {
+    "id": "rakuten-cmfjay1ryw46mtaxmjiymtq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "rack-kan:10122214",
+    "name": "SwitchBot ロック スマートロック 玄関ドア ドアロック パスワード カード 解錠方法 最大8種 オートロック 閉め忘れ防止 防犯対策 工事不要 簡単取付 後付け 玄関 自宅 スマートキー 鍵 キーレス W1601703 W1601700 *",
+    "brand": "SwitchBot",
+    "category": "smart-lock",
+    "price": 15800,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/rack-kan/cabinet/10835129/12146817/enet_7293327.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pr3yk.216woc1c.g00pr3yk.216wped6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frack-kan%2F7293327%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frack-kan%2Fi%2F10122214%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pr3yk.216woc1c.g00pr3yk.216wped6/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Frack-kan%2F7293327%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Frack-kan%2Fi%2F10122214%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "収納・家具・寝具の収納宅配館",
+    "shopCode": "rack-kan",
+    "discoveredAt": "2026-10-06T00:45:00.958Z",
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
+  },
+  {
+    "id": "rakuten-yxj1ojewmda5mtiw",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "aru:10009120",
+    "name": "【限定P5倍/送料無料】1年保証 Panasonic 防犯カメラ 監視カメラ ホームネットワーク システム センサーライト付屋外ワイヤレスカメラ VL-WD813K | スマホ 会話 自宅 マイク 夜間 留守番 見守り ペット 子ども パナソニック ※欠品時以外キャンセル不可",
+    "brand": "Panasonic",
+    "category": "light",
+    "price": 36960,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/aru/cabinet/thum/vl-wd813k.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ptx5k.216wof50.g00ptx5k.216wpf04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faru%2Fvl-wd813k%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faru%2Fi%2F10009120%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ptx5k.216wof50.g00ptx5k.216wpf04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faru%2Fvl-wd813k%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faru%2Fi%2F10009120%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "防犯カメラ専門店 アルコム",
+    "shopCode": "aru",
+    "discoveredAt": "2026-10-06T00:45:00.958Z",
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
+  },
+  {
     "id": "rakuten-ewfraw5pa3v5dxrha2e6mtaxmjc3ody",
     "source": "discovered",
     "publicationRoute": "new",
@@ -225,7 +282,7 @@
     "shopName": "yutaca 楽天市場店",
     "shopCode": "yakinikuyutaka",
     "discoveredAt": "2026-10-04T22:18:20.221Z",
-    "lastSeenAt": "2026-10-04T22:18:20.221Z"
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
   },
   {
     "id": "rakuten-agfpa2fuc2hvcdoxntq0mdu2nq",
@@ -472,7 +529,7 @@
     "shopName": "PRIME BOX 楽天市場店",
     "shopCode": "cosmetque",
     "discoveredAt": "2026-10-02T22:56:03.932Z",
-    "lastSeenAt": "2026-10-04T22:18:20.221Z"
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
   },
   {
     "id": "rakuten-chbwlxnob3a6mtawmja4otu",
@@ -1577,25 +1634,6 @@
     "lastSeenAt": "2026-09-24T22:16:12.737Z"
   },
   {
-    "id": "rakuten-ds1kzw5ratoxmda0nji3ma",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "u-denki:10046270",
-    "name": "SwitchBot ロック スマートロック 玄関ドア ドアロック パスワード カード 解錠方法 最大8種 オートロック 閉め忘れ防止 防犯対策 工事不要 簡単取付 後付け 玄関 自宅 スマートキー 鍵 W1601703 W1601700 キーレス *",
-    "brand": "SwitchBot",
-    "category": "smart-lock",
-    "price": 15800,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/u-denki/cabinet/10834726/tenposupport05/11932090/7293327ins.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00su2mk.216wo5e0.g00su2mk.216wpaf2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fu-denki%2F7293327%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fu-denki%2Fi%2F10046270%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00su2mk.216wo5e0.g00su2mk.216wpaf2/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fu-denki%2F7293327%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fu-denki%2Fi%2F10046270%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "ウエノ電器 楽天市場店",
-    "shopCode": "u-denki",
-    "discoveredAt": "2026-09-24T22:16:12.737Z",
-    "lastSeenAt": "2026-09-24T22:16:12.737Z"
-  },
-  {
     "id": "rakuten-d29ybgqtzgvwbzoxntywndy1na",
     "source": "discovered",
     "publicationRoute": "new",
@@ -1843,82 +1881,6 @@
     "lastSeenAt": "2026-09-22T22:00:03.779Z"
   },
   {
-    "id": "rakuten-amlzbtoxndk1odg5nw",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "jism:14958897",
-    "name": "ELPA AC式 LEDセンサーライト(3灯) 3300lm ESL-SA1303AC ELPA [ESLSA1303AC]",
-    "brand": "ELPA",
-    "category": "light",
-    "price": 12800,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0123/4901087229918.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4901087229918-21-54357-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14958897%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4901087229918-21-54357-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14958897%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "Joshin web 家電とPCの大型専門店",
-    "shopCode": "jism",
-    "discoveredAt": "2026-09-21T22:33:35.423Z",
-    "lastSeenAt": "2026-09-21T22:33:35.423Z"
-  },
-  {
-    "id": "rakuten-zgrzag9wojewmda5odqy",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "ddshop:10009842",
-    "name": "ムサシ センサーライト かげあかり04 灰白(はいはく) KA-04HH",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 3435,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/19/4954849540714.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540714%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10009842%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540714%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10009842%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "でんでんショッピング 楽天市場店",
-    "shopCode": "ddshop",
-    "discoveredAt": "2026-09-21T22:33:35.423Z",
-    "lastSeenAt": "2026-09-21T22:33:35.423Z"
-  },
-  {
-    "id": "rakuten-b3jhbmdldg9vbdoxmzuymjywng",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "orangetool:13522606",
-    "name": "ELPA LEDセンサーライト 使用電球28W ( ESL-W2801AC )",
-    "brand": "ELPA",
-    "category": "light",
-    "price": 20215,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/orangetool/cabinet/trusco/main2/322/8189935.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t21rk.216wo817.g00t21rk.216wp474/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forangetool%2F8189935%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Forangetool%2Fi%2F13522606%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t21rk.216wo817.g00t21rk.216wp474/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forangetool%2F8189935%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Forangetool%2Fi%2F13522606%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "Orange Tool Tokiwa",
-    "shopCode": "orangetool",
-    "discoveredAt": "2026-09-21T22:33:35.423Z",
-    "lastSeenAt": "2026-09-21T22:33:35.423Z"
-  },
-  {
-    "id": "rakuten-b3jhbmdldg9vbdoxmzuymjcyma",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "orangetool:13522720",
-    "name": "ELPA LEDセンサーライト 使用電球20W ( ESL-W2001AC )",
-    "brand": "ELPA",
-    "category": "light",
-    "price": 16204,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/orangetool/cabinet/trusco/main2/322/8189934.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t21rk.216wo817.g00t21rk.216wp474/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forangetool%2F8189934%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Forangetool%2Fi%2F13522720%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00t21rk.216wo817.g00t21rk.216wp474/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Forangetool%2F8189934%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Forangetool%2Fi%2F13522720%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "Orange Tool Tokiwa",
-    "shopCode": "orangetool",
-    "discoveredAt": "2026-09-21T22:33:35.423Z",
-    "lastSeenAt": "2026-09-21T22:33:35.423Z"
-  },
-  {
     "id": "rakuten-d2hpdgv3aw5nczoxmtexntg2mg",
     "source": "discovered",
     "publicationRoute": "new",
@@ -1955,25 +1917,6 @@
     "shopCode": "plays23",
     "discoveredAt": "2026-09-16T22:04:15.431Z",
     "lastSeenAt": "2026-10-01T23:06:03.156Z"
-  },
-  {
-    "id": "rakuten-ymvhdxr5z29vzhnubgq6mtaxmtc3nzg",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "beautygoodsnld:10117778",
-    "name": "【送料無料】ノムラテック(Nomuratec) 快適防犯 補助錠 どあロックガード・ダイヤル式外開き・内開き兼用 ネジ止めタイプ N-1072",
-    "brand": "ノムラテック",
-    "category": "window-lock",
-    "price": 3928,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/beautygoodsnld/cabinet/rakub155_0247/b0813pjlh7-text.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00upckk.216wodc1.g00upckk.216wp998/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeautygoodsnld%2Fb0813pjlh7%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeautygoodsnld%2Fi%2F10117778%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00upckk.216wodc1.g00upckk.216wp998/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbeautygoodsnld%2Fb0813pjlh7%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbeautygoodsnld%2Fi%2F10117778%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "美容と雑貨のお店 エヌエルディ",
-    "shopCode": "beautygoodsnld",
-    "discoveredAt": "2026-09-14T22:25:41.297Z",
-    "lastSeenAt": "2026-09-21T22:33:35.423Z"
   },
   {
     "id": "rakuten-yxfhcme6mtawmdawntk",
@@ -2052,6 +1995,25 @@
     "lastSeenAt": "2026-10-03T22:06:25.921Z"
   },
   {
+    "id": "rakuten-yxj1ojewmdewmdq1",
+    "source": "discovered",
+    "publicationRoute": "popular",
+    "itemCode": "aru:10010045",
+    "name": "【限定P5倍/最強配送】送料無料 Tapo 見守りカメラ 防犯カメラ 屋外 屋内 300〜800万画素 4K スマホ 簡単 設置 工事不要 ワイヤレス 充電式 ペットカメラ 首振り ソーラー 防水 夜間 通話 会話 呼びかけ SD録画 犬 猫 子供 介護 防犯対策 スマートホーム TP-Link【RSL】",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 8900,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/aru/cabinet/thum/tapo2.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ptx5k.216wof50.g00ptx5k.216wpf04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faru%2Ftapo-c310%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faru%2Fi%2F10010045%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ptx5k.216wof50.g00ptx5k.216wpf04/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Faru%2Ftapo-c310%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Faru%2Fi%2F10010045%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 4.59,
+    "reviewCount": 49,
+    "shopName": "防犯カメラ専門店 アルコム",
+    "shopCode": "aru",
+    "discoveredAt": "2026-10-06T00:45:00.958Z",
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
+  },
+  {
     "id": "rakuten-a2f6yw1pzg9yatoxmdaxntqymg",
     "source": "discovered",
     "publicationRoute": "popular",
@@ -2087,7 +2049,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-10-04T22:18:20.221Z"
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
   },
   {
     "id": "rakuten-a2f6yw1pzg9yatoxmdaymtu3mq",
@@ -2125,6 +2087,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-04T22:18:20.221Z"
+    "lastSeenAt": "2026-10-06T00:45:00.958Z"
   }
 ]

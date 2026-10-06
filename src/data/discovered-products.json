@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-06T00:45:00.958Z"
+    "lastSeenAt": "2026-10-06T22:58:23.368Z"
   },
   {
     "id": "rakuten-zg91zgfizxnhojewmda1mte2",
@@ -112,6 +112,25 @@
     "shopCode": "ddshop",
     "discoveredAt": "2026-09-26T21:56:32.314Z",
     "lastSeenAt": "2026-09-26T21:56:32.314Z"
+  },
+  {
+    "id": "rakuten-amlzbtoxndczmjaynq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "jism:14732025",
+    "name": "ムサシ AC式 KEDセンサーライト(14W×3灯) LED-AC342 musashi [LEDAC342]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 9580,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0055/4954849540462.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4954849540462-21-54357-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14732025%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4954849540462-21-54357-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14732025%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 3,
+    "reviewCount": 1,
+    "shopName": "Joshin web 家電とPCの大型専門店",
+    "shopCode": "jism",
+    "discoveredAt": "2026-10-06T22:58:23.368Z",
+    "lastSeenAt": "2026-10-06T22:58:23.368Z"
   },
   {
     "id": "rakuten-yxj1ojewmda5nzmw",
@@ -226,6 +245,44 @@
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
     "lastSeenAt": "2026-10-04T22:18:20.221Z"
+  },
+  {
+    "id": "rakuten-ci1zdhlszs1yytoxmda2ndaxna",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "r-style-ra:10064014",
+    "name": "Tapo(タポ) 防犯カメラ 屋外 ソーラー 配線工事不要 4K 800万画素 ワイヤレス ソーラーパネル一体型 監視カメラ AI検知 IP65防水防塵 双方向通話 Ale xa/Google Assistant対応 TP-Link Tapo C465",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 23829,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-style-ra/cabinet/r_2026070404/20260708231032_67_1.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tf5pk.216wod12.g00tf5pk.216wp218/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-style-ra%2F20260708231032_67%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-style-ra%2Fi%2F10064014%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tf5pk.216wod12.g00tf5pk.216wp218/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-style-ra%2F20260708231032_67%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-style-ra%2Fi%2F10064014%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "セレクトショップ RST",
+    "shopCode": "r-style-ra",
+    "discoveredAt": "2026-10-06T22:58:23.368Z",
+    "lastSeenAt": "2026-10-06T22:58:23.368Z"
+  },
+  {
+    "id": "rakuten-amlzbtoxndczmja0oa",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "jism:14732048",
+    "name": "ムサシ ソーラー式 LEDセンサーライト(3.5W×3灯) S-300L musashi [S300L]",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 8480,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0055/4954849540493.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4954849540493-21-54358-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14732048%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F4954849540493-21-54358-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14732048%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "Joshin web 家電とPCの大型専門店",
+    "shopCode": "jism",
+    "discoveredAt": "2026-10-06T22:58:23.368Z",
+    "lastSeenAt": "2026-10-06T22:58:23.368Z"
   },
   {
     "id": "rakuten-cmfjay1ryw46mtaxmjiymtq",
@@ -418,25 +475,6 @@
     "lastSeenAt": "2026-10-04T22:18:20.221Z"
   },
   {
-    "id": "rakuten-b25llwrlcmz1bhnob3a6mtawnjy3ntk",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "one-derfulshop:10066759",
-    "name": "防犯カメラ 屋外 ソーラー 配線工事不要 4K 800万画素 ワイヤレス ソーラーパネル一体型 監視カメラ AI検知 IP65防水防塵 双方向通話 Alexa/Google Assistant対応 TP-Link C465",
-    "brand": "Tapo",
-    "category": "camera",
-    "price": 27225,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/one-derfulshop/cabinet/n20260910073730/b0fsd2dv8q-1.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uubvk.216wo688.g00uubvk.216wpb20/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fone-derfulshop%2Fs-b0fsd2dv8q-20260910%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fone-derfulshop%2Fi%2F10066759%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uubvk.216wo688.g00uubvk.216wpb20/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fone-derfulshop%2Fs-b0fsd2dv8q-20260910%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fone-derfulshop%2Fi%2F10066759%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "OnederfulShop",
-    "shopCode": "one-derfulshop",
-    "discoveredAt": "2026-10-03T22:06:25.921Z",
-    "lastSeenAt": "2026-10-03T22:06:25.921Z"
-  },
-  {
     "id": "rakuten-ewfraw5pa3v5dxrha2e6mtaxmjc0mdg",
     "source": "discovered",
     "publicationRoute": "new",
@@ -566,6 +604,25 @@
     "reviewCount": 0,
     "shopName": "VlookupStore 楽天市場店",
     "shopCode": "vlookupstore",
+    "discoveredAt": "2026-10-02T22:56:03.932Z",
+    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+  },
+  {
+    "id": "rakuten-ywxslwtpbxvyyxlhlwppbwjvy2hvojewmtg5",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "all-kimuraya-jimbocho:10189633",
+    "name": "パナソニック KX-HJS100-W ホームネットワークシステム 「スマ@ホーム システム」 開閉センサー ホワイト KXHJS100",
+    "brand": "Panasonic",
+    "category": "sensor",
+    "price": 3830,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/all-kimuraya-jimbocho/cabinet/a07000073/478090015.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qxpnk.216wo1c1.g00qxpnk.216wpe32/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fall-kimuraya-jimbocho%2F478090015%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fall-kimuraya-jimbocho%2Fi%2F10189633%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00qxpnk.216wo1c1.g00qxpnk.216wpe32/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fall-kimuraya-jimbocho%2F478090015%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fall-kimuraya-jimbocho%2Fi%2F10189633%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "キムラヤ楽天市場店",
+    "shopCode": "all-kimuraya-jimbocho",
     "discoveredAt": "2026-10-02T22:56:03.932Z",
     "lastSeenAt": "2026-10-02T22:56:03.932Z"
   },
@@ -1862,25 +1919,6 @@
     "lastSeenAt": "2026-09-23T22:13:21.767Z"
   },
   {
-    "id": "rakuten-bgfzyw50ys1szwfzztoxmda3ndizma",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "lasanta-lease:10074230",
-    "name": "【マラソン最大46倍】パナソニック 開閉センサー KX-HJS100-W",
-    "brand": "Panasonic",
-    "category": "sensor",
-    "price": 2963,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/lasanta-lease/cabinet/onesell250/sll572d638a2e.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tz09k.216wo26c.g00tz09k.216wp204/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flasanta-lease%2Fsll572d638a2e%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flasanta-lease%2Fi%2F10074230%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tz09k.216wo26c.g00tz09k.216wp204/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Flasanta-lease%2Fsll572d638a2e%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Flasanta-lease%2Fi%2F10074230%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "ラサンタ",
-    "shopCode": "lasanta-lease",
-    "discoveredAt": "2026-09-22T22:00:03.779Z",
-    "lastSeenAt": "2026-09-22T22:00:03.779Z"
-  },
-  {
     "id": "rakuten-d2hpdgv3aw5nczoxmtexntg2mg",
     "source": "discovered",
     "publicationRoute": "new",
@@ -1973,7 +2011,7 @@
     "shopName": "Joshin web 家電とPCの大型専門店",
     "shopCode": "jism",
     "discoveredAt": "2026-08-31T23:11:03.066Z",
-    "lastSeenAt": "2026-10-02T22:56:03.932Z"
+    "lastSeenAt": "2026-10-06T22:58:23.368Z"
   },
   {
     "id": "rakuten-zgvuaxrzag9wlxi6mtawmdk5nti",
@@ -1983,7 +2021,7 @@
     "name": "TP-Link tapo 屋外カメラ WiFi ネットワークカメラ 無線/有線接続 みまもりカメラ 防犯カメラ 屋内/屋外 パン/チルト対応 スマホ アプリ 動体/人物/車両検知 2K QHD スターライト IP66 防水防塵 音声通話 Tapo C52",
     "brand": "Tapo",
     "category": "camera",
-    "price": 12356,
+    "price": 12199,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/denitshop-r/cabinet/13379497/b0ccv51f5r_main_ps.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utszk.216wo8b5.g00utszk.216wp290/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenitshop-r%2F4895252504279%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenitshop-r%2Fi%2F10009952%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utszk.216wo8b5.g00utszk.216wp290/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fdenitshop-r%2F4895252504279%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fdenitshop-r%2Fi%2F10009952%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -1992,7 +2030,7 @@
     "shopName": "denit_shop楽天市場店",
     "shopCode": "denitshop-r",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-03T22:06:25.921Z"
+    "lastSeenAt": "2026-10-06T22:58:23.368Z"
   },
   {
     "id": "rakuten-yxj1ojewmdewmdq1",
@@ -2049,7 +2087,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-10-06T00:45:00.958Z"
+    "lastSeenAt": "2026-10-06T22:58:23.368Z"
   },
   {
     "id": "rakuten-a2f6yw1pzg9yatoxmdaymtu3mq",
@@ -2087,6 +2125,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-06T00:45:00.958Z"
+    "lastSeenAt": "2026-10-06T22:58:23.368Z"
   }
 ]

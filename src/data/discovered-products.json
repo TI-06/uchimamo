@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-08T23:43:30.172Z"
+    "lastSeenAt": "2026-10-09T23:10:18.296Z"
   },
   {
     "id": "rakuten-zg91zgfizxnhojewmda1mte2",
@@ -245,6 +245,25 @@
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
     "lastSeenAt": "2026-10-04T22:18:20.221Z"
+  },
+  {
+    "id": "rakuten-zgrzag9wojewmdazodux",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ddshop:10003851",
+    "name": "ムサシ 4.5W×2灯乾電池式シンプルスタイルセンサーライト LED-CY260",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 3220,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/1/4954849990090.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990090%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10003851%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990090%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10003851%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "でんでんショッピング 楽天市場店",
+    "shopCode": "ddshop",
+    "discoveredAt": "2026-10-09T23:10:18.296Z",
+    "lastSeenAt": "2026-10-09T23:10:18.296Z"
   },
   {
     "id": "rakuten-yw5zaglulwhpcm9iytoxmdawmtcxoa",
@@ -805,7 +824,7 @@
     "name": "TP-Link WiFi ネットワークカメラ みまもりカメラ 屋外カメラ 防犯カメラ パン/チルト対応 スマホ アプリ 1080p FullHD IP65 防水 防塵 音声通話 メーカー保証1年 Tapo C500",
     "brand": "Tapo",
     "category": "camera",
-    "price": 9506,
+    "price": 9598,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/cosmetque/cabinet/13889731/b0bqjvkvqr_main.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00usufk.216wo8de.g00usufk.216wp560/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmetque%2F4897098685860%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcosmetque%2Fi%2F10001172%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00usufk.216wo8de.g00usufk.216wp560/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fcosmetque%2F4897098685860%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fcosmetque%2Fi%2F10001172%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -814,7 +833,7 @@
     "shopName": "PRIME BOX 楽天市場店",
     "shopCode": "cosmetque",
     "discoveredAt": "2026-10-02T22:56:03.932Z",
-    "lastSeenAt": "2026-10-06T00:45:00.958Z"
+    "lastSeenAt": "2026-10-09T23:10:18.296Z"
   },
   {
     "id": "rakuten-chbwlxnob3a6mtawmja4otu",
@@ -1593,7 +1612,7 @@
     "shopName": "でんでんショッピング 楽天市場店",
     "shopCode": "ddshop",
     "discoveredAt": "2026-09-29T22:55:47.360Z",
-    "lastSeenAt": "2026-09-29T22:55:47.360Z"
+    "lastSeenAt": "2026-10-09T23:10:18.296Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdazodq3",
@@ -1862,82 +1881,6 @@
     "lastSeenAt": "2026-09-26T21:56:32.314Z"
   },
   {
-    "id": "rakuten-ewfraw5pa3v5dxrha2e6mtaxmty2otg",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "yakinikuyutaka:10116698",
-    "name": "Anker Eufy(ユーフィ)SoloCam E30(屋外用防犯カメラ)【ソーラー充電 / 360°撮影可能 / 300万画素 / 2K画質 / 防犯対策/ワイヤレス対応/連続給電可能/バッテリー搭載 / 2.4 GHz Wi-Fi / IP65 防塵",
-    "brand": "Eufy",
-    "category": "camera",
-    "price": 17955,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/yakinikuyutaka/cabinet/13914824/y0dzhsyzrv-1.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uvbwk.216wo0b4.g00uvbwk.216wpc3f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyakinikuyutaka%2Fy0dzhsyzrv%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyakinikuyutaka%2Fi%2F10116698%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uvbwk.216wo0b4.g00uvbwk.216wpc3f/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fyakinikuyutaka%2Fy0dzhsyzrv%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fyakinikuyutaka%2Fi%2F10116698%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "yutaca 楽天市場店",
-    "shopCode": "yakinikuyutaka",
-    "discoveredAt": "2026-09-25T22:13:43.384Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
-  },
-  {
-    "id": "rakuten-agfpa2fuc2hvcdoxnta5mzk3oa",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "haikanshop:15093978",
-    "name": "ELPA LEDセンサーライト 使用電球8×2W ( ESL-SS802AC )",
-    "brand": "ELPA",
-    "category": "light",
-    "price": 9225,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/haikanshop/cabinet/trusco/main2/305/1479325.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rqrlk.216wo284.g00rqrlk.216wpeed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhaikanshop%2F1479325%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhaikanshop%2Fi%2F15093978%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rqrlk.216wo284.g00rqrlk.216wpeed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhaikanshop%2F1479325%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhaikanshop%2Fi%2F15093978%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "配管材料プロ トキワ",
-    "shopCode": "haikanshop",
-    "discoveredAt": "2026-09-25T22:13:43.384Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
-  },
-  {
-    "id": "rakuten-agfpa2fuc2hvcdoxmjg5mdezmq",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "haikanshop:12890131",
-    "name": "IRIS ( アイリスオーヤマ ) 522497 AC式LED防犯センサーライト ( LSL-ACTN-1200 )",
-    "brand": "アイリスオーヤマ",
-    "category": "light",
-    "price": 6908,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/haikanshop/cabinet/trusco/main/204/2071600.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rqrlk.216wo284.g00rqrlk.216wpeed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhaikanshop%2F2071600%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhaikanshop%2Fi%2F12890131%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rqrlk.216wo284.g00rqrlk.216wpeed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhaikanshop%2F2071600%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhaikanshop%2Fi%2F12890131%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "配管材料プロ トキワ",
-    "shopCode": "haikanshop",
-    "discoveredAt": "2026-09-24T22:16:12.737Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
-  },
-  {
-    "id": "rakuten-agfpa2fuc2hvcdoxmjg4mjuwma",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "haikanshop:12882500",
-    "name": "IRIS ( アイリスオーヤマ ) 522498 AC式LED防犯センサーライト ( LSL-ACTN-2400 )",
-    "brand": "アイリスオーヤマ",
-    "category": "light",
-    "price": 8620,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/haikanshop/cabinet/trusco/main/211/2063178.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rqrlk.216wo284.g00rqrlk.216wpeed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhaikanshop%2F2063178%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhaikanshop%2Fi%2F12882500%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rqrlk.216wo284.g00rqrlk.216wpeed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhaikanshop%2F2063178%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhaikanshop%2Fi%2F12882500%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "配管材料プロ トキワ",
-    "shopCode": "haikanshop",
-    "discoveredAt": "2026-09-24T22:16:12.737Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
-  },
-  {
     "id": "rakuten-zglvbwfyddoxmde0nty5oa",
     "source": "discovered",
     "publicationRoute": "new",
@@ -1955,25 +1898,6 @@
     "shopCode": "diomart",
     "discoveredAt": "2026-09-23T22:13:21.767Z",
     "lastSeenAt": "2026-09-30T22:57:39.268Z"
-  },
-  {
-    "id": "rakuten-zwxpbwlubzoxmde5njcxma",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "elimino:10196710",
-    "name": "キャンディハウス(Candy House) セサミタッチ2Pro スマートロック 後付け 暗証番号 指紋認証パッド ICカード",
-    "brand": "SESAME",
-    "category": "smart-lock",
-    "price": 7730,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/elimino/cabinet/rakutentool4pic/systempic280/b0c232gl4q-00.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ujdmk.216wo4ad.g00ujdmk.216wp181/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Felimino%2F8i0c232gl4q%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Felimino%2Fi%2F10196710%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00ujdmk.216wo4ad.g00ujdmk.216wp181/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Felimino%2F8i0c232gl4q%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Felimino%2Fi%2F10196710%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "eli-mino ゆらぎ薬局",
-    "shopCode": "elimino",
-    "discoveredAt": "2026-09-23T22:13:21.767Z",
-    "lastSeenAt": "2026-09-25T22:13:43.384Z"
   },
   {
     "id": "rakuten-d2hpdgv3aw5nczoxmtexntg2mg",
@@ -2049,7 +1973,7 @@
     "shopName": "Joshin web 家電とPCの大型専門店",
     "shopCode": "jism",
     "discoveredAt": "2026-08-31T23:11:03.066Z",
-    "lastSeenAt": "2026-10-06T22:58:23.368Z"
+    "lastSeenAt": "2026-10-09T23:10:18.296Z"
   },
   {
     "id": "rakuten-zgvuaxrzag9wlxi6mtawmdk5nti",
@@ -2125,7 +2049,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-10-08T23:43:30.172Z"
+    "lastSeenAt": "2026-10-09T23:10:18.296Z"
   },
   {
     "id": "rakuten-a2f6yw1pzg9yatoxmdaymtu3mq",
@@ -2163,6 +2087,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-08T23:43:30.172Z"
+    "lastSeenAt": "2026-10-09T23:10:18.296Z"
   }
 ]

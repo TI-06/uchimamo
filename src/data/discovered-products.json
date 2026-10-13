@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-13T01:15:45.697Z"
+    "lastSeenAt": "2026-10-13T23:15:23.925Z"
   },
   {
     "id": "rakuten-zg91zgfizxnhojewmda1mte2",
@@ -226,6 +226,25 @@
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
     "lastSeenAt": "2026-10-04T22:18:20.221Z"
+  },
+  {
+    "id": "rakuten-ci1zdhlszs1yytoxmda2nta1ng",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "r-style-ra:10065056",
+    "name": "TP-Link ONVIF VIGI セキュリティカメラ 3MP屋外用 バレ ット型 ネットワーク カメラ 防犯カメラ IPカメラ VIGI C330I(4mm)",
+    "brand": "Tapo",
+    "category": "camera",
+    "price": 13331,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/r-style-ra/cabinet/r_2023100135/20260903200817_67_1.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tf5pk.216wod12.g00tf5pk.216wp218/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-style-ra%2F20260903200817_67%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-style-ra%2Fi%2F10065056%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tf5pk.216wod12.g00tf5pk.216wp218/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fr-style-ra%2F20260903200817_67%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fr-style-ra%2Fi%2F10065056%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "セレクトショップ RST",
+    "shopCode": "r-style-ra",
+    "discoveredAt": "2026-10-13T23:15:23.925Z",
+    "lastSeenAt": "2026-10-13T23:15:23.925Z"
   },
   {
     "id": "rakuten-zgvuy2hpewetymvra2fuojewmjyxnzmy",
@@ -1748,25 +1767,6 @@
     "lastSeenAt": "2026-10-09T23:10:18.296Z"
   },
   {
-    "id": "rakuten-zgrzag9wojewmdazodq3",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "ddshop:10003847",
-    "name": "ムサシ てのりまんまるセンサーライト グレイッシュブルー WSL-001GB",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 1964,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/1/4954849990045.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990045%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10003847%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990045%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10003847%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "でんでんショッピング 楽天市場店",
-    "shopCode": "ddshop",
-    "discoveredAt": "2026-09-29T22:55:47.360Z",
-    "lastSeenAt": "2026-09-29T22:55:47.360Z"
-  },
-  {
     "id": "rakuten-zglvbwfyddoxmde0nty5oa",
     "source": "discovered",
     "publicationRoute": "new",
@@ -1850,7 +1850,7 @@
     "name": "Amazon 屋外向け防犯カメラ(ホワイト) B0D4RM82BN Ring Outdoor Cam Plus Battery [B0D4RM82BN]",
     "brand": "Ring",
     "category": "camera",
-    "price": 12980,
+    "price": 7513,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0054/0840414633100.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F0840414633100-21-49845-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14729386%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00pukwk.216wo811.g00pukwk.216wp462/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjism%2F0840414633100-21-49845-n%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjism%2Fi%2F14729386%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -1859,7 +1859,7 @@
     "shopName": "Joshin web 家電とPCの大型専門店",
     "shopCode": "jism",
     "discoveredAt": "2026-08-31T23:11:03.066Z",
-    "lastSeenAt": "2026-10-11T22:48:03.914Z"
+    "lastSeenAt": "2026-10-13T23:15:23.925Z"
   },
   {
     "id": "rakuten-zgvuaxrzag9wlxi6mtawmdk5nti",
@@ -1973,7 +1973,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-10-13T01:15:45.697Z"
+    "lastSeenAt": "2026-10-13T23:15:23.925Z"
   },
   {
     "id": "rakuten-a2f6yw1pzg9yatoxmdaymtu3mq",
@@ -2011,6 +2011,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-13T01:15:45.697Z"
+    "lastSeenAt": "2026-10-13T23:15:23.925Z"
   }
 ]

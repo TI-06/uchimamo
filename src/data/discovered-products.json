@@ -7,7 +7,7 @@
     "name": "Panasonic|パナソニック ホームネットワークシステム 「スマ@ホーム システム」 開閉センサー (2台) ホワイト KX-HJS100W-W[KXHJS100WW]",
     "brand": "Panasonic",
     "category": "sensor",
-    "price": 7280,
+    "price": 4378,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/biccamera/cabinet/product/1673/00000003176563_a01.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4549077476531%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F11021532%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00r7ldk.216wo1c9.g00r7ldk.216wp506/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbiccamera%2F4549077476531%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fbiccamera%2Fi%2F11021532%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-28T23:07:47.541Z"
+    "lastSeenAt": "2026-10-29T23:13:55.847Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdawmzg1",
@@ -244,7 +244,45 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-28T23:07:47.541Z"
+    "lastSeenAt": "2026-10-29T23:13:55.847Z"
+  },
+  {
+    "id": "rakuten-zmvzdgfybdoxmdawnte1ma",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "festarl:10005150",
+    "name": "エルパ (ELPA) ワイヤレスチャイムドア開閉センサーセット 介護 オフィス 店舗 無線 配線不要 防犯 開閉検知 防犯転用 EWS-S503",
+    "brand": "ELPA",
+    "category": "sensor",
+    "price": 6463,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/festarl/cabinet/onesell011/zpgcf2956bb03_0.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utfzk.216wo125.g00utfzk.216wpe77/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffestarl%2Fzpgcf2956bb03%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffestarl%2Fi%2F10005150%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00utfzk.216wo125.g00utfzk.216wpe77/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ffestarl%2Fzpgcf2956bb03%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ffestarl%2Fi%2F10005150%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "フェスタール",
+    "shopCode": "festarl",
+    "discoveredAt": "2026-10-29T23:13:55.847Z",
+    "lastSeenAt": "2026-10-29T23:13:55.847Z"
+  },
+  {
+    "id": "rakuten-a3nkzw5ratoxmduynzk2mq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "ksdenki:10527961",
+    "name": "Panasonic(パナソニック) ホームネットワーク用開閉センサー KX-HJS100-W ホワイト",
+    "brand": "Panasonic",
+    "category": "sensor",
+    "price": 2508,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ksdenki/cabinet/images/n0000000005/4549077476524_1.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tit6k.216wo36b.g00tit6k.216wp097/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4549077476524%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10527961%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tit6k.216wo36b.g00tit6k.216wp097/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fksdenki%2F4549077476524%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fksdenki%2Fi%2F10527961%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "ケーズデンキ 楽天市場店",
+    "shopCode": "ksdenki",
+    "discoveredAt": "2026-10-29T23:13:55.847Z",
+    "lastSeenAt": "2026-10-29T23:13:55.847Z"
   },
   {
     "id": "rakuten-ewftywtpc2hpojewmjmwnjc5",
@@ -745,7 +783,7 @@
     "source": "discovered",
     "publicationRoute": "new",
     "itemCode": "aru:10010279",
-    "name": "【最強配送】スマートロック Aqara J200 Apple Home Key対応 指紋認証 0.1秒 暗証番号 ICカード オートロック 後付け 工事不要 玄関 鍵 電子錠 充電式 Matter over Thread iPhone AppleWatch対応 スマートホーム 防犯 アカラ RL-D01D【RSL】",
+    "name": "【最大P8倍/最強配送】スマートロック Aqara J200 Apple Home Key対応 指紋認証 0.1秒 暗証番号 ICカード オートロック 後付け 工事不要 玄関 鍵 電子錠 充電式 Matter over Thread iPhone AppleWatch対応 スマートホーム 防犯 アカラ RL-D01D【RSL】",
     "brand": "Aqara",
     "category": "smart-lock",
     "price": 17280,
@@ -757,7 +795,7 @@
     "shopName": "防犯カメラ専門店 アルコム",
     "shopCode": "aru",
     "discoveredAt": "2026-10-13T01:15:45.697Z",
-    "lastSeenAt": "2026-10-27T22:54:56.657Z"
+    "lastSeenAt": "2026-10-29T23:13:55.847Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmda5oty1",
@@ -833,64 +871,7 @@
     "shopName": "Joshin web 家電とPCの大型専門店",
     "shopCode": "jism",
     "discoveredAt": "2026-08-31T23:11:03.066Z",
-    "lastSeenAt": "2026-10-28T23:07:47.541Z"
-  },
-  {
-    "id": "rakuten-dhbsaw5rzglyzwn0ojewmdaxnjq0",
-    "source": "discovered",
-    "publicationRoute": "popular",
-    "itemCode": "tplinkdirect:10001644",
-    "name": "Tapo 防犯カメラ 屋外対応 360°首振り 広角&遠視2眼レンズ パンチルト デュアルレンズ搭載 高画質 2MP 300万画素 ワイヤレス 有線接続対応 IP66防水防塵 フルカラーナイトビジョン 人物検知 Amazon Alexa/Google Assistant対応 Tapo C545D",
-    "brand": "Tapo",
-    "category": "camera",
-    "price": 13800,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/06321509/tapo-c545d.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0k.216wo07b.g00sbb0k.216wpc23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F8885020629293%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001644%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0k.216wo07b.g00sbb0k.216wpc23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F8885020629293%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001644%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 4.56,
-    "reviewCount": 86,
-    "shopName": "TP-Linkダイレクト 楽天市場店",
-    "shopCode": "tplinkdirect",
-    "discoveredAt": "2026-09-15T22:07:53.618Z",
-    "lastSeenAt": "2026-10-15T22:09:44.576Z"
-  },
-  {
-    "id": "rakuten-dhbsaw5rzglyzwn0ojewmdaxnjqy",
-    "source": "discovered",
-    "publicationRoute": "popular",
-    "itemCode": "tplinkdirect:10001642",
-    "name": "【1500ルーメン照明】Tapo 防犯カメラ 屋外対応 360°首振り センサーライト付き パンチルトカメラ 高画質 2K 300万画素 フルワイヤレス IP65防水防塵 フルカラーナイトビジョン スマート人物検知 Amazon Alexa/Google Assistant対応 Tapo C710",
-    "brand": "Tapo",
-    "category": "camera",
-    "price": 15800,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/06321509/tapo-c710.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0k.216wo07b.g00sbb0k.216wpc23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F1210002619004%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001642%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0k.216wo07b.g00sbb0k.216wpc23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F1210002619004%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001642%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 4.69,
-    "reviewCount": 58,
-    "shopName": "TP-Linkダイレクト 楽天市場店",
-    "shopCode": "tplinkdirect",
-    "discoveredAt": "2026-09-15T22:07:53.618Z",
-    "lastSeenAt": "2026-10-15T22:09:44.576Z"
-  },
-  {
-    "id": "rakuten-dhbsaw5rzglyzwn0ojewmdaxnjm1",
-    "source": "discovered",
-    "publicationRoute": "popular",
-    "itemCode": "tplinkdirect:10001635",
-    "name": "【穴あけ不要】Tapo マグネット 屋外 防犯カメラ小型 4K超高画質 800万画素 4K&ソーラーパネル1体型 電池式 見守りカメラ ペット フルワイヤレス IP65防水防塵 フルカラーナイトビジョン AI検知 スピーカー Amazon Alexa/Google Assistant対応 Tapo C465",
-    "brand": "Tapo",
-    "category": "camera",
-    "price": 19800,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/06321509/tapo-c465.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0k.216wo07b.g00sbb0k.216wpc23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F8885020629873%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001635%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0k.216wo07b.g00sbb0k.216wpc23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F8885020629873%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001635%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 4.6,
-    "reviewCount": 53,
-    "shopName": "TP-Linkダイレクト 楽天市場店",
-    "shopCode": "tplinkdirect",
-    "discoveredAt": "2026-09-15T22:07:53.618Z",
-    "lastSeenAt": "2026-10-15T22:09:44.576Z"
+    "lastSeenAt": "2026-10-29T23:13:55.847Z"
   },
   {
     "id": "rakuten-a2fnaxrvym91agfuojewmdawmdy3",
@@ -909,7 +890,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-10-28T23:07:47.541Z"
+    "lastSeenAt": "2026-10-29T23:13:55.847Z"
   },
   {
     "id": "rakuten-a2fnaxrvym91agfuojewmdawmdy4",
@@ -966,6 +947,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-28T23:07:47.541Z"
+    "lastSeenAt": "2026-10-29T23:13:55.847Z"
   }
 ]

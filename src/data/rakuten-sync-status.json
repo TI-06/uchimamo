@@ -1,16 +1,26 @@
 {
   "ok": true,
-  "checkedAt": "2026-10-29T22:52:22.946Z",
+  "checkedAt": "2026-10-30T22:30:02.245Z",
   "endpointVersion": "2026-07-01",
   "enabledCount": 30,
-  "successCount": 26,
-  "skippedCount": 4,
+  "successCount": 25,
+  "skippedCount": 5,
   "failureCount": 0,
   "needsReview": [
     {
       "productId": "outdoor-lte-camera",
       "reason": "fixed-item-not-found",
       "expectedItemCode": "shop-amanotori:10030960"
+    },
+    {
+      "productId": "sesame-6-pro",
+      "reason": "fixed-item-not-found",
+      "expectedItemCode": "candyhouse:10000006",
+      "modelTokens": [
+        "SESAME",
+        "6",
+        "Pro"
+      ]
     },
     {
       "productId": "aqara-smart-lock-u200",
@@ -39,6 +49,7 @@
   ],
   "skipped": [
     "outdoor-lte-camera",
+    "sesame-6-pro",
     "aqara-smart-lock-u200",
     "aqara-door-window-p2",
     "aqara-presence-fp2"
@@ -48,6 +59,17 @@
       "productId": "outdoor-lte-camera",
       "keyword": "ANRAN 防犯カメラ 4G LTE ソーラー",
       "expectedItemCode": "shop-amanotori:10030960",
+      "candidates": []
+    },
+    {
+      "productId": "sesame-6-pro",
+      "keyword": "SESAME 6 Pro スマートロック",
+      "expectedItemCode": "candyhouse:10000006",
+      "modelTokens": [
+        "SESAME",
+        "6",
+        "Pro"
+      ],
       "candidates": []
     },
     {

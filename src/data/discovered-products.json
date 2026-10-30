@@ -244,7 +244,7 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-29T23:13:55.847Z"
+    "lastSeenAt": "2026-10-30T22:55:35.032Z"
   },
   {
     "id": "rakuten-zmvzdgfybdoxmdawnte1ma",
@@ -783,7 +783,7 @@
     "source": "discovered",
     "publicationRoute": "new",
     "itemCode": "aru:10010279",
-    "name": "【最大P8倍/最強配送】スマートロック Aqara J200 Apple Home Key対応 指紋認証 0.1秒 暗証番号 ICカード オートロック 後付け 工事不要 玄関 鍵 電子錠 充電式 Matter over Thread iPhone AppleWatch対応 スマートホーム 防犯 アカラ RL-D01D【RSL】",
+    "name": "【最強配送】スマートロック Aqara J200 Apple Home Key対応 指紋認証 0.1秒 暗証番号 ICカード オートロック 後付け 工事不要 玄関 鍵 電子錠 充電式 Matter over Thread iPhone AppleWatch対応 スマートホーム 防犯 アカラ RL-D01D【RSL】",
     "brand": "Aqara",
     "category": "smart-lock",
     "price": 17280,
@@ -795,7 +795,7 @@
     "shopName": "防犯カメラ専門店 アルコム",
     "shopCode": "aru",
     "discoveredAt": "2026-10-13T01:15:45.697Z",
-    "lastSeenAt": "2026-10-29T23:13:55.847Z"
+    "lastSeenAt": "2026-10-30T22:55:35.032Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmda5oty1",
@@ -871,7 +871,7 @@
     "shopName": "Joshin web 家電とPCの大型専門店",
     "shopCode": "jism",
     "discoveredAt": "2026-08-31T23:11:03.066Z",
-    "lastSeenAt": "2026-10-29T23:13:55.847Z"
+    "lastSeenAt": "2026-10-30T22:55:35.032Z"
   },
   {
     "id": "rakuten-a2fnaxrvym91agfuojewmdawmdy3",
@@ -890,7 +890,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-10-29T23:13:55.847Z"
+    "lastSeenAt": "2026-10-30T22:55:35.032Z"
   },
   {
     "id": "rakuten-a2fnaxrvym91agfuojewmdawmdy4",
@@ -938,7 +938,7 @@
     "name": "SwitchBot スマートロック 玄関ドア スマートリモコン オートロック 後付け ブラック # W1601700-GH スイッチボット 本体 単品 スマホから開閉 工事不要 遠隔操作 解錠 施錠 音声操作 通知 開閉記録 防犯 アレクサ対応",
     "brand": "SwitchBot",
     "category": "smart-lock",
-    "price": 9980,
+    "price": 10180,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/kitcut-ps/cabinet/item/152/p-271051.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rwh8k.216wod18.g00rwh8k.216wp708/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2F517046%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkitcut-ps%2Fi%2F10130739%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rwh8k.216wod18.g00rwh8k.216wp708/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkitcut-ps%2F517046%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkitcut-ps%2Fi%2F10130739%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -947,6 +947,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-29T23:13:55.847Z"
+    "lastSeenAt": "2026-10-30T22:55:35.032Z"
   }
 ]

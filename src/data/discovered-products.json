@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-10-29T23:13:55.847Z"
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdawmzg1",
@@ -112,25 +112,6 @@
     "shopCode": "ddshop",
     "discoveredAt": "2026-10-25T21:40:25.306Z",
     "lastSeenAt": "2026-10-25T21:40:25.306Z"
-  },
-  {
-    "id": "rakuten-zgrzag9wojewmda2mzyy",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "ddshop:10006362",
-    "name": "【最短翌日配送】 ムサシ 12.5W×4灯スライド型 屋内・屋外用 LEDセンサーライト LED-AC4000 ライト センサー 感知 LED 常時 簡単 取り付け 警戒灯 防犯 防犯対策 空き巣対策 玄関 車庫 駐車場 倉庫 物置 庭 お店 事務所 会社 最強配送",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 9330,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/4954849540059-ra.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540059%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10006362%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540059%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10006362%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 2.5,
-    "reviewCount": 2,
-    "shopName": "でんでんショッピング 楽天市場店",
-    "shopCode": "ddshop",
-    "discoveredAt": "2026-10-22T22:14:58.609Z",
-    "lastSeenAt": "2026-10-22T22:14:58.609Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdawnda1",
@@ -245,6 +226,101 @@
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
     "lastSeenAt": "2026-11-05T00:18:06.475Z"
+  },
+  {
+    "id": "rakuten-a29uyw5vbmxpbmu6mta0mtuxnzu",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "konanonline:10415175",
+    "name": "Aqara 防犯カメラ G5 Pro PoE 屋外屋内兼用 4MP フルカラーナイトビジョン 玄関 見守りカメラ 監視カメラ スマート Matter ハブ 133°超広角 AI検知 音声検知 スポットライト セキュリティ保護 IP65 防水防塵 耐候性 配",
+    "brand": "Aqara",
+    "category": "camera",
+    "price": 31142,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/konanonline/cabinet/root_sniper_folder/sniper_folder_00098/imgrc0373408677.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uisuk.216wo1fe.g00uisuk.216wp41c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkonanonline%2Fsnpr-0dpx7gczm%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkonanonline%2Fi%2F10415175%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uisuk.216wo1fe.g00uisuk.216wp41c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkonanonline%2Fsnpr-0dpx7gczm%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkonanonline%2Fi%2F10415175%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "湖南オンライン",
+    "shopCode": "konanonline",
+    "discoveredAt": "2026-11-06T00:06:47.141Z",
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
+  },
+  {
+    "id": "rakuten-yxnhaglwcm9jdxjlywnloje1ntq1mzi2",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "asahiprocureace:15545326",
+    "name": "ノムラテック サッシ用簡易補助錠 お知らせ窓付き ワンタッチロック小1P ブラック N-1166 1パック ▼718-6358",
+    "brand": "ノムラテック",
+    "category": "window-lock",
+    "price": 629,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/asahiprocureace/cabinet/2026_trusco/fd19/0004/718-6358.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00riavk.216wo027.g00riavk.216wp076/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fasahiprocureace%2F718-6358%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fasahiprocureace%2Fi%2F15545326%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00riavk.216wo027.g00riavk.216wp076/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fasahiprocureace%2F718-6358%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fasahiprocureace%2Fi%2F15545326%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "プロキュアエース",
+    "shopCode": "asahiprocureace",
+    "discoveredAt": "2026-11-06T00:06:47.141Z",
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
+  },
+  {
+    "id": "rakuten-z2xvymfsy29sbgvjdglvbjoxmdawnza0na",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "globalcollection:10007044",
+    "name": "ムサシ(MUSASHI) センサーライト用サッシ・薄板用ベース 防犯 取付キット 屋外 取り付け簡単『対応サイズ 幅10mm』 SP-13",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 2179,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/globalcollection/cabinet/13626973/b0cjx9ffr7_00.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uvugk.216wod63.g00uvugk.216wp80e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fglobalcollection%2Famz-b0cjx9ffr7-u4%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fglobalcollection%2Fi%2F10007044%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uvugk.216wod63.g00uvugk.216wp80e/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fglobalcollection%2Famz-b0cjx9ffr7-u4%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fglobalcollection%2Fi%2F10007044%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "Global Collection楽天市場店",
+    "shopCode": "globalcollection",
+    "discoveredAt": "2026-11-06T00:06:47.141Z",
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
+  },
+  {
+    "id": "rakuten-bxjvlxrvbnrvbjoxmdexnzk0nq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "mro-tonton:10117945",
+    "name": "ELPA LEDセンサーライト 使用電球20W ESL-W2001AC",
+    "brand": "ELPA",
+    "category": "light",
+    "price": 17182,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/mro-tonton/cabinet/trusco2025/za/108/to0628189934_000.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9zdk.216wo5ac.g00u9zdk.216wp254/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmro-tonton%2Fto0628189934%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmro-tonton%2Fi%2F10117945%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9zdk.216wo5ac.g00u9zdk.216wp254/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmro-tonton%2Fto0628189934%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmro-tonton%2Fi%2F10117945%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "TONTON楽天市場店",
+    "shopCode": "mro-tonton",
+    "discoveredAt": "2026-11-06T00:06:47.141Z",
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
+  },
+  {
+    "id": "rakuten-bxjvlxrvbnrvbjoxmdexnzk2nq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "mro-tonton:10117965",
+    "name": "ELPA LEDセンサーライト 使用電球28W ESL-W2801AC",
+    "brand": "ELPA",
+    "category": "light",
+    "price": 21120,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/mro-tonton/cabinet/trusco2025/za/108/to0628189935_000.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9zdk.216wo5ac.g00u9zdk.216wp254/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmro-tonton%2Fto0628189935%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmro-tonton%2Fi%2F10117965%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00u9zdk.216wo5ac.g00u9zdk.216wp254/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmro-tonton%2Fto0628189935%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmro-tonton%2Fi%2F10117965%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "TONTON楽天市場店",
+    "shopCode": "mro-tonton",
+    "discoveredAt": "2026-11-06T00:06:47.141Z",
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-dm9py2utntuzodoxmda0mtu2oa",
@@ -437,25 +513,6 @@
     "lastSeenAt": "2026-11-03T23:56:39.491Z"
   },
   {
-    "id": "rakuten-yxnhaglwcm9jdxjlywnloje1ntq1mzi4",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "asahiprocureace:15545328",
-    "name": "ノムラテック サッシ用簡易補助錠 お知らせ窓付き ワンタッチロック小1P ホワイト N-1167 1パック ▼718-6362",
-    "brand": "ノムラテック",
-    "category": "window-lock",
-    "price": 629,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/asahiprocureace/cabinet/2026_trusco/fd10/0001/718-6362.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00riavk.216wo027.g00riavk.216wp076/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fasahiprocureace%2F718-6362%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fasahiprocureace%2Fi%2F15545328%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00riavk.216wo027.g00riavk.216wp076/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fasahiprocureace%2F718-6362%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fasahiprocureace%2Fi%2F15545328%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "プロキュアエース",
-    "shopCode": "asahiprocureace",
-    "discoveredAt": "2026-11-03T23:56:39.491Z",
-    "lastSeenAt": "2026-11-03T23:56:39.491Z"
-  },
-  {
     "id": "rakuten-yxnhaglwcm9jdxjlywnloje1nzaynjiz",
     "source": "discovered",
     "publicationRoute": "new",
@@ -472,7 +529,7 @@
     "shopName": "プロキュアエース",
     "shopCode": "asahiprocureace",
     "discoveredAt": "2026-11-03T23:56:39.491Z",
-    "lastSeenAt": "2026-11-03T23:56:39.491Z"
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-c3vubnlub29rojewmjezmtmx",
@@ -779,25 +836,6 @@
     "lastSeenAt": "2026-10-25T21:40:25.306Z"
   },
   {
-    "id": "rakuten-agfpa2fuc2hvcdoxmjy2odm2mg",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "haikanshop:12668362",
-    "name": "RITEX ( ムサシ ) 7.5W 2灯 LEDセンサーライト ( LED-AC315 )",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 7253,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/haikanshop/cabinet/trusco/main/036/1610034.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rqrlk.216wo284.g00rqrlk.216wpeed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhaikanshop%2F1610034%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhaikanshop%2Fi%2F12668362%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00rqrlk.216wo284.g00rqrlk.216wpeed/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhaikanshop%2F1610034%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fhaikanshop%2Fi%2F12668362%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "配管材料プロ トキワ",
-    "shopCode": "haikanshop",
-    "discoveredAt": "2026-10-22T22:14:58.609Z",
-    "lastSeenAt": "2026-10-22T22:14:58.609Z"
-  },
-  {
     "id": "rakuten-y29zbwv0cxvlojewmdewmdc5",
     "source": "discovered",
     "publicationRoute": "new",
@@ -814,7 +852,7 @@
     "shopName": "PRIME BOX 楽天市場店",
     "shopCode": "cosmetque",
     "discoveredAt": "2026-10-21T22:16:37.835Z",
-    "lastSeenAt": "2026-11-05T00:18:06.475Z"
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-y29zbwv0cxvlojewmda5mzy1",
@@ -862,7 +900,7 @@
     "name": "エルパ(ELPA) ワイヤレスチャイムドア開閉センサー送信器 インターホン 工事不要 介護 無線 配線不要 防犯 開閉検知 EWS-P34",
     "brand": "ELPA",
     "category": "sensor",
-    "price": 3730,
+    "price": 3880,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/pharmacie-trema/cabinet/rakutenpic/systempic016/b07bkw3vfy-00.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uye4k.216wod28.g00uye4k.216wpd2d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpharmacie-trema%2Fmatsu07bkw3vfy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpharmacie-trema%2Fi%2F10019242%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uye4k.216wod28.g00uye4k.216wpd2d/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fpharmacie-trema%2Fmatsu07bkw3vfy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fpharmacie-trema%2Fi%2F10019242%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -871,14 +909,14 @@
     "shopName": "Pharmacie trema",
     "shopCode": "pharmacie-trema",
     "discoveredAt": "2026-10-16T22:01:34.130Z",
-    "lastSeenAt": "2026-10-28T23:07:47.541Z"
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-yxj1ojewmdewmjc5",
     "source": "discovered",
     "publicationRoute": "new",
     "itemCode": "aru:10010279",
-    "name": "【最大P8倍/最強配送】スマートロック Aqara J200 Apple Home Key対応 指紋認証 0.1秒 暗証番号 ICカード オートロック 後付け 工事不要 玄関 鍵 電子錠 充電式 Matter over Thread iPhone AppleWatch対応 スマートホーム 防犯 アカラ RL-D01D【RSL】",
+    "name": "【限定P5倍/最強配送】スマートロック Aqara J200 Apple Home Key対応 指紋認証 0.1秒 暗証番号 ICカード オートロック 後付け 工事不要 玄関 鍵 電子錠 充電式 Matter over Thread iPhone AppleWatch対応 スマートホーム 防犯 アカラ RL-D01D【RSL】",
     "brand": "Aqara",
     "category": "smart-lock",
     "price": 17280,
@@ -890,7 +928,7 @@
     "shopName": "防犯カメラ専門店 アルコム",
     "shopCode": "aru",
     "discoveredAt": "2026-10-13T01:15:45.697Z",
-    "lastSeenAt": "2026-11-05T00:18:06.475Z"
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmda5oty1",
@@ -966,7 +1004,7 @@
     "shopName": "CANDY HOUSE STORE",
     "shopCode": "candyhouse",
     "discoveredAt": "2026-08-22T19:30:30.378Z",
-    "lastSeenAt": "2026-11-05T00:18:06.475Z"
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-dhbsaw5rzglyzwn0ojewmdaxnjm1",
@@ -1004,7 +1042,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-11-05T00:18:06.475Z"
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdawmdg3",
@@ -1042,6 +1080,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-11-05T00:18:06.475Z"
+    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   }
 ]

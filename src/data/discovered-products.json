@@ -16,7 +16,7 @@
     "shopName": "楽天ビック(ビックカメラ×楽天)",
     "shopCode": "biccamera",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-11-07T22:39:50.479Z"
+    "lastSeenAt": "2026-11-08T22:47:57.420Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdawmzg1",
@@ -114,25 +114,6 @@
     "lastSeenAt": "2026-10-27T22:54:56.657Z"
   },
   {
-    "id": "rakuten-zgrzag9wojewmda1nju4",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "ddshop:10005658",
-    "name": "ムサシ RITEX ここにもそこにも まんまるセンサーライト モカベージュ WSL-003MB",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 2570,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/1/4954849990113.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990113%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10005658%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849990113%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10005658%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 5,
-    "reviewCount": 2,
-    "shopName": "でんでんショッピング 楽天市場店",
-    "shopCode": "ddshop",
-    "discoveredAt": "2026-10-25T21:40:25.306Z",
-    "lastSeenAt": "2026-10-25T21:40:25.306Z"
-  },
-  {
     "id": "rakuten-amlzbtoxndczmja0ma",
     "source": "discovered",
     "publicationRoute": "new",
@@ -168,7 +149,7 @@
     "shopName": "でんでんショッピング 楽天市場店",
     "shopCode": "ddshop",
     "discoveredAt": "2026-11-01T22:43:03.578Z",
-    "lastSeenAt": "2026-11-01T22:43:03.578Z"
+    "lastSeenAt": "2026-11-08T22:47:57.420Z"
   },
   {
     "id": "rakuten-dhv6dwtpewe6mti5nzmxodc",
@@ -266,6 +247,25 @@
     "lastSeenAt": "2026-11-05T00:18:06.475Z"
   },
   {
+    "id": "rakuten-a29uyw5vbmxpbmu6mtayote0nzq",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "konanonline:10291474",
+    "name": "Aqara 防犯カメラ G5 Pro Wi-Fi 屋外屋内兼用 4MP フルカラーナイトビジョン 玄関 見守り カメラ 監視カメラ スマート Matter ハブ 133°超広角 AI検知 音声検知 スポットライト セキュリティ保護 IP65 防水防塵 耐候",
+    "brand": "Aqara",
+    "category": "camera",
+    "price": 27612,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/konanonline/cabinet/root_sniper_folder/sniper_folder_00081/imgrc0334637433.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uisuk.216wo1fe.g00uisuk.216wp41c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkonanonline%2Fsnpr-0dpx6h1fy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkonanonline%2Fi%2F10291474%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uisuk.216wo1fe.g00uisuk.216wp41c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkonanonline%2Fsnpr-0dpx6h1fy%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkonanonline%2Fi%2F10291474%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "湖南オンライン",
+    "shopCode": "konanonline",
+    "discoveredAt": "2026-11-08T22:47:57.420Z",
+    "lastSeenAt": "2026-11-08T22:47:57.420Z"
+  },
+  {
     "id": "rakuten-ag91c2luzy1yzwzvcm1mywlyojewmdazmze4",
     "source": "discovered",
     "publicationRoute": "new",
@@ -340,25 +340,6 @@
     "shopCode": "jism",
     "discoveredAt": "2026-11-07T22:39:50.479Z",
     "lastSeenAt": "2026-11-07T22:39:50.479Z"
-  },
-  {
-    "id": "rakuten-a29uyw5vbmxpbmu6mta0mtuxnzu",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "konanonline:10415175",
-    "name": "Aqara 防犯カメラ G5 Pro PoE 屋外屋内兼用 4MP フルカラーナイトビジョン 玄関 見守りカメラ 監視カメラ スマート Matter ハブ 133°超広角 AI検知 音声検知 スポットライト セキュリティ保護 IP65 防水防塵 耐候性 配",
-    "brand": "Aqara",
-    "category": "camera",
-    "price": 31142,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/konanonline/cabinet/root_sniper_folder/sniper_folder_00098/imgrc0373408677.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uisuk.216wo1fe.g00uisuk.216wp41c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkonanonline%2Fsnpr-0dpx7gczm%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkonanonline%2Fi%2F10415175%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00uisuk.216wo1fe.g00uisuk.216wp41c/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkonanonline%2Fsnpr-0dpx7gczm%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fkonanonline%2Fi%2F10415175%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "湖南オンライン",
-    "shopCode": "konanonline",
-    "discoveredAt": "2026-11-06T00:06:47.141Z",
-    "lastSeenAt": "2026-11-06T00:06:47.141Z"
   },
   {
     "id": "rakuten-yxnhaglwcm9jdxjlywnloje1ntq1mzi2",
@@ -1004,7 +985,7 @@
     "shopName": "防犯カメラ専門店 アルコム",
     "shopCode": "aru",
     "discoveredAt": "2026-10-13T01:15:45.697Z",
-    "lastSeenAt": "2026-11-06T00:06:47.141Z"
+    "lastSeenAt": "2026-11-08T22:47:57.420Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmda5oty1",
@@ -1061,7 +1042,7 @@
     "shopName": "Joshin web 家電とPCの大型専門店",
     "shopCode": "jism",
     "discoveredAt": "2026-08-31T23:11:03.066Z",
-    "lastSeenAt": "2026-11-07T22:39:50.479Z"
+    "lastSeenAt": "2026-11-08T22:47:57.420Z"
   },
   {
     "id": "rakuten-y2fuzhlob3vzztoxmdawmdaxoq",
@@ -1080,7 +1061,7 @@
     "shopName": "CANDY HOUSE STORE",
     "shopCode": "candyhouse",
     "discoveredAt": "2026-08-22T19:30:30.378Z",
-    "lastSeenAt": "2026-11-07T22:39:50.479Z"
+    "lastSeenAt": "2026-11-08T22:47:57.420Z"
   },
   {
     "id": "rakuten-dhbsaw5rzglyzwn0ojewmdaxnjm1",
@@ -1118,7 +1099,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-11-07T22:39:50.479Z"
+    "lastSeenAt": "2026-11-08T22:47:57.420Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdawmdg3",
@@ -1156,6 +1137,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-11-07T22:39:50.479Z"
+    "lastSeenAt": "2026-11-08T22:47:57.420Z"
   }
 ]

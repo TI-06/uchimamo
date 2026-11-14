@@ -168,7 +168,26 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-11-05T00:18:06.475Z"
+    "lastSeenAt": "2026-11-14T22:56:02.626Z"
+  },
+  {
+    "id": "rakuten-bxvyyxvjagktzgvua2k6mtq5mdkyotq3",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "murauchi-denki:149092947",
+    "name": "musashi ムサシ RITEX/ライテックス 12W×3灯 フリーアーム式 LEDセンサーライト リモコン付 LED-AC3045",
+    "brand": "ムサシ",
+    "category": "light",
+    "price": 10298,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/murauchi-denki/cabinet/m2/00370/4954849533457.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q02sk.216wo411.g00q02sk.216wp785/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-denki%2F4954849533457%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-denki%2Fi%2F149092947%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00q02sk.216wo411.g00q02sk.216wp785/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmurauchi-denki%2F4954849533457%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmurauchi-denki%2Fi%2F149092947%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "ムラウチ",
+    "shopCode": "murauchi-denki",
+    "discoveredAt": "2026-11-14T22:56:02.626Z",
+    "lastSeenAt": "2026-11-14T22:56:02.626Z"
   },
   {
     "id": "rakuten-agfwchltyxnhewe6mtawmtmxmde",
@@ -893,25 +912,6 @@
     "lastSeenAt": "2026-11-01T22:43:03.578Z"
   },
   {
-    "id": "rakuten-b25lc21hcnq6mtaxndm2mde",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "onesmart:10143601",
-    "name": "パナソニック Panasonic VL-WD813K センサーライト付屋外ワイヤレスカメラ VLWD813K",
-    "brand": "Panasonic",
-    "category": "light",
-    "price": 30839,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/onesmart/cabinet/42/4549077703712.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00skfbk.216wo8f2.g00skfbk.216wpc83/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonesmart%2F4549077703712%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonesmart%2Fi%2F10143601%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00skfbk.216wo8f2.g00skfbk.216wpc83/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fonesmart%2F4549077703712%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fonesmart%2Fi%2F10143601%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "ワンズマート楽天市場店",
-    "shopCode": "onesmart",
-    "discoveredAt": "2026-10-31T22:24:52.254Z",
-    "lastSeenAt": "2026-10-31T22:24:52.254Z"
-  },
-  {
     "id": "rakuten-ag9tzwrlc2hvcdoxmda3nji4oq",
     "source": "discovered",
     "publicationRoute": "new",
@@ -1004,26 +1004,7 @@
     "shopName": "防犯カメラ専門店 アルコム",
     "shopCode": "aru",
     "discoveredAt": "2026-10-13T01:15:45.697Z",
-    "lastSeenAt": "2026-11-10T01:59:01.269Z"
-  },
-  {
-    "id": "rakuten-zgrzag9wojewmda5oty1",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "ddshop:10009965",
-    "name": "ムサシ センサーライト かげあかり06 白練(しろねり) KA-06SN",
-    "brand": "ムサシ",
-    "category": "light",
-    "price": 3230,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/ddshop/cabinet/19/4954849540752.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540752%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10009965%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tzu1k.216wof9b.g00tzu1k.216wp46b/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fddshop%2F4954849540752%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fddshop%2Fi%2F10009965%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "でんでんショッピング 楽天市場店",
-    "shopCode": "ddshop",
-    "discoveredAt": "2026-10-11T22:48:03.914Z",
-    "lastSeenAt": "2026-10-31T22:24:52.254Z"
+    "lastSeenAt": "2026-11-14T22:56:02.626Z"
   },
   {
     "id": "rakuten-bwfryw5hls06mta1otawmzq",
@@ -1033,7 +1014,7 @@
     "name": "Anker Eufy (ユーフィ) eufyCam C35 ブラック(屋外用防犯カメラ)【マグネットカメラ / 約200万画素 / フルHD/バッテリー搭載/固定式/屋外カメラ/セキュリティカメラ/監視カメラ】",
     "brand": "Eufy",
     "category": "camera",
-    "price": 10431,
+    "price": 12175,
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/makana--/cabinet/root_sniper_folder/sniper_folder_00070/imgrc0151228368.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tziwk.216wo444.g00tziwk.216wp930/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0fdk3k482%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10590034%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tziwk.216wo444.g00tziwk.216wp930/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fmakana--%2Fy2-0fdk3k482%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fmakana--%2Fi%2F10590034%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
@@ -1042,7 +1023,7 @@
     "shopName": "SelectSHOP 岐阜 楽天市場店",
     "shopCode": "makana--",
     "discoveredAt": "2026-10-07T23:32:58.385Z",
-    "lastSeenAt": "2026-11-03T23:56:39.491Z"
+    "lastSeenAt": "2026-11-14T22:56:02.626Z"
   },
   {
     "id": "rakuten-amlzbtoxndcyotm4ng",
@@ -1080,26 +1061,7 @@
     "shopName": "CANDY HOUSE STORE",
     "shopCode": "candyhouse",
     "discoveredAt": "2026-08-22T19:30:30.378Z",
-    "lastSeenAt": "2026-11-14T00:17:18.108Z"
-  },
-  {
-    "id": "rakuten-dhbsaw5rzglyzwn0ojewmdaxnjm1",
-    "source": "discovered",
-    "publicationRoute": "popular",
-    "itemCode": "tplinkdirect:10001635",
-    "name": "【穴あけ不要】Tapo マグネット 屋外 防犯カメラ小型 4K超高画質 800万画素 4K&ソーラーパネル1体型 電池式 見守りカメラ ペット フルワイヤレス IP65防水防塵 フルカラーナイトビジョン AI検知 スピーカー Amazon Alexa/Google Assistant対応 Tapo C465",
-    "brand": "Tapo",
-    "category": "camera",
-    "price": 19800,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/tplinkdirect/cabinet/06321509/tapo-c465.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0k.216wo07b.g00sbb0k.216wpc23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F8885020629873%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001635%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sbb0k.216wo07b.g00sbb0k.216wpc23/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Ftplinkdirect%2F8885020629873%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Ftplinkdirect%2Fi%2F10001635%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 4.61,
-    "reviewCount": 56,
-    "shopName": "TP-Linkダイレクト 楽天市場店",
-    "shopCode": "tplinkdirect",
-    "discoveredAt": "2026-09-15T22:07:53.618Z",
-    "lastSeenAt": "2026-10-31T22:24:52.254Z"
+    "lastSeenAt": "2026-11-14T22:56:02.626Z"
   },
   {
     "id": "rakuten-a2fnaxrvym91agfuojewmdawmdy3",
@@ -1118,7 +1080,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-11-14T00:17:18.108Z"
+    "lastSeenAt": "2026-11-14T22:56:02.626Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdawmdg3",
@@ -1156,6 +1118,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-11-14T00:17:18.108Z"
+    "lastSeenAt": "2026-11-14T22:56:02.626Z"
   }
 ]

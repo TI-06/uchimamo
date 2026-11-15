@@ -168,7 +168,7 @@
     "shopName": "ホームセンターバロー 楽天市場店",
     "shopCode": "hcvalor-eshop",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-11-14T22:56:02.626Z"
+    "lastSeenAt": "2026-11-15T23:21:27.397Z"
   },
   {
     "id": "rakuten-bxvyyxvjagktzgvua2k6mtq5mdkyotq3",
@@ -429,6 +429,44 @@
     "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/protoolshop/cabinet/017/4954849999017.jpg?_ex=128x128",
     "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tiz9k.216wo335.g00tiz9k.216wpfd4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fprotoolshop%2F4954849999017%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fprotoolshop%2Fi%2F10190998%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tiz9k.216wo335.g00tiz9k.216wpfd4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fprotoolshop%2F4954849999017%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fprotoolshop%2Fi%2F10190998%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "Pro Tool Shop",
+    "shopCode": "protoolshop",
+    "discoveredAt": "2026-11-10T01:59:01.269Z",
+    "lastSeenAt": "2026-11-10T01:59:01.269Z"
+  },
+  {
+    "id": "rakuten-chjvdg9vbhnob3a6mtaxnzu4ndi",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "protoolshop:10175842",
+    "name": "ELPAソーラー式センサーライト1灯ESL-N111SL",
+    "brand": "ELPA",
+    "category": "light",
+    "price": 5346,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/protoolshop/cabinet/581/4901087216581.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tiz9k.216wo335.g00tiz9k.216wpfd4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fprotoolshop%2F4901087216581%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fprotoolshop%2Fi%2F10175842%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tiz9k.216wo335.g00tiz9k.216wpfd4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fprotoolshop%2F4901087216581%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fprotoolshop%2Fi%2F10175842%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "reviewAverage": 0,
+    "reviewCount": 0,
+    "shopName": "Pro Tool Shop",
+    "shopCode": "protoolshop",
+    "discoveredAt": "2026-11-10T01:59:01.269Z",
+    "lastSeenAt": "2026-11-10T01:59:01.269Z"
+  },
+  {
+    "id": "rakuten-chjvdg9vbhnob3a6mtaxnzu4ndc",
+    "source": "discovered",
+    "publicationRoute": "new",
+    "itemCode": "protoolshop:10175847",
+    "name": "ELPAソーラー式センサーライト2灯ESL-N112SL",
+    "brand": "ELPA",
+    "category": "light",
+    "price": 6561,
+    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/protoolshop/cabinet/598/4901087216598.jpg?_ex=128x128",
+    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tiz9k.216wo335.g00tiz9k.216wpfd4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fprotoolshop%2F4901087216598%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fprotoolshop%2Fi%2F10175847%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
+    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00tiz9k.216wo335.g00tiz9k.216wpfd4/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fprotoolshop%2F4901087216598%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fprotoolshop%2Fi%2F10175847%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
     "reviewAverage": 0,
     "reviewCount": 0,
     "shopName": "Pro Tool Shop",
@@ -874,44 +912,6 @@
     "lastSeenAt": "2026-11-03T01:31:24.452Z"
   },
   {
-    "id": "rakuten-amfja2tuawzlojewmdy0ndgx",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "jackknife:10064481",
-    "name": "エルパ (ELPA) ソーラー式 センサーライト 2灯 (白色LED/防水仕様) お手軽サイズ/屋外 (ESL-N112SL)",
-    "brand": "ELPA",
-    "category": "light",
-    "price": 5822,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jackknife/cabinet/onesell066/aj473702c3efdd86_0.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sk0nk.216wo0a6.g00sk0nk.216wp2a1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjackknife%2Faj473702c3efdd86%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjackknife%2Fi%2F10064481%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sk0nk.216wo0a6.g00sk0nk.216wp2a1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjackknife%2Faj473702c3efdd86%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjackknife%2Fi%2F10064481%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "Mori Base",
-    "shopCode": "jackknife",
-    "discoveredAt": "2026-11-01T22:43:03.578Z",
-    "lastSeenAt": "2026-11-01T22:43:03.578Z"
-  },
-  {
-    "id": "rakuten-amfja2tuawzlojewmdy0ndc1",
-    "source": "discovered",
-    "publicationRoute": "new",
-    "itemCode": "jackknife:10064475",
-    "name": "エルパ (ELPA) ソーラー式 センサーライト 1灯 (白色LED/防水仕様) お手軽サイズ/屋外 (ESL-N111SL)",
-    "brand": "ELPA",
-    "category": "light",
-    "price": 4781,
-    "imageUrl": "https://thumbnail.image.rakuten.co.jp/@0_mall/jackknife/cabinet/onesell066/aj4737f3af699429_0.jpg?_ex=128x128",
-    "affiliateUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sk0nk.216wo0a6.g00sk0nk.216wp2a1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjackknife%2Faj4737f3af699429%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjackknife%2Fi%2F10064475%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "itemUrl": "https://hb.afl.rakuten.co.jp/hgc/g00sk0nk.216wo0a6.g00sk0nk.216wp2a1/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fjackknife%2Faj4737f3af699429%2F&m=http%3A%2F%2Fm.rakuten.co.jp%2Fjackknife%2Fi%2F10064475%2F&rafcid=wsc_i_is_b0c8bd61-e9dc-47b2-aa54-0c041f136f2c",
-    "reviewAverage": 0,
-    "reviewCount": 0,
-    "shopName": "Mori Base",
-    "shopCode": "jackknife",
-    "discoveredAt": "2026-11-01T22:43:03.578Z",
-    "lastSeenAt": "2026-11-01T22:43:03.578Z"
-  },
-  {
     "id": "rakuten-ag9tzwrlc2hvcdoxmda3nji4oq",
     "source": "discovered",
     "publicationRoute": "new",
@@ -1061,7 +1061,7 @@
     "shopName": "CANDY HOUSE STORE",
     "shopCode": "candyhouse",
     "discoveredAt": "2026-08-22T19:30:30.378Z",
-    "lastSeenAt": "2026-11-14T22:56:02.626Z"
+    "lastSeenAt": "2026-11-15T23:21:27.397Z"
   },
   {
     "id": "rakuten-a2fnaxrvym91agfuojewmdawmdy3",
@@ -1080,7 +1080,7 @@
     "shopName": "鍵と防犯の専門店smile-security",
     "shopCode": "kagitobouhan",
     "discoveredAt": "2026-09-28T23:48:20.507Z",
-    "lastSeenAt": "2026-11-14T22:56:02.626Z"
+    "lastSeenAt": "2026-11-15T23:21:27.397Z"
   },
   {
     "id": "rakuten-zgrzag9wojewmdawmdg3",
@@ -1118,6 +1118,6 @@
     "shopName": "Premium Selection 楽天市場店",
     "shopCode": "kitcut-ps",
     "discoveredAt": "2026-08-19T15:48:15.690Z",
-    "lastSeenAt": "2026-11-14T22:56:02.626Z"
+    "lastSeenAt": "2026-11-15T23:21:27.397Z"
   }
 ]
